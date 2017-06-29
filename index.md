@@ -1,0 +1,4 @@
+ - TO7: BASIC (1983)
+ - Amstrad CPC 464: Locomotive BASIC
+ - PC: GWBASIC/BASICA, Turbo/Borland Pascal, Delphi, Java
+ - MacBook: Java, Javascript (AngularJS, NodeJS)
