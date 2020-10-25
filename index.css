@@ -57,6 +57,14 @@ h1 {
   padding-bottom: 0.3em;
 }
 
+h1 a {
+  color: initial;
+}
+
+h1 a:hover {
+  background-color: rgba(255, 255, 255, 0);
+}
+
 .main-title {
   background-color: white;
 }
