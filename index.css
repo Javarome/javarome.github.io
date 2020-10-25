@@ -29,13 +29,17 @@ a:hover {
   text-align: right;
   list-style: none;
 }
-
 .links ul {
+  list-style: none;
   margin: 0;
 }
 
 li {
   margin: 0.35cm 0;
+}
+
+li:first-child {
+  margin-top: 0;
 }
 
 h1 {
