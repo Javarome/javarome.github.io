@@ -6,6 +6,18 @@
   padding: 1em 2em;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .links {
   float: right;
+}
+
+li {
+  margin: 0.5em 0;
 }
