@@ -59,6 +59,7 @@ h1 {
 
 h1 a {
   color: initial;
+  transition: none;
 }
 
 h1 a:hover {
