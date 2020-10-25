@@ -34,6 +34,7 @@ li {
 
 h1 {
   position: relative;
+  overflow: hidden;
 }
 
 .main-title {
@@ -56,7 +57,7 @@ h1 {
 
 .aka {
   position: relative;
-  color: white;
+  color: rgba(255, 255, 255, 0);
   transition: all 0.5s ease;
 }
 
