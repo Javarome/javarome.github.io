@@ -44,6 +44,8 @@ li:first-child {
 h1 {
   position: relative;
   overflow: hidden;
+  border-bottom: 1px lightgray solid;
+  padding-bottom: 0.3em;
 }
 
 .main-title {
