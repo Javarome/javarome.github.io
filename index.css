@@ -26,3 +26,25 @@ a:hover {
 li {
   margin: 0.7em 0;
 }
+
+h1 {
+  position: relative;
+}
+
+.main-title {
+  background-color: white;
+}
+
+.subtitle {
+  position: relative;
+  z-index: -1;
+  display: inline-block;
+  animation: appear 0.5s ease forwards;
+  transform: translateX(-100%);
+}
+
+@keyframes appear {
+  100% {
+    transform: translateX(0)
+  }
+}
