@@ -48,3 +48,13 @@ h1 {
     transform: translateX(0)
   }
 }
+
+.aka {
+  position: relative;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.main-title:hover .aka {
+  color: rgba(0, 100, 200, 0.5);
+}
