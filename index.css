@@ -25,7 +25,7 @@ a:hover {
   padding: 0.35rem 0.45rem;
   margin: -0.35rem -0.45rem;
   color: white;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
 }
 
 .links {
@@ -48,6 +48,7 @@ li:first-child {
 .links a {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  white-space: nowrap;
 }
 
 h1 {
