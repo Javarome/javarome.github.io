@@ -11,6 +11,10 @@ html, body {
   overflow: hidden;
 }
 
+p {
+  font-weight: lighter;
+}
+
 a {
   text-decoration: none;
   transition: all 0.2s ease;
