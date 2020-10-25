@@ -26,10 +26,16 @@ a:hover {
 
 .links {
   float: right;
+  text-align: right;
+  list-style: none;
+}
+
+.links ul {
+  margin: 0;
 }
 
 li {
-  margin: 0.7em 0;
+  margin: 0.35cm 0;
 }
 
 h1 {
