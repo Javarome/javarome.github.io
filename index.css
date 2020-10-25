@@ -17,7 +17,7 @@ a {
 }
 
 a:hover {
-  background-color: rgba(0, 100, 200, 0.5);
+  background-color: rgba(0, 50, 100, 0.5);
   padding: 0.35rem 0.45rem;
   margin: -0.35rem -0.45rem;
   color: white;
@@ -47,6 +47,7 @@ h1 {
   display: inline-block;
   animation: appear 0.5s ease forwards;
   transform: translateX(-100%);
+  color: rgba(0, 50, 100, 0.5);
 }
 
 @keyframes appear {
@@ -62,5 +63,5 @@ h1 {
 }
 
 .main-title:hover .aka {
-  color: rgba(0, 100, 200, 0.5);
+  color: rgba(0, 50, 100, 0.5);
 }
