@@ -1,8 +1,9 @@
 .main {
+  font-family: sans-serif;
   display: block;
   max-width: 75em;
   margin: auto;
-  padding: 1em;
+  padding: 1em 2em;
 }
 
 .links {
