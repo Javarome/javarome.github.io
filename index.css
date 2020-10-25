@@ -35,14 +35,19 @@ a:hover {
 .links ul {
   list-style: none;
   margin: 0;
+  margin-right: 0.45rem;
 }
-
 li {
   margin: 0.35cm 0;
 }
 
 li:first-child {
   margin-top: 0;
+}
+
+.links a {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 h1 {
