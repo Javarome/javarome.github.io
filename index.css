@@ -1,3 +1,7 @@
+html, body {
+  overflow: hidden;
+}
+
 .main {
   font-family: sans-serif;
   display: block;
