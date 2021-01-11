@@ -44,7 +44,7 @@ li {
 }
 
 li a:hover .hint {
-  transform: translateX(-100%);
+  transform: translateX(-100%) scaleX(1);
   color: rgba(0, 50, 100, 0.5);
 }
 
@@ -54,7 +54,7 @@ li a:hover .hint {
   left: 0;
   top: 0.25em;
   padding-right: 0.75em;
-  transform: translateX(300%);
+  transform: translateX(0) scaleX(0);
   color: rgba(255, 255, 255, 0);
   transition: all 0.3s ease;
 }
