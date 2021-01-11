@@ -41,10 +41,13 @@ a:hover {
 
 li {
   margin: 0.35cm 0;
+}
+
+li a {
   position: relative;
 }
 
-li a:hover + .hint {
+li a:hover .hint {
   transform: translateX(-100%);
 }
 
@@ -54,7 +57,7 @@ li a:hover + .hint {
   z-index: -1;
   top: 0;
   padding-right: 1.5em;
-  transform: translateX(100%);
+  transform: translateX(200%);
   transition: transform 0.5s ease;
 }
 
