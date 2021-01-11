@@ -45,17 +45,18 @@ li {
 
 li a:hover .hint {
   transform: translateX(-100%);
+  color: rgba(0, 50, 100, 0.5);
 }
 
 .hint {
-  color: rgba(0, 50, 100, 0.5);
   position: absolute;
   z-index: -1;
   left: 0;
-  top: 0.5em;
-  padding-right: 1em;
+  top: 0.25em;
+  padding-right: 0.75em;
   transform: translateX(300%);
-  transition: transform 0.5s ease;
+  color: rgba(255, 255, 255, 0);
+  transition: all 0.3s ease;
 }
 
 li:first-child {
