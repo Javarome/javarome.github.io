@@ -27,12 +27,14 @@ a {
   transition: all 0.2s ease;
   padding: 0.35rem 0.45rem;
   margin: -0.35rem -0.45rem;
+  border-radius: 0.5rem;
 }
 
 a:hover {
   background-color: rgba(0, 50, 100, 0.5);
   color: white;
   border-radius: 0.5rem;
+  box-shadow: 0 0 2px 2px rgba(0, 50, 100, 0.2);
 }
 
 .links {
