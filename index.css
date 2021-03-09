@@ -93,6 +93,7 @@ h1 {
 h1 a {
   color: initial;
   transition: none;
+  text-shadow: white;
 }
 
 h1 a:hover {
@@ -123,4 +124,13 @@ h1 a:hover {
 
 .main-title:hover .aka {
   color: rgba(0, 50, 100, 0.5);
+}
+
+.early {
+  background-color: black;
+  color: white;
+}
+
+.early ul {
+  font-family: "Droid Sans Mono", monospace;
 }
