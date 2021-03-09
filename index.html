@@ -9,6 +9,7 @@
   <link href="index.css" rel="stylesheet"/>
 </head>
 <body>
+<canvas></canvas>
 <div class="main">
   <h1 class="main-title">Jérôme Beau<span class="aka">, a.k.a. Javarome</span></h1>
   <nav class="links">
@@ -42,4 +43,24 @@
   <p>I work as a software engineer for more than three decades now, but started <a href="early.html">earlier</a>.</p>
 </div>
 </body>
+<script id="vs" type="x-shader/vertex">
+  attribute vec3 position;
+  void main() {
+    gl_Position = vec4( position, 1.0 );
+  }
+
+</script>
+<script id="fs" type="x-shader/fragment">
+  uniform float time;
+  uniform vec2 resolution;
+  void main( void ) {
+    vec2 position = - 1.0 + 2.0 * gl_FragCoord.xy / resolution.xy;
+    float red = abs( sin( position.x * position.y + time / 5.0 ) );
+    float green = abs( sin( position.x * position.y + time / 4.0 ) );
+    float blue = abs( sin( position.x * position.y + time / 3.0 ) );
+    gl_FragColor = vec4( red, green, blue, 1.0 );
+  }
+
+</script>
+<script src="index.js" type="application/javascript"></script>
 </html>
