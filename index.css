@@ -24,7 +24,7 @@ canvas {
 
 a {
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease-out;
   padding: 0.35rem 0.45rem;
   margin: -0.35rem -0.45rem;
   border-radius: 0.5rem;
@@ -54,6 +54,7 @@ li {
 
 li a:hover .hint {
   transform: translateX(-100%) scaleX(1);
+  opacity: 1;
 }
 
 .hint {
@@ -64,7 +65,8 @@ li a:hover .hint {
   padding-right: 0.75rem;
   transform: translateX(0) scaleX(0);
   color: black;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-out;
+  opacity: 0;
 }
 
 li:first-child {
@@ -85,6 +87,7 @@ h1 {
   overflow: hidden;
   border-bottom: 1px lightgray solid;
   padding-bottom: 0.3em;
+  text-shadow: 0 0 3px white;
 }
 
 h1 a {
