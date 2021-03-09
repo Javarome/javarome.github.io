@@ -45,8 +45,7 @@ a:hover {
 
 .links ul {
   list-style: none;
-  margin: 0;
-  margin-right: 0.45rem;
+  margin: 0 0.45rem 0 2em;
 }
 
 li {
@@ -76,7 +75,7 @@ abbr[title] {
   top: 0.45rem;
   padding-right: 0.75rem;
   transform: translateX(0) scaleX(0);
-  color: black;
+  color: #6d5e5e;
   transition: all 0.3s ease-out;
   opacity: 0;
   font-size: 0.95rem;
