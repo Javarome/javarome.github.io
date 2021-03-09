@@ -119,11 +119,12 @@ h1 a:hover {
 
 .aka {
   position: relative;
-  color: rgba(255, 255, 255, 0);
+  opacity: 0;
+  color: rgba(0, 50, 100, 0.5);
   transition: all 0.5s ease;
 }
 
 .main-title:hover .aka {
-  color: rgba(0, 50, 100, 0.5);
+  opacity: 1;
 }
 
