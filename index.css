@@ -103,7 +103,6 @@ h1 {
 }
 
 h1 a {
-  color: initial;
   transition: none;
 }
 
@@ -119,6 +118,7 @@ h1 a:hover {
   animation: appear 0.5s ease forwards;
   transform: translateX(-100%);
   color: rgba(0, 50, 100, 0.5);
+  text-shadow: 0 0 3px white;
 }
 
 @keyframes appear {
