@@ -65,7 +65,7 @@ li a:hover .hint {
   position: absolute;
   z-index: -1;
   left: 0;
-  top: 0.35rem;
+  top: 0.45rem;
   padding-right: 0.75rem;
   transform: translateX(0) scaleX(0);
   color: black;
