@@ -81,11 +81,11 @@ li:first-child {
 
 .links a {
   display: inline-block;
-  line-height: 1rem;
   position: relative;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   white-space: nowrap;
+  vertical-align: middle;
 }
 
 h1 {

@@ -10,7 +10,7 @@ window.requestAnimationFrame =
       window.mozRequestAnimationFrame ||
       window.oRequestAnimationFrame ||
       window.msRequestAnimationFrame ||
-      function (callback, element) {
+      function (callback, _element) {
         window.setTimeout(callback, 1000 / 60)
       }
     )
@@ -111,7 +111,7 @@ function createShader(src, type) {
   gl.compileShader(shader)
   if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
     alert(
-      (type == gl.VERTEX_SHADER ? "VERTEX" : "FRAGMENT") +
+      (type === gl.VERTEX_SHADER ? "VERTEX" : "FRAGMENT") +
       " SHADER:\n" +
       gl.getShaderInfoLog(shader)
     )
@@ -120,10 +120,10 @@ function createShader(src, type) {
   return shader
 }
 
-function resizeCanvas(event) {
+function resizeCanvas(_event) {
   if (
-    canvas.width != canvas.clientWidth ||
-    canvas.height != canvas.clientHeight
+    canvas.width !== canvas.clientWidth ||
+    canvas.height !== canvas.clientHeight
   ) {
     canvas.width = canvas.clientWidth
     canvas.height = canvas.clientHeight
