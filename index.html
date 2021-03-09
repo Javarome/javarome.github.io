@@ -40,9 +40,10 @@
       </li>
     </ul>
   </nav>
-  <p>Software engineer for more than three decades now, but I started <a href="early.html">earlier</a>.</p>
-  <p>My experiences would classify me as a full-stack developer ; the truth is I can live without doing back end, but I
-    would really miss the fun part of front end.</p>
+  <p><strong>Software engineer</strong> for more than three decades now, but I started <a href="early.html">earlier</a>.
+  </p>
+  <p>My experiences would classify me as a <strong>full-stack</strong> developer ; the truth is that I can live without
+    doing back end, but I would really miss the fun part of the <strong>front end</strong>.</p>
   <p>On both sides, I learned a lot, and still have a lot to learn.</p>
   <p>Most of my time is not spent searching how to do things, but what is the best way to do them. That shouldn't scare
     you, because it pays off.</p>
@@ -53,6 +54,7 @@
   void main() {
     gl_Position = vec4( position, 1.0 );
   }
+
 </script>
 <script id="fs" type="x-shader/fragment">
   uniform float time;
@@ -64,6 +66,7 @@
     float blue = abs( sin( position.x * position.y + time / 4.0 ) );
     gl_FragColor = vec4( red, green, blue, 0.6 );
   }
+
 
 </script>
 <script src="index.js" type="application/javascript"></script>
