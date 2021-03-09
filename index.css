@@ -3,6 +3,7 @@ html, body {
   margin: 0;
   padding: 0;
   text-shadow: 0 0 1px white;
+  background-color: white;
 }
 
 canvas {
