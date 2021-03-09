@@ -2,6 +2,7 @@ html, body {
   overflow: hidden;
   margin: 0;
   padding: 0;
+  text-shadow: 0 0 2px white;
 }
 
 canvas {
@@ -94,7 +95,6 @@ h1 {
 h1 a {
   color: initial;
   transition: none;
-  text-shadow: white;
 }
 
 h1 a:hover {
@@ -127,11 +127,3 @@ h1 a:hover {
   color: rgba(0, 50, 100, 0.5);
 }
 
-.early {
-  background-color: black;
-  color: white;
-}
-
-.early ul {
-  font-family: "Droid Sans Mono", monospace;
-}
