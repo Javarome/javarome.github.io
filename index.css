@@ -71,6 +71,8 @@ li a:hover .hint {
   color: black;
   transition: all 0.3s ease-out;
   opacity: 0;
+  font-size: 0.95rem;
+  font-weight: normal;
 }
 
 li:first-child {
