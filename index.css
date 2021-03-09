@@ -20,7 +20,8 @@ canvas {
   max-width: 75em;
   margin: auto;
   padding: 1em 2em;
-  overflow: hidden;
+  height: 100%;
+  overflow: auto;
 }
 
 a {
