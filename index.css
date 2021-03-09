@@ -50,11 +50,15 @@ a:hover {
 
 li {
   margin: 0.35cm 0;
+  font-variant: all-small-caps;
+  font-weight: bold;
+  font-size: 1.1em;
 }
 
 li a:hover .hint {
   transform: translateX(-100%) scaleX(1);
   opacity: 1;
+  font-variant: normal;
 }
 
 .hint {
@@ -87,6 +91,7 @@ h1 {
   overflow: hidden;
   border-bottom: 1px lightgray solid;
   padding-bottom: 0.3em;
+  color: white;
   text-shadow: -1px -1px 0 gray, 0 -1px 0 gray, 1px -1px 0 gray, 1px 0 0 gray, 1px 1px 0 gray, 0 1px 0 gray, -1px 1px 0 gray, -1px 0 0 gray;
 }
 
