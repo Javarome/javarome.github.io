@@ -45,8 +45,8 @@
   <p>My experiences would classify me as a <strong>full-stack</strong> developer ; the truth is that I can live without
     doing back end, but I would really miss the fun part of the <strong>front end</strong>.</p>
   <p>On both sides, I learned a lot, and still have a lot to learn.</p>
-  <p>Most of my time is not spent searching how to do things, but what is the best way to do them. That shouldn't scare
-    you, because it pays off.</p>
+  <p>Most of my time is not spent searching <em>how</em> to do things, but what is the <em>best</em> way to do them.
+    That shouldn't scare you, because it pays off.</p>
 </div>
 </body>
 <script id="vs" type="x-shader/vertex">
@@ -54,6 +54,7 @@
   void main() {
     gl_Position = vec4( position, 1.0 );
   }
+
 
 </script>
 <script id="fs" type="x-shader/fragment">
@@ -66,6 +67,7 @@
     float blue = abs( sin( position.x * position.y + time / 4.0 ) );
     gl_FragColor = vec4( red, green, blue, 0.6 );
   }
+
 
 
 </script>
