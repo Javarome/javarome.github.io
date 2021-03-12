@@ -37,13 +37,14 @@ function init() {
   vertex_shader = document.getElementById("vs").textContent
   fragment_shader = document.getElementById("fs").textContent
   canvas = document.querySelector("canvas")
-  // Initialise WebGL
+  const contextId = "experimental-webgl"
   try {
-    gl = canvas.getContext("experimental-webgl")
+    gl = canvas.getContext(contextId)
   } catch (error) {
+    console.error(`Could not get ${contextId} context`)
   }
   if (!gl) {
-    throw "cannot create webgl context"
+    throw new Error("Could not get WebGL context")
   }
   // Create Vertex buffer (2 triangles)
   buffer = gl.createBuffer()
@@ -66,7 +67,6 @@ function init() {
     ]),
     gl.STATIC_DRAW
   )
-  // Create Program
   currentProgram = createProgram(vertex_shader, fragment_shader)
   timeLocation = gl.getUniformLocation(currentProgram, "time")
   resolutionLocation = gl.getUniformLocation(currentProgram, "resolution")
