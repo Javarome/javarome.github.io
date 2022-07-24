@@ -16,8 +16,11 @@ canvas {
   height: 100%;
 }
 
-.main {
+body {
   font-family: sans-serif;
+}
+
+.main {
   display: block;
   position: relative;
   z-index: 1;
@@ -125,15 +128,48 @@ h1 a:hover {
   position: relative;
   z-index: -1;
   display: inline-block;
-  animation: appear 0.5s ease forwards;
-  transform: translateX(-100%);
+  animation: appear 0.7s ease forwards;
+  transition: opacity 0.1s, text-shadow 0.1s;
   color: rgba(0, 50, 100, 0.5);
   text-shadow: 0 0 3px white;
 }
 
 @keyframes appear {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 4px white;
+  }
+  10% {
+    opacity: 0;
+    text-shadow: 0 0 0px white;
+  }
+  20% {
+    opacity: 0.5;
+    text-shadow: 0 0 3px white;
+  }
+  30% {
+    opacity: 1;
+    text-shadow: 0 0 4px white;
+  }
+  40% {
+    opacity: 0.5;
+    text-shadow: 0 0 3px white;
+  }
+  50% {
+    opacity: 0.4;
+    text-shadow: 0 0 2px white;
+  }
+  60% {
+    opacity: 0.8;
+    text-shadow: 0 0 4px white;
+  }
+  70% {
+    opacity: 0.5;
+    text-shadow: 0 0 2px white;
+  }
   100% {
-    transform: translateX(0)
+    opacity: 1;
+    text-shadow: 0 0 3px white;
   }
 }
 
@@ -153,4 +189,57 @@ h1 a:hover {
   float: left;
   margin-right: 1em;
   margin-bottom: 1em;
+}
+
+.early {
+  background-color: black;
+  background-image: radial-gradient(
+    rgba(0, 150, 0, 0.75), black 120%
+  );
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  color: white;
+  font: 1em Inconsolata, monospace;
+  text-shadow: 0 0 5px #C8C8C8;
+}
+
+.early .subtitle {
+  text-shadow: 0 0 5px #c8c8c8;
+  color: white;
+}
+
+.early .main-title:hover {
+  color: white;
+}
+
+.early::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(black, 0.15),
+    rgba(black, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+.early::selection {
+  background: #0080FF;
+  text-shadow: none;
+}
+
+.early pre {
+  margin: 0;
+}
+
+.early a {
+  text-decoration: underline;
+  color: lightblue;
 }
