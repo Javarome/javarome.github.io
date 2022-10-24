@@ -47,9 +47,9 @@
     as a <strong>full-stack</strong> developer, but one that have fun building the <strong>front end</strong>.</p>
   <p>On both sides, I learned a lot, and still am keen to learn more.</p>
   <p>Most of my time is not spent searching <em>how</em> to do things, but what is the <em>best</em> (flexible,
-    evoluable, maintainable, testable, scalable) way to do them.</p>
-  <p>I like <strong>creativity</strong>, thinking out of the box, always challenge commonly accepted ideas to make sure
-    they still make sense.</p>
+    evoluable, maintainable, testable, scalable, performant) way to do them.</p>
+  <p>I like <strong>creativity</strong>, thinking out of the box, always challenging commonly accepted ideas to make
+    sure they still make sense.</p>
 </div>
 </body>
 <script id="vs" type="x-shader/vertex">
@@ -57,6 +57,8 @@
   void main() {
     gl_Position = vec4( position, 1.0 );
   }
+
+
 
 
 
@@ -78,6 +80,8 @@
     float blue = abs( sin( position.x * position.y + time / 4.0 ) );
     gl_FragColor = vec4( red, green, blue, 0.6 );
   }
+
+
 
 
 
