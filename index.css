@@ -1,3 +1,7 @@
+:root {
+  --transition-duration: 0.5s;
+}
+
 * {
   box-sizing: border-box
 }
@@ -189,6 +193,14 @@ h1 a:hover {
   float: left;
   margin-right: 1em;
   margin-bottom: 1em;
+  box-shadow: rgb(50 50 50) 0 0.3em 1em;
+  transition: width var(--transition-duration) ease, height var(--transition-duration) ease;
+  max-width: 300px;
+}
+
+.avatar:hover {
+  width: 100%;
+  height: 100%;
 }
 
 .early {
