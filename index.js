@@ -15,7 +15,7 @@ window.requestAnimationFrame =
       }
     )
   })()
-var canvas,
+let canvas,
   gl,
   buffer,
   vertex_shader,
@@ -51,20 +51,7 @@ function init() {
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
   gl.bufferData(
     gl.ARRAY_BUFFER,
-    new Float32Array([
-      -1.0,
-      -1.0,
-      1.0,
-      -1.0,
-      -1.0,
-      1.0,
-      1.0,
-      -1.0,
-      1.0,
-      1.0,
-      -1.0,
-      1.0
-    ]),
+    new Float32Array([-1.0, -1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0]),
     gl.STATIC_DRAW
   )
   currentProgram = createProgram(vertex_shader, fragment_shader)
@@ -86,45 +73,33 @@ function createProgram(vertex, fragment) {
   gl.deleteShader(fs)
   gl.linkProgram(program)
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-    alert(
-      "ERROR:\n" +
-      "VALIDATE_STATUS: " +
-      gl.getProgramParameter(program, gl.VALIDATE_STATUS) +
-      "\n" +
-      "ERROR: " +
-      gl.getError() +
-      "\n\n" +
-      "- Vertex Shader -\n" +
-      vertex +
-      "\n\n" +
-      "- Fragment Shader -\n" +
-      fragment
-    )
+    alert(`ERROR:
+VALIDATE_STATUS: ${gl.getProgramParameter(program, gl.VALIDATE_STATUS)}
+ERROR: ${gl.getError()}
+
+- Vertex Shader -
+${vertex}
+
+- Fragment Shader -
+${fragment}`)
     return null
   }
   return program
 }
 
 function createShader(src, type) {
-  var shader = gl.createShader(type)
+  const shader = gl.createShader(type)
   gl.shaderSource(shader, src)
   gl.compileShader(shader)
   if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-    alert(
-      (type === gl.VERTEX_SHADER ? "VERTEX" : "FRAGMENT") +
-      " SHADER:\n" +
-      gl.getShaderInfoLog(shader)
-    )
+    alert((type === gl.VERTEX_SHADER ? "VERTEX" : "FRAGMENT") + " SHADER:\n" + gl.getShaderInfoLog(shader))
     return null
   }
   return shader
 }
 
 function resizeCanvas(_event) {
-  if (
-    canvas.width !== canvas.clientWidth ||
-    canvas.height !== canvas.clientHeight
-  ) {
+  if (canvas.width !== canvas.clientWidth || canvas.height !== canvas.clientHeight) {
     canvas.width = canvas.clientWidth
     canvas.height = canvas.clientHeight
     parameters.screenWidth = canvas.width
@@ -140,18 +115,16 @@ function animate() {
 }
 
 function render() {
-  if (!currentProgram) return
+  if (!currentProgram) {
+    return
+  }
   parameters.time = new Date().getTime() - parameters.start_time
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
   // Load program into GPU
   gl.useProgram(currentProgram)
   // Set values to program variables
   gl.uniform1f(timeLocation, parameters.time / 1000)
-  gl.uniform2f(
-    resolutionLocation,
-    parameters.screenWidth,
-    parameters.screenHeight
-  )
+  gl.uniform2f(resolutionLocation, parameters.screenWidth, parameters.screenHeight)
   // Render geometry
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
   gl.vertexAttribPointer(vertex_position, 2, gl.FLOAT, false, 0, 0)
