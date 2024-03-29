@@ -2,3 +2,7 @@ body {
   padding: 1em;
   font-family: system-ui, sans-serif;
 }
+.links {
+  display: block;
+  float: right;
+}

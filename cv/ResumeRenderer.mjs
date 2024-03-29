@@ -59,8 +59,17 @@ export class ResumeRenderer {
       const doc = this.root
       doc.head.title = name
     }
-    const title = this.root.querySelector("h1")
-    title.textContent = name
+    this.root.querySelector("h1").textContent = name
+    this.root.querySelector("address").textContent = people.home.name
+    const linksRoot = this.root.querySelector(".links")
+    for (const link of people.links) {
+      const linkItem = document.createElement("li")
+      const linkEl = document.createElement("a")
+      linkEl.textContent = link.name
+      linkEl.href = link.url.href
+      linkItem.append(linkEl)
+      linksRoot.append(linkItem)
+    }
   }
 
   /**

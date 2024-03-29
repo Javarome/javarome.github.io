@@ -9,7 +9,7 @@ export class Address extends Place {
    * @param {Country} country
    */
   constructor(street, zipCode, city, country) {
-    super(`${street}, ${zipCode} ${city}, ${country}`, Localization.from(`${street}, ${zipCode} ${city}, ${country}`))
+    super(`${street}, ${zipCode} ${city}, ${country.name}`, Localization.from(`${street}, ${zipCode} ${city}, ${country.name}`))
     this.street = street
     this.zipCode = zipCode
     this.city = city

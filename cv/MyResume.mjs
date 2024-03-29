@@ -17,7 +17,12 @@ const weWorkParis12 = new Address("198 Avenue de France", "75013", "Paris", fran
 const beamAddr = new Address("74 avenue Kleber", "75016", "Paris", france)
 const laCaserne = new Address("12 rue Philippe de Girard", "75010", "Paris", france)
 
-const jerome = new People("Beau", "Jérôme", rueDeBezons)
+const jerome = new People("Beau", "Jérôme", rueDeBezons, 
+  [
+    {name: "mail", url: new URL("mailto:javarome@gmail.com")},
+    {name: "website", url: new URL("https://javarome.com")}
+  ]
+)
 
 const angularJS = new Skill("AngularJS", "Legacy Google web framework. Old version of Angular.", new URL("https://angularjs.org"))
 const angular = new Skill("Angular", "Google web framework. Modern version of AngularJS.", new URL("https://angular.io"))
