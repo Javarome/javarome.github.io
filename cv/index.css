@@ -11,19 +11,16 @@ body {
   width: 100%;
   height: 100svh;
 }
-.people address {
-  float: right;
-}
-.title {
-  font-weight: bold;
-}
-.statement {
-  font-style: italic;
-}
 .links {
   display: block;
   float: right;
 }
 #experience {
   overflow: scroll;
+}
+details cv-search {
+  display: none;
+}
+details[open] cv-search {
+  display: inline;
 }

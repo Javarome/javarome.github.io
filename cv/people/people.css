@@ -1,0 +1,12 @@
+.people address {
+  float: right;
+}
+h1 {
+  margin-top: 0;
+}
+.title {
+  font-weight: bold;
+}
+.statement {
+  font-style: italic;
+}

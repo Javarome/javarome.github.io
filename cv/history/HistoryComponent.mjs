@@ -6,7 +6,7 @@ template.innerHTML = `<style>
 :host {
   position: relative;
 }
-.history {
+.history, .projects {
   list-style: disc;
   padding-left: 1em;
 }
@@ -15,24 +15,35 @@ template.innerHTML = `<style>
   border: none
 }
 summary {
-background-color: rgba(255,255,255,0.95);
-top: 0;
+  background-color: rgba(255,255,255,0.95);
+  top: 0;
   position: sticky;
 }
 h2 {
-display: inline-block;
+  display: inline;
+  user-select: none;
+}
+details {
+  & cv-search, & h2 button {
+    display: none;  
+  }
+}
+details[open] {
+  & cv-search, & h2 button {
+    display: inline;
+  }
 }
 </style>
 <details open>
-<summary>
-<h2>
-<span class="title"></span>
-<button class="sort up">^</button>
-<button class="sort down"><</button>
-<cv-search>
-</h2>
-</summary>
-<ol class="history"></ol>
+  <summary>
+    <h2>
+      <span class="title"></span>
+      <button class="sort up">▲</button>
+      <button class="sort down">▼</button>
+      <cv-search></cv-search>
+    </h2>
+  </summary>
+  <ol class="history"></ol>
 </details>
 `
 
@@ -102,6 +113,7 @@ export class HistoryComponent extends HTMLElement {
         websiteLink.append(orgEl)
         groupItem.append(websiteLink)
         const projectsList = document.createElement("ol")
+        projectsList.className = "projects"
         for (const project of projects) {
           /**
            * @type {HistoryItemComponent}
