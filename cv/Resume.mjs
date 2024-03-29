@@ -1,11 +1,11 @@
 export class Resume {
   /**
    *
-   * @param {string} name
+   * @param {People} people
    * @param {Experience[]} experiences
    */
-  constructor(name, experiences) {
-    this.name = name
+  constructor(people, experiences) {
+    this.people = people
     this.experiences = experiences
   }
 }

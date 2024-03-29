@@ -1,6 +1,11 @@
 import "./item/HistoryItemComponent.mjs"
 const template = document.createElement("template")
-template.innerHTML = `<style></style>
+template.innerHTML = `<style>
+.history {
+  list-style: disc;
+  padding-left: 1em;
+}
+</style>
 <section>
 <!--h2>
 <span class="search"><input type="search"><button>🔎</button></span>
@@ -37,7 +42,7 @@ export class HistoryComponent extends HTMLElement {
 
   render() {
     const historyEl = this.shadow.querySelector(".history")
-    const newHistory = document.createElement("ul")
+    const newHistory = document.createElement("ol")
     newHistory.className="history"
     for (const experience of this.history) {
       const item = document.createElement("li")

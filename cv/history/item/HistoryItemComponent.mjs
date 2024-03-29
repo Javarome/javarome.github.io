@@ -1,3 +1,6 @@
+import "./experience/skill/SkillComponent.mjs"
+import {SkillComponent} from "./experience/skill/SkillComponent.mjs"
+
 const style = `:host {
   display: flex;
   flex-direction: row;
@@ -48,12 +51,13 @@ const style = `:host {
   }
 }
 `
-
 const template = document.createElement("template")
 template.innerHTML = `<style>${style}</style>
 <time class="start"></time>
 <time class="end"></time>
 <a href="" class="org"><span class="org-name"></span></a>
+<span class="description"></span>
+<span class="skills"></span>
 `
 
 export class HistoryItemComponent extends HTMLElement {
@@ -102,10 +106,20 @@ export class HistoryItemComponent extends HTMLElement {
     this.setDate(experience.startDate, "start")
     this.setDate(experience.endDate, "end")
     const websiteLink = this.shadow.querySelector("a")
-    const org = experience.org
+    const contract = experience.contract
+    const org = contract.org
     websiteLink.href = org.website
-    const nameEl = this.shadow.querySelector(".org-name")
-    nameEl.textContent = org.name
+    this.shadow.querySelector(".org-name").textContent = org.name
+    this.shadow.querySelector(".description").textContent = experience.description
+    const skillsRoot = this.shadow.querySelector(".skills")
+    const skillEls = SkillComponent.fromSkills(experience.skills)
+    for (let i = 0; i < skillEls.length; i++) {
+      const skillEl = skillEls[i]
+      skillsRoot.append(skillEl)
+      if (i < skillEls.length - 1) {
+        skillsRoot.append(", ")
+      }
+    }
   }
 }
 

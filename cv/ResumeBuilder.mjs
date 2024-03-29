@@ -2,24 +2,16 @@ import {Resume} from "./Resume.mjs"
 
 export class ResumeBuilder {
   /**
-   * @member {string}
-   */
-  name
-
-  /**
    * @member {Experience[]}
    */
   experiences = []
 
-  constructor() {
-  }
-
   /**
-   * @param {string} name
+   * @param {People} people
    * @return this
    */
-  withName(name) {
-    this.name = name
+  of(people) {
+    this.people = people
     return this
   }
 
@@ -47,6 +39,6 @@ export class ResumeBuilder {
    * @return {Resume}
    */
   build() {
-    return new Resume(this.name, this.experiences)
+    return new Resume(this.people, this.experiences)
   }
 }

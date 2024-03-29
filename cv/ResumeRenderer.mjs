@@ -1,6 +1,7 @@
 import {HistoryComponent} from "./history/HistoryComponent.mjs"
-import {Training} from "./history/item/experience/Training.mjs"
-import {ProfessionalExperience} from "./history/item/experience/ProfessionalExperience.mjs"
+import {ContractType} from "./history/item/experience/Contract.mjs"
+import {SkillComponent} from "./history/item/experience/skill/SkillComponent.mjs"
+import {Skill} from "./history/item/experience/skill/Skill.mjs"
 
 export class ResumeRenderMode {
   /**
@@ -40,16 +41,19 @@ export class ResumeRenderer {
    * @param {ResumeRenderOptions} options
    */
   render(resume, options) {
-    this.renderName(resume.name)
-    this.renderExperiences("#experience", resume.experiences, (exp) => exp instanceof ProfessionalExperience)
-    this.renderExperiences("#training", resume.experiences, (exp) => exp instanceof Training)
+    this.renderPeople(resume.people)
+    const allSkills = resume.experiences.flatMap(exp => exp.skills)
+    this.renderSkills(this.root.querySelector("#skills"), allSkills, (skill) => true)
+    this.renderExperiences("#experience", resume.experiences, (exp) => exp.contract.type !== ContractType.Training)
+    this.renderExperiences("#training", resume.experiences, (exp) => exp.contract.type === ContractType.Training)
   }
 
   /**
    *
-   * @param {string} name
+   * @param {People} people
    */
-  renderName(name) {
+  renderPeople(people) {
+    const name = `${people.firstName} ${people.lastName}`
     if (this.root instanceof Document) {
       /** @type {Document} */
       const doc = this.root
@@ -57,6 +61,28 @@ export class ResumeRenderer {
     }
     const title = this.root.querySelector("h1")
     title.textContent = name
+  }
+
+  /**
+   *
+   * @param {Element} skillsRoot
+   * @param {Skill[]} skills
+   * @param {Function} filter
+   */
+  renderSkills(skillsRoot, skills, filter) {
+    const allSkills = skills.filter(filter)
+    const skillsLevel = new Map()
+    for (const skill of allSkills) {
+      const currentLevel = skillsLevel.get(skill) || 0
+      skillsLevel.set(skill, currentLevel + 1)
+    }
+    for (const skillsEntry of skillsLevel.entries()) {
+      const skill = skillsEntry[0]
+      const level = skillsEntry[1]
+      const skillEl = SkillComponent.fromSkill(skill)
+      skillEl.style = "font-size: " + (10 + level * 2) + "px"
+      skillsRoot.append(skillEl)
+    }
   }
 
   /**
