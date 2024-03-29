@@ -43,17 +43,18 @@ export class ResumeRenderer {
   render(resume, options) {
     this.renderPeople(resume.people)
     const title = resume.title
+    const root = this.root
     if (title) {
-      this.root.querySelector(".title").append(title)
+      root.querySelector(".title").append(title)
     }
     const statement = resume.statement
     if (statement) {
-      this.root.querySelector(".statement").append(statement)
+      root.querySelector(".statement").append(statement)
     }
     const allSkills = resume.experiences.flatMap(exp => exp.skills)
-    this.renderSkills(this.root.querySelector("#skills"), allSkills, (skill) => true)
-    this.renderExperiences("#experience", resume.experiences, (exp) => exp.contract.type !== ContractType.Training)
-    this.renderExperiences("#training", resume.experiences, (exp) => exp.contract.type === ContractType.Training)
+    this.renderSkills(root.querySelector("#skills"), allSkills, (skill) => true)
+    this.renderExperiences(root.querySelector("#experience"), resume.experiences.filter(exp => exp.contract.type !== ContractType.Training))
+    this.renderExperiences(root.querySelector("#training"), resume.experiences.filter(exp => exp.contract.type === ContractType.Training))
   }
 
   /**
@@ -104,17 +105,16 @@ export class ResumeRenderer {
 
   /**
    *
-   * @param {string} selector
+   * @param {Element} section
    * @param {Experience[]} experiences
-   * @param {Function} filter
    */
-  renderExperiences(selector, experiences, filter) {
-    const section = this.root.querySelector(selector)
+  renderExperiences(section, experiences) {
+    const sortedExps = experiences.sort((a,b) => a.startDate.getTime() < b.startDate.getTime() ? 1 : a.startDate.getTime() > b.startDate.getTime() ? -1 : 0)
     /**
      * @type {HistoryComponent}
      */
     const historyEl = document.createElement("cv-history")
-    historyEl.setExperiences(experiences.filter(filter))
+    historyEl.setExperiences(sortedExps)
     section.append(historyEl)
   }
 }

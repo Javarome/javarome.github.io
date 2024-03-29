@@ -1,4 +1,5 @@
 import "./item/HistoryItemComponent.mjs"
+
 const template = document.createElement("template")
 template.innerHTML = `<style>
 .history {
@@ -27,7 +28,7 @@ export class HistoryComponent extends HTMLElement {
 
   constructor() {
     super()
-    this.shadow = this.attachShadow({ mode: "closed" })
+    this.shadow = this.attachShadow({mode: "closed"})
     this.shadow.appendChild(template.content.cloneNode(true))
   }
 
@@ -43,16 +44,44 @@ export class HistoryComponent extends HTMLElement {
   render() {
     const historyEl = this.shadow.querySelector(".history")
     const newHistory = document.createElement("ol")
-    newHistory.className="history"
-    for (const experience of this.history) {
-      const item = document.createElement("li")
-      /**
-       * @type {HistoryItemComponent}
-       */
-      const itemExp = document.createElement("cv-history-item")
-      itemExp.setExperience(experience)
-      item.append(itemExp)
-      newHistory.append(item)
+    newHistory.className = "history"
+    const groups = this.history.reduce((groups, exp) => {
+      const contract = exp.contract
+      let projects = groups.get(contract)
+      if (!projects) {
+        projects = []
+        groups.set(contract, projects)
+      }
+      projects.push(exp)
+      return groups
+    }, new Map())
+    for (const groupEntry of groups.entries()) {
+      const contract = groupEntry[0]
+      const projects = groupEntry[1]
+      const groupItem = document.createElement("li")
+      {
+        const websiteLink = document.createElement("a")
+        const org = contract.org
+        websiteLink.href = org.website
+        const orgEl = document.createElement("span")
+        orgEl.className = ".org-name"
+        orgEl.textContent = org.name
+        websiteLink.append(orgEl)
+        groupItem.append(websiteLink)
+        const projectsList = document.createElement("ol")
+        for (const project of projects) {
+          /**
+           * @type {HistoryItemComponent}
+           */
+          const itemExp = document.createElement("li")
+          const exp = document.createElement("cv-history-item")
+          exp.setExperience(project)
+          itemExp.append(exp)
+          projectsList.append(itemExp)
+        }
+        groupItem.append(projectsList)
+      }
+      newHistory.append(groupItem)
     }
     historyEl.replaceWith(newHistory)
   }

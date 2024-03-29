@@ -105,11 +105,6 @@ export class HistoryItemComponent extends HTMLElement {
     const experience = this.experience
     this.setDate(experience.startDate, "start")
     this.setDate(experience.endDate, "end")
-    const websiteLink = this.shadow.querySelector("a")
-    const contract = experience.contract
-    const org = contract.org
-    websiteLink.href = org.website
-    this.shadow.querySelector(".org-name").textContent = org.name
     this.shadow.querySelector(".description").textContent = experience.description
     const skillsRoot = this.shadow.querySelector(".skills")
     const skillEls = SkillComponent.fromSkills(experience.skills)
