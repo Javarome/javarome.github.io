@@ -129,7 +129,7 @@ export class HistoryComponent extends HTMLElement {
       websiteLink.href = org.link.url
       const orgEl = document.createElement("span")
       orgEl.className = ".org-name"
-      orgEl.textContent = org.link.name
+      orgEl.innerHTML = `<b>${org.link.name}</b>`
       websiteLink.append(orgEl)
       groupItem.append(websiteLink)
 
