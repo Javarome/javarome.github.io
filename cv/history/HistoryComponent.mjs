@@ -6,8 +6,12 @@ template.innerHTML = `<style>
 :host {
   position: relative;
 }
-.history, .projects {
+.history {
   list-style: disc;
+  padding-left: 1em;
+}
+.projects {
+  list-style: circle;
   padding-left: 1em;
 }
 .sort {

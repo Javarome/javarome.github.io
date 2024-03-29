@@ -1,10 +1,11 @@
 import {SkillComponent} from "./experience/skill/SkillComponent.mjs"
 
-const style = `:host {
+const style = `
+:host {
   display: flex;
   flex-direction: row;
+  padding: 0.2em 0;
 }
-
 .org {
   padding: 0 0.5em;
 }
@@ -49,6 +50,9 @@ const style = `:host {
     order: 3;
   }
 }
+.skills {
+  margin-left: 0.35em;
+}
 `
 const template = document.createElement("template")
 template.innerHTML = `<style>${style}</style>
@@ -57,8 +61,8 @@ template.innerHTML = `<style>${style}</style>
 <time class="end"></time>
 <a href="" class="org"><span class="org-name"></span></a>
 -->
-<span class="description"></span>
-<span class="skills"></span>
+<div class="description"></div>
+<div class="skills"></div>
 `
 
 export class HistoryItemComponent extends HTMLElement {
@@ -86,7 +90,7 @@ export class HistoryItemComponent extends HTMLElement {
     this.experience = experience
     this.render()
   }
-  
+
   render() {
     const experience = this.experience
     this.shadow.querySelector(".description").textContent = experience.description

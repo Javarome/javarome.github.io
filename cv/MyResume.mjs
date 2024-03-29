@@ -29,7 +29,7 @@ const ts = new Skill("TypeScript", new URL("https://www.typescriptlang.org"), "M
 const nx = new Skill("Nx", new URL("https://nx.dev"), "Monorepo tooling", "javascript", "typescript")
 const c = new Skill("C", new URL("https://www.open-std.org/jtc1/sc22/wg14/"), "C programming language")
 const cpp = new Skill("C++", new URL("https://www.open-std.org/jtc1/sc22/wg21/"), "C programming language")
-const postgresql = new Skill("PostgreSQL", new URL("https://www.postgresql.org"), "Postgres Relational database")
+const postgresql = new Skill("PostgreSQL", new URL("https://www.postgresql.org"), "Postgres Relational database", "dbms")
 const nlp = new Skill("NLP", new URL("https://en.wikipedia.org/wiki/Natural_language_processing"), "Natural Language Processing")
 const phonegap = new Skill("Phonegap", new URL("https://fr.wikipedia.org/wiki/Adobe_PhoneGap"), "(or Apache Cordova) allows encapsulating a web app into a native mobile (iOS, Android) app")
 const xcode = new Skill("XCode", new URL("https://developer.apple.com/xcode"), `Allows to build MacOS native apps`)
@@ -46,7 +46,9 @@ const versant = new Skill("Versant", new URL("https://esd.actian.com/platform/do
 const idea = new Skill("IntelliJ IDEA", new URL("https://www.jetbrains.com/idea"), `IntelliJ IDEA is a Java IDE`, "tool", "ide")
 const eclipse = new Skill("Eclipse", new URL("https://eclipseide.org/"), `Eclipse is an OSS Java IDE`, "tool", "ide")
 const j2ee = new Skill("J2EE", new URL("https://www.oracle.com/java/technologies/appmodel.html"), `Java 2 Entreprise Edition is a suite of APIs to build entreprise-grade apps`, "java")
-const fastify = new Skill("Fastify", new URL("https://fastify.dev/"), `Fastify is a TypeScript web server framework`, "typescript", "javascript")
+const fastify = new Skill("Fastify", new URL("https://fastify.dev"), `Fastify is a TypeScript web server framework`, "typescript", "javascript")
+const nodejs = new Skill("NodeJS", new URL("https://nodejs.org"), `NodeJS allows to buid JavaScript apps outside of a browser`, "javascript")
+const python = new Skill("Python", new URL("https://www.python.org"), `Python is a programming language used by most ML libraries`, "javascript")
 
 const istyAddress = new Address("10-12 Av. de l'Europe", "78140", "Vélizy-Villacoublay", france)
 const isty = new Organization(new Link("ISTY", new URL("https://www.isty.uvsq.fr"), "L'Institut des Sciences et Techniques des Yvelines est une école d'ingénieurs en informatique publique de l'Université de Versailles/Saint-Quentin en Yvelines (UVSQ)"), istyAddress)
@@ -93,7 +95,7 @@ const zelrosExp = new Contract(zelros, ContractType.FullTimePermanent, "Lead Sof
 const kmApp = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1),
   "Knowledge management app", rueDeBezons, [ts, nlp, postgresql])
 const mlPipeline = new Experience(zelrosExp, kmApp.startDate, zelrosExp.endDate,
-  "ML pipeline", rueDeBezons, [ts, fastify])
+  "ML pipeline", rueDeBezons, [ts, fastify, nodejs, python])
 
 const beamOffices = new Address("74 avenue Kleber", "75016", "Paris", france)
 const beam = new Organization(new Link("Beam", new URL("https://beamapp.co"), "Beam aimed to build a new kind of browser which allowed to take notes"), beamOffices)
@@ -101,13 +103,17 @@ const beamExp = new Contract(beam, ContractType.FullTimePermanent, "Web lead dev
 const beamWebApp = new Experience(beamExp, beamExp.startDate, beamExp.endDate, 
   "Responsive web app fetching both GraphQL and REST APIs + encrypting/decrypting payloads", rueDeBezons, [js, ts])
 const beamWebServer = new Experience(beamExp, beamExp.startDate, beamExp.endDate, 
-  `Web server to publish notes with SSR`, rueDeBezons, [js, ts, fastify])
+  `Web server to publish notes with SSR`, rueDeBezons, [js, ts, fastify, nodejs])
 
 const laCaserne = new Address("12 rue Philippe de Girard", "75010", "Paris", france)
 const arianee = new Organization(new Link("Arianee", new URL("https://arianee.com"), "Arianee aims to provide Web3 services to retail companies"), laCaserne)
 const arianeeExp = new Contract(arianee, ContractType.FullTimePermanent, "Web3 tooling tech lead", new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
-const kelpieProject = new Experience(arianeeExp, new Date(2022, 11 - 1, 14), new Date(2024, 12 - 1, 16), "Web3 CMS maintenance & EOL", rueDeBezons, [angular])
-const arnProject = new Experience(arianeeExp, new Date(2022, 12 - 1, 14), new Date(2024, 3 - 1, 16), "Web3-website tooling library", rueDeBezons, [angular, nx])
+const kelpieProject = new Experience(arianeeExp, new Date(2022, 11 - 1, 14), new Date(2022, 12 - 1, 31), 
+  "Web3 CMS maintenance & EOL", rueDeBezons, [angular])
+const arnProject = new Experience(arianeeExp, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1),
+  "Web3-website tooling library", rueDeBezons, [angular, nx, nodejs])
+const dapp = new Experience(arianeeExp, new Date(2023, 4 - 1, 1), arianeeExp.endDate,
+  "Wallet dApp", rueDeBezons, [angular, nx, nodejs])
 
 const myResume = new ResumeBuilder()
   .of(jerome)
@@ -129,6 +135,7 @@ const myResume = new ResumeBuilder()
   .withExperience(beamWebApp)
   .withExperience(beamWebServer)
   .withExperience(arnProject)
+  .withExperience(dapp)
   .build()
 const renderer = new ResumeRenderer(document)
 renderer.render(myResume, "", {mode: {functional: true}})

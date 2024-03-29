@@ -2,16 +2,18 @@ const style = `
 a {
   display: inline;
   font-size: 0.8em;
-  padding: 0.15em 0.4em;
+  padding: 0.15em 0.35em;
   background-color: aliceblue;
   border-radius: 0.3em;
+  text-decoration: none;
 }
 .javascript { border: 1px solid blue }
 .typescript { background-color: lightblue }
 .web-framework { border: 1px solid green }
 .angular { background-color: lightgreen }
-.java { background-color: red }
-.dbms { background-color: purple }
+.java { background-color: red; color: white }
+.dbms { background-color: purple; color: white }
+.tool { background-color: yellow }
 `
 const template = document.createElement("template")
 template.innerHTML = `
