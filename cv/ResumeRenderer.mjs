@@ -53,8 +53,8 @@ export class ResumeRenderer {
     }
     const allSkills = resume.experiences.flatMap(exp => exp.skills)
     this.renderSkills(root.querySelector("#skills"), allSkills, (skill) => true)
-    this.renderExperiences(root.querySelector("#experience"), resume.experiences.filter(exp => exp.contract.type !== ContractType.Training))
-    this.renderExperiences(root.querySelector("#training"), resume.experiences.filter(exp => exp.contract.type === ContractType.Training))
+    this.renderExperiences("Expériences", root.querySelector("#experience"), resume.experiences.filter(exp => exp.contract.type !== ContractType.Training))
+    this.renderExperiences("Formation", root.querySelector("#training"), resume.experiences.filter(exp => exp.contract.type === ContractType.Training))
   }
 
   /**
@@ -105,15 +105,17 @@ export class ResumeRenderer {
 
   /**
    *
+   * @param {string} title
    * @param {Element} section
    * @param {Experience[]} experiences
    */
-  renderExperiences(section, experiences) {
+  renderExperiences(title, section, experiences) {
     const sortedExps = experiences.sort((a,b) => a.startDate.getTime() < b.startDate.getTime() ? 1 : a.startDate.getTime() > b.startDate.getTime() ? -1 : 0)
     /**
      * @type {HistoryComponent}
      */
     const historyEl = document.createElement("cv-history")
+    historyEl.heading = title
     historyEl.setExperiences(sortedExps)
     section.append(historyEl)
   }

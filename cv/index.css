@@ -1,6 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  padding: 1em;
   font-family: system-ui, sans-serif;
+  display: flex;
+  padding: 1em;
+  margin: 0;
+  flex-direction: column;
+  width: 100%;
+  height: 100svh;
 }
 .people address {
   float: right;
@@ -14,4 +23,7 @@ body {
 .links {
   display: block;
   float: right;
+}
+#experience {
+  overflow: scroll;
 }

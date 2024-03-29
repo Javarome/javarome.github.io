@@ -1,18 +1,40 @@
 import "./item/HistoryItemComponent.mjs"
+import "../search/SearchComponent.mjs"
 
 const template = document.createElement("template")
 template.innerHTML = `<style>
+:host {
+  position: relative;
+}
 .history {
   list-style: disc;
   padding-left: 1em;
 }
+.sort {
+  appearance: none;
+  border: none
+}
+summary {
+background-color: rgba(255,255,255,0.95);
+top: 0;
+  position: sticky;
+}
+h2 {
+display: inline-block;
+}
 </style>
-<section>
-<!--h2>
-<span class="search"><input type="search"><button>🔎</button></span>
-</h2-->
+<details open>
+<summary>
+<h2>
+<span class="title"></span>
+<button class="sort up">^</button>
+<button class="sort down"><</button>
+<cv-search>
+</h2>
+</summary>
 <ol class="history"></ol>
-</section>`
+</details>
+`
 
 export class HistoryComponent extends HTMLElement {
   /**
@@ -25,6 +47,11 @@ export class HistoryComponent extends HTMLElement {
    * @member {Experience[]}
    */
   history
+
+  /**
+   * @member {string}
+   */
+  heading
 
   constructor() {
     super()
@@ -42,6 +69,12 @@ export class HistoryComponent extends HTMLElement {
   }
 
   render() {
+    const titleEl = this.shadow.querySelector(".title")
+    titleEl.textContent = this.heading
+    this.renderHistory()
+  }
+
+  renderHistory() {
     const historyEl = this.shadow.querySelector(".history")
     const newHistory = document.createElement("ol")
     newHistory.className = "history"
@@ -62,10 +95,10 @@ export class HistoryComponent extends HTMLElement {
       {
         const websiteLink = document.createElement("a")
         const org = contract.org
-        websiteLink.href = org.website
+        websiteLink.href = org.link.url
         const orgEl = document.createElement("span")
         orgEl.className = ".org-name"
-        orgEl.textContent = org.name
+        orgEl.textContent = org.link.name
         websiteLink.append(orgEl)
         groupItem.append(websiteLink)
         const projectsList = document.createElement("ol")

@@ -1,12 +1,12 @@
-export class Skill {
+import {Link} from "../../../../Link.mjs"
+
+export class Skill extends Link {
   /**
    * @param {string} name
+   * @param {URL} url
    * @param {string} description
-   * @param {URL} website
    */
-  constructor(name, description, website) {
-    this.name = name
-    this.description = description
-    this.website = website
+  constructor(name, url, description) {
+   super(name, url, description)
   }
 }

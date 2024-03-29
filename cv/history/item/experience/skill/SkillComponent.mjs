@@ -41,7 +41,7 @@ export class SkillComponent extends HTMLElement {
     this.shadow.appendChild(template.content.cloneNode(true))
     const skill = this.skill
     const skillLink = document.createElement("a")
-    skillLink.href = skill.website.href
+    skillLink.href = skill.url.href
     skillLink.textContent = skill.name
     skillLink.title = skill.description
     this.shadow.append(skillLink)

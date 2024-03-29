@@ -1,12 +1,10 @@
 export class Organization {
   /**
-   * @member {string} name
-   * @member {URL} website
+   * @member {Link} link
    * @member {Place} place
    */
-  constructor(name, website, place) {
-    this.name = name
-    this.website = website
+  constructor(link, place) {
+    this.link = link
     this.place = place
   }
 }
