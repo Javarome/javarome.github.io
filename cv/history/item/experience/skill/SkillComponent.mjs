@@ -1,11 +1,17 @@
 const style = `
-:host {
+a {
   display: inline;
   font-size: 0.8em;
-  padding: 0.25em 0.5em;
+  padding: 0.15em 0.4em;
   background-color: aliceblue;
-  border-radius: 0.5em;
+  border-radius: 0.3em;
 }
+.javascript { border: 1px solid blue }
+.typescript { background-color: lightblue }
+.web-framework { border: 1px solid green }
+.angular { background-color: lightgreen }
+.java { background-color: red }
+.dbms { background-color: purple }
 `
 const template = document.createElement("template")
 template.innerHTML = `
@@ -39,10 +45,12 @@ export class SkillComponent extends HTMLElement {
 
   render() {
     this.shadow.innerHTML = ""
-    this.shadow.appendChild(template.content.cloneNode(true))
+    let temp = template.content.cloneNode(true)
+    this.shadow.appendChild(temp)
     const skill = this.skill
     const skillLink = document.createElement("a")
     skillLink.href = skill.url.href
+    skillLink.classList.add(...skill.tags)
     skillLink.textContent = skill.name
     skillLink.title = skill.description
     this.shadow.append(skillLink)

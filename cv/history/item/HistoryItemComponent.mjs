@@ -95,9 +95,6 @@ export class HistoryItemComponent extends HTMLElement {
     for (let i = 0; i < skillEls.length; i++) {
       const skillEl = skillEls[i]
       skillsRoot.append(skillEl)
-      if (i < skillEls.length - 1) {
-        skillsRoot.append(", ")
-      }
     }
   }
 }
