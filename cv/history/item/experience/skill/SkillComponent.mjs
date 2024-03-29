@@ -1,6 +1,7 @@
 const style = `
 :host {
-  display: inline-block;
+  display: inline;
+  font-size: 0.8em;
   padding: 0.25em 0.5em;
   background-color: aliceblue;
   border-radius: 0.5em;

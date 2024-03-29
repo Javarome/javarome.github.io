@@ -33,26 +33,29 @@ export class ResumeRenderer {
    */
   constructor(root) {
     this.root = root
+    window.cvRenderer = this
   }
 
   /**
    *
    * @param {Resume} resume
+   * @param {string} searchStr
    * @param {ResumeRenderOptions} options
    */
-  render(resume, options) {
+  render(resume, searchStr, options) {
+    const search = searchStr.trim().toLowerCase()
     this.renderPeople(resume.people)
     const title = resume.title
     const root = this.root
     if (title) {
-      root.querySelector(".title").append(title)
+      root.querySelector(".title").textContent = title
     }
     const statement = resume.statement
     if (statement) {
-      root.querySelector(".statement").append(statement)
+      root.querySelector(".statement").textContent = statement
     }
     const allSkills = resume.experiences.flatMap(exp => exp.skills)
-    this.renderSkills(root.querySelector("#skills"), allSkills, (skill) => true)
+    this.renderSkills(root.querySelector("#skills"), allSkills, (skill) => skill.name.indexOf(search) >= 0)
     this.renderExperiences("Expériences", root.querySelector("#experience"), resume.experiences.filter(exp => exp.contract.type !== ContractType.Training))
     this.renderExperiences("Formation", root.querySelector("#training"), resume.experiences.filter(exp => exp.contract.type === ContractType.Training))
   }
@@ -71,6 +74,7 @@ export class ResumeRenderer {
     this.root.querySelector("h1").textContent = name
     this.root.querySelector("address").innerHTML = people.home.name.replaceAll(", ", "<br>")
     const linksRoot = this.root.querySelector(".links")
+    linksRoot.innerHTML = ""
     for (const link of people.links) {
       const linkItem = document.createElement("li")
       const linkEl = document.createElement("a")
@@ -110,6 +114,7 @@ export class ResumeRenderer {
    * @param {Experience[]} experiences
    */
   renderExperiences(title, section, experiences) {
+    section.innerHTML = ""
     const sortedExps = experiences.sort((a,b) => a.startDate.getTime() < b.startDate.getTime() ? 1 : a.startDate.getTime() > b.startDate.getTime() ? -1 : 0)
     /**
      * @type {HistoryComponent}

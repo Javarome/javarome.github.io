@@ -15,6 +15,7 @@ const rueMauriceThorez = new Address("28 rue Maurice Thorez", "92000", "Nanterre
 const rueDeBezons = new Address("39 bis rue de Bezons", "92000", "Nanterre", france)
 const jerome = new People("Beau", "Jérôme", rueDeBezons,
   [
+    {name: "tel", url: new URL("tel:+33679796518")},
     {name: "mail", url: new URL("mailto:javarome@gmail.com")},
     {name: "website", url: new URL("https://javarome.com")},
     {name: "blog", url: new URL("https://medium.com/@javarome")}
@@ -38,6 +39,7 @@ const perforce = new Skill("Perforce", new URL("https://www.perforce.com/product
 const junit = new Skill("JUnit", new URL("https://junit.org/"), `JUnit is a Java testing framework`)
 const jdo = new Skill("JDO", new URL("https://www.oracle.com/java/technologies/java-data-objects.html"), `Java Data Objects is a Java persistence standard`)
 const oracle = new Skill("Oracle", new URL("https://www.oracle.com/database/"), `Oracle is a RDBMS`)
+const mysql = new Skill("MySQL", new URL("https://www.mysql.com"), `MySQL is a RDBMS`)
 const beyondCompare = new Skill("Beyond Compare", new URL("https://www.scootersoftware.com/"), `Beyond Compare is a file comparison tool. It was one of the tools used before the advent of VCS.`)
 const versant = new Skill("Versant", new URL("https://esd.actian.com/platform/docs/Docs/Versant_Products/Versant_Object_Database_10"), `Versant was an ODBMS`)
 const idea = new Skill("IntelliJ IDEA", new URL("https://www.jetbrains.com/idea"), `IntelliJ IDEA is a Java IDE`)
@@ -54,8 +56,8 @@ const xcaliaAddr2 = new Address("71 rue Desnouettes", "75015", "Paris", france)
 const xcaliaAddr3 = new Address("21 rue des Trois Fontanots", "92000", "Nanterre", france)
 const xcalia = new Organization(new Link("Xcalia", new URL("https://fr.wikipedia.org/wiki/Xcalia_Intermediation_Core"), "Xcalia sells a JDO implementation"), xcaliaAddr3)
 const xcaliaExp = new Contract(xcalia, ContractType.FullTimePermanent, "Senior developer & quality manager", new Date(2003, 1 - 1, 1), new Date(2010, 5 - 1, 1))
-const lido = new Experience(xcaliaExp, xcaliaExp.startDate, new Date(2005, 9 - 1, 1), "LiDO", xcaliaAddr1, [java, oracle, jdo, beyondCompare, versant, idea, eclipse])
-const xic = new Experience(xcaliaExp, new Date(2005, 9 - 1, 1), xcaliaExp.endDate, "Xcalia Intermediation Core", xcaliaAddr2, [java, perforce, junit, oracle, jdo, versant, idea])
+const lido = new Experience(xcaliaExp, xcaliaExp.startDate, new Date(2005, 9 - 1, 1), "LiDO", xcaliaAddr1, [java, oracle, jdo, beyondCompare, versant, idea, eclipse, postgresql, mysql])
+const xic = new Experience(xcaliaExp, new Date(2005, 9 - 1, 1), xcaliaExp.endDate, "Xcalia Intermediation Core", xcaliaAddr2, [java, perforce, junit, oracle, mysql, postgresql, jdo, versant, idea])
 
 const xoolooAddr = new Address("20 Rue Danielle Casanova", "75002", "Paris", france)
 const xooloo = new Organization(new Link("Xooloo", new URL("https://xooloo.com"), "Xooloo sells parental control software to ISP"), xoolooAddr)
@@ -109,4 +111,8 @@ const myResume = new ResumeBuilder()
   .withExperience(beamWebApp)
   .withExperience(kmApp)
   .build()
-new ResumeRenderer(document).render(myResume, {mode: {functional: true}})
+const renderer = new ResumeRenderer(document)
+renderer.render(myResume, "", {mode: {functional: true}})
+window.search = (event) => {
+  renderer.render(myResume, event.target.value, {mode: {functional: true}})
+}
