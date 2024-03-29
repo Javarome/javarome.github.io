@@ -42,6 +42,14 @@ export class ResumeRenderer {
    */
   render(resume, options) {
     this.renderPeople(resume.people)
+    const title = resume.title
+    if (title) {
+      this.root.querySelector(".title").append(title)
+    }
+    const statement = resume.statement
+    if (statement) {
+      this.root.querySelector(".statement").append(statement)
+    }
     const allSkills = resume.experiences.flatMap(exp => exp.skills)
     this.renderSkills(this.root.querySelector("#skills"), allSkills, (skill) => true)
     this.renderExperiences("#experience", resume.experiences, (exp) => exp.contract.type !== ContractType.Training)
@@ -60,7 +68,7 @@ export class ResumeRenderer {
       doc.head.title = name
     }
     this.root.querySelector("h1").textContent = name
-    this.root.querySelector("address").textContent = people.home.name
+    this.root.querySelector("address").innerHTML = people.home.name.replaceAll(", ", "<br>")
     const linksRoot = this.root.querySelector(".links")
     for (const link of people.links) {
       const linkItem = document.createElement("li")

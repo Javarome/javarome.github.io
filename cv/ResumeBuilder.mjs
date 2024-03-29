@@ -15,6 +15,16 @@ export class ResumeBuilder {
     return this
   }
 
+  withTitle(title) {
+    this.title = title
+    return this
+  }
+
+  withStatement(statement) {
+    this.statement = statement
+    return this
+  }
+
   /**
    *
    * @param {Experience} experience
@@ -39,6 +49,6 @@ export class ResumeBuilder {
    * @return {Resume}
    */
   build() {
-    return new Resume(this.people, this.experiences)
+    return new Resume(this.people, this.experiences, this.title, this.statement)
   }
 }

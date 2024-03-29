@@ -20,7 +20,8 @@ const laCaserne = new Address("12 rue Philippe de Girard", "75010", "Paris", fra
 const jerome = new People("Beau", "Jérôme", rueDeBezons, 
   [
     {name: "mail", url: new URL("mailto:javarome@gmail.com")},
-    {name: "website", url: new URL("https://javarome.com")}
+    {name: "website", url: new URL("https://javarome.com")},
+    {name: "blog", url: new URL("https://medium.com/@javarome")}
   ]
 )
 
@@ -56,6 +57,8 @@ const arnProject = new Experience(arianeeExp, new Date(2022, 12 - 1, 14), new Da
 
 const myResume = new ResumeBuilder()
   .of(jerome)
+  .withTitle("Senior developer & team leader")
+  .withStatement("I do stuff")
   .withExperience(famicityApp)
   .withExperience(kelpieProject)
   .withExperience(arnProject)

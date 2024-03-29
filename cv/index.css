@@ -2,6 +2,15 @@ body {
   padding: 1em;
   font-family: system-ui, sans-serif;
 }
+.people address {
+  float: right;
+}
+.title {
+  font-weight: bold;
+}
+.statement {
+  font-style: italic;
+}
 .links {
   display: block;
   float: right;
