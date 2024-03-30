@@ -9,7 +9,6 @@ button {
 }
 input {
   display: inline-block;
-  width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: width 0.3s ease-out;
@@ -19,17 +18,18 @@ input {
   margin-left: 0.5em;
   vertical-align: middle;
   border-radius: 0.25em;
-}
-
-:host(:hover) input, :host(:active) input {
   padding: 0.4em 0.5em;
-  width: 7em;
+}
+@media print {
+  input, button {
+    display: none !important;
+  }
 }
 `
 const template = document.createElement("template")
 template.innerHTML = `
 <style>${style}</style>
-<span class="search"><input type="search" oninput="search(event)"><button>🔎</button></span>
+<span class="search"><input type="search" oninput="search(event)" placeholder="Recherche 🔎"></span>
 `
 
 export class SearchComponent extends HTMLElement {
