@@ -9,7 +9,6 @@ a {
 }
 .javascript { border: 1px solid blue }
 .typescript { background-color: lightblue }
-.web-framework { border: 1px solid green }
 .angular { background-color: lightgreen }
 .java { background-color: red; color: white }
 .dbms { background-color: purple; color: white }
@@ -52,10 +51,14 @@ export class SkillComponent extends HTMLElement {
     const skill = this.skill
     const skillLink = document.createElement("a")
     skillLink.href = skill.url.href
-    skillLink.classList.add(...skill.tags)
+    skillLink.className = SkillComponent.skillNameToClassName(skill)
     skillLink.textContent = skill.name
     skillLink.title = skill.description
     this.shadow.append(skillLink)
+  }
+
+  static skillNameToClassName(impliedSkill) {
+    return impliedSkill.name ? impliedSkill.name.toLowerCase().replaceAll(" ", "-") : impliedSkill
   }
 
   /**
@@ -67,18 +70,6 @@ export class SkillComponent extends HTMLElement {
     const skillEl = document.createElement("cv-skill")
     skillEl.setSkill(skill)
     return skillEl
-  }
-
-  /**
-   * @param {Skill[]} skills
-   * @return {Element[]}
-   */
-  static fromSkills(skills) {
-    const skillEls = []
-    for (const skill of skills) {
-      skillEls.push(SkillComponent.fromSkill(skill))
-    }
-    return skillEls
   }
 }
 

@@ -91,11 +91,30 @@ export class ExperienceComponent extends HTMLElement {
     this.render()
   }
 
+  /**
+   *
+   * @param {Skill} implied
+   * @return {Skill}
+   */
+  normalizeSkill(implied) {
+    return implied.name ?
+      implied
+      : {
+        name: implied,
+        url: new URL("http://example.com"),
+        description: implied
+      }
+  }
+
   render() {
     const experience = this.experience
-    this.shadow.querySelector(".description").textContent = experience.description
+    this.shadow.querySelector(".description").innerHTML = experience.description
+    /**
+     * @type {Skill[]}
+     */
+    const skillsWithImplied = new Set(experience.skills.flatMap(skill => [this.normalizeSkill(skill)].concat(skill.implied.map(this.normalizeSkill))))
     const skillsRoot = this.shadow.querySelector(".skills")
-    const skillEls = SkillComponent.fromSkills(experience.skills)
+    const skillEls = Array.from(skillsWithImplied).map(SkillComponent.fromSkill)
     for (let i = 0; i < skillEls.length; i++) {
       const skillEl = skillEls[i]
       skillsRoot.append(skillEl)

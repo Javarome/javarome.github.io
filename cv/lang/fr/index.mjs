@@ -1,4 +1,5 @@
 import {skillList_fr} from "./SkillList_fr.mjs"
+import {experience_fr} from "./Experience_fr.mjs"
 
 /**
  * @type {ResumeMessages}
@@ -11,18 +12,10 @@ export const fr = {
   skills: {
     title: "Compétences",
     none: (search) => `⚠️ Pas de compétence "${search}"`,
-    ...skillList_fr
+    list: skillList_fr
   },
-  experience: {
-    title: "Expérience",
-    none: (search) => `⚠️ Pas d'expérience avec la compétence "${search}"`,
-    projects: {
-      dapp: "dApp de Wallet",
-      arn: "Bibliothèque d'outils pour créer des sites Web3"
-    }
-  },
+  experience: experience_fr,
   training: {
-    title: "Formation",
-    none: (search) => `⚠️ Pas de formation avec la compétence "${search}"`
+    title: "Formation"
   }
 }

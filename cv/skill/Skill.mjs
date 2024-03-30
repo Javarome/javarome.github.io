@@ -5,10 +5,10 @@ export class Skill extends Link {
    * @param {string} name
    * @param {URL} url
    * @param {string} description
-   * @param {string[]} tags
+   * @param {Skill[]} implied
    */
-  constructor(name, url, description, ...tags) {
+  constructor(name, url, description, ...implied) {
     super(name, url, description)
-    this.tags = tags || []
+    this.implied = implied || []
   }
 }

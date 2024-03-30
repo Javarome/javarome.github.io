@@ -2,16 +2,55 @@
   float: right;
 }
 h1 {
+  display: inline-block;
   margin-top: 0;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  font-size: 31px;
+  color: white;
+  text-shadow: -1px -1px 0 gray, 0 -1px 0 gray, 1px -1px 0 gray, 1px 0 0 gray, 1px 1px 0 gray, 0 1px 0 gray, -1px 1px 0 gray, -1px 0 0 gray;
+}
+a {
+  text-decoration: none;
+}
+address {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  text-align: right;
+  .street {
+    display: none;
+  }
+}
+.links {
+  text-align: right;
+  list-style: none;
 }
 .title {
   display: inline-block;
   font-weight: bold;
+  margin-top: 0;
 }
 .statement {
+  display: -webkit-box;
+  margin-top: 0;
   font-style: italic;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  &:focus {
+    display: block;
+  }
 }
 .links {
   display: block;
   float: right;
+  padding-left: 0;
+  clear: right;
+  margin-left: 1rem;
+  margin-top: 0;
+}
+@media print {
+  .street {
+    display: inline !important;
+  }
 }

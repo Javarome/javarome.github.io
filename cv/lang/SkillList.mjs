@@ -24,6 +24,12 @@ export class SkillList {
    * @abstract
    * @type {Skill}
    */
+  vanilla
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
   ts
 
   /**
@@ -41,11 +47,19 @@ export class SkillList {
    * @abstract
    * @type {Skill}
    */
+
   cpp
   /**
    * @abstract
    * @type {Skill}
    */
+
+  sql
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+
   postgresql
   /**
    * @abstract
@@ -142,9 +156,34 @@ export class SkillList {
    * @type {Skill}
    */
   nodejs
+
   /**
    * @abstract
    * @type {Skill}
    */
   python
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  graphql
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  http
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  rest
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  webCrypto
 }

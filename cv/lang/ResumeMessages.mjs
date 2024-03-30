@@ -44,18 +44,63 @@ export class ProjectsMessages {
    * @type {string}
    */
   dapp
+
+  /**
+   * @type {string}
+   */
+  arn
+
+  /**
+   * @type {string}
+   */
+  kelpie
+
+  /**
+   * @type {string}
+   */
+  beamWebApp
 }
 
+export class OrganizationMessages {
+  /**
+   * @type {string}
+   */
+  title
+}
+
+export class ContractsMessages {
+  /**
+   * @type {OrganizationMessages}
+   */
+  arianee
+
+  /**
+   * @type {OrganizationMessages}
+   */
+  beam
+}
+
+/**
+ * @abstract
+ */
 export class ExperienceMessages {
   /**
+   * @abstract
    * @type {string}
    */
   title
 
   /**
+   * @abstract
    * @type {ProjectsMessages}
    */
   projects
+
+  /**
+   * @abstract
+   * @type {ContractsMessages}
+   */
+  contracts
 }
 
 export class TrainingMessages {

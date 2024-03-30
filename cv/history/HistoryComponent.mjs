@@ -34,7 +34,6 @@ details {
     display: none;  
   }
 }
-
 details[open] {
   & cv-search, & h2 button {
     display: inline;
@@ -52,9 +51,16 @@ a {
     display: none !important;
   }
 }
-h3 {
-  margin: 0;
-  display: inline-block;
+.org {
+  font-weight: bold;
+  margin: 0 0.25em
+}
+.title {
+  font-weight: bold;
+  margin: 0 0.5em 0 0.25em;
+}
+.start::after {
+  content: " → "
 }
 </style>
 <details open>
@@ -140,15 +146,18 @@ export class HistoryComponent extends HTMLElement {
       const websiteLink = document.createElement("a")
       const org = contract.org
       websiteLink.href = org.link.url
-      const orgEl = document.createElement("h3")
-      orgEl.className = ".org-name"
-      orgEl.innerHTML = `<b>${org.link.name}</b>`
+      const orgEl = document.createElement("span")
+      orgEl.className = "org"
+      orgEl.textContent = org.link.name
       websiteLink.append(orgEl)
       groupItem.append(websiteLink)
 
-      groupItem.append(" - ")
+      const titleEl = document.createElement("span")
+      titleEl.className= "title"
+      titleEl.textContent = contract.title
+      groupItem.append(titleEl)
+
       groupItem.append(this.setDate(contract.startDate, "start"))
-      groupItem.append("-")
       groupItem.append(this.setDate(contract.endDate, "end"))
 
       const projects = orgData[1]
