@@ -42,15 +42,21 @@ time {
   font-size: 0.9em;
   color: gray;
 }
+a {
+  text-decoration: none;
+}
+@media print {
+  button {
+    display: none !important;
+  }
+}
+h3 {
+  margin: 0;
+}
 </style>
 <details open>
   <summary>
-    <h2>
-      <span class="title"></span>
-      <button class="sort up">▲</button>
-      <button class="sort down">▼</button>
-      <cv-search></cv-search>
-    </h2>
+    <h2 class="title"></h2>
   </summary>
   <ol class="history"></ol>
 </details>
@@ -115,7 +121,7 @@ export class HistoryComponent extends HTMLElement {
     const historyEl = this.shadow.querySelector(".history")
     const newHistory = document.createElement("ol")
     newHistory.className = "history"
-    const groups = this.history.reduce((groups, exp) => {
+    const orgGroups = this.history.reduce((groups, exp) => {
       const contract = exp.contract
       let projects = groups.get(contract)
       if (!projects) {
@@ -125,13 +131,13 @@ export class HistoryComponent extends HTMLElement {
       projects.push(exp)
       return groups
     }, new Map())
-    for (const groupEntry of groups.entries()) {
-      const contract = groupEntry[0]
+    for (const orgData of orgGroups.entries()) {
+      const contract = orgData[0]
       const groupItem = document.createElement("li")
       const websiteLink = document.createElement("a")
       const org = contract.org
       websiteLink.href = org.link.url
-      const orgEl = document.createElement("span")
+      const orgEl = document.createElement("h3")
       orgEl.className = ".org-name"
       orgEl.innerHTML = `<b>${org.link.name}</b>`
       websiteLink.append(orgEl)
@@ -142,23 +148,28 @@ export class HistoryComponent extends HTMLElement {
       groupItem.append("-")
       groupItem.append(this.setDate(contract.endDate, "end"))
 
-      const projectsList = document.createElement("ol")
-      projectsList.className = "projects"
-      const projects = groupEntry[1]
-      for (const project of projects) {
-        /**
-         * @type {HistoryItemComponent}
-         */
-        const itemExp = document.createElement("li")
-        const exp = document.createElement("cv-history-item")
-        exp.setExperience(project)
-        itemExp.append(exp)
-        projectsList.append(itemExp)
-      }
+      const projects = orgData[1]
+      const projectsList = this.renderProjects(projects)
       groupItem.append(projectsList)
       newHistory.append(groupItem)
     }
     historyEl.replaceWith(newHistory)
+  }
+
+  renderProjects(projects) {
+    const projectsList = document.createElement("ol")
+    projectsList.className = "projects"
+    for (const project of projects) {
+      /**
+       * @type {HistoryItemComponent}
+       */
+      const itemExp = document.createElement("li")
+      const exp = document.createElement("cv-history-item")
+      exp.setExperience(project)
+      itemExp.append(exp)
+      projectsList.append(itemExp)
+    }
+    return projectsList
   }
 }
 

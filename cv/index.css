@@ -6,14 +6,11 @@ body {
   font-family: system-ui, sans-serif;
   display: flex;
   padding: 1em;
-  margin: 0;
   flex-direction: column;
   width: 100%;
+  max-width: 1000px;
+  margin: auto;
   height: 100svh;
-}
-.links {
-  display: block;
-  float: right;
 }
 #experience {
   overflow: scroll;
@@ -23,4 +20,9 @@ details cv-search {
 }
 details[open] cv-search {
   display: inline;
+}
+@media print {
+  button, input {
+    display: none;
+  }
 }

@@ -1,4 +1,4 @@
-import {Link} from "../../../../Link.mjs"
+import {Link} from "../Link.mjs"
 
 export class Skill extends Link {
   /**

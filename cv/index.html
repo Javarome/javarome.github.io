@@ -8,6 +8,7 @@
   <meta name="description" content="Jérôme Beau, Software engineer">
   <link href="index.css" rel="stylesheet"/>
   <link href="people/people.css" rel="stylesheet"/>
+  <link href="skill/skill.css" rel="stylesheet"/>
   <script src="history/item/HistoryItemComponent.mjs"></script>
 </head>
 <body>
@@ -16,19 +17,20 @@
   <h1></h1>
   <ul class="links"></ul>
   <p class="title"></p>
+  <cv-search></cv-search>
   <p class="statement"></p>
 </div>
-<details id="skills">
+<details id="skills" open>
   <summary>
     <style>h2 {display: inline}</style>
-    <h2>Compétences <cv-search></cv-search></h2>
+    <h2></h2>
   </summary>
-  <ol></ol>
+  <ul></ul>
 </details>
 <section id="experience"></section>
 <section id="training"></section>
 </body>
 <script type="module" src="Resume.mjs"></script>
 <script type="module" src="ResumeRenderer.mjs"></script>
-<script type="module" src="MyResume.mjs"></script>
+<script type="module" src="index.mjs"></script>
 </html>

@@ -1,4 +1,4 @@
-import {SkillComponent} from "./experience/skill/SkillComponent.mjs"
+import {SkillComponent} from "../../skill/SkillComponent.mjs"
 
 const style = `
 :host {

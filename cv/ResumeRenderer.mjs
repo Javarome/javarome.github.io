@@ -1,7 +1,7 @@
 import {HistoryComponent} from "./history/HistoryComponent.mjs"
 import {ContractType} from "./history/item/experience/Contract.mjs"
-import {SkillComponent} from "./history/item/experience/skill/SkillComponent.mjs"
-import {Skill} from "./history/item/experience/skill/Skill.mjs"
+import {SkillComponent} from "./skill/SkillComponent.mjs"
+import {Skill} from "./skill/Skill.mjs"
 
 export class ResumeRenderMode {
   /**
@@ -29,10 +29,17 @@ export class ResumeRenderer {
   root
 
   /**
-   * @param {Node} root
+   * @member {ResumeMessages}
    */
-  constructor(root) {
+  messages
+
+  /**
+   * @param {Node} root
+   * @param {ResumeMessages} messages
+   */
+  constructor(root, messages) {
     this.root = root
+    this.messages = messages
     window.cvRenderer = this
   }
 
@@ -55,9 +62,11 @@ export class ResumeRenderer {
       root.querySelector(".statement").textContent = statement
     }
     const allSkills = resume.experiences.flatMap(exp => exp.skills)
-    this.renderSkills(root.querySelector("#skills"), allSkills, (skill) => skill.name.indexOf(search) >= 0)
-    this.renderExperiences("Expériences", root.querySelector("#experience"), resume.experiences.filter(exp => exp.contract.type !== ContractType.Training))
-    this.renderExperiences("Formation", root.querySelector("#training"), resume.experiences.filter(exp => exp.contract.type === ContractType.Training))
+    this.renderSkills(root.querySelector("#skills"), allSkills, search)
+    this.renderExperiences(this.messages.experience.title, root.querySelector("#experience"),
+      resume.experiences.filter(exp => exp.contract.type !== ContractType.Training), search)
+    this.renderExperiences(this.messages.training.title, root.querySelector("#training"),
+      resume.experiences.filter(exp => exp.contract.type === ContractType.Training), search)
   }
 
   /**
@@ -88,22 +97,30 @@ export class ResumeRenderer {
   /**
    *
    * @param {Element} skillsRoot
-   * @param {Skill[]} skills
-   * @param {Function} filter
+   * @param {Skill[]} allSkills
+   * @param {string} search
    */
-  renderSkills(skillsRoot, skills, filter) {
-    const allSkills = skills.filter(filter)
+  renderSkills(skillsRoot, allSkills, search) {
+    const skills = allSkills.filter((skill) => skill.name.toLowerCase().indexOf(search) >= 0)
+    const title = skillsRoot.querySelector("h2")
+    title.textContent = this.messages.skills.title
     const skillsLevel = new Map()
-    for (const skill of allSkills) {
+    for (const skill of skills) {
       const currentLevel = skillsLevel.get(skill) || 0
       skillsLevel.set(skill, currentLevel + 1)
     }
-    for (const skillsEntry of skillsLevel.entries()) {
-      const skill = skillsEntry[0]
-      const level = skillsEntry[1]
-      const skillEl = SkillComponent.fromSkill(skill)
-      skillEl.style = "font-size: " + (10 + level * 2) + "px"
-      skillsRoot.append(skillEl)
+    const list = skillsRoot.querySelector("ul")
+    if (skillsLevel.size > 0) {
+      list.innerHTML = ""
+      for (const skillsEntry of skillsLevel.entries()) {
+        const skill = skillsEntry[0]
+        const level = skillsEntry[1]
+        const skillEl = SkillComponent.fromSkill(skill)
+        skillEl.style = "font-size: " + (10 + level * 2) + "px"
+        list.append(skillEl)
+      }
+    } else {
+      list.innerHTML = this.messages.skills.none(search)
     }
   }
 
@@ -111,11 +128,13 @@ export class ResumeRenderer {
    *
    * @param {string} title
    * @param {Element} section
-   * @param {Experience[]} experiences
+   * @param {Experience[]} exps
+   * @param search
    */
-  renderExperiences(title, section, experiences) {
+  renderExperiences(title, section, exps, search) {
+    const experiences = exps.filter(exp => exp.skills.find(skill => skill.name.toLowerCase().indexOf(search) >= 0) ? exp : undefined)
     section.innerHTML = ""
-    const sortedExps = experiences.sort((a,b) => a.startDate.getTime() < b.startDate.getTime() ? 1 : a.startDate.getTime() > b.startDate.getTime() ? -1 : 0)
+    const sortedExps = experiences.sort((a, b) => a.startDate.getTime() < b.startDate.getTime() ? 1 : a.startDate.getTime() > b.startDate.getTime() ? -1 : 0)
     /**
      * @type {HistoryComponent}
      */

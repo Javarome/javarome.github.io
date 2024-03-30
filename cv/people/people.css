@@ -5,8 +5,13 @@ h1 {
   margin-top: 0;
 }
 .title {
+  display: inline-block;
   font-weight: bold;
 }
 .statement {
   font-style: italic;
+}
+.links {
+  display: block;
+  float: right;
 }
