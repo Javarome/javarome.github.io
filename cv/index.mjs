@@ -9,7 +9,10 @@ import {Experience} from "./history/item/experience/Experience.mjs"
 import {Link} from "./Link.mjs"
 
 const lang = navigator.language.startsWith("fr") ? "fr" : "en"
-import("./lang/" + lang + ".mjs").then(imported => {
+import((`./lang/${lang}/index.mjs`)).then(imported => {
+  /**
+   * @type {ResumeMessages}
+   */
   const messages = imported[lang]
   const france = new Country("France")
 
@@ -25,34 +28,38 @@ import("./lang/" + lang + ".mjs").then(imported => {
     ]
   )
 
-  const angularJS = messages.skills.angularJS
-  const angular = messages.skills.angular
-  const js = messages.skills.js
-  const ts = messages.skills.ts
-  const nx = messages.skills.nx
-  const c = messages.skills.c
-  const cpp = messages.skills.cpp
-  const postgresql = messages.skills.postgresql
-  const nlp = messages.skills.nlp
-  const phonegap = messages.skills.phonegap
-  const xcode = messages.skills.xcode
-  const java = messages.skills.java
-  const swing = messages.skills.swing
-  const perforce = messages.skills.perforce
-  const junit = messages.skills.junit
-  const jdo = messages.skills.jdo
-  const jdbc = messages.skills.jdbc
-  const oracle = messages.skills.oracle
-  const mysql = messages.skills.mysql
-  const beyondCompare = messages.skills.beyondCompare
-  const versant = messages.skills.versant
-  const idea = messages.skills.idea
-  const eclipse = messages.skills.eclipse
-  const ejb = messages.skills.ejb
-  const j2ee = messages.skills.j2ee
-  const fastify = messages.skills.fastify
-  const nodejs = messages.skills.nodejs
-  const python = messages.skills.python
+  const skillsMessages = messages.skills
+  const angularJS = skillsMessages.angularJS
+  const angular = skillsMessages.angular
+  const js = skillsMessages.js
+  const ts = skillsMessages.ts
+  const nx = skillsMessages.nx
+  const c = skillsMessages.c
+  const cpp = skillsMessages.cpp
+  const postgresql = skillsMessages.postgresql
+  const nlp = skillsMessages.nlp
+  const phonegap = skillsMessages.phonegap
+  const xcode = skillsMessages.xcode
+  const java = skillsMessages.java
+  const swing = skillsMessages.swing
+  const perforce = skillsMessages.perforce
+  const junit = skillsMessages.junit
+  const jdo = skillsMessages.jdo
+  const jdbc = skillsMessages.jdbc
+  const oracle = skillsMessages.oracle
+  const mysql = skillsMessages.mysql
+  const beyondCompare = skillsMessages.beyondCompare
+  const versant = skillsMessages.versant
+  const idea = skillsMessages.idea
+  const eclipse = skillsMessages.eclipse
+  const ejb = skillsMessages.ejb
+  const j2ee = skillsMessages.j2ee
+  const fastify = skillsMessages.fastify
+  const nodejs = skillsMessages.nodejs
+  const python = skillsMessages.python
+
+  const experienceMessages = messages.experience
+  const projectsMessages = experienceMessages.projects
 
   const istyAddress = new Address("10-12 Av. de l'Europe", "78140", "Vélizy-Villacoublay", france)
   const isty = new Organization(new Link("ISTY", new URL("https://www.isty.uvsq.fr"), "L'Institut des Sciences et Techniques des Yvelines est une école d'ingénieurs en informatique publique de l'Université de Versailles/Saint-Quentin en Yvelines (UVSQ)"), istyAddress)
@@ -116,10 +123,10 @@ import("./lang/" + lang + ".mjs").then(imported => {
   const arianeeExp = new Contract(arianee, ContractType.FullTimePermanent, "Web3 tooling tech lead", new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
   const kelpieProject = new Experience(arianeeExp, new Date(2022, 11 - 1, 14), new Date(2022, 12 - 1, 31),
     "Web3 CMS maintenance & EOL", rueDeBezons, [angular])
-  const arnProject = new Experience(arianeeExp, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1),
-    "Web3-website tooling library", rueDeBezons, [angular, nx, nodejs])
+  const arn = new Experience(arianeeExp, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1),
+    projectsMessages.arn, rueDeBezons, [angular, nx, nodejs])
   const dapp = new Experience(arianeeExp, new Date(2023, 4 - 1, 1), arianeeExp.endDate,
-    "Wallet dApp", rueDeBezons, [angular, nx, nodejs])
+    projectsMessages.dapp, rueDeBezons, [angular, nx, nodejs])
 
   const myResume = new ResumeBuilder()
     .of(jerome)
@@ -141,12 +148,12 @@ import("./lang/" + lang + ".mjs").then(imported => {
     .withExperience(mlPipeline)
     .withExperience(beamWebApp)
     .withExperience(beamWebServer)
-    .withExperience(arnProject)
+    .withExperience(arn)
     .withExperience(dapp)
     .build()
   const renderer = new ResumeRenderer(document, messages)
-  renderer.render(myResume, "", {mode: {functional: true}})
+  renderer.render(myResume, "")
   window.search = (event) => {
-    renderer.render(myResume, event.target.value, {mode: {functional: true}})
+    renderer.render(myResume, event.target.value)
   }
 })

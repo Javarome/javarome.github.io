@@ -65,7 +65,7 @@ template.innerHTML = `<style>${style}</style>
 <div class="skills"></div>
 `
 
-export class HistoryItemComponent extends HTMLElement {
+export class ExperienceComponent extends HTMLElement {
   /**
    * @readonly
    * @type {string}
@@ -103,7 +103,7 @@ export class HistoryItemComponent extends HTMLElement {
   }
 }
 
-const name = HistoryItemComponent.NAME
+const name = ExperienceComponent.NAME
 if (!customElements.get(name)) {
-  customElements.define(name, HistoryItemComponent)
+  customElements.define(name, ExperienceComponent)
 }

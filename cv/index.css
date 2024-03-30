@@ -1,3 +1,8 @@
+:root {
+  --background-color: white;
+  --color: black;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -12,15 +17,27 @@ body {
   margin: auto;
   height: 100svh;
 }
+
 #experience {
   overflow: scroll;
 }
+
 details cv-search {
   display: none;
 }
+
 details[open] cv-search {
   display: inline;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --background-color: black;
+    --color: lightgrey;
+  }
+}
+
 @media print {
   button, input {
     display: none;

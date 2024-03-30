@@ -1,4 +1,4 @@
-import "./item/HistoryItemComponent.mjs"
+import "./item/ExperienceComponent.mjs"
 import "../search/SearchComponent.mjs"
 
 const template = document.createElement("template")
@@ -19,9 +19,10 @@ template.innerHTML = `<style>
   border: none
 }
 summary {
-  background-color: rgba(255,255,255,0.95);
+  background-color: var(--background-color);
   top: 0;
   position: sticky;
+  list-style: none;
 }
 h2 {
   margin-top: 1em;
@@ -33,6 +34,7 @@ details {
     display: none;  
   }
 }
+
 details[open] {
   & cv-search, & h2 button {
     display: inline;
@@ -162,7 +164,7 @@ export class HistoryComponent extends HTMLElement {
     projectsList.className = "projects"
     for (const project of projects) {
       /**
-       * @type {HistoryItemComponent}
+       * @type {ExperienceComponent}
        */
       const itemExp = document.createElement("li")
       const exp = document.createElement("cv-history-item")

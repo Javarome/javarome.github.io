@@ -3,25 +3,6 @@ import {ContractType} from "./history/item/experience/Contract.mjs"
 import {SkillComponent} from "./skill/SkillComponent.mjs"
 import {Skill} from "./skill/Skill.mjs"
 
-export class ResumeRenderMode {
-  /**
-   * @member {boolean | undefined}
-   */
-  chronological
-
-  /**
-   * @member {boolean | undefined}
-   */
-  functional
-}
-
-export class ResumeRenderOptions {
-  /**
-   * @member {ResumeRenderMode}
-   */
-  mode
-}
-
 export class ResumeRenderer {
   /**
    * @member {HTMLElement}
@@ -47,9 +28,8 @@ export class ResumeRenderer {
    *
    * @param {Resume} resume
    * @param {string} searchStr
-   * @param {ResumeRenderOptions} options
    */
-  render(resume, searchStr, options) {
+  render(resume, searchStr) {
     const search = searchStr.trim().toLowerCase()
     this.renderPeople(resume.people)
     const title = resume.title
@@ -78,8 +58,12 @@ export class ResumeRenderer {
       const doc = this.root
       doc.head.title = name
     }
+    let address = this.root.querySelector("address")
+    address.addEventListener('click', () => {
+      window.open(`https://www.google.com/maps/embed/v1/place?q=${address.textContent}&key=AIzaSyDqiEN85qBXI9QJFlJM5E0LMOcllLvuR4I`)
+    })
     this.root.querySelector("h1").textContent = name
-    this.root.querySelector("address").innerHTML = people.home.name.replaceAll(", ", "<br>")
+    address.innerHTML = people.home.name.replaceAll(", ", "<br>")
     const linksRoot = this.root.querySelector(".links")
     linksRoot.innerHTML = ""
     for (const link of people.links) {

@@ -1,16 +1,16 @@
-import {Skill} from "../skill/Skill.mjs"
+import {Skill} from "../../skill/Skill.mjs"
 
 /**
  * @type {ResumeMessages}
  */
-export const fr = {
+export const en = {
   people: {
-    title: "Développeur sénior et responsable d'équipe",
-    statement: "+25 ans d'expérience du développement front et back, l'encadrement et la motivation d'équipes de développeurs. Je conçois mes projets pour rester maintenables et accueillir le changement rapidement. Spécialisé dans le web vanilla & standard. Je peux prendre un projet en charge depuis l'expression des besoins jusqu'à la mise en production."
+    title: "Senior developer & team leader",
+    statement: "+25 years of front and back development experience, leading and motivating developers teams. I design my projects to stay maintainables and allow integrating changes quickly. Spécialised in standard and vanilla web. I can handle a project from requirements definition to production."
   },
   skills: {
-    title: "Compétences",
-    none: (search) => `⚠️ Pas de compétence "${search}"`,
+    title: "Skills",
+    none: (search) => `⚠️ No "${search}" skill`,
     angularJS: new Skill("AngularJS", new URL("https://angularjs.org"), `La première version du framework web de Google. Ancienne version de Angular.`, "web-framework", "angular", "javascript", "typescript"),
     angular: new Skill("Angular", new URL("https://angular.io"), "Google web framework. Modern version of AngularJS.", "javascript", "typescript"),
     js: new Skill("JavaScript", new URL("https://ecma-international.org/publications-and-standards/standards/ecma-262/"), "Langage de programmation pour les navigateurs et NodeJS", "javascript"),
@@ -41,11 +41,14 @@ export const fr = {
     python: new Skill("Python", new URL("https://www.python.org"), `Python is a programming language used by most ML libraries`, "javascript")
   },
   experience: {
-    title: "Expérience",
-    none: (search) => `⚠️ Pas d'expérience avec la compétence "${search}"`
+    title: "Experience",
+    none: (search) => `⚠️ No "${search}" skill`,
+    projects: {
+      dapp: "Wallet dApp",
+      arn: "Web3-website tooling library"
+    }
   },
   training: {
-    title: "Formation",
-    none: (search) => `⚠️ Pas de formation avec la compétence "${search}"`
+    title: "Training"
   }
 }

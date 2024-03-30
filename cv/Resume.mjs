@@ -8,8 +8,8 @@ export class Resume {
    */
   constructor(people, experiences, title, statement) {
     this.people = people
-    this.experiences = experiences
     this.title = title
     this.statement = statement
+    this.experiences = experiences
   }
 }
