@@ -5,6 +5,7 @@ import {Skill} from "../skill/Skill.mjs"
  */
 export const fr = {
   people: {
+    title: "Développeur sénior et responsable d'équipe",
     statement: "+25 ans d'expérience du développement front et back, l'encadrement et la motivation d'équipes de développeurs. Je conçois mes projets pour rester maintenables et accueillir le changement rapidement. Spécialisé dans le web vanilla & standard. Je peux prendre un projet en charge depuis l'expression des besoins jusqu'à la mise en production."
   },
   skills: {
@@ -40,9 +41,11 @@ export const fr = {
     python: new Skill("Python", new URL("https://www.python.org"), `Python is a programming language used by most ML libraries`, "javascript")
   },
   experience: {
-    title: "Expérience"
+    title: "Expérience",
+    none: (search) => `⚠️ Pas d'expérience avec la compétence "${search}"`
   },
   training: {
-    title: "Formation"
+    title: "Formation",
+    none: (search) => `⚠️ Pas de formation avec la compétence "${search}"`
   }
 }

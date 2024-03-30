@@ -52,6 +52,7 @@ a {
 }
 h3 {
   margin: 0;
+  display: inline-block;
 }
 </style>
 <details open>

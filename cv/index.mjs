@@ -63,8 +63,10 @@ import("./lang/" + lang + ".mjs").then(imported => {
   const valtechAddr = new Address("6 place de la Pyramide", "92908", "Paris-La Défense", france)
   const valtech = new Organization(new Link("Valtech", new URL("https://valtech.com"), "Valtech provides consulting and training services on cutting-edge software technologies"), valtechAddr)
   const valtechExp = new Contract(valtech, ContractType.FullTimePermanent, "Software Architect", new Date(1998, 12 - 1, 1), new Date(2002, 2 - 1, 1))
+  const ejbCourse = new Experience(valtechExp, new Date(1999, 12 - 1, 1), new Date(2000, 9 - 1, 1),
+    `EJB trainng course`, valtechAddr, [java, jdbc, ejb])
   const j2eeCourse = new Experience(valtechExp, new Date(2000, 12 - 1, 1), new Date(2001, 9 - 1, 1),
-    `J2EE trainng course`, valtechAddr, [java, j2ee, jdbc])
+    `J2EE trainng course`, valtechAddr, [java, j2ee, jdbc, ejb])
 
   const xcaliaAddr1 = new Address("26 rue de Chambéry", "75015", "Paris", france)
   const xcaliaAddr2 = new Address("71 rue Desnouettes", "75015", "Paris", france)
@@ -121,10 +123,11 @@ import("./lang/" + lang + ".mjs").then(imported => {
 
   const myResume = new ResumeBuilder()
     .of(jerome)
-    .withTitle("Senior developer & team leader")
+    .withTitle(messages.people.title)
     .withStatement(messages.people.statement)
     .withExperience(cCourse)
     .withExperience(cppCourse)
+    .withExperience(ejbCourse)
     .withExperience(j2eeCourse)
     .withExperience(lido)
     .withExperience(xic)
