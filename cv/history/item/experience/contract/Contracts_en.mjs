@@ -1,4 +1,5 @@
 import {ContractMessages, ContractsMessages} from "./ContractsMessages.mjs"
+import {Link} from "../../../../Link.mjs"
 
 const arianee_en = new class extends ContractMessages {
   name = "Arianee"
@@ -21,10 +22,18 @@ const zelros_en = new class extends ContractMessages {
   title = "Lead software developer"
 }()
 
+const famicity_en = new class extends ContractMessages {
+  name = "Famicity"
+  url = "https://famicity.com"
+  description = `Famicity built a social network app for families and genealogists`
+  title = "Senior Web Developer"
+}()
+
 class ContractsMessages_en extends ContractsMessages {
   arianee = arianee_en
   beam = beam_en
   zelros = zelros_en
+  famicity = famicity_en
 }
 
 export const contracts_en = new ContractsMessages_en()

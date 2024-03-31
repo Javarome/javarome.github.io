@@ -24,6 +24,11 @@ export class ContractsMessages {
    * @type {ContractMessages}
    */
   zelros
+
+  /**
+   * @type {ContractMessages}
+   */
+  famicity
 }
 
 export class TrainingMessages {

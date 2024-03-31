@@ -1,9 +1,4 @@
-export class SkillInfoMessage {
-  /**
-   *
-   */
-  link
-}
+import {SkillList} from "./SkillList.mjs"
 
 export class SkillsMessages {
   /**
@@ -20,4 +15,11 @@ export class SkillsMessages {
    * @type {SkillList}
    */
   list
+}
+
+export class SkillInfoMessage {
+  /**
+   *
+   */
+  link
 }

@@ -33,4 +33,9 @@ export class ProjectsMessages {
    * @type {string}
    */
   mlPipeline
+
+  /**
+   * @type {string}
+   */
+  famicityApp
 }

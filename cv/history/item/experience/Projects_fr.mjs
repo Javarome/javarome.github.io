@@ -8,5 +8,6 @@ class ProjectMessages_fr extends ProjectsMessages {
   beamWebServer = `Serveur web pour publier des notes servies en <abbr title="Server-Side Rendering">SSR</abbr>`
   zelrosKmApp = "Application web de gestion des connaissances"
   mlPipeline = `Pipeline de <abbr title="Machine Learning">ML</abbr>`
+  famicityApp = "Réseau social et application mobile avec feed et arbre généalogique"
 }
 export const projects_fr = new ProjectMessages_fr()

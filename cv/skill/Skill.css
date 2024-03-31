@@ -9,4 +9,11 @@
   ul {
     padding-left: 1em;
   }
+  h2::after {
+    color: darkgrey;
+    content: " (...)";
+  }
+  &[open] h2::after {
+    content: "";
+  }
 }

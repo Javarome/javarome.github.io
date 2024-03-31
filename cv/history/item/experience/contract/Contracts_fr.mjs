@@ -21,9 +21,17 @@ const zelros_fr = new class extends ContractMessages {
   title = "Responsable technique de projets"
 }()
 
+const famicity_fr = new class extends ContractMessages {
+  name = "Famicity"
+  url = "https://famicity.com"
+  description = `Famicity fournit un réseau social pour la famille et les généalogistes`
+  title = "Développeur web sénior"
+}()
+
 class ContractsMessages_fr extends ContractsMessages {
   arianee = arianee_fr
   beam = beam_fr
   zelros = zelros_fr
+  famicity = famicity_fr
 }
 export const contracts_fr = new ContractsMessages_fr()

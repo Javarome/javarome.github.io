@@ -92,7 +92,7 @@ export class ResumeRenderer {
   renderSkills(skillsRoot, allSkills, search) {
     const searchTerms = search.split(/[ ,]/).map(s => s.toLowerCase())
     const skills = searchTerms[0] === "" ? allSkills : allSkills.filter(skill =>
-      searchTerms.filter(searchTerm => skill.name.toLowerCase().indexOf(searchTerm) >= 0
+      searchTerms.filter(searchTerm => skill.description.toLowerCase().indexOf(searchTerm) >= 0
         ? searchTerm : undefined).length > 0 ? skill : undefined)
     const title = skillsRoot.querySelector("h2")
     title.textContent = this.messages.skills.title

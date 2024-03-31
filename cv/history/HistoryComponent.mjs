@@ -29,15 +29,12 @@ h2 {
   display: inline;
   user-select: none;
 }
-details {
-  & cv-search, & h2 button {
-    display: none;  
-  }
+details h2::after {
+  color: darkgrey;
+  content: " (...)";
 }
-details[open] {
-  & cv-search, & h2 button {
-    display: inline;
-  }
+details[open] h2::after {
+  content: "";
 }
 time {
   font-size: 0.9em;

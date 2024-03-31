@@ -198,4 +198,52 @@ export class SkillList {
    * @type {Skill}
    */
   redis
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  azure
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  gcp
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  git
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  gitlab
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  github
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  html
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  css
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  sass
 }
