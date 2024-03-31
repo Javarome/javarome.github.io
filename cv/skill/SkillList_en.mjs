@@ -1,5 +1,5 @@
-import {Skill} from "../../skill/Skill.mjs"
-import {SkillList} from "../SkillList.mjs"
+import {SkillList} from "./SkillList.mjs"
+import {Skill} from "./Skill.mjs"
 
 /**
  * @type {SkillList}
@@ -39,5 +39,7 @@ class SkillList_en extends SkillList {
   http = new Skill("HTTP", new URL("https://en.wikipedia.org/wiki/HTTP"), `HTTP is the standard protocol for serving web pages`)
   rest = new Skill("REST", new URL("https://fr.wikipedia.org/wiki/Representational_state_transfer"), `REST is a standard for HTTP APIs`, this.http)
   webCrypto = new Skill("Web Crypto", new URL("https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API"), `Web Crypto allows cryptographic primitives from browser apps`)
+  jest = new Skill("Jest", new URL("https://jestjs.io"), `Jest is a unit tests framework for JavaScript/TypeScript`)
+  redis = new Skill("Redis", new URL("https://redis.io"), `Redis provides a key/value storage`)
 }
 export const skillList_en = new SkillList_en()

@@ -1,5 +1,5 @@
-import {Skill} from "../../skill/Skill.mjs"
-import {SkillList} from "../SkillList.mjs"
+import {SkillList} from "./SkillList.mjs"
+import {Skill} from "./Skill.mjs"
 
 class SkillList_fr extends SkillList {
   js = new Skill("JavaScript", new URL("https://ecma-international.org/publications-and-standards/standards/ecma-262/"), "Langage de programmation pour les navigateurs et NodeJS", "javascript")
@@ -36,5 +36,7 @@ class SkillList_fr extends SkillList {
   http = new Skill("HTTP", new URL("https://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol"), `HTTP est le protocole standard pour servir des pages web`)
   rest = new Skill("REST", new URL("https://fr.wikipedia.org/wiki/Representational_state_transfer"), `REST is a standard pour interroger des APIs HTTP`, this.http)
   webCrypto = new Skill("Web Crypto", new URL("https://developer.mozilla.org/fr/docs/Web/API/Web_Crypto_API"), `Web Crypto offre des primitives cryptographiques pour les applications web`)
+  jest = new Skill("Jest", new URL("https://jestjs.io/fr/"), `Jest est un framework de tests unitaires pour JavaScript/TypeScript`)
+  redis = new Skill("Redis", new URL("https://redis.io"), `Redis fournit un serveur de stockage clé/valeur`)
 }
 export const skillList_fr = new SkillList_fr()

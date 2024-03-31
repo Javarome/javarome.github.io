@@ -1,16 +1,17 @@
 import {ResumeRenderer} from "./ResumeRenderer.mjs"
 import {ResumeBuilder} from "./ResumeBuilder.mjs"
 import {Organization} from "./org/Organization.mjs"
-import {Contract, ContractType} from "./history/item/experience/Contract.mjs"
 import {People} from "./people/People.mjs"
 import {Address} from "./place/Address.mjs"
 import {Country} from "./place/Country.mjs"
 import {Experience} from "./history/item/experience/Experience.mjs"
 import {Link} from "./Link.mjs"
+import {Contract, ContractType} from "./history/item/experience/contract/Contract.mjs"
+import {ResumeMessages} from "./ResumeMessages.mjs"
 
 const lang = navigator.language.startsWith("fr") ? "fr" : "en"
 document.documentElement.lang = lang
-import((`./lang/${lang}/index.mjs`)).then(imported => {
+import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   /**
    * @type {ResumeMessages}
    */
@@ -76,30 +77,23 @@ import((`./lang/${lang}/index.mjs`)).then(imported => {
 
   const stationF = new Address("5 Parv. Alan Turing", "75013", "Paris", france)
   const weWorkParis12 = new Address("198 Avenue de France", "75013", "Paris", france)
-  const zelros = new Organization(new Link("Zelros", new URL("https://zelros.com"), "Zelros provides AI-augmented services"), weWorkParis12)
-  const zelrosExp = new Contract(zelros, ContractType.FullTimePermanent, "Lead Software Developer", new Date(2019, 1 - 1, 1), new Date(2021, 2 - 1, 1))
-  const kmApp = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1),
-    "Knowledge management app", rueDeBezons, [skills.ts, skills.nlp, skills.postgresql])
-  const mlPipeline = new Experience(zelrosExp, kmApp.startDate, zelrosExp.endDate,
-    "ML pipeline", rueDeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.python])
+  const zelros = new Organization(Organization.linkFromMessages(contractsMessages.zelros), weWorkParis12)
+  const zelrosExp = new Contract(zelros, ContractType.FullTimePermanent, contractsMessages.zelros.title, new Date(2019, 1 - 1, 1), new Date(2021, 2 - 1, 1))
+  const kmApp = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1), projectsMessages.zelrosKmApp, rueDeBezons, [skills.ts, skills.nlp, skills.postgresql])
+  const mlPipeline = new Experience(zelrosExp, kmApp.startDate, zelrosExp.endDate, projectsMessages.mlPipeline, rueDeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.python, skills.redis])
 
   const beamOffices = new Address("74 avenue Kleber", "75016", "Paris", france)
-  const beam = new Organization(new Link("Beam", new URL("https://beamapp.co"), "Beam aimed to build a new kind of browser which allowed to take notes"), beamOffices)
+  const beam = new Organization(Organization.linkFromMessages(contractsMessages.beam), beamOffices)
   const beamExp = new Contract(beam, ContractType.FullTimePermanent, contractsMessages.beam.title, new Date(2021, 3 - 1, 1), new Date(2022, 9 - 1, 1))
-  const beamWebApp = new Experience(beamExp, beamExp.startDate, beamExp.endDate,
-    projectsMessages.beamWebApp, rueDeBezons, [skills.ts, skills.graphql, skills.rest])
-  const beamWebServer = new Experience(beamExp, beamExp.startDate, beamExp.endDate,
-    `Web server to publish notes with SSR`, rueDeBezons, [skills.js, skills.ts, skills.fastify, skills.nodejs, skills.rest, skills.webCrypto])
+  const beamWebApp = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebApp, rueDeBezons, [skills.ts, skills.graphql, skills.rest, skills.webCrypto, skills.jest])
+  const beamWebServer = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebServer, rueDeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.rest])
 
   const laCaserne = new Address("12 rue Philippe de Girard", "75010", "Paris", france)
-  const arianee = new Organization(new Link("Arianee", new URL("https://arianee.com"), "Arianee aims to provide Web3 services to retail companies"), laCaserne)
+  const arianee = new Organization(Organization.linkFromMessages(contractsMessages.arianee), laCaserne)
   const arianeeExp = new Contract(arianee, ContractType.FullTimePermanent, contractsMessages.arianee.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
-  const kelpieProject = new Experience(arianeeExp, new Date(2022, 11 - 1, 14), new Date(2022, 12 - 1, 31),
-    projectsMessages.kelpie, rueDeBezons, [skills.angular])
-  const arn = new Experience(arianeeExp, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1),
-    projectsMessages.arn, rueDeBezons, [skills.angular, skills.nx, skills.nodejs])
-  const dapp = new Experience(arianeeExp, new Date(2023, 4 - 1, 1), arianeeExp.endDate,
-    projectsMessages.dapp, rueDeBezons, [skills.angular, skills.nx, skills.nodejs])
+  const kelpieProject = new Experience(arianeeExp, new Date(2022, 11 - 1, 14), new Date(2022, 12 - 1, 31), projectsMessages.kelpie, rueDeBezons, [skills.angular])
+  const arn = new Experience(arianeeExp, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, rueDeBezons, [skills.angular, skills.nx, skills.nodejs])
+  const dapp = new Experience(arianeeExp, new Date(2023, 4 - 1, 1), arianeeExp.endDate, projectsMessages.dapp, rueDeBezons, [skills.angular, skills.nx, skills.nodejs])
 
   const myResume = new ResumeBuilder()
     .of(jerome)

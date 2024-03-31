@@ -149,11 +149,12 @@ export class HistoryComponent extends HTMLElement {
       const orgEl = document.createElement("span")
       orgEl.className = "org"
       orgEl.textContent = org.link.name
+      orgEl.title = org.link.description
       websiteLink.append(orgEl)
       groupItem.append(websiteLink)
 
       const titleEl = document.createElement("span")
-      titleEl.className= "title"
+      titleEl.className = "title"
       titleEl.textContent = contract.title
       groupItem.append(titleEl)
 

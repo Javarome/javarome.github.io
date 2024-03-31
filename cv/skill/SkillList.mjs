@@ -186,4 +186,16 @@ export class SkillList {
    * @type {Skill}
    */
   webCrypto
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  jest
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  redis
 }
