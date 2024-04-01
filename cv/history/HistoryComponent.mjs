@@ -155,6 +155,11 @@ export class HistoryComponent extends HTMLElement {
       orgEl.textContent = org.link.name
       orgEl.title = org.link.description
       websiteLink.append(orgEl)
+      const logo = document.createElement("img")
+      logo.src = new URL("favicon.ico", org.link.url)
+      logo.onerror = () => logo.remove()
+      logo.width = logo.height = "16"
+      websiteLink.append(logo)
       groupItem.append(websiteLink)
 
       const titleEl = document.createElement("span")

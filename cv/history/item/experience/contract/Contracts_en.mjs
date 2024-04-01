@@ -31,9 +31,37 @@ const famicity_en = new class extends ContractMessages {
 
 const traveldoo_en = new class extends ContractMessages {
   name = "Traveldoo"
-  url = "https://traveldoo.com"
+  url = "https://web.archive.org/web/20120520003824/http://www.traveldoo.com/fr/home.html"
   description = `Traveldoo aims to offer hotel & travel booking services to companies`
   title = "Senior Web Developer"
+}()
+
+const xooloo_en = new class extends ContractMessages {
+  name = "Xooloo"
+  url = "https://xooloo.com"
+  description = `Xooloo sells parental control software to <abbr title="Internet Service Provider">ISP</abbr>`
+  title = "Senior developer & quality manager"
+}()
+
+const xcalia_en = new class extends ContractMessages {
+  name = "Xcalia"
+  url = "https://xcalia.com"
+  description = `Xcalia provides a <abbr title="Java Data Objects">JDO</abbr> implementation`
+  title = "Manages the kernel + relational persistence team"
+}()
+
+const valtech_en = new class extends ContractMessages {
+  name = "Valtech"
+  url = "https://valtech.com"
+  description = `Valtech provides consulting and training services on cutting-edge software technologies`
+  title = "Software Architect"
+}()
+
+const isty_en = new class extends ContractMessages {
+  name = "ISTY"
+  url = "https://www.isty.uvsq.fr"
+  description = `L'Institut des Sciences et Techniques des Yvelines est une école d'ingénieurs en informatique publique de l'Université de Versailles`
+  title = "Software engineer"
 }()
 
 class ContractsMessages_en extends ContractsMessages {
@@ -42,6 +70,10 @@ class ContractsMessages_en extends ContractsMessages {
   zelros = zelros_en
   famicity = famicity_en
   traveldoo = traveldoo_en
+  xooloo = xooloo_en
+  xcalia = xcalia_en
+  valtech = valtech_en
+  isty = isty_en
 }
 
 export const contracts_en = new ContractsMessages_en()

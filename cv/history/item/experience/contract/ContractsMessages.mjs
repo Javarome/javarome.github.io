@@ -34,6 +34,26 @@ export class ContractsMessages {
    * @type {ContractMessages}
    */
   traveldoo
+
+  /**
+   * @type {ContractMessages}
+   */
+  xooloo
+
+  /**
+   * @type {ContractMessages}
+   */
+  xcalia
+
+  /**
+   * @type {ContractMessages}
+   */
+  valtech
+
+  /**
+   * @type {ContractMessages}
+   */
+  isty
 }
 
 export class TrainingMessages {

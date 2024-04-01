@@ -272,4 +272,16 @@ export class SkillList {
    * @type {Skill}
    */
   ethers
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  rome2rio
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  gwt
 }

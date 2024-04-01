@@ -6,7 +6,7 @@ class SkillList_fr extends SkillList {
   ts = new Skill("TypeScript", new URL("https://www.typescriptlang.org/fr/"), `Surensemble de JavaScript pour ajouter du typage et des fonctionnalités orientées objet`, [this.js], ["language"])
   vanilla = new Skill("Vanilla", new URL("http://vanilla-js.com"), `JavaScript ou TypeScript used without any other fancy frameworks`, [], [])
   angularJS = new Skill("AngularJS", new URL("https://angularjs.org"), `La première version du framework web de Google. Ancienne version de Angular.`, [this.ts], ["web", "framework"])
-  angular = new Skill("Angular", new URL("https://angular.io"), `Le framework web de Google. Version moderne de AngularJS.`, [this.ts], ["web", "framework"])
+  angular = new Skill("Angular", new URL("https://angular.io"), "Le framework web de Google. Version moderne de AngularJS.", [this.ts], ["web", "framework"])
   nx = new Skill("Nx", new URL("https://nx.dev"), "Monorepo tooling", [this.ts], ["tool", "monorepo"])
   unix = new Skill("Unix", new URL("https://fr.wikipedia.org/wiki/Unix"), `Unix est un système d'exploitation`, [this.ts], ["os"])
   c = new Skill("C", new URL("https://www.open-std.org/jtc1/sc22/wg14/"), "C programming language", [], ["language"])
@@ -53,5 +53,7 @@ class SkillList_fr extends SkillList {
   sass = new Skill("Sass", new URL("https://github.com"), `Sass est un outil étendant les capacités CSS`, [this.css])
   docker = new Skill("Docker", new URL("https://www.docker.com"), `Docker est un outil pour exécuter des applications dans des conteneurs`, [])
   ethers = new Skill("Ethers", new URL("https://ethers.org/"), `Ethers est une bibliothèque JavaScript pour accéder à la blockchain Ethereum`, [], ["blockchain"])
+  rome2rio = new Skill("Rome2Rio", new URL("https://www.rome2rio.com"), `Rome2Rio provides an itinerary computation API`, [], [])
+  gwt = new Skill("GWT", new URL("https://www.gwtproject.org"), `GWT est un outil compilant du Java en Javascript`, [this.java], [])
 }
 export const skillList_fr = new SkillList_fr()

@@ -36,38 +36,35 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const projectsMessages = experienceMessages.projects
 
   const istyAddress = new Address("10-12 Av. de l'Europe", "78140", "Vélizy-Villacoublay", france)
-  const isty = new Organization(new Link("ISTY", new URL("https://www.isty.uvsq.fr"), "L'Institut des Sciences et Techniques des Yvelines est une école d'ingénieurs en informatique publique de l'Université de Versailles/Saint-Quentin en Yvelines (UVSQ)"), istyAddress)
-  const istyExp = new Contract(isty, ContractType.Training, "Software engineer", new Date(1994, 9 - 1, 1), new Date(1997, 6 - 1, 1))
+  const isty = new Organization(Organization.linkFromMessages(contractsMessages.isty), istyAddress)
+  const istyExp = new Contract(isty, ContractType.Training, contractsMessages.isty.title, new Date(1994, 9 - 1, 1), new Date(1997, 6 - 1, 1))
   const cCourse = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "C course", rueDeBezons, [skills.c])
   const cppCourse = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "C++ course", rueDeBezons, [skills.cpp])
 
   const valtechAddr = new Address("6 place de la Pyramide", "92908", "Paris-La Défense", france)
-  const valtech = new Organization(new Link("Valtech", new URL("https://valtech.com"), "Valtech provides consulting and training services on cutting-edge software technologies"), valtechAddr)
-  const valtechExp = new Contract(valtech, ContractType.FullTimePermanent, "Software Architect", new Date(1998, 12 - 1, 1), new Date(2002, 2 - 1, 1))
-  const ejbCourse = new Experience(valtechExp, new Date(1999, 12 - 1, 1), new Date(2000, 9 - 1, 1),
-    `EJB trainng course`, valtechAddr, [skills.java, skills.jdbc, skills.ejb])
-  const j2eeCourse = new Experience(valtechExp, new Date(2000, 12 - 1, 1), new Date(2001, 9 - 1, 1),
-    `J2EE trainng course`, valtechAddr, [skills.java, skills.j2ee, skills.jdbc, skills.ejb])
+  const valtech = new Organization(Organization.linkFromMessages(contractsMessages.valtech), valtechAddr)
+  const valtechExp = new Contract(valtech, ContractType.FullTimePermanent, contractsMessages.valtech.title, new Date(1998, 12 - 1, 1), new Date(2002, 2 - 1, 1))
+  const ejbCourse = new Experience(valtechExp, new Date(1999, 12 - 1, 1), new Date(2000, 9 - 1, 1), projectsMessages.ejbCourse, valtechAddr, [skills.java, skills.jdbc, skills.ejb])
+  const j2eeCourse = new Experience(valtechExp, new Date(2000, 12 - 1, 1), new Date(2001, 9 - 1, 1), projectsMessages.j2eeCourse, valtechAddr, [skills.java, skills.j2ee, skills.jdbc, skills.ejb])
 
   const xcaliaAddr1 = new Address("26 rue de Chambéry", "75015", "Paris", france)
   const xcaliaAddr2 = new Address("71 rue Desnouettes", "75015", "Paris", france)
   const xcaliaAddr3 = new Address("21 rue des Trois Fontanots", "92000", "Nanterre", france)
-  const xcalia = new Organization(new Link("Xcalia", new URL("https://fr.wikipedia.org/wiki/Xcalia_Intermediation_Core"), "Xcalia sells a JDO implementation"), xcaliaAddr3)
-  const xcaliaExp = new Contract(xcalia, ContractType.FullTimePermanent, "Senior developer & quality manager", new Date(2003, 1 - 1, 1), new Date(2010, 5 - 1, 1))
-  const lido = new Experience(xcaliaExp, xcaliaExp.startDate, new Date(2005, 9 - 1, 1), "LiDO", xcaliaAddr1, [skills.java, skills.oracle, skills.jdo, skills.beyondCompare, skills.versant, skills.idea, skills.eclipse, skills.postgresql, skills.mysql])
-  const xic = new Experience(xcaliaExp, new Date(2005, 9 - 1, 1), xcaliaExp.endDate,
-    "Xcalia Intermediation Core", xcaliaAddr2, [skills.java, skills.jdbc, skills.perforce, skills.junit, skills.oracle, skills.mysql, skills.postgresql, skills.jdo, skills.versant, skills.idea])
+  const xcalia = new Organization(Organization.linkFromMessages(contractsMessages.xcalia), xcaliaAddr3)
+  const xcaliaExp = new Contract(xcalia, ContractType.FullTimePermanent, contractsMessages.xcalia.title, new Date(2003, 1 - 1, 1), new Date(2010, 5 - 1, 1))
+  const lido = new Experience(xcaliaExp, xcaliaExp.startDate, new Date(2005, 9 - 1, 1), projectsMessages.lido, xcaliaAddr1, [skills.java, skills.oracle, skills.jdo, skills.beyondCompare, skills.versant, skills.idea, skills.eclipse, skills.postgresql, skills.mysql])
+  const xic = new Experience(xcaliaExp, new Date(2005, 9 - 1, 1), xcaliaExp.endDate, projectsMessages.xic, xcaliaAddr2, [skills.java, skills.jdbc, skills.perforce, skills.junit, skills.oracle, skills.mysql, skills.postgresql, skills.jdo, skills.versant, skills.idea])
 
   const xoolooAddr = new Address("20 Rue Danielle Casanova", "75002", "Paris", france)
-  const xooloo = new Organization(new Link("Xooloo", new URL("https://xooloo.com"), "Xooloo sells parental control software to ISP"), xoolooAddr)
-  const xoolooExp = new Contract(xooloo, ContractType.FullTimePermanent, "Senior developer & quality manager", new Date(2010, 9 - 1, 1), new Date(2012, 11 - 1, 1))
-  const xoolooApp = new Experience(xoolooExp, xoolooExp.startDate, new Date(2011, 9 - 1, 1), "Parental control app", xoolooAddr, [skills.xcode, skills.java])
-  const xoolooConsole = new Experience(xoolooExp, new Date(2011, 9 - 1, 1), xoolooExp.endDate, "Parental control console", xoolooAddr, [skills.java, skills.swing])
+  const xooloo = new Organization(Organization.linkFromMessages(contractsMessages.xooloo), xoolooAddr)
+  const xoolooExp = new Contract(xooloo, ContractType.FullTimePermanent, contractsMessages.xooloo.title, new Date(2010, 9 - 1, 1), new Date(2012, 11 - 1, 1))
+  const xoolooApp = new Experience(xoolooExp, xoolooExp.startDate, new Date(2011, 9 - 1, 1), projectsMessages.parentalControlApp, xoolooAddr, [skills.xcode, skills.java])
+  const xoolooConsole = new Experience(xoolooExp, new Date(2011, 9 - 1, 1), xoolooExp.endDate, projectsMessages.parentalControlConsole, xoolooAddr, [skills.java, skills.swing])
 
   const traveldooAddr = new Address("130 Rue Victor Hugo", "92300", "Levallois-Perret", france)
-  const traveldoo = new Organization(new Link("Traveldoo", new URL("https://traveldoo.com"), contractsMessages.traveldoo.description), traveldooAddr)
+  const traveldoo = new Organization(Organization.linkFromMessages(contractsMessages.traveldoo), traveldooAddr)
   const traveldooExp = new Contract(traveldoo, ContractType.FullTimePermanent, contractsMessages.traveldoo.title, new Date(2013, 1 - 1, 1), new Date(2014, 12 - 1, 1))
-  const hotelApp = new Experience(traveldooExp, traveldooExp.startDate, new Date(2013, 12 - 1, 1), "Itinerary app", rueMauriceThorez, [skills.js, skills.angularJS])
+  const hotelApp = new Experience(traveldooExp, traveldooExp.startDate, new Date(2013, 12 - 1, 1), projectsMessages.itineraryApp, rueMauriceThorez, [skills.js, skills.angularJS, skills.rome2rio, skills.gwt])
   const itineraryApp = new Experience(traveldooExp, new Date(2013, 12 - 1, 2), traveldooExp.endDate, projectsMessages.hotelBookingApp, rueMauriceThorez, [skills.js, skills.angularJS, skills.phonegap])
 
   const famicityOffices = new Address("6 rue de l'Abbé Hazard", "92000", "Nanterre", france)

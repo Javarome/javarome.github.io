@@ -3,7 +3,7 @@ import {Skill} from "./Skill.mjs"
 
 class SkillList_en extends SkillList {
   js = new Skill("JavaScript", new URL("https://ecma-international.org/publications-and-standards/standards/ecma-262/"), "Programming language for browsers and NodeJS", [], ["language"])
-  ts = new Skill("TypeScript", new URL("https://www.typescriptlang.org"), `Microsoft's superset of JavaScript to add typing and OOP`, this.js, [this.js], ["language"])
+  ts = new Skill("TypeScript", new URL("https://www.typescriptlang.org"), `Microsoft's superset of JavaScript to add typing and OOP`, [this.js], ["language"])
   vanilla = new Skill("Vanilla", new URL("http://vanilla-js.com"), `JavaScript or TypeScript used without any other fancy frameworks`, [], [])
   angularJS = new Skill("AngularJS", new URL("https://angularjs.org"), `AngularJS is the legacy Google web framework. Old version of Angular.`, [this.ts], ["web", "framework"])
   angular = new Skill("Angular", new URL("https://angular.io"), "Google web framework. Modern version of AngularJS.", [this.ts], ["web", "framework"])
@@ -53,5 +53,7 @@ class SkillList_en extends SkillList {
   sass = new Skill("Sass", new URL("https://github.com"), `Sass is a tool to extend CSS capabilities`, [this.css])
   docker = new Skill("Docker", new URL("https://www.docker.com"), `Docker is a tool to run apps in containers`, [])
   ethers = new Skill("Ethers", new URL("https://ethers.org/"), `Ethers is a JavaScript library to access Ethereum blockchain`, [], ["blockchain"])
+  rome2rio = new Skill("Rome2Rio", new URL("https://www.rome2rio.com/fr"), `Rome2Rio fournit une API de calcul d'itinéraire`, [], [])
+  gwt = new Skill("GWT", new URL("https://www.gwtproject.org"), `GWT is a tool to compile Java into Javascript`, [this.java], [])
 }
 export const skillList_en = new SkillList_en()
