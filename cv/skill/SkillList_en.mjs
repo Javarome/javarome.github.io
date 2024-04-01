@@ -55,5 +55,6 @@ class SkillList_en extends SkillList {
   ethers = new Skill("Ethers", new URL("https://ethers.org/"), `Ethers is a JavaScript library to access Ethereum blockchain`, [], ["blockchain"])
   rome2rio = new Skill("Rome2Rio", new URL("https://www.rome2rio.com/fr"), `Rome2Rio fournit une API de calcul d'itinéraire`, [], [])
   gwt = new Skill("GWT", new URL("https://www.gwtproject.org"), `GWT is a tool to compile Java into Javascript`, [this.java], [])
+  walletConnect = new Skill("WalletConnect", new URL("https://walletconnect.com/"), `WalletConnect est une API de connexion de wallets blockchain sur le web`, [this.ethers], [])
 }
 export const skillList_en = new SkillList_en()

@@ -4,8 +4,8 @@ import {Organization} from "./org/Organization.mjs"
 import {People} from "./people/People.mjs"
 import {Address} from "./place/Address.mjs"
 import {Country} from "./place/Country.mjs"
-import {Experience} from "./history/item/experience/Experience.mjs"
-import {Contract, ContractType} from "./history/item/experience/contract/Contract.mjs"
+import {Experience} from "./history/experience/Experience.mjs"
+import {Contract, ContractType} from "./history/experience/contract/Contract.mjs"
 import {ResumeMessages} from "./ResumeMessages.mjs"
 
 const lang = navigator.language.startsWith("fr") ? "fr" : "en"
@@ -97,8 +97,8 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const arianee = new Organization(Organization.linkFromMessages(contractsMessages.arianee), laCaserne)
   const arianeeExp = new Contract(arianee, ContractType.FullTimePermanent, contractsMessages.arianee.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
   const kelpieProject = new Experience(arianeeExp, new Date(2022, 11 - 1, 14), new Date(2022, 12 - 1, 31), projectsMessages.kelpie, rueDeBezons, [skills.angular])
-  const arn = new Experience(arianeeExp, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, rueDeBezons, [skills.angular, skills.nx, skills.nodejs, skills.ethers])
-  const dapp = new Experience(arianeeExp, new Date(2023, 4 - 1, 1), arianeeExp.endDate, projectsMessages.dapp, rueDeBezons, [skills.angular, skills.nx, skills.nodejs, skills.gcp, skills.ethers])
+  const arn = new Experience(arianeeExp, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, rueDeBezons, [skills.angular, skills.nx, skills.nodejs, skills.ethers, skills.walletConnect])
+  const dapp = new Experience(arianeeExp, new Date(2023, 4 - 1, 1), arianeeExp.endDate, projectsMessages.dapp, rueDeBezons, [skills.angular, skills.nx, skills.nodejs, skills.gcp, skills.ethers, skills.walletConnect])
 
   const myResume = new ResumeBuilder()
     .of(jerome)

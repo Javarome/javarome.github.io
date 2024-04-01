@@ -1,4 +1,4 @@
-import {OrganizationMessages} from "../../../../org/OrganizationMessages.mjs"
+import {OrganizationMessages} from "../../../org/OrganizationMessages.mjs"
 
 export class ContractMessages extends OrganizationMessages {
   /**

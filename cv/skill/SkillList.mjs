@@ -284,4 +284,10 @@ export class SkillList {
    * @type {Skill}
    */
   gwt
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  walletConnect
 }

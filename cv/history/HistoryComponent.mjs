@@ -1,4 +1,4 @@
-import "./item/ExperienceComponent.mjs"
+import "./experience/ExperienceComponent.mjs"
 import "../search/SearchComponent.mjs"
 
 const template = document.createElement("template")

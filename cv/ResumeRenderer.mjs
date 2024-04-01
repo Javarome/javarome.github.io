@@ -2,7 +2,7 @@ import {HistoryComponent} from "./history/HistoryComponent.mjs"
 import {SkillComponent} from "./skill/SkillComponent.mjs"
 import {Skill} from "./skill/Skill.mjs"
 import {ResumeMessages} from "./ResumeMessages.mjs"
-import {ContractType} from "./history/item/experience/contract/Contract.mjs"
+import {ContractType} from "./history/experience/contract/Contract.mjs"
 
 export class ResumeRenderer {
   /**

@@ -1,6 +1,6 @@
 import {ResumeMessages} from "./ResumeMessages.mjs"
 import {skillList_en} from "./skill/SkillList_en.mjs"
-import {experience_en} from "./history/item/experience/Experience_en.mjs"
+import {experience_en} from "./history/experience/Experience_en.mjs"
 
 class ResumeMessages_en extends ResumeMessages {
   people = {
