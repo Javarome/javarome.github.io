@@ -29,6 +29,11 @@ export class ContractsMessages {
    * @type {ContractMessages}
    */
   famicity
+
+  /**
+   * @type {ContractMessages}
+   */
+  traveldoo
 }
 
 export class TrainingMessages {

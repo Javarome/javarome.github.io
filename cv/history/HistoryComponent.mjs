@@ -7,6 +7,7 @@ template.innerHTML = `<style>
   position: relative;
 }
 .history {
+  margin: 0 1em;
   list-style: disc;
   padding-left: 1em;
 }
@@ -19,15 +20,21 @@ template.innerHTML = `<style>
   border: none
 }
 summary {
-  background-color: var(--background-color);
+  background: linear-gradient(to bottom, black, rgba(0,0,0,0));
   top: 0;
   position: sticky;
   list-style: none;
+  &::after {
+    content: "";
+    display: block;
+    height: 1em;
+  }
 }
 h2 {
   margin-top: 1em;
   display: inline;
   user-select: none;
+  text-shadow: -2px -2px 0 var(--background-color), 0 -2px 0 var(--background-color), 2px -2px 0 var(--background-color), 2px 0 0 var(--background-color), 2px 2px 0 var(--background-color), 0 2px 0 var(--background-color), -2px 2px 0 var(--background-color), -2px 0 0 var(--background-color);
 }
 details h2::after {
   color: darkgrey;

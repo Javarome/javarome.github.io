@@ -99,11 +99,16 @@ export class ExperienceComponent extends HTMLElement {
   normalizeSkill(implied) {
     return implied.name ?
       implied
-      : {
+      : /** @type {Skill} */ {
         name: implied,
-        url: new URL("http://example.com"),
-        description: implied
+        url: new URL("https://example.com"),
+        description: implied,
+        implied: []
       }
+  }
+
+  getAllSkills(skill) {
+    return [this.normalizeSkill(skill)].concat(skill.implied.flatMap(skill => this.getAllSkills(skill)))
   }
 
   render() {
@@ -112,7 +117,7 @@ export class ExperienceComponent extends HTMLElement {
     /**
      * @type {Skill[]}
      */
-    const skillsWithImplied = new Set(experience.skills.flatMap(skill => [this.normalizeSkill(skill)].concat(skill.implied.map(this.normalizeSkill))))
+    const skillsWithImplied = new Set(experience.skills.flatMap(skill => this.getAllSkills(skill)))
     const skillsRoot = this.shadow.querySelector(".skills")
     const skillEls = Array.from(skillsWithImplied).map(SkillComponent.fromSkill)
     for (let i = 0; i < skillEls.length; i++) {

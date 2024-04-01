@@ -28,10 +28,19 @@ const famicity_fr = new class extends ContractMessages {
   title = "Développeur web sénior"
 }()
 
+const traveldoo_fr = new class extends ContractMessages {
+  name = "Traveldoo"
+  url = "https://traveldoo.fr"
+  description = `Traveldoo fournit aux entreprises des services de réservation (hotels, voyages) en ligne`
+  title = "Développeur web sénior"
+}()
+
+
 class ContractsMessages_fr extends ContractsMessages {
   arianee = arianee_fr
   beam = beam_fr
   zelros = zelros_fr
   famicity = famicity_fr
+  traveldoo = traveldoo_fr
 }
 export const contracts_fr = new ContractsMessages_fr()

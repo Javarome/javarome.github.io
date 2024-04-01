@@ -55,17 +55,31 @@ export class SkillList {
    */
 
   sql
+
   /**
    * @abstract
    * @type {Skill}
    */
-
   postgresql
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  mongodb
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  ml
+
   /**
    * @abstract
    * @type {Skill}
    */
   nlp
+
   /**
    * @abstract
    * @type {Skill}
@@ -246,4 +260,16 @@ export class SkillList {
    * @type {Skill}
    */
   sass
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  docker
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  ethers
 }

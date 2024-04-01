@@ -1,4 +1,8 @@
 const style = `
+:host {
+  display: inline-block;
+  margin: 0.1em 0.1em;
+}
 a {
   display: inline;
   font-size: 0.8em;

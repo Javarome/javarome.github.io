@@ -38,4 +38,9 @@ export class ProjectsMessages {
    * @type {string}
    */
   famicityApp
+
+  /**
+   * @type {string}
+   */
+  hotelBookingApp
 }
