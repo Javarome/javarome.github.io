@@ -47,8 +47,8 @@ export class ResumeRenderer {
     }
     const allSkills = resume.experiences.flatMap(exp => exp.skills)
     this.renderSkills(root.querySelector("#skills"), allSkills, search)
-    this.renderExperiences("experience", resume.experiences.filter(exp => exp.contract.type !== ContractType.Training), search)
-    this.renderExperiences("training", resume.experiences.filter(exp => exp.contract.type === ContractType.Training), search)
+    this.renderExperiences("experience", resume.experiences.filter(exp => exp.contract.type !== ContractType.Training), search, true)
+    this.renderExperiences("training", resume.experiences.filter(exp => exp.contract.type === ContractType.Training), search, false)
   }
 
   /**
@@ -121,8 +121,9 @@ export class ResumeRenderer {
    * @param {string} title
    * @param {Experience[]} exps
    * @param search
+   * @param {boolean} open
    */
-  renderExperiences(title, exps, search) {
+  renderExperiences(title, exps, search, open) {
     const section = this.root.querySelector("#" + title)
     const experiences = exps.filter(exp => exp.skills.find(skill => skill.name.toLowerCase().indexOf(search) >= 0) ? exp : undefined)
     const sortedExps = experiences.sort((a, b) => a.startDate.getTime() < b.startDate.getTime() ? 1 : a.startDate.getTime() > b.startDate.getTime() ? -1 : 0)
@@ -132,6 +133,7 @@ export class ResumeRenderer {
        * @type {HistoryComponent}
        */
       const historyEl = document.createElement("cv-history")
+      historyEl.setAttribute("open", open.toString())
       historyEl.heading = this.messages[title].title
       historyEl.setExperiences(sortedExps)
       section.append(historyEl)

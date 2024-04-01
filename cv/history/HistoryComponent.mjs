@@ -39,6 +39,7 @@ h2 {
 details h2::after {
   color: darkgrey;
   content: " (...)";
+  cursor: pointer;
 }
 details[open] h2::after {
   content: "";
@@ -67,7 +68,7 @@ a {
   content: " → "
 }
 </style>
-<details open>
+<details>
   <summary>
     <h2 class="title"></h2>
   </summary>
@@ -96,6 +97,15 @@ export class HistoryComponent extends HTMLElement {
     super()
     this.shadow = this.attachShadow({mode: "closed"})
     this.shadow.appendChild(template.content.cloneNode(true))
+  }
+
+  connectedCallback() {
+    const details = this.shadow.querySelector("details")
+    if (this.getAttribute("open") === "true") {
+      details.setAttribute("open", null)
+    } else {
+      details.removeAttribute("open")
+    }
   }
 
   /**

@@ -5,7 +5,6 @@ import {People} from "./people/People.mjs"
 import {Address} from "./place/Address.mjs"
 import {Country} from "./place/Country.mjs"
 import {Experience} from "./history/item/experience/Experience.mjs"
-import {Link} from "./Link.mjs"
 import {Contract, ContractType} from "./history/item/experience/contract/Contract.mjs"
 import {ResumeMessages} from "./ResumeMessages.mjs"
 
@@ -23,10 +22,14 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
 
   const jerome = new People("Beau", "Jérôme", rueDeBezons,
     [
+      {name: "linkedin", url: new URL("https://www.linkedin.com/in/javarome")},
+      {name: "stackoverflow", url: new URL("https://stackoverflow.com/users/650104")},
+      {name: "✍ blog", url: new URL("https://medium.com/@javarome")},
+      {name: "github", url: new URL("https://github.com/javarome")},
+      {name: "x", url: new URL("https://x.com/javarome")},
       {name: "📞 tel", url: new URL("tel:+33679796518")},
       {name: "✉ mail", url: new URL("mailto:javarome@gmail.com")},
-      {name: "🌐 website", url: new URL("https://javarome.com")},
-      {name: "✍ blog", url: new URL("https://medium.com/@javarome")}
+      {name: "🌐 website", url: new URL("https://javarome.com")}
     ]
   )
 
@@ -34,6 +37,11 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const experienceMessages = messages.experience
   const contractsMessages = experienceMessages.contracts
   const projectsMessages = experienceMessages.projects
+
+  const iutAddress = new Address("10-12 Av. de l'Europe", "78140", "Vélizy-Villacoublay", france)
+  const iut = new Organization(Organization.linkFromMessages(contractsMessages.iut), iutAddress)
+  const iutExp = new Contract(iut, ContractType.Training, contractsMessages.iut.title, new Date(1992, 9 - 1, 1), new Date(1994, 6 - 1, 1))
+  const iutCCourse = new Experience(iutExp, iutExp.startDate, iutExp.endDate, "C course", rueDeBezons, [skills.c])
 
   const istyAddress = new Address("10-12 Av. de l'Europe", "78140", "Vélizy-Villacoublay", france)
   const isty = new Organization(Organization.linkFromMessages(contractsMessages.isty), istyAddress)
@@ -96,6 +104,7 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
     .of(jerome)
     .withTitle(messages.people.title)
     .withStatement(messages.people.statement)
+    .withExperience(iutCCourse)
     .withExperience(cCourse)
     .withExperience(cppCourse)
     .withExperience(ejbCourse)

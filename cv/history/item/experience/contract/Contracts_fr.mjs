@@ -63,6 +63,13 @@ const isty_fr = new class extends ContractMessages {
   title = "Ingénieur en informatique"
 }()
 
+const iut_fr = new class extends ContractMessages {
+  name = "IUT de Vélizy"
+  url = "https://www.iut-velizy-rambouillet.uvsq.fr/"
+  description = `L'IUT de Vélizy est un Institut Universitaire de Technologie public permettant l'obtentention d'un DUT informatique`
+  title = "DUT Informatique"
+}()
+
 class ContractsMessages_fr extends ContractsMessages {
   arianee = arianee_fr
   beam = beam_fr
@@ -73,5 +80,6 @@ class ContractsMessages_fr extends ContractsMessages {
   xcalia = xcalia_fr
   valtech = valtech_fr
   isty = isty_fr
+  iut = iut_fr
 }
 export const contracts_fr = new ContractsMessages_fr()

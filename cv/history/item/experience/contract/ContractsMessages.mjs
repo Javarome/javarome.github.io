@@ -54,6 +54,11 @@ export class ContractsMessages {
    * @type {ContractMessages}
    */
   isty
+
+  /**
+   * @type {ContractMessages}
+   */
+  iut
 }
 
 export class TrainingMessages {

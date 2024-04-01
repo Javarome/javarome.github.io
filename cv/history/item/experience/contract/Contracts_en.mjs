@@ -61,7 +61,14 @@ const isty_en = new class extends ContractMessages {
   name = "ISTY"
   url = "https://www.isty.uvsq.fr"
   description = `L'Institut des Sciences et Techniques des Yvelines est une école d'ingénieurs en informatique publique de l'Université de Versailles`
-  title = "Software engineer"
+  title = "Eegineer's Degree, Computer science"
+}()
+
+const iut_en = new class extends ContractMessages {
+  name = "Vélizy IUT"
+  url = "https://www.iut-velizy-rambouillet.uvsq.fr/"
+  description = `L'IUT de Vélizy est un Institut Universitaire de Technologie public permettant l'obtentention d'un DUT informatique`
+  title = "Associate’s Degree, Computer science"
 }()
 
 class ContractsMessages_en extends ContractsMessages {
@@ -74,6 +81,7 @@ class ContractsMessages_en extends ContractsMessages {
   xcalia = xcalia_en
   valtech = valtech_en
   isty = isty_en
+  iut = iut_en
 }
 
 export const contracts_en = new ContractsMessages_en()
