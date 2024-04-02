@@ -49,6 +49,17 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const cCourse = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "C course", rueDeBezons, [skills.c])
   const cppCourse = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "C++ course", rueDeBezons, [skills.cpp])
 
+  const ibmAddr = new Address("2 Av. Gambetta", "92400", "Courbevoie", france)
+  const ibm = new Organization(Organization.linkFromMessages(contractsMessages.ibm), ibmAddr)
+  const ibmExp = new Contract(ibm, ContractType.FullTimePermanent, contractsMessages.ibm.title, new Date(1997, 1 - 1, 1), new Date(1997, 8 - 1, 1))
+  const billetel = new Experience(ibmExp, ibmExp.startDate, ibmExp.endDate, projectsMessages.billetel, ibmAddr, [skills.jbuilder])
+
+  const sqlTechAddr1 = new Address("?", "92?", "?", france)
+  const sqlTechAddr2 = new Address("94bis avenue de Suffren", "75015", "Paris", france)
+  const sqlTech = new Organization(Organization.linkFromMessages(contractsMessages.sqlTech), sqlTechAddr2)
+  const sqlTechExp = new Contract(sqlTech, ContractType.FullTimePermanent, contractsMessages.sqlTech.title, new Date(1997, 8 - 1, 1), new Date(1998, 11 - 1, 1))
+  const chronopostPacketTracking = new Experience(sqlTechExp, sqlTechExp.startDate, sqlTechExp.endDate, projectsMessages.chronopostPacketTracking, sqlTechAddr2, [skills.jbuilder])
+
   const valtechAddr = new Address("6 place de la Pyramide", "92908", "Paris-La Défense", france)
   const valtech = new Organization(Organization.linkFromMessages(contractsMessages.valtech), valtechAddr)
   const valtechExp = new Contract(valtech, ContractType.FullTimePermanent, contractsMessages.valtech.title, new Date(1998, 12 - 1, 1), new Date(2002, 2 - 1, 1))
@@ -107,6 +118,8 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
     .withExperience(iutCCourse)
     .withExperience(cCourse)
     .withExperience(cppCourse)
+    .withExperience(billetel)
+    .withExperience(chronopostPacketTracking)
     .withExperience(ejbCourse)
     .withExperience(j2eeCourse)
     .withExperience(lido)

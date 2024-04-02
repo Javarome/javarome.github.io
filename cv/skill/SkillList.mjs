@@ -290,4 +290,22 @@ export class SkillList {
    * @type {Skill}
    */
   walletConnect
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  jbuilder
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  delphi
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  pascal
 }

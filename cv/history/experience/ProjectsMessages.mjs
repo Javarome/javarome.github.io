@@ -72,6 +72,16 @@ export class ProjectsMessages {
   /**
    * @type {string}
    */
+  chronopostPacketTracking
+
+  /**
+   * @type {string}
+   */
+  billetel
+
+  /**
+   * @type {string}
+   */
   ejbCourse
 
   /**

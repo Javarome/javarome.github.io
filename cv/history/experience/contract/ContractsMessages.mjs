@@ -53,6 +53,16 @@ export class ContractsMessages {
   /**
    * @type {ContractMessages}
    */
+  sqlTech
+
+  /**
+   * @type {ContractMessages}
+   */
+  ibm
+
+  /**
+   * @type {ContractMessages}
+   */
   isty
 
   /**

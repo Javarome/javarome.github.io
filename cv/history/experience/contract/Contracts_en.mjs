@@ -1,5 +1,4 @@
 import {ContractMessages, ContractsMessages} from "./ContractsMessages.mjs"
-import {Link} from "../../../../Link.mjs"
 
 const arianee_en = new class extends ContractMessages {
   name = "Arianee"
@@ -57,6 +56,20 @@ const valtech_en = new class extends ContractMessages {
   title = "Software Architect"
 }()
 
+const sqlTech_en = new class extends ContractMessages {
+  name = "SQL Tech"
+  url = "https://sql.com"
+  description = `SQL Tech provides IT project & consulting services`
+  title = "Java Skill Center expert"
+}()
+
+const ibm_en = new class extends ContractMessages {
+  name = "IBM"
+  url = "https://ibm.com"
+  description = `IBM EMEA Software Group provides software solutions to companies`
+  title = "Software developer (Intern)"
+}()
+
 const isty_en = new class extends ContractMessages {
   name = "ISTY"
   url = "https://www.isty.uvsq.fr"
@@ -80,6 +93,8 @@ class ContractsMessages_en extends ContractsMessages {
   xooloo = xooloo_en
   xcalia = xcalia_en
   valtech = valtech_en
+  sqlTech = sqlTech_en
+  ibm = ibm_en
   isty = isty_en
   iut = iut_en
 }

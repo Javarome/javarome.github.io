@@ -56,5 +56,8 @@ class SkillList_en extends SkillList {
   rome2rio = new Skill("Rome2Rio", new URL("https://www.rome2rio.com/fr"), `Rome2Rio fournit une API de calcul d'itinéraire`, [], [])
   gwt = new Skill("GWT", new URL("https://www.gwtproject.org"), `GWT is a tool to compile Java into Javascript`, [this.java], [])
   walletConnect = new Skill("WalletConnect", new URL("https://walletconnect.com/"), `WalletConnect est une API de connexion de wallets blockchain sur le web`, [this.ethers], [])
+  jbuilder = new Skill("JBuilder", new URL("https://en.wikipedia.org/wiki/JBuilder"), `JBuilder was the Java IDE by Borland`, [this.java], [])
+  pascal = new Skill("Pascal", new URL("https://en.wikipedia.org/wiki/Pascal_(programming_language)"), `Pascal is a procedural programming language`, [], ["language"])
+  delphi = new Skill("Delphi", new URL("https://en.wikipedia.org/wiki/Delphi_(software)"), `Delphi is a Borland IDE to build Windows apps`, [this.pascal], [])
 }
 export const skillList_en = new SkillList_en()

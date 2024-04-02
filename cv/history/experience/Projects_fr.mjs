@@ -15,6 +15,8 @@ class ProjectMessages_fr extends ProjectsMessages {
   parentalControlConsole = "Console de contrôle parental"
   xic = "Xcalia Intermediation Core"
   lido = "LiDO"
+  chronopostPacketTracking = `Suivi de colis de Chronopost`
+  billetel = `Application web de réservation de spéctacles de la FNAC`
   ejbCourse = `Ecriture et session du cours <abbr title="Enterprise JavaBeans">EJB</abbr>`
   j2eeCourse = `Ecriture et session du cours <abbr title="Java 2 Enterprise Edition">J2EE</abbr>`
 }

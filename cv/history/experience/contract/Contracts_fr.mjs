@@ -56,6 +56,20 @@ const valtech_fr = new class extends ContractMessages {
   title = "Architecte logiciel"
 }()
 
+const sqlTech_fr = new class extends ContractMessages {
+  name = "SQL Tech"
+  url = "https://sql.com"
+  description = `SQL Tech fournit des services de conseil et réalisation de projets IT`
+  title = "Responsable du centre de compétences Java"
+}()
+
+const ibm_fr = new class extends ContractMessages {
+  name = "IBM"
+  url = "https://ibm.com"
+  description = `Le IBM EMEA Software Group fournit des solutions logicielles à des sociétés`
+  title = "Développeur (stagiaire)"
+}()
+
 const isty_fr = new class extends ContractMessages {
   name = "ISTY"
   url = "https://www.isty.uvsq.fr"
@@ -79,6 +93,8 @@ class ContractsMessages_fr extends ContractsMessages {
   xooloo = xooloo_fr
   xcalia = xcalia_fr
   valtech = valtech_fr
+  sqlTech = sqlTech_fr
+  ibm = ibm_fr
   isty = isty_fr
   iut = iut_fr
 }
