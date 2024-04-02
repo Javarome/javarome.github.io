@@ -10,6 +10,16 @@ template.innerHTML = `<style>
   margin: 0 1em;
   list-style: disc;
   padding-left: 1em;
+  
+  > li {
+    transition: background-color 0.2s ease;
+    border-radius: 0.5em;
+    padding: 0.25em 0.5em;
+  }
+  li:hover {
+    --background-color-darker: color-mix(in srgb,var(--background-color),#000 5%);
+    background-color: var(--background-color-darker);
+  }
 }
 .projects {
   list-style: circle;
@@ -20,7 +30,7 @@ template.innerHTML = `<style>
   border: none
 }
 summary {
-  background: linear-gradient(to bottom, black, rgba(0,0,0,0));
+  background: linear-gradient(to bottom, var(--background-color) 75%, rgba(0,0,0,0));
   top: 0;
   position: sticky;
   list-style: none;
@@ -86,7 +96,7 @@ export class HistoryComponent extends HTMLElement {
   /**
    * @member {Experience[]}
    */
-  history
+  history = []
 
   /**
    * @member {string}
@@ -106,6 +116,14 @@ export class HistoryComponent extends HTMLElement {
     } else {
       details.removeAttribute("open")
     }
+  }
+
+  static get observedAttributes() {
+    return ["open", "group"];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    this.render();
   }
 
   /**
@@ -142,8 +160,18 @@ export class HistoryComponent extends HTMLElement {
 
   renderHistory() {
     const historyEl = this.shadow.querySelector(".history")
-    const newHistory = document.createElement("ol")
-    newHistory.className = "history"
+    const newHistoryEl = document.createElement("ol")
+    newHistoryEl.className = "history"
+    if (this.getAttribute("group") === "true") {
+      this.renderGroups(newHistoryEl)
+    } else {
+      const projectsItems = this.renderProjects(this.history)
+      newHistoryEl.append(...projectsItems)
+    }
+    historyEl.replaceWith(newHistoryEl)
+  }
+
+  renderGroups(newHistoryEl) {
     const orgGroups = this.history.reduce((groups, exp) => {
       const contract = exp.contract
       let projects = groups.get(contract)
@@ -155,51 +183,65 @@ export class HistoryComponent extends HTMLElement {
       return groups
     }, new Map())
     for (const orgData of orgGroups.entries()) {
-      const contract = orgData[0]
-      const groupItem = document.createElement("li")
-      const websiteLink = document.createElement("a")
-      const org = contract.org
-      websiteLink.href = org.link.url
-      const orgEl = document.createElement("span")
-      orgEl.className = "org"
-      orgEl.textContent = org.link.name
-      orgEl.title = org.link.description
-      websiteLink.append(orgEl)
-      const logo = document.createElement("img")
-      logo.src = new URL("favicon.ico", org.link.url)
-      logo.onerror = () => logo.remove()
-      logo.width = logo.height = "16"
-      websiteLink.append(logo)
-      groupItem.append(websiteLink)
-
-      const titleEl = document.createElement("span")
-      titleEl.className = "title"
-      titleEl.textContent = contract.title
-      groupItem.append(titleEl)
-
-      groupItem.append(this.setDate(contract.startDate, "start"))
-      groupItem.append(this.setDate(contract.endDate, "end"))
-
-      const projects = orgData[1]
-      const projectsList = this.renderProjects(projects)
-      groupItem.append(projectsList)
-      newHistory.append(groupItem)
+      const groupItem = this.renderGroup(orgData[0], orgData[1])
+      newHistoryEl.append(groupItem)
     }
-    historyEl.replaceWith(newHistory)
   }
 
-  renderProjects(projects) {
+  /**
+   *
+   * @param {Contract} contract
+   * @param {Experience[]} projects
+   * @return {HTMLLIElement}
+   */
+  renderGroup(contract, projects) {
+    const groupItem = document.createElement("li")
+    const websiteLink = document.createElement("a")
+    const org = contract.org
+    websiteLink.href = org.link.url
+    const orgEl = document.createElement("span")
+    orgEl.className = "org"
+    orgEl.textContent = org.link.name
+    orgEl.title = org.link.description
+    websiteLink.append(orgEl)
+    const logo = document.createElement("img")
+    logo.src = org.icon || new URL("favicon.ico", org.link.url)
+    logo.onerror = () => logo.remove()
+    logo.width = logo.height = "16"
+    websiteLink.append(logo)
+    groupItem.append(websiteLink)
+
+    const titleEl = document.createElement("span")
+    titleEl.className = "title"
+    titleEl.textContent = contract.title
+    groupItem.append(titleEl)
+
+    groupItem.append(this.setDate(contract.startDate, "start"))
+    groupItem.append(this.setDate(contract.endDate, "end"))
+
     const projectsList = document.createElement("ol")
     projectsList.className = "projects"
+    const projectItems = this.renderProjects(projects)
+    for (const projectItem of projectItems) {
+      projectsList.append(projectItem)
+    }
+    groupItem.append(projectsList)
+    return groupItem
+  }
+
+  /**
+   *
+   * @param {Experience[]} projects
+   * @return {HTMLLIElement[]}
+   */
+  renderProjects(projects) {
+    const projectsList = []
     for (const project of projects) {
-      /**
-       * @type {ExperienceComponent}
-       */
       const itemExp = document.createElement("li")
       const exp = document.createElement("cv-history-item")
       exp.setExperience(project)
       itemExp.append(exp)
-      projectsList.append(itemExp)
+      projectsList.push(itemExp)
     }
     return projectsList
   }

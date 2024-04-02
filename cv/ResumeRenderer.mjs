@@ -4,6 +4,37 @@ import {Skill} from "./skill/Skill.mjs"
 import {ResumeMessages} from "./ResumeMessages.mjs"
 import {ContractType} from "./history/experience/contract/Contract.mjs"
 
+export class ResumeSectionOptions {
+  /**
+   * @member {boolean}
+   */
+  open
+}
+
+export class ExperienceSectionOptions extends ResumeSectionOptions {
+  /**
+   * @member {boolean}
+   */
+  group
+}
+
+export class ResumeRenderOptions {
+  /**
+   * @type {ResumeSectionOptions}
+   */
+  skills
+
+  /**
+   * @type {ResumeSectionOptions}
+   */
+  experience
+
+  /**
+   * @type {ResumeSectionOptions}
+   */
+  training
+}
+
 export class ResumeRenderer {
   /**
    * @member {HTMLElement}
@@ -29,8 +60,9 @@ export class ResumeRenderer {
    *
    * @param {Resume} resume
    * @param {string} searchStr
+   * @param {ResumeRenderOptions} options
    */
-  render(resume, searchStr) {
+  render(resume, searchStr, options) {
     const search = searchStr.trim().toLowerCase()
     this.renderPeople(resume.people)
     const title = resume.title
@@ -47,8 +79,13 @@ export class ResumeRenderer {
     }
     const allSkills = resume.experiences.flatMap(exp => exp.skills)
     this.renderSkills(root.querySelector("#skills"), allSkills, search)
-    this.renderExperiences("experience", resume.experiences.filter(exp => exp.contract.type !== ContractType.Training), search, true)
-    this.renderExperiences("training", resume.experiences.filter(exp => exp.contract.type === ContractType.Training), search, false)
+    /**
+     * @type {ExperienceSectionOptions}
+     */
+    const experienceOptions = options.experience
+    const experienceSection = this.renderExperiences("experience", resume.experiences.filter(exp => exp.contract.type !== ContractType.Training), search, experienceOptions)
+    experienceSection.setAttribute("group", Boolean(experienceOptions.group).toString())
+    const trainingSection = this.renderExperiences("training", resume.experiences.filter(exp => exp.contract.type === ContractType.Training), search, options.training)
   }
 
   /**
@@ -121,9 +158,10 @@ export class ResumeRenderer {
    * @param {string} title
    * @param {Experience[]} exps
    * @param search
-   * @param {boolean} open
+   * @param {ResumeSectionOptions} options
+   * @return {HistoryComponent | undefined}
    */
-  renderExperiences(title, exps, search, open) {
+  renderExperiences(title, exps, search, options) {
     const section = this.root.querySelector("#" + title)
     const experiences = exps.filter(exp => exp.skills.find(skill => skill.name.toLowerCase().indexOf(search) >= 0) ? exp : undefined)
     const sortedExps = experiences.sort((a, b) => a.startDate.getTime() < b.startDate.getTime() ? 1 : a.startDate.getTime() > b.startDate.getTime() ? -1 : 0)
@@ -133,10 +171,11 @@ export class ResumeRenderer {
        * @type {HistoryComponent}
        */
       const historyEl = document.createElement("cv-history")
-      historyEl.setAttribute("open", open.toString())
+      historyEl.setAttribute("open", Boolean(options.open).toString())
       historyEl.heading = this.messages[title].title
       historyEl.setExperiences(sortedExps)
       section.append(historyEl)
+      return historyEl
     }
   }
 }

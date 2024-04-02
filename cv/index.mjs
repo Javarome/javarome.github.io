@@ -87,7 +87,7 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const itineraryApp = new Experience(traveldooExp, new Date(2013, 12 - 1, 2), traveldooExp.endDate, projectsMessages.hotelBookingApp, rueMauriceThorez, [skills.js, skills.angularJS, skills.phonegap])
 
   const famicityOffices = new Address("6 rue de l'Abbé Hazard", "92000", "Nanterre", france)
-  const famicity = new Organization(Organization.linkFromMessages(contractsMessages.famicity), famicityOffices)
+  const famicity = new Organization(Organization.linkFromMessages(contractsMessages.famicity), famicityOffices, new URL("https://www.facebook.com/photo/?fbid=610228903950119&set=a.610228870616789"))
   const famicityExp = new Contract(famicity, ContractType.FullTimePermanent, contractsMessages.famicity.title, new Date(2015, 1 - 1, 1), new Date(2018, 11 - 1, 1))
   const famicityApp = new Experience(famicityExp, famicityExp.startDate, famicityExp.endDate, projectsMessages.famicityApp, rueMauriceThorez, [skills.ts, skills.angular, skills.angularJS, skills.sass, skills.github])
 
@@ -99,16 +99,16 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const mlPipeline = new Experience(zelrosExp, kmApp.startDate, zelrosExp.endDate, projectsMessages.mlPipeline, rueDeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.python, skills.redis, skills.azure, skills.docker])
 
   const beamOffices = new Address("74 avenue Kleber", "75016", "Paris", france)
-  const beam = new Organization(Organization.linkFromMessages(contractsMessages.beam), beamOffices)
+  const beam = new Organization(Organization.linkFromMessages(contractsMessages.beam), beamOffices, new URL("https://www.beamapp.co/assets/common/beam-icon.png"))
   const beamExp = new Contract(beam, ContractType.FullTimePermanent, contractsMessages.beam.title, new Date(2021, 3 - 1, 1), new Date(2022, 9 - 1, 1))
   const beamWebApp = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebApp, rueDeBezons, [skills.ts, skills.graphql, skills.rest, skills.webCrypto, skills.jest])
-  const beamWebServer = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebServer, rueDeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.rest, skills.gcp, skills.gitlab, skills.docker, skills.gitlab])
+  const beamWebServer = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebServer, rueDeBezons, [skills.ts, skills.fastify, skills.rest, skills.gcp, skills.gitlab, skills.docker, skills.gitlab])
 
   const laCaserne = new Address("12 rue Philippe de Girard", "75010", "Paris", france)
-  const arianee = new Organization(Organization.linkFromMessages(contractsMessages.arianee), laCaserne)
+  const arianee = new Organization(Organization.linkFromMessages(contractsMessages.arianee), laCaserne, new URL("https://assets-global.website-files.com/63d2463b430d2159464c7403/63ed17fd8944e2d5b7fee10c_Webclip%20Arianee.com.png"))
   const arianeeExp = new Contract(arianee, ContractType.FullTimePermanent, contractsMessages.arianee.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
-  const kelpieProject = new Experience(arianeeExp, new Date(2022, 11 - 1, 14), new Date(2022, 12 - 1, 31), projectsMessages.kelpie, rueDeBezons, [skills.angular])
-  const arn = new Experience(arianeeExp, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, rueDeBezons, [skills.angular, skills.nx, skills.nodejs, skills.ethers, skills.walletConnect])
+  const kelpieProject = new Experience(arianeeExp, new Date(2022, 11 - 1, 14), new Date(2022, 12 - 1, 31), projectsMessages.kelpie, rueDeBezons, [skills.angular, skills.mongodb])
+  const arn = new Experience(arianeeExp, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, rueDeBezons, [skills.angular, skills.nx, skills.fastify, skills.ethers, skills.walletConnect, skills.mongodb])
   const dapp = new Experience(arianeeExp, new Date(2023, 4 - 1, 1), arianeeExp.endDate, projectsMessages.dapp, rueDeBezons, [skills.angular, skills.nx, skills.nodejs, skills.gcp, skills.ethers, skills.walletConnect])
 
   const myResume = new ResumeBuilder()
@@ -138,8 +138,20 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
     .withExperience(dapp)
     .build()
   const renderer = new ResumeRenderer(document, messages)
-  renderer.render(myResume, "")
+  const renderOptions = {
+    skills: {
+      open: true
+    },
+    experience: {
+      open: true,
+      group: false
+    },
+    training: {
+      open: false
+    }
+  }
+  renderer.render(myResume, "", renderOptions)
   window.search = (event) => {
-    renderer.render(myResume, event.target.value)
+    renderer.render(myResume, event.target.value, renderOptions)
   }
 })

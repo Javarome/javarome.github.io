@@ -4,10 +4,12 @@ export class Organization {
   /**
    * @member {Link} link
    * @member {Place} place
+   * @member {URL} [icon]
    */
-  constructor(link, place) {
+  constructor(link, place, icon) {
     this.link = link
     this.place = place
+    this.icon = icon
   }
 
   /**

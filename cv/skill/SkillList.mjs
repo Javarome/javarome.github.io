@@ -165,6 +165,7 @@ export class SkillList {
    * @type {Skill}
    */
   fastify
+  
   /**
    * @abstract
    * @type {Skill}
