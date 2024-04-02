@@ -1,0 +1,7 @@
+#experience {
+  overflow: scroll;
+
+  cv-history::part(group org) {
+    order: 2
+  }
+}

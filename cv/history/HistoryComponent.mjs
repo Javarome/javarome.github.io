@@ -54,6 +54,10 @@ details h2::after {
 details[open] h2::after {
   content: "";
 }
+h3 {
+  display: flex;
+  flex-direction: row;
+}
 time {
   font-size: 0.9em;
   color: gray;
@@ -68,7 +72,7 @@ a {
 }
 .org {
   font-weight: bold;
-  margin: 0 0.25em
+  margin: 0 0.25em;
 }
 .title {
   font-weight: bold;
@@ -119,11 +123,11 @@ export class HistoryComponent extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ["open", "group"];
+    return ["open", "group"]
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    this.render();
+    this.render()
   }
 
   /**
@@ -196,28 +200,21 @@ export class HistoryComponent extends HTMLElement {
    */
   renderGroup(contract, projects) {
     const groupItem = document.createElement("li")
-    const websiteLink = document.createElement("a")
-    const org = contract.org
-    websiteLink.href = org.link.url
-    const orgEl = document.createElement("span")
-    orgEl.className = "org"
-    orgEl.textContent = org.link.name
-    orgEl.title = org.link.description
-    websiteLink.append(orgEl)
-    const logo = document.createElement("img")
-    logo.src = org.icon || new URL("favicon.ico", org.link.url)
-    logo.onerror = () => logo.remove()
-    logo.width = logo.height = "16"
-    websiteLink.append(logo)
-    groupItem.append(websiteLink)
 
-    const titleEl = document.createElement("span")
-    titleEl.className = "title"
-    titleEl.textContent = contract.title
-    groupItem.append(titleEl)
+    const heading = document.createElement("h3")
+    {
+      const websiteLink = this.renderOrgLink(contract)
+      heading.append(websiteLink)
 
-    groupItem.append(this.setDate(contract.startDate, "start"))
-    groupItem.append(this.setDate(contract.endDate, "end"))
+      const titleEl = document.createElement("span")
+      titleEl.className = "title"
+      titleEl.textContent = contract.title
+      heading.append(titleEl)
+
+      heading.append(this.setDate(contract.startDate, "start"))
+      heading.append(this.setDate(contract.endDate, "end"))
+    }
+    groupItem.append(heading)
 
     const projectsList = document.createElement("ol")
     projectsList.className = "projects"
@@ -226,7 +223,37 @@ export class HistoryComponent extends HTMLElement {
       projectsList.append(projectItem)
     }
     groupItem.append(projectsList)
+
     return groupItem
+  }
+
+  renderOrgLink(contract) {
+    const websiteLink = document.createElement("a")
+    websiteLink.part.add("group", "org")
+    websiteLink.className = "org"
+    const orgEl = this.renderOrg(contract)
+    const org = contract.org
+    websiteLink.href = org.link.url
+    websiteLink.append(orgEl)
+    const logo = this.renderLogo(org)
+    websiteLink.append(logo)
+    return websiteLink
+  }
+
+  renderLogo(org) {
+    const logo = document.createElement("img")
+    logo.src = org.icon || new URL("favicon.ico", org.link.url)
+    logo.onerror = () => logo.remove()
+    logo.width = logo.height = "16"
+    return logo
+  }
+
+  renderOrg(contract) {
+    const org = contract.org
+    const orgEl = document.createElement("span")
+    orgEl.textContent = org.link.name
+    orgEl.title = org.link.description
+    return orgEl
   }
 
   /**

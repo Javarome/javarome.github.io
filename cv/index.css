@@ -1,3 +1,7 @@
+@import "experience/experience.css";
+@import "people/people.css";
+@import "skill/skill.css";
+
 :root {
   --background-color: white;
   --color: black;
@@ -16,10 +20,6 @@ body {
   max-width: 1000px;
   margin: auto;
   height: 100svh;
-}
-
-#experience {
-  overflow: scroll;
 }
 
 details cv-search {

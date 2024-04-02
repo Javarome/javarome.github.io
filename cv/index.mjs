@@ -144,7 +144,7 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
     },
     experience: {
       open: true,
-      group: false
+      group: true
     },
     training: {
       open: false
