@@ -54,10 +54,6 @@ details h2::after {
 details[open] h2::after {
   content: "";
 }
-h3 {
-  display: flex;
-  flex-direction: row;
-}
 time {
   font-size: 0.9em;
   color: gray;
@@ -70,22 +66,11 @@ a {
     display: none !important;
   }
 }
-.org {
-  font-weight: bold;
-  margin: 0 0.25em;
-}
-.title {
-  font-weight: bold;
-  margin: 0 0.5em 0 0.25em;
-}
-.start::after {
-  content: " → "
-}
+.start::after { content: " →" }
+.end::before { content: "→ " }
 </style>
 <details>
-  <summary>
-    <h2 class="title"></h2>
-  </summary>
+  <summary><h2 class="title"></h2></summary>
   <ol class="history"></ol>
 </details>
 `
@@ -148,7 +133,7 @@ export class HistoryComponent extends HTMLElement {
   renderDate(date, clazz) {
     const dateEl = document.createElement("time")
     dateEl.className = clazz
-    dateEl.part.add("group", "date", clazz)
+    dateEl.part.add("date", clazz)
     dateEl.dateTime = date.toISOString()
     dateEl.textContent = this.date(date)
     return dateEl
@@ -203,6 +188,7 @@ export class HistoryComponent extends HTMLElement {
     const groupItem = document.createElement("li")
 
     const heading = document.createElement("h3")
+    heading.part.add("group")
     {
       heading.append(this.renderOrgLink(contract))
       heading.append(this.renderTitle(contract))
@@ -225,15 +211,15 @@ export class HistoryComponent extends HTMLElement {
   renderTitle(contract) {
     const titleEl = document.createElement("span")
     titleEl.className = "title"
-    titleEl.part.add("group", titleEl.className)
+    titleEl.part.add(titleEl.className)
     titleEl.textContent = contract.title
     return titleEl
   }
 
   renderOrgLink(contract) {
     const websiteLink = document.createElement("a")
-    websiteLink.part.add("group", "org")
     websiteLink.className = "org"
+    websiteLink.part.add(websiteLink.className)
     const orgEl = this.renderOrg(contract)
     const org = contract.org
     websiteLink.href = org.link.url
@@ -245,15 +231,18 @@ export class HistoryComponent extends HTMLElement {
 
   renderLogo(org) {
     const logo = document.createElement("img")
+    logo.className = "org-logo"
+    logo.part.add(logo.className)
     logo.src = org.icon || new URL("favicon.ico", org.link.url)
     logo.onerror = () => logo.remove()
-    logo.width = logo.height = "16"
     return logo
   }
 
   renderOrg(contract) {
     const org = contract.org
     const orgEl = document.createElement("span")
+    orgEl.className = "org-name"
+    orgEl.part.add(orgEl.className)
     orgEl.textContent = org.link.name
     orgEl.title = org.link.description
     return orgEl
