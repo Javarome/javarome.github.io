@@ -145,9 +145,10 @@ export class HistoryComponent extends HTMLElement {
     this.renderHistory()
   }
 
-  setDate(date, clazz) {
+  renderDate(date, clazz) {
     const dateEl = document.createElement("time")
     dateEl.className = clazz
+    dateEl.part.add("group", "date", clazz)
     dateEl.dateTime = date.toISOString()
     dateEl.textContent = this.date(date)
     return dateEl
@@ -203,16 +204,10 @@ export class HistoryComponent extends HTMLElement {
 
     const heading = document.createElement("h3")
     {
-      const websiteLink = this.renderOrgLink(contract)
-      heading.append(websiteLink)
-
-      const titleEl = document.createElement("span")
-      titleEl.className = "title"
-      titleEl.textContent = contract.title
-      heading.append(titleEl)
-
-      heading.append(this.setDate(contract.startDate, "start"))
-      heading.append(this.setDate(contract.endDate, "end"))
+      heading.append(this.renderOrgLink(contract))
+      heading.append(this.renderTitle(contract))
+      heading.append(this.renderDate(contract.startDate, "start"))
+      heading.append(this.renderDate(contract.endDate, "end"))
     }
     groupItem.append(heading)
 
@@ -225,6 +220,14 @@ export class HistoryComponent extends HTMLElement {
     groupItem.append(projectsList)
 
     return groupItem
+  }
+
+  renderTitle(contract) {
+    const titleEl = document.createElement("span")
+    titleEl.className = "title"
+    titleEl.part.add("group", titleEl.className)
+    titleEl.textContent = contract.title
+    return titleEl
   }
 
   renderOrgLink(contract) {
