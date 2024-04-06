@@ -164,6 +164,9 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   }
   renderer.render(myResume, "", renderOptions)
   window.search = (event) => {
+    event.preventDefault()
+    event.stopImmediatePropagation()
+    event.stopPropagation()
     renderer.render(myResume, event.target.value, renderOptions)
   }
 })

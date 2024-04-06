@@ -86,10 +86,14 @@ export class ResumeRenderer {
      */
     const experienceOptions = options.experience
     const experienceSection = this.renderExperiences("experience", resume.experiences.filter(exp => exp.contract.type !== ContractType.Training), search, experienceOptions)
-    experienceSection.setAttribute("group", Boolean(experienceOptions.group).toString())
+    if (experienceSection) {
+      experienceSection.setAttribute("group", Boolean(experienceOptions.group).toString())
+    }
     const trainingOptions = options.training
     const trainingSection = this.renderExperiences("training", resume.experiences.filter(exp => exp.contract.type === ContractType.Training), search, trainingOptions)
-    trainingSection.setAttribute("group", Boolean(trainingOptions.group).toString())
+    if (trainingSection) {
+      trainingSection.setAttribute("group", Boolean(trainingOptions.group).toString())
+    }
   }
 
   /**
@@ -101,8 +105,13 @@ export class ResumeRenderer {
   renderSkills(skillsRoot, allSkills, search) {
     const searchTerms = search.split(/[ ,]/).map(s => s.toLowerCase())
     const skills = searchTerms[0] === "" ? allSkills : allSkills.filter(skill =>
-      searchTerms.filter(searchTerm => skill.description.toLowerCase().indexOf(searchTerm) >= 0
-        ? searchTerm : undefined).length > 0 ? skill : undefined)
+      searchTerms.filter(searchTerm => {
+        if (skill.description.toLowerCase().indexOf(searchTerm) >= 0) {
+          return searchTerm
+        } else {
+          return undefined
+        }
+      }).length > 0 ? skill : undefined)
     const title = skillsRoot.querySelector("h2")
     title.textContent = this.messages.skills.title
     const skillsLevel = new Map()
