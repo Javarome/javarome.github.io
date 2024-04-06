@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+.main-title {
+  color: var(--background-color);
+}
+
 body {
   font-family: system-ui, sans-serif;
   display: flex;

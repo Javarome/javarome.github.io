@@ -35,7 +35,7 @@ export class PeopleRenderer {
     address.addEventListener("click", () => {
       window.open(`https://www.google.com/maps/embed/v1/place?q=${address.textContent}&key=AIzaSyDqiEN85qBXI9QJFlJM5E0LMOcllLvuR4I`)
     })
-    this.root.querySelector("h1").textContent = name
+    this.root.querySelector(".main-title").textContent = name
     const addrItems = people.home.name.split(", ")
     address.innerHTML = `
 <span class="street">${addrItems[0]}<br></span>${addrItems[1]}<br><span class="country">${addrItems[2]}</span>`
