@@ -34,7 +34,7 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
       {name: "✍ blog", url: new URL("https://medium.com/@javarome")},
       {name: "github", url: new URL("https://github.com/javarome")},
       {name: "x", url: new URL("https://x.com/javarome")},
-      {name: "📞 tel", url: new URL("tel:+33679796518")},
+    //  {name: "📞 tel", url: new URL("tel:+33679796518")},
       {name: "✉ mail", url: new URL("mailto:javarome@gmail.com")},
       {name: "🌐 website", url: new URL("https://javarome.com")}
     ]

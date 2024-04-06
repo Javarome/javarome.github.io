@@ -40,3 +40,9 @@
     order: 4
   }
 }
+
+@media print {
+  #experience {
+    overflow: visible;
+  }
+}

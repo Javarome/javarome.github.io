@@ -56,8 +56,18 @@ address {
     display: block;
   }
 }
+
 @media print {
   .street {
     display: inline !important;
+  }
+  .links.horizontal {
+    text-align: left;
+  }
+  .links.horizontal li {
+    display: list-item;
+  }
+  .links li a::after {
+    content: " : " attr(href);
   }
 }
