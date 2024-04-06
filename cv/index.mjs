@@ -158,7 +158,8 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
       group: true
     },
     training: {
-      open: false
+      open: false,
+      group: true
     }
   }
   renderer.render(myResume, "", renderOptions)

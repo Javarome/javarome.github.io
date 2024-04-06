@@ -85,7 +85,9 @@ export class ResumeRenderer {
     const experienceOptions = options.experience
     const experienceSection = this.renderExperiences("experience", resume.experiences.filter(exp => exp.contract.type !== ContractType.Training), search, experienceOptions)
     experienceSection.setAttribute("group", Boolean(experienceOptions.group).toString())
-    const trainingSection = this.renderExperiences("training", resume.experiences.filter(exp => exp.contract.type === ContractType.Training), search, options.training)
+    const trainingOptions = options.training
+    const trainingSection = this.renderExperiences("training", resume.experiences.filter(exp => exp.contract.type === ContractType.Training), search, trainingOptions)
+    trainingSection.setAttribute("group", Boolean(trainingOptions.group).toString())
   }
 
   /**
