@@ -1,7 +1,6 @@
 #skills {
-  list-style: none;
   summary {
-    list-style: none;
+    list-style: none !important;
   }
   h2 {
     display: inline;
