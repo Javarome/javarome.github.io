@@ -8,7 +8,8 @@ class SkillList_en extends SkillList {
   angularJS = new Skill("AngularJS", new URL("https://angularjs.org"), `AngularJS is the legacy Google web framework. Old version of Angular.`, [this.ts], ["web", "framework"])
   angular = new Skill("Angular", new URL("https://angular.io"), "Google web framework. Modern version of AngularJS.", [this.ts], ["web", "framework"])
   nx = new Skill("Nx", new URL("https://nx.dev"), "Monorepo tooling", [this.ts], ["tool", "monorepo"])
-  unix = new Skill("Unix", new URL("https://fr.wikipedia.org/wiki/Unix"), `Unix est un système d'exploitation`, [this.ts], ["os"])
+  unix = new Skill("Unix", new URL("https://fr.wikipedia.org/wiki/Unix"), `Unix is an <abbr title="Operating System">OS</abbr>`, [], ["os"])
+  windows = new Skill("Windows", new URL("https://www.microsoft.com/en-us/windows"), `Windows is an <abbr title="Operating System">OS</abbr> for PC`, [], ["os"])
   c = new Skill("C", new URL("https://www.open-std.org/jtc1/sc22/wg14/"), "C programming language", [], ["language"])
   sql = new Skill("SQL", new URL("https://en.wikipedia.org/wiki/SQL"), `SQL is the standard query language for RDBMS`, [], ["database"])
   cpp = new Skill("C++", new URL("https://www.open-std.org/jtc1/sc22/wg21/"), "C programming language", [this.c], ["language"])
@@ -59,5 +60,6 @@ class SkillList_en extends SkillList {
   jbuilder = new Skill("JBuilder", new URL("https://en.wikipedia.org/wiki/JBuilder"), `JBuilder was the Java IDE by Borland`, [this.java], [])
   pascal = new Skill("Pascal", new URL("https://en.wikipedia.org/wiki/Pascal_(programming_language)"), `Pascal is a procedural programming language`, [], ["language"])
   delphi = new Skill("Delphi", new URL("https://en.wikipedia.org/wiki/Delphi_(software)"), `Delphi is a Borland IDE to build Windows apps`, [this.pascal], [])
+  netlify = new Skill("Netlify", new URL("https://netlify.com"), `Netlify is a web hosting service`, [], ["saas"])
 }
 export const skillList_en = new SkillList_en()

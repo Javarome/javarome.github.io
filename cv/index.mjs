@@ -17,10 +17,17 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const messages = imported[lang]
   const france = new Country("France")
 
-  const rueMauriceThorez = new Address("28 rue Maurice Thorez", "92000", "Nanterre", france)
-  const rueDeBezons = new Address("39 bis rue de Bezons", "92000", "Nanterre", france)
+  const homeClamart1 = new Address("25 rue des Pommiers", "92140", "Clamart", france)
+  const homeClamart2 = new Address("11 rue des Champs Faucillons", "92140", "Clamart", france)
+  const homeClamart3 = new Address("11 rue Albert Neveu", "92140", "Clamart", france)
+  const homeAntony = new Address("9 rue Pierre Vermeir", "92160", "Antony", france)
+  const homeGambetta = new Address("28 rue Sorbier", "75020", "Paris", france)
+  const homeJavel = new Address("100 rue de Javel", "75015", "Paris", france)
+  const homeCadix = new Address("9 rue de Cadix", "75015", "Paris", france)
+  const homeMauriceThorez = new Address("28 rue Maurice Thorez", "92000", "Nanterre", france)
+  const homeBezons = new Address("39 bis rue de Bezons", "92000", "Nanterre", france)
 
-  const jerome = new People("Beau", "Jérôme", rueDeBezons,
+  const jerome = new People("Beau", "Jérôme", homeBezons,
     [
       {name: "linkedin", url: new URL("https://www.linkedin.com/in/javarome")},
       {name: "stackoverflow", url: new URL("https://stackoverflow.com/users/650104")},
@@ -41,13 +48,15 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const iutAddress = new Address("10-12 Av. de l'Europe", "78140", "Vélizy-Villacoublay", france)
   const iut = new Organization(Organization.linkFromMessages(contractsMessages.iut), iutAddress)
   const iutExp = new Contract(iut, ContractType.Training, contractsMessages.iut.title, new Date(1992, 9 - 1, 1), new Date(1994, 6 - 1, 1))
-  const iutCCourse = new Experience(iutExp, iutExp.startDate, iutExp.endDate, "C course", rueDeBezons, [skills.c])
+  const iutCCourse = new Experience(iutExp, iutExp.startDate, iutExp.endDate, "C course", homeGambetta, [skills.c])
 
   const istyAddress = new Address("10-12 Av. de l'Europe", "78140", "Vélizy-Villacoublay", france)
   const isty = new Organization(Organization.linkFromMessages(contractsMessages.isty), istyAddress)
   const istyExp = new Contract(isty, ContractType.Training, contractsMessages.isty.title, new Date(1994, 9 - 1, 1), new Date(1997, 6 - 1, 1))
-  const cCourse = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "C course", rueDeBezons, [skills.c])
-  const cppCourse = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "C++ course", rueDeBezons, [skills.cpp])
+  const unixCourse = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "Unix course", homeGambetta, [skills.unix])
+  const cCourse = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "C course", homeGambetta, [skills.c])
+  const cppCourse = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "C++ course", homeGambetta, [skills.cpp])
+  const istyProject = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "Project", homeGambetta, [skills.delphi])
 
   const ibmAddr = new Address("2 Av. Gambetta", "92400", "Courbevoie", france)
   const ibm = new Organization(Organization.linkFromMessages(contractsMessages.ibm), ibmAddr)
@@ -83,41 +92,43 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const traveldooAddr = new Address("130 Rue Victor Hugo", "92300", "Levallois-Perret", france)
   const traveldoo = new Organization(Organization.linkFromMessages(contractsMessages.traveldoo), traveldooAddr)
   const traveldooExp = new Contract(traveldoo, ContractType.FullTimePermanent, contractsMessages.traveldoo.title, new Date(2013, 1 - 1, 1), new Date(2014, 12 - 1, 1))
-  const hotelApp = new Experience(traveldooExp, traveldooExp.startDate, new Date(2013, 12 - 1, 1), projectsMessages.itineraryApp, rueMauriceThorez, [skills.js, skills.angularJS, skills.rome2rio, skills.gwt])
-  const itineraryApp = new Experience(traveldooExp, new Date(2013, 12 - 1, 2), traveldooExp.endDate, projectsMessages.hotelBookingApp, rueMauriceThorez, [skills.js, skills.angularJS, skills.phonegap])
+  const hotelApp = new Experience(traveldooExp, traveldooExp.startDate, new Date(2013, 12 - 1, 1), projectsMessages.itineraryApp, homeMauriceThorez, [skills.js, skills.angularJS, skills.rome2rio, skills.gwt])
+  const itineraryApp = new Experience(traveldooExp, new Date(2013, 12 - 1, 2), traveldooExp.endDate, projectsMessages.hotelBookingApp, homeMauriceThorez, [skills.js, skills.angularJS, skills.phonegap])
 
   const famicityOffices = new Address("6 rue de l'Abbé Hazard", "92000", "Nanterre", france)
   const famicity = new Organization(Organization.linkFromMessages(contractsMessages.famicity), famicityOffices, new URL("https://www.facebook.com/photo/?fbid=610228903950119&set=a.610228870616789"))
   const famicityExp = new Contract(famicity, ContractType.FullTimePermanent, contractsMessages.famicity.title, new Date(2015, 1 - 1, 1), new Date(2018, 11 - 1, 1))
-  const famicityApp = new Experience(famicityExp, famicityExp.startDate, famicityExp.endDate, projectsMessages.famicityApp, rueMauriceThorez, [skills.ts, skills.angular, skills.angularJS, skills.sass, skills.github])
+  const famicityApp = new Experience(famicityExp, famicityExp.startDate, famicityExp.endDate, projectsMessages.famicityApp, homeMauriceThorez, [skills.ts, skills.angular, skills.angularJS, skills.sass, skills.github])
 
   const stationF = new Address("5 Parv. Alan Turing", "75013", "Paris", france)
   const weWorkParis12 = new Address("198 Avenue de France", "75013", "Paris", france)
   const zelros = new Organization(Organization.linkFromMessages(contractsMessages.zelros), weWorkParis12)
   const zelrosExp = new Contract(zelros, ContractType.FullTimePermanent, contractsMessages.zelros.title, new Date(2019, 1 - 1, 1), new Date(2021, 2 - 1, 1))
-  const kmApp = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1), projectsMessages.zelrosKmApp, rueDeBezons, [skills.ts, skills.nlp, skills.postgresql])
-  const mlPipeline = new Experience(zelrosExp, kmApp.startDate, zelrosExp.endDate, projectsMessages.mlPipeline, rueDeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.python, skills.redis, skills.azure, skills.docker])
+  const kmApp = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1), projectsMessages.zelrosKmApp, homeBezons, [skills.ts, skills.nlp, skills.postgresql])
+  const mlPipeline = new Experience(zelrosExp, kmApp.startDate, zelrosExp.endDate, projectsMessages.mlPipeline, homeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.python, skills.redis, skills.azure, skills.docker])
 
   const beamOffices = new Address("74 avenue Kleber", "75016", "Paris", france)
   const beam = new Organization(Organization.linkFromMessages(contractsMessages.beam), beamOffices, new URL("https://www.beamapp.co/assets/common/beam-icon.png"))
   const beamExp = new Contract(beam, ContractType.FullTimePermanent, contractsMessages.beam.title, new Date(2021, 3 - 1, 1), new Date(2022, 9 - 1, 1))
-  const beamWebApp = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebApp, rueDeBezons, [skills.ts, skills.graphql, skills.rest, skills.webCrypto, skills.jest])
-  const beamWebServer = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebServer, rueDeBezons, [skills.ts, skills.fastify, skills.rest, skills.gcp, skills.gitlab, skills.docker, skills.gitlab])
+  const beamWebApp = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebApp, homeBezons, [skills.ts, skills.graphql, skills.rest, skills.webCrypto, skills.jest, skills.netlify])
+  const beamWebServer = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebServer, homeBezons, [skills.ts, skills.fastify, skills.rest, skills.gcp, skills.gitlab, skills.docker, skills.gitlab])
 
   const laCaserne = new Address("12 rue Philippe de Girard", "75010", "Paris", france)
   const arianee = new Organization(Organization.linkFromMessages(contractsMessages.arianee), laCaserne, new URL("https://assets-global.website-files.com/63d2463b430d2159464c7403/63ed17fd8944e2d5b7fee10c_Webclip%20Arianee.com.png"))
   const arianeeExp = new Contract(arianee, ContractType.FullTimePermanent, contractsMessages.arianee.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
-  const kelpieProject = new Experience(arianeeExp, new Date(2022, 11 - 1, 14), new Date(2022, 12 - 1, 31), projectsMessages.kelpie, rueDeBezons, [skills.angular, skills.mongodb])
-  const arn = new Experience(arianeeExp, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, rueDeBezons, [skills.angular, skills.nx, skills.fastify, skills.ethers, skills.walletConnect, skills.mongodb])
-  const dapp = new Experience(arianeeExp, new Date(2023, 4 - 1, 1), arianeeExp.endDate, projectsMessages.dapp, rueDeBezons, [skills.angular, skills.nx, skills.nodejs, skills.gcp, skills.ethers, skills.walletConnect])
+  const kelpieProject = new Experience(arianeeExp, new Date(2022, 11 - 1, 14), new Date(2022, 12 - 1, 31), projectsMessages.kelpie, homeBezons, [skills.angular, skills.mongodb])
+  const arn = new Experience(arianeeExp, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, homeBezons, [skills.angular, skills.nx, skills.fastify, skills.ethers, skills.walletConnect, skills.mongodb, skills.netlify])
+  const dapp = new Experience(arianeeExp, new Date(2023, 4 - 1, 1), arianeeExp.endDate, projectsMessages.dapp, homeBezons, [skills.angular, skills.nx, skills.nodejs, skills.gcp, skills.ethers, skills.walletConnect, skills.netlify])
 
   const myResume = new ResumeBuilder()
     .of(jerome)
     .withTitle(messages.people.title)
     .withStatement(messages.people.statement)
     .withExperience(iutCCourse)
+    .withExperience(unixCourse)
     .withExperience(cCourse)
     .withExperience(cppCourse)
+    .withExperience(istyProject)
     .withExperience(billetel)
     .withExperience(chronopostPacketTracking)
     .withExperience(ejbCourse)

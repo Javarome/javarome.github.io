@@ -43,6 +43,19 @@ export class SkillList {
    * @type {Skill}
    */
   c
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  unix
+  
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  windows
+  
   /**
    * @abstract
    * @type {Skill}
@@ -309,4 +322,10 @@ export class SkillList {
    * @type {Skill}
    */
   pascal
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  netlify
 }
