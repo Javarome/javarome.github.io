@@ -3,6 +3,7 @@ import {ContractType} from "./history/experience/contract/Contract.mjs"
 import {PeopleRenderer} from "./people/PeopleRenderer.mjs"
 import {SkillsRenderer} from "./skill/SkillsRenderer.mjs"
 import {ExperienceRenderer} from "./history/ExperienceRenderer.mjs"
+import {HistoryComponent} from "./history/HistoryComponent.mjs"
 
 export class ResumeRenderer {
   /**
@@ -29,34 +30,44 @@ export class ResumeRenderer {
    * @param {ResumeRenderOptions} options
    */
   render(resume, searchStr, options) {
-    const search = searchStr.trim().toLowerCase()
-    this.peopleRenderer.render(resume.people)
+    const people = resume.people
+    this.peopleRenderer.render(people)
     const title = resume.title
     const root = this.root
     if (title) {
       root.querySelector(".title").textContent = title
-      if (this.root instanceof Document) {
-        this.root.head.append(`<meta name="description" content="${title}">`)
+      const head = this.root.querySelector("head")
+      if (head) {
+        head.innerHTML += `<title>${people.firstName} ${people.lastName}</title><meta name="description" content="${title}">`
       }
     }
     const statement = resume.statement
     if (statement) {
       root.querySelector(".statement").textContent = statement
     }
+    this.renderSearch(resume, searchStr, options)
+  }
+
+  renderSearch(resume, searchStr, options) {
     const allSkills = resume.experiences.flatMap(exp => exp.skills)
-    this.skillsRenderer.render(resume, allSkills, search)
+    const search = searchStr.trim().toLowerCase()
+    this.skillsRenderer.render(resume, allSkills, search, true)
     /**
      * @type {ExperienceSectionOptions}
      */
     const experienceOptions = options.experience
-    const experienceSection = this.experienceRenderer.render("experience", resume.experiences.filter(exp => exp.contract.type !== ContractType.Training), search, experienceOptions)
+    const professoinalExperience = resume.experiences.filter(exp => exp.contract.type !== ContractType.Training)
+    const experienceSection = this.experienceRenderer.render("experience", professoinalExperience, search, experienceOptions)
     if (experienceSection) {
-      experienceSection.setAttribute("group", Boolean(experienceOptions.group).toString())
+      experienceSection.setAttribute(HistoryComponent.attr.group, Boolean(experienceOptions.group).toString())
+      experienceSection.setAttribute(HistoryComponent.attr.skillsImplied, Boolean(experienceOptions.skills?.implied).toString())
     }
     const trainingOptions = options.training
-    const trainingSection = this.trainingRenderer.render("training", resume.experiences.filter(exp => exp.contract.type === ContractType.Training), search, trainingOptions)
+    const trainingExperience = resume.experiences.filter(exp => exp.contract.type === ContractType.Training)
+    const trainingSection = this.trainingRenderer.render("training", trainingExperience, search, trainingOptions)
     if (trainingSection) {
-      trainingSection.setAttribute("group", Boolean(trainingOptions.group).toString())
+      trainingSection.setAttribute(HistoryComponent.attr.group, Boolean(trainingOptions.group).toString())
+      trainingSection.setAttribute(HistoryComponent.attr.skillsImplied, Boolean(trainingOptions.skills?.implied).toString())
     }
   }
 }

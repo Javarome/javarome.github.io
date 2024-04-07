@@ -51,7 +51,11 @@ const style = `
     order: 3;
   }
 }
+.description {
+  flex: 0.5;
+}
 .skills {
+  flex: 0.5;
   margin-left: 0.35em;
 }
 `
@@ -84,6 +88,18 @@ export class ExperienceComponent extends HTMLElement {
     this.shadow.appendChild(template.content.cloneNode(true))
   }
 
+  static attr = {
+    skillsImplied: "skills-implied"
+  }
+
+  static get observedAttributes() {
+    return Object.values(ExperienceComponent.attr)
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    this.render()
+  }
+
   /**
    * @param {Experience} experience
    */
@@ -93,26 +109,35 @@ export class ExperienceComponent extends HTMLElement {
   }
 
   /**
-   *
    * @param {Skill} skill
    * @return {Skill[]}
    */
-  getAllSkills(skill) {
-    return [skill].concat(skill.implied.flatMap(skill => this.getAllSkills(skill)))
+  getSkillsWithImplied(skill) {
+    return [skill].concat(skill.implied.flatMap(skill => this.getSkillsWithImplied(skill)))
+  }
+
+  /**
+   * @param {Skill[]} skills
+   * @param {boolean} renderImplied
+   * @return {Skill[]}
+   */
+  getSkills(skills, renderImplied) {
+    return renderImplied ? skills.flatMap(skill => this.getSkillsWithImplied(skill)) : skills
   }
 
   render() {
     const experience = this.experience
-    /**
-     * @type {Skill[]}
-     */
-    const skillsWithImplied = new Set(experience.skills.flatMap(skill => this.getAllSkills(skill)))
-    this.shadow.querySelector(".description").innerHTML = experience.description
-    const skillsRoot = this.shadow.querySelector(".skills")
-    const skillEls = Array.from(skillsWithImplied).map(SkillComponent.fromSkill)
-    for (let i = 0; i < skillEls.length; i++) {
-      const skillEl = skillEls[i]
-      skillsRoot.append(skillEl)
+    if (experience) {
+      const skills = this.getSkills(experience.skills, this.getAttribute(ExperienceComponent.attr.skillsImplied) === "true")
+      const skillsWithImplied = /** @type {Skill[]} */ new Set(skills)
+      this.shadow.querySelector(".description").innerHTML = experience.description
+      const skillsRoot = this.shadow.querySelector(".skills")
+      skillsRoot.innerHTML = ""
+      const skillEls = Array.from(skillsWithImplied).map(SkillComponent.fromSkill)
+      for (let i = 0; i < skillEls.length; i++) {
+        const skillEl = skillEls[i]
+        skillsRoot.append(skillEl)
+      }
     }
   }
 }

@@ -1,5 +1,12 @@
 import {SkillComponent} from "./SkillComponent.mjs"
 
+class SkillsRenderOptions {
+  /**
+   * @member {boolean}
+   */
+  implied
+}
+
 export class SkillsRenderer {
   /**
    * @member {HTMLElement}
@@ -25,8 +32,9 @@ export class SkillsRenderer {
    * @param {Resume} resume
    * @param {Skill[]} allSkills
    * @param {string} search
+   * @param {SkillsRenderOptions} search
    */
-  render(resume, allSkills, search) {
+  render(resume, allSkills, search, options) {
     const searchTerms = search.split(/[ ,]/).map(s => s.toLowerCase())
     const skills = searchTerms[0] === "" ? allSkills : allSkills.filter(skill =>
       searchTerms.filter(searchTerm => {

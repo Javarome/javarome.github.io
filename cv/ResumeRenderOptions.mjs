@@ -3,6 +3,11 @@ export class ResumeSectionOptions {
    * @member {boolean}
    */
   open
+
+  /**
+   * @member {SkillsRenderOptions | undefined}
+   */
+  skills
 }
 
 export class ResumeRenderOptions {

@@ -1,5 +1,6 @@
 import "./experience/ExperienceComponent.mjs"
 import "../search/SearchComponent.mjs"
+import {ExperienceComponent} from "./experience/ExperienceComponent.mjs"
 
 const template = document.createElement("template")
 template.innerHTML = `<style>
@@ -84,6 +85,12 @@ export class HistoryComponent extends HTMLElement {
    */
   static NAME = "cv-history"
 
+  static attr = {
+    skillsImplied: "skills-implied",
+    group: "group",
+    open: "open"
+  }
+
   /**
    * @member {Experience[]}
    */
@@ -110,7 +117,7 @@ export class HistoryComponent extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ["open", "group"]
+    return Object.values(HistoryComponent.attr)
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -154,7 +161,7 @@ export class HistoryComponent extends HTMLElement {
     const historyEl = this.shadow.querySelector(".history")
     const newHistoryEl = document.createElement("ol")
     newHistoryEl.className = "history"
-    if (this.getAttribute("group") === "true") {
+    if (this.getAttribute(HistoryComponent.attr.group) === "true") {
       this.renderGroups(newHistoryEl)
     } else {
       const projectsItems = this.renderProjects(this.history)
@@ -260,6 +267,7 @@ export class HistoryComponent extends HTMLElement {
     for (const project of projects) {
       const itemExp = document.createElement("li")
       const exp = document.createElement("cv-history-item")
+      exp.setAttribute(ExperienceComponent.attr.skillsImplied, this.getAttribute(HistoryComponent.attr.skillsImplied))
       exp.setExperience(project)
       itemExp.append(exp)
       projectsList.push(itemExp)

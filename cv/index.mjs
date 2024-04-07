@@ -63,7 +63,7 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const ibmExp = new Contract(ibm, ContractType.FullTimePermanent, contractsMessages.ibm.title, new Date(1997, 1 - 1, 1), new Date(1997, 8 - 1, 1))
   const billetel = new Experience(ibmExp, ibmExp.startDate, ibmExp.endDate, projectsMessages.billetel, ibmAddr, [skills.jbuilder])
 
-  const sqlTechAddr1 = new Address("?", "92?", "?", france)
+  const sqlTechAddr1 = new Address("10 Rue des Acacias", "92130", "Issy-les-Moulineaux", france)
   const sqlTechAddr2 = new Address("94bis avenue de Suffren", "75015", "Paris", france)
   const sqlTech = new Organization(Organization.linkFromMessages(contractsMessages.sqlTech), sqlTechAddr2)
   const sqlTechExp = new Contract(sqlTech, ContractType.FullTimePermanent, contractsMessages.sqlTech.title, new Date(1997, 8 - 1, 1), new Date(1998, 11 - 1, 1))
@@ -148,14 +148,18 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
     .withExperience(arn)
     .withExperience(dapp)
     .build()
-  const renderer = new ResumeRenderer(document, messages)
+  const renderer = new ResumeRenderer(document.documentElement, messages)
   const renderOptions = {
     skills: {
-      open: true
+      open: true,
+      implied: true
     },
     experience: {
       open: true,
-      group: true
+      group: true,
+      skills: {
+        implied: false
+      }
     },
     training: {
       open: false,
@@ -164,6 +168,6 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   }
   renderer.render(myResume, "", renderOptions)
   window.search = (event) => {
-    renderer.render(myResume, event.target.value, renderOptions)
+    renderer.renderSearch(myResume, event.target.value, renderOptions)
   }
 })

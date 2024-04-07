@@ -58,7 +58,7 @@ const valtech_fr = new class extends ContractMessages {
 
 const sqlTech_fr = new class extends ContractMessages {
   name = "SQL Tech"
-  url = "https://sql.com"
+  url = "https://sqltech.com"
   description = `SQL Tech fournit des services de conseil et réalisation de projets IT`
   title = "Responsable du centre de compétences Java"
 }()
