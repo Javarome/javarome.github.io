@@ -15,7 +15,7 @@ template.innerHTML = `<style>
   > li {
     transition: background-color 0.2s ease;
     border-radius: 0.5em;
-    padding: 0.25em 0.5em;
+    padding: 0.5em;
   }
   li:hover {
     --background-color-darker: color-mix(in srgb,var(--background-color),#000 5%);
@@ -25,6 +25,11 @@ template.innerHTML = `<style>
 .projects {
   list-style: circle;
   padding-left: 1em;
+
+  li:hover {
+    --background-color-darker: color-mix(in srgb,var(--background-color),#000 10%);
+    background-color: var(--background-color-darker);
+  }
 }
 .sort {
   appearance: none;
@@ -56,6 +61,9 @@ details h2::after {
 }
 details[open] h2::after {
   content: "";
+}
+h3 {
+  margin: 0.5em 0;
 }
 time {
   font-size: 0.9em;
@@ -120,7 +128,7 @@ export class HistoryComponent extends HTMLElement {
     return Object.values(HistoryComponent.attr)
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
+  attributeChangedCallback(_name, _oldValue, _newValue) {
     this.render()
   }
 

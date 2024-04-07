@@ -2,6 +2,7 @@ import {SkillComponent} from "./SkillComponent.mjs"
 
 const style = `
 ul {
+  margin:0;
   padding-left: 0;
 }
 `
@@ -36,7 +37,7 @@ export class SkillSetComponent extends HTMLElement {
     return Object.values(SkillSetComponent.attr)
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
+  attributeChangedCallback(_name, _oldValue, _newValue) {
     this.render()
   }
 

@@ -30,7 +30,7 @@ class SkillList_en extends SkillList {
   oracle = new Skill("Oracle", new URL("https://www.oracle.com/database/"), `Oracle is a RDBMS`, [this.java], [])
   mysql = new Skill("MySQL", new URL("https://www.mysql.com"), `MySQL is a <abbr title="Relational Data Base Management System">RDBMS</abbr>`, [this.java], ["database"])
   beyondCompare = new Skill("Beyond Compare", new URL("https://www.scootersoftware.com/"), `Beyond Compare is a file comparison tool. It was one of the tools used before the advent of VCS.`, [], "tool")
-  versant = new Skill("Versant", new URL("https://esd.actian.com/platform/docs/Docs/Versant_Products/Versant_Object_Database_10"), `Versant was an ODBMS`, [this.sql])
+  versant = new Skill("Versant", new URL("https://esd.actian.com/platform/docs/Docs/Versant_Products/Versant_Object_Database_10"), `Versant was an ODBMS`, [])
   idea = new Skill("IntelliJ IDEA", new URL("https://www.jetbrains.com/idea"), `IntelliJ IDEA is a Java <abbr title="Integrated Development Environment">IDE</abbr>`, [this.java], ["tool", "ide"])
   eclipse = new Skill("Eclipse", new URL("https://eclipseide.org/"), `Eclipse is an OSS Java IDE`, [this.java], ["tool", "ide"])
   ejb = new Skill("EJB", new URL("https://www.oracle.com/java/technologies/appmodel.html"), `Java 2 Entreprise Edition is a suite of APIs to build entreprise-grade apps`, [this.java])

@@ -4,7 +4,7 @@ const style = `
 :host {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   padding: 0.2em 0;
 }
 .org {
@@ -96,7 +96,7 @@ export class ExperienceComponent extends HTMLElement {
     return Object.values(ExperienceComponent.attr)
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
+  attributeChangedCallback(_name, _oldValue, _newValue) {
     this.render()
   }
 
