@@ -2,21 +2,26 @@ const style = `
 :host {
   display: inline-block;
   margin: 0.1em 0.1em;
+  --java-color: rgba(255,0,0,0.1);
+  --tool-color: rgba(255,0,255,0.1);
+  --dbms-color: color-mix(in srgb,var(--tool-color),#000 5%);
+  --js-color: lightblue;
+  --ts-color: color-mix(in srgb,var(--js-color),#000 5%);
+  --ts-product-color: color-mix(in srgb,var(--ts-color),#000 5%);
 }
 a {
   display: inline;
   font-size: 0.8em;
   padding: 0.15em 0.35em;
-  background-color: aliceblue;
   border-radius: 0.3em;
   text-decoration: none;
 }
-.javascript { border: 1px solid blue }
-.typescript { background-color: lightblue }
-.angular { background-color: lightgreen }
-.java { background-color: red; color: white }
-.dbms { background-color: purple; color: white }
-.tool { background-color: yellow }
+.javascript { background-color: var(--js-color) }
+.typescript { background-color: var(--ts-color) }
+.angular { background-color: var(--ts-product-color) }
+.java { background-color: var(--java-color) }
+.tool { background-color: var(--tool-color) }
+.dbms { background-color: var(--dbms-color) }
 `
 const template = document.createElement("template")
 template.innerHTML = `
@@ -55,16 +60,12 @@ export class SkillComponent extends HTMLElement {
     const skill = this.skill
     const skillLink = document.createElement("a")
     skillLink.href = skill.url.href
-    skillLink.className = SkillComponent.skillNameToClassName(skill)
+    skillLink.className = skill.withImplied().map(skill => skill.name.toLowerCase().replaceAll(" ", "-")).join(" ")
     skillLink.textContent = skill.name
     skillLink.title = skill.description
     this.shadow.append(skillLink)
   }
-
-  static skillNameToClassName(impliedSkill) {
-    return impliedSkill.name ? impliedSkill.name.toLowerCase().replaceAll(" ", "-") : impliedSkill
-  }
-
+  
   /**
    * @param {Skill} skill
    * @return {SkillComponent}

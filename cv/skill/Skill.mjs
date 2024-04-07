@@ -23,4 +23,12 @@ export class Skill extends Link {
     this.implied = implied || []
     this.tags = tags || []
   }
+
+  /**
+   * @param {Skill} skill
+   * @return {Skill[]}
+   */
+  withImplied(skill = this) {
+    return [skill].concat(skill.implied.flatMap(skill => this.withImplied(skill)))
+  }
 }

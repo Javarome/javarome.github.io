@@ -50,20 +50,12 @@ export class SkillSetComponent extends HTMLElement {
   }
 
   /**
-   * @param {Skill} skill
-   * @return {Skill[]}
-   */
-  getSkillsWithImplied(skill) {
-    return [skill].concat(skill.implied.flatMap(skill => this.getSkillsWithImplied(skill)))
-  }
-
-  /**
    * @param {Skill[]} skills
    * @param {boolean} renderImplied
    * @return {Skill[]}
    */
   getSkills(skills, renderImplied) {
-    return renderImplied ? skills.flatMap(skill => this.getSkillsWithImplied(skill)) : skills
+    return renderImplied ? skills.flatMap(skill => skill.withImplied()) : skills
   }
 
   render() {
