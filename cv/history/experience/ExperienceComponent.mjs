@@ -1,4 +1,4 @@
-import {SkillComponent} from "../../skill/SkillComponent.mjs"
+import {SkillSetComponent} from "../../skill/SkillSetComponent.mjs"
 
 const style = `
 :host {
@@ -127,17 +127,13 @@ export class ExperienceComponent extends HTMLElement {
 
   render() {
     const experience = this.experience
+    const skillsRoot = this.shadow.querySelector(".skills")
+    skillsRoot.innerHTML = ""
     if (experience) {
-      const skills = this.getSkills(experience.skills, this.getAttribute(ExperienceComponent.attr.skillsImplied) === "true")
-      const skillsWithImplied = /** @type {Skill[]} */ new Set(skills)
       this.shadow.querySelector(".description").innerHTML = experience.description
-      const skillsRoot = this.shadow.querySelector(".skills")
-      skillsRoot.innerHTML = ""
-      const skillEls = Array.from(skillsWithImplied).map(SkillComponent.fromSkill)
-      for (let i = 0; i < skillEls.length; i++) {
-        const skillEl = skillEls[i]
-        skillsRoot.append(skillEl)
-      }
+      const withImplied = this.getAttribute(ExperienceComponent.attr.skillsImplied) === true
+      const skillSet = SkillSetComponent.fromSkills(this.getSkills(experience.skills, withImplied))
+      skillsRoot.append(skillSet)
     }
   }
 }

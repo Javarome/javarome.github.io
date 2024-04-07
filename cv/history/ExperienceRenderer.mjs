@@ -37,7 +37,7 @@ export class ExperienceRenderer {
    * @return {HistoryComponent | undefined}
    */
   render(title, exps, search, options) {
-    const experiences = exps.filter(exp => exp.skills.find(skill => skill.name.toLowerCase().indexOf(search) >= 0) ? exp : undefined)
+    const experiences = exps.filter(exp => exp.skills.find(skill => skill.description.toLowerCase().indexOf(search) >= 0) ? exp : undefined)
     const sortedExps = experiences.sort((a, b) => a.startDate.getTime() < b.startDate.getTime() ? 1 : a.startDate.getTime() > b.startDate.getTime() ? -1 : 0)
     this.root.innerHTML = ""
     if (sortedExps.length > 0) {

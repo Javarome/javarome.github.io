@@ -1,4 +1,6 @@
 /**
+ * The list of known skills.
+ *
  * @abstract
  */
 export class SkillList {
@@ -49,13 +51,13 @@ export class SkillList {
    * @type {Skill}
    */
   unix
-  
+
   /**
    * @abstract
    * @type {Skill}
    */
   windows
-  
+
   /**
    * @abstract
    * @type {Skill}
@@ -178,7 +180,7 @@ export class SkillList {
    * @type {Skill}
    */
   fastify
-  
+
   /**
    * @abstract
    * @type {Skill}

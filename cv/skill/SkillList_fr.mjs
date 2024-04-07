@@ -2,8 +2,8 @@ import {SkillList} from "./SkillList.mjs"
 import {Skill} from "./Skill.mjs"
 
 class SkillList_fr extends SkillList {
-  js = new Skill("JavaScript", new URL("https://ecma-international.org/publications-and-standards/standards/ecma-262/"), "Langage de programmation pour les navigateurs et NodeJS", [], ["language"])
-  ts = new Skill("TypeScript", new URL("https://www.typescriptlang.org/fr/"), `Surensemble de JavaScript pour ajouter du typage et des fonctionnalités orientées objet`, [this.js], ["language"])
+  js = new Skill("JavaScript", new URL("https://ecma-international.org/publications-and-standards/standards/ecma-262/"), "JavaScript est le langage de programmation pour les navigateurs et NodeJS", [], ["language"])
+  ts = new Skill("TypeScript", new URL("https://www.typescriptlang.org/fr/"), `TypeScript est un surensemble de JavaScript pour ajouter du typage et des fonctionnalités orientées objet`, [this.js], ["language"])
   vanilla = new Skill("Vanilla", new URL("http://vanilla-js.com"), `JavaScript ou TypeScript used without any other fancy frameworks`, [], [])
   angularJS = new Skill("AngularJS", new URL("https://angularjs.org"), `La première version du framework web de Google. Ancienne version de Angular.`, [this.ts], ["web", "framework"])
   angular = new Skill("Angular", new URL("https://angular.io"), "Le framework web de Google. Version moderne de AngularJS.", [this.ts], ["web", "framework"])

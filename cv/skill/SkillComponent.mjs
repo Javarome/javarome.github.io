@@ -66,12 +66,11 @@ export class SkillComponent extends HTMLElement {
   }
 
   /**
-   *
    * @param {Skill} skill
    * @return {SkillComponent}
    */
   static fromSkill(skill) {
-    const skillEl = document.createElement("cv-skill")
+    const skillEl = document.createElement(SkillComponent.NAME)
     skillEl.setSkill(skill)
     return skillEl
   }
