@@ -1,5 +1,3 @@
-import {ResumeMessages} from "../ResumeMessages.mjs"
-
 export class PeopleRenderer {
   /**
    * @member {HTMLElement}
@@ -7,17 +5,10 @@ export class PeopleRenderer {
   root
 
   /**
-   * @member {ResumeMessages}
-   */
-  messages
-
-  /**
    * @param {Node} root
-   * @param {ResumeMessages} messages
    */
-  constructor(root, messages) {
+  constructor(root) {
     this.root = root
-    this.messages = messages
   }
 
   /**

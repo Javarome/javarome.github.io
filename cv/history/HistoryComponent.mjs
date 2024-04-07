@@ -33,7 +33,9 @@ summary {
   background: linear-gradient(to bottom, var(--background-color) 75%, rgba(0,0,0,0));
   top: 0;
   position: sticky;
-  list-style: none;
+  &::marker {
+    color: darkgray;
+  };
   &::after {
     content: "";
     display: block;
@@ -66,7 +68,7 @@ a {
     display: none !important;
   }
 }
-.start::after { content: " →" }
+.start::after { content: " →" }
 .end::before { content: "→ " }
 </style>
 <details>

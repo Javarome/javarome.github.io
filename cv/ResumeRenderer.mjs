@@ -1,39 +1,8 @@
-import {HistoryComponent} from "./history/HistoryComponent.mjs"
 import {ResumeMessages} from "./ResumeMessages.mjs"
 import {ContractType} from "./history/experience/contract/Contract.mjs"
 import {PeopleRenderer} from "./people/PeopleRenderer.mjs"
 import {SkillsRenderer} from "./skill/SkillsRenderer.mjs"
-
-export class ResumeSectionOptions {
-  /**
-   * @member {boolean}
-   */
-  open
-}
-
-export class ExperienceSectionOptions extends ResumeSectionOptions {
-  /**
-   * @member {boolean}
-   */
-  group
-}
-
-export class ResumeRenderOptions {
-  /**
-   * @type {ResumeSectionOptions}
-   */
-  skills
-
-  /**
-   * @type {ResumeSectionOptions}
-   */
-  experience
-
-  /**
-   * @type {ResumeSectionOptions}
-   */
-  training
-}
+import {ExperienceRenderer} from "./history/ExperienceRenderer.mjs"
 
 export class ResumeRenderer {
   /**
@@ -42,19 +11,15 @@ export class ResumeRenderer {
   root
 
   /**
-   * @member {ResumeMessages}
-   */
-  messages
-
-  /**
    * @param {Element} root
    * @param {ResumeMessages} messages
    */
   constructor(root, messages) {
     this.root = root
-    this.messages = messages
-    this.peopleRenderer = new PeopleRenderer(root, messages)
+    this.peopleRenderer = new PeopleRenderer(root)
     this.skillsRenderer = new SkillsRenderer(root.querySelector("#skills"), messages.skills)
+    this.experienceRenderer = new ExperienceRenderer(root.querySelector("#experience"), messages.experience)
+    this.trainingRenderer = new ExperienceRenderer(root.querySelector("#training"), messages.training)
   }
 
   /**
@@ -84,40 +49,14 @@ export class ResumeRenderer {
      * @type {ExperienceSectionOptions}
      */
     const experienceOptions = options.experience
-    const experienceSection = this.renderExperiences("experience", resume.experiences.filter(exp => exp.contract.type !== ContractType.Training), search, experienceOptions)
+    const experienceSection = this.experienceRenderer.render("experience", resume.experiences.filter(exp => exp.contract.type !== ContractType.Training), search, experienceOptions)
     if (experienceSection) {
       experienceSection.setAttribute("group", Boolean(experienceOptions.group).toString())
     }
     const trainingOptions = options.training
-    const trainingSection = this.renderExperiences("training", resume.experiences.filter(exp => exp.contract.type === ContractType.Training), search, trainingOptions)
+    const trainingSection = this.trainingRenderer.render("training", resume.experiences.filter(exp => exp.contract.type === ContractType.Training), search, trainingOptions)
     if (trainingSection) {
       trainingSection.setAttribute("group", Boolean(trainingOptions.group).toString())
-    }
-  }
-
-  /**
-   *
-   * @param {string} title
-   * @param {Experience[]} exps
-   * @param search
-   * @param {ResumeSectionOptions} options
-   * @return {HistoryComponent | undefined}
-   */
-  renderExperiences(title, exps, search, options) {
-    const section = this.root.querySelector("#" + title)
-    const experiences = exps.filter(exp => exp.skills.find(skill => skill.name.toLowerCase().indexOf(search) >= 0) ? exp : undefined)
-    const sortedExps = experiences.sort((a, b) => a.startDate.getTime() < b.startDate.getTime() ? 1 : a.startDate.getTime() > b.startDate.getTime() ? -1 : 0)
-    section.innerHTML = ""
-    if (sortedExps.length > 0) {
-      /**
-       * @type {HistoryComponent}
-       */
-      const historyEl = document.createElement("cv-history")
-      historyEl.setAttribute("open", Boolean(options.open).toString())
-      historyEl.heading = this.messages[title].title
-      historyEl.setExperiences(sortedExps)
-      section.append(historyEl)
-      return historyEl
     }
   }
 }

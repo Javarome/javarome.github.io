@@ -5,6 +5,7 @@
     margin-top: 0;
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
 
   cv-history::part(title) {
