@@ -1,9 +1,8 @@
 import {HistoryComponent} from "./history/HistoryComponent.mjs"
-import {SkillComponent} from "./skill/SkillComponent.mjs"
-import {Skill} from "./skill/Skill.mjs"
 import {ResumeMessages} from "./ResumeMessages.mjs"
 import {ContractType} from "./history/experience/contract/Contract.mjs"
 import {PeopleRenderer} from "./people/PeopleRenderer.mjs"
+import {SkillsRenderer} from "./skill/SkillsRenderer.mjs"
 
 export class ResumeSectionOptions {
   /**
@@ -48,14 +47,14 @@ export class ResumeRenderer {
   messages
 
   /**
-   * @param {Node} root
+   * @param {Element} root
    * @param {ResumeMessages} messages
    */
   constructor(root, messages) {
     this.root = root
     this.messages = messages
-    window.cvRenderer = this
     this.peopleRenderer = new PeopleRenderer(root, messages)
+    this.skillsRenderer = new SkillsRenderer(root.querySelector("#skills"), messages.skills)
   }
 
   /**
@@ -80,7 +79,7 @@ export class ResumeRenderer {
       root.querySelector(".statement").textContent = statement
     }
     const allSkills = resume.experiences.flatMap(exp => exp.skills)
-    this.renderSkills(root.querySelector("#skills"), allSkills, search)
+    this.skillsRenderer.render(resume, allSkills, search)
     /**
      * @type {ExperienceSectionOptions}
      */
@@ -93,44 +92,6 @@ export class ResumeRenderer {
     const trainingSection = this.renderExperiences("training", resume.experiences.filter(exp => exp.contract.type === ContractType.Training), search, trainingOptions)
     if (trainingSection) {
       trainingSection.setAttribute("group", Boolean(trainingOptions.group).toString())
-    }
-  }
-
-  /**
-   *
-   * @param {Element} skillsRoot
-   * @param {Skill[]} allSkills
-   * @param {string} search
-   */
-  renderSkills(skillsRoot, allSkills, search) {
-    const searchTerms = search.split(/[ ,]/).map(s => s.toLowerCase())
-    const skills = searchTerms[0] === "" ? allSkills : allSkills.filter(skill =>
-      searchTerms.filter(searchTerm => {
-        if (skill.description.toLowerCase().indexOf(searchTerm) >= 0) {
-          return searchTerm
-        } else {
-          return undefined
-        }
-      }).length > 0 ? skill : undefined)
-    const title = skillsRoot.querySelector("h2")
-    title.textContent = this.messages.skills.title
-    const skillsLevel = new Map()
-    for (const skill of skills) {
-      const currentLevel = skillsLevel.get(skill) || 0
-      skillsLevel.set(skill, currentLevel + 1)
-    }
-    const list = skillsRoot.querySelector("ul")
-    if (skillsLevel.size > 0) {
-      list.innerHTML = ""
-      for (const skillsEntry of skillsLevel.entries()) {
-        const skill = skillsEntry[0]
-        const level = skillsEntry[1]
-        const skillEl = SkillComponent.fromSkill(skill)
-        skillEl.style = "font-size: " + (10 + level * 2) + "px"
-        list.append(skillEl)
-      }
-    } else {
-      list.innerHTML = this.messages.skills.none(search)
     }
   }
 

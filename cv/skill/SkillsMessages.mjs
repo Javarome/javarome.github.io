@@ -7,7 +7,7 @@ export class SkillsMessages {
   title
 
   /**
-   * @type {(search) => string}
+   * @type {(string) => string}
    */
   none
 
