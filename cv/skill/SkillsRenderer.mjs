@@ -58,7 +58,7 @@ export class SkillsRenderer {
         const skill = skillsEntry[0]
         const level = skillsEntry[1]
         const skillEl = SkillComponent.fromSkill(skill)
-        skillEl.style = `font-size: ${10 + level * 2}px`
+        skillEl.style = `font-size: ${10 + level}px`
         list.append(skillEl)
       }
     } else {

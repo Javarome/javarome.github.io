@@ -49,7 +49,7 @@ export class ResumeRenderer {
   }
 
   renderSearch(resume, searchStr, options) {
-    const allSkills = resume.experiences.flatMap(exp => exp.skills)
+    const allSkills = resume.experiences.flatMap(exp => exp.skills).flatMap(skill => skill.withImplied(skill))
     const search = searchStr.trim().toLowerCase()
     this.skillsRenderer.render(resume, allSkills, search, true)
     /**
