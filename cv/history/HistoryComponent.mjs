@@ -9,8 +9,8 @@ template.innerHTML = `<style>
 }
 .history {
   margin: 0 1em;
-  list-style: disc;
-  padding-left: 1em;
+  list-style: none;
+  padding-left: 0;
   
   > li {
     transition: background-color 0.2s ease;
@@ -24,7 +24,7 @@ template.innerHTML = `<style>
 }
 .projects {
   list-style: circle;
-  padding-left: 1em;
+  padding-left: 2em;
 
   li:hover {
     --background-color-darker: color-mix(in srgb,var(--background-color),#000 10%);
@@ -42,11 +42,6 @@ summary {
   &::marker {
     color: darkgray;
   };
-  &::after {
-    content: "";
-    display: block;
-    height: 1em;
-  }
 }
 h2 {
   margin-top: 1em;
@@ -62,8 +57,14 @@ details h2::after {
 details[open] h2::after {
   content: "";
 }
+.history details[open] li::after {
+  content: "";
+  display: block;
+  height: 1em;
+}
 h3 {
-  margin: 0.5em 0;
+  display: inline-block;
+  margin: 0em 0;
 }
 time {
   font-size: 0.9em;
@@ -203,16 +204,21 @@ export class HistoryComponent extends HTMLElement {
    */
   renderGroup(contract, projects) {
     const groupItem = document.createElement("li")
+    const details = document.createElement("details")
+    const summary = document.createElement("summary")
+    details.append(summary)
 
     const heading = document.createElement("h3")
-    heading.part.add("group")
+    const groupHead = document.createElement("div")
+    groupHead.part.add("group")
+    heading.append(groupHead)
     {
-      heading.append(this.renderOrgLink(contract))
-      heading.append(this.renderTitle(contract))
-      heading.append(this.renderDate(contract.startDate, "start"))
-      heading.append(this.renderDate(contract.endDate, "end"))
+      groupHead.append(this.renderOrgLink(contract))
+      groupHead.append(this.renderTitle(contract))
+      groupHead.append(this.renderDate(contract.startDate, "start"))
+      groupHead.append(this.renderDate(contract.endDate, "end"))
     }
-    groupItem.append(heading)
+    summary.append(heading)
 
     const projectsList = document.createElement("ol")
     projectsList.className = "projects"
@@ -220,7 +226,9 @@ export class HistoryComponent extends HTMLElement {
     for (const projectItem of projectItems) {
       projectsList.append(projectItem)
     }
-    groupItem.append(projectsList)
+    details.append(projectsList)
+
+    groupItem.append(details)
 
     return groupItem
   }
@@ -241,8 +249,7 @@ export class HistoryComponent extends HTMLElement {
     const org = contract.org
     websiteLink.href = org.link.url
     websiteLink.append(orgEl)
-    const logo = this.renderLogo(org)
-    websiteLink.append(logo)
+    websiteLink.append(this.renderLogo(org))
     return websiteLink
   }
 

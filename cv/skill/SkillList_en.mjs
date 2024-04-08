@@ -18,7 +18,7 @@ class SkillList_en extends SkillList {
   ml = new Skill("ML", new URL("https://en.wikipedia.org/wiki/Machine_learning"), `ML is Machine Learning`, [], [])
   nlp = new Skill("NLP", new URL("https://en.wikipedia.org/wiki/Natural_language_processing"), `NLP (Natural Language Processing) is a ML technique applied to text queries`, [this.ml], [])
   phonegap = new Skill("Phonegap", new URL("https://fr.wikipedia.org/wiki/Adobe_PhoneGap"), "(or Apache Cordova) allows encapsulating a web app into a native mobile (iOS, Android) app", [], ["web"])
-  macos = new Skill("XCode", new URL("https://en.wikipedia.org/wiki/MacOS"), `MacOS is the <abbr title="Operating System">OS</abbr> for Apple Mac computers`, [], ["os"])
+  macos = new Skill("MacOS", new URL("https://en.wikipedia.org/wiki/MacOS"), `MacOS is the <abbr title="Operating System">OS</abbr> for Apple Mac computers`, [], ["os"])
   xcode = new Skill("XCode", new URL("https://developer.apple.com/xcode"), `Allows to build MacOS native apps`, [this.macos], ["ide"])
   oop = new Skill("OOP", new URL("https://developer.apple.com/xcode"), `OOP (Object-Oriented Programming) is a software development approach`, [], [])
   java = new Skill("Java", new URL("https://www.java.com"), `Java is a programming language and a platform to write apps once and run them everywhere`, [this.oop], ["language"])
@@ -41,7 +41,7 @@ class SkillList_en extends SkillList {
   graphql = new Skill("GraphQL", new URL("https://graphql.org/"), `GraphQL is a standard to query server APIs in a tailored fashion`, [])
   http = new Skill("HTTP", new URL("https://en.wikipedia.org/wiki/HTTP"), `HTTP is the standard protocol for serving web pages`, [])
   rest = new Skill("REST", new URL("https://fr.wikipedia.org/wiki/Representational_state_transfer"), `REST is a standard for HTTP APIs`, [this.http])
-  webCrypto = new Skill("Web Crypto", new URL("https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API"), `Web Crypto allows cryptographic primitives from browser apps`, [])
+  webCrypto = new Skill("Web Crypto", new URL("https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API"), `Web Crypto allows cryptographic primitives from browser apps`, [this.js])
   jest = new Skill("Jest", new URL("https://jestjs.io"), `Jest is a unit tests framework for JavaScript/TypeScript`, [this.js])
   redis = new Skill("Redis", new URL("https://redis.io"), `Redis provides a key/value storage`, [])
   azure = new Skill("Azure", new URL("https://azure.microsoft.com"), `Microsoft Azure provides cloud computing services`, [])
@@ -60,6 +60,8 @@ class SkillList_en extends SkillList {
   jbuilder = new Skill("JBuilder", new URL("https://en.wikipedia.org/wiki/JBuilder"), `JBuilder was the Java IDE by Borland`, [this.java], [])
   pascal = new Skill("Pascal", new URL("https://en.wikipedia.org/wiki/Pascal_(programming_language)"), `Pascal is a procedural programming language`, [], ["language"])
   delphi = new Skill("Delphi", new URL("https://en.wikipedia.org/wiki/Delphi_(software)"), `Delphi is a Borland IDE to build Windows apps`, [this.pascal], [])
-  netlify = new Skill("Netlify", new URL("https://netlify.com"), `Netlify is a web hosting service`, [], ["saas"])
+  netlify = new Skill("Netlify", new URL("https://netlify.com"), "Netlify is a web hosting service", [], ["saas"])
+  pwa = new Skill("PWA", new URL("https://en.wikipedia.org/wiki/Progressive_web_app"), "PWA are Progressive Web applications that can behave like OS apps", [this.js], ["saas"])
 }
+
 export const skillList_en = new SkillList_en()

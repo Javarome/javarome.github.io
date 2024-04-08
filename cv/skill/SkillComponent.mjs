@@ -2,6 +2,7 @@ const style = `
 :host {
   display: inline-block;
   margin: 0.1em 0.1em;
+  --web-color: rgba(0,255,0,0.1);
   --java-color: rgba(255,0,0,0.1);
   --tool-color: rgba(255,0,255,0.1);
   --dbms-color: color-mix(in srgb,var(--tool-color),#000 5%);
@@ -16,6 +17,7 @@ a {
   border-radius: 0.3em;
   text-decoration: none;
 }
+.html { background-color: var(--web-color) }
 .javascript { background-color: var(--js-color) }
 .typescript { background-color: var(--ts-color) }
 .angular { background-color: var(--ts-product-color) }

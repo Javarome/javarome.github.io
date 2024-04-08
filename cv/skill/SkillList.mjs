@@ -330,4 +330,10 @@ export class SkillList {
    * @type {Skill}
    */
   netlify
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  pwa
 }

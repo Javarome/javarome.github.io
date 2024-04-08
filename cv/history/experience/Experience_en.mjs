@@ -3,7 +3,7 @@ import {contracts_en} from "./contract/Contracts_en.mjs"
 import {ExperienceMessages} from "./ExperienceMessages.mjs"
 
 class ExperienceMessages_en extends ExperienceMessages {
-  title = "Experience"
+  title = "Work Experience"
   contracts = contracts_en
   projects = projects_en
 }

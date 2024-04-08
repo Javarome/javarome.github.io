@@ -14,7 +14,7 @@ class ResumeMessages_en extends ResumeMessages {
   }
   experience = experience_en
   training = {
-    title: "Training"
+    title: "Education"
   }
 }
 
