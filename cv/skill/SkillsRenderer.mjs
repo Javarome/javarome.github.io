@@ -35,15 +35,7 @@ export class SkillsRenderer {
    * @param {SkillsRenderOptions} search
    */
   render(resume, allSkills, search, options) {
-    const searchTerms = search.split(/[ ,]/).map(s => s.toLowerCase())
-    const skills = searchTerms[0] === "" ? allSkills : allSkills.filter(skill =>
-      searchTerms.filter(searchTerm => {
-        if (skill.description.toLowerCase().indexOf(searchTerm) >= 0) {
-          return searchTerm
-        } else {
-          return undefined
-        }
-      }).length > 0 ? skill : undefined)
+    const skills = this.searchSkills(search, allSkills)
     const title = this.root.querySelector("h2")
     title.textContent = this.messages.title
     const skillsLevel = new Map()
@@ -63,6 +55,33 @@ export class SkillsRenderer {
       }
     } else {
       list.innerHTML = this.messages.none(search)
+    }
+  }
+
+  /**
+   * @param {string} search
+   * @param {Skill[]} allSkills
+   * @return {Skill[]}
+   */
+  searchSkills(search, allSkills) {
+    const searchTerms = search.split(/[ ,]/).map(s => s.toLowerCase())
+    if (searchTerms[0] === "") {
+      return allSkills
+    } else {
+      if (searchTerms[searchTerms.length - 1].length === 0) {
+        searchTerms.splice(searchTerms.length - 1, 1)
+        searchTerms[searchTerms.length - 1] += " "
+      }
+      return allSkills.filter(skill =>
+        searchTerms.filter(searchTerm => {
+          if (searchTerm.endsWith(" ") && skill.name.toLowerCase() === searchTerm.toLowerCase()) {
+            return searchTerm
+          } else if (skill.description.toLowerCase().indexOf(searchTerm) >= 0) {
+            return searchTerm
+          } else {
+            return undefined
+          }
+        }).length > 0 ? skill : undefined)
     }
   }
 }
