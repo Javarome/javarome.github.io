@@ -81,6 +81,14 @@ a {
 }
 .start::after { content: " →" }
 .end::before { content: "→ " }
+details {
+  max-height: 2em;
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+details[open] {
+  max-height: 100svh;
+}
 </style>
 <details>
   <summary><h2 class="title"></h2></summary>
