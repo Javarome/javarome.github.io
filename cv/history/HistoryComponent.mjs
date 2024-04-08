@@ -11,6 +11,7 @@ template.innerHTML = `<style>
   margin: 0 1em;
   list-style: none;
   padding-left: 0;
+  overflow: scroll;
   
   > li {
     transition: background-color 0.2s ease;
@@ -35,7 +36,7 @@ template.innerHTML = `<style>
   appearance: none;
   border: none
 }
-summary {
+:host > details > summary {
   background: linear-gradient(to bottom, var(--background-color) 75%, rgba(0,0,0,0));
   top: 0;
   position: sticky;
