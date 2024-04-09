@@ -104,7 +104,7 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const weWorkParis12 = new Address("198 Avenue de France", "75013", "Paris", france)
   const zelros = new Organization(Organization.linkFromMessages(contractsMessages.zelros), weWorkParis12)
   const zelrosExp = new Contract(zelros, ContractType.FullTimePermanent, contractsMessages.zelros.title, new Date(2019, 1 - 1, 1), new Date(2021, 2 - 1, 1))
-  const kmApp = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1), projectsMessages.zelrosKmApp, homeBezons, [skills.ts, skills.nlp, skills.postgresql])
+  const kmApp = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1), projectsMessages.zelrosKmApp, homeBezons, [skills.ts, skills.nlp, skills.postgresql, skills.keycloak])
   const mlPipeline = new Experience(zelrosExp, kmApp.startDate, zelrosExp.endDate, projectsMessages.mlPipeline, homeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.python, skills.redis, skills.azure, skills.docker, skills.sass])
 
   const beamOffices = new Address("74 avenue Kleber", "75016", "Paris", france)

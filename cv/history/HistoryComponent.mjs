@@ -65,7 +65,7 @@ details[open] h2::after {
 }
 h3 {
   display: inline-block;
-  margin: 0em 0;
+  margin: 0;
 }
 time {
   font-size: 0.9em;
@@ -83,7 +83,7 @@ a {
 .end::before { content: "→ " }
 details {
   max-height: 2em;
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.7s ease-out;
   overflow: hidden;
 }
 details[open] {

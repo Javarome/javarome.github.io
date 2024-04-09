@@ -44,8 +44,14 @@ export class SearchComponent extends HTMLElement {
     this.shadow = this.attachShadow({mode: "closed"})
     this.shadow.appendChild(template.content.cloneNode(true))
     this.shadow.querySelector("input").addEventListener('keyup', (event) => {
-      if (event.keyCode === 32) {   // Space?
-        event.preventDefault()      // Prevent closing the <summary>
+      switch (event.keyCode) {
+        case 13: // Space?
+          const e = {...event, ...{target: {value: event.target.value + " "}}}
+          window.search(e)
+          break
+        case 32: // Space?
+          event.preventDefault()      // Prevent closing the <summary>
+          break
       }
     })
   }

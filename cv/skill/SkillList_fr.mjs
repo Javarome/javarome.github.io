@@ -62,5 +62,7 @@ class SkillList_fr extends SkillList {
   delphi = new Skill("Delphi", new URL("https://en.wikipedia.org/wiki/Delphi_(software)"), `Delphi est un IDE de Borland pour construire des applications Windows`, [this.pascal], [])
   netlify = new Skill("Netlify", new URL("https://netlify.com"), `Netlify est un service d'hébergement web`, [], ["saas"])
   pwa = new Skill("PWA", new URL("https://fr.wikipedia.org/wiki/Progressive_web_app"), "PWA are Progressive Web applications that can behave like OS apps", [this.js], ["saas"])
+  oauth = new Skill("OAuth", new URL("https://oauth.net"), "OAuth est un protocl d'authentification et autorisation", [this.http], ["security"])
+  keycloak = new Skill("Keycloak", new URL("https://www.keycloak.org"), `Keycloak est une solution d'<abbr title="Identity and Access Management">IAM</abbr>`, [this.oauth], ["security"])
 }
 export const skillList_fr = new SkillList_fr()
