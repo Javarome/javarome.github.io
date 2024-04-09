@@ -37,6 +37,7 @@ class SkillList_en extends SkillList {
   j2ee = new Skill("J2EE", new URL("https://www.oracle.com/java/technologies/appmodel.html"), `Java 2 Entreprise Edition is a suite of APIs to build entreprise-grade apps`, [this.java])
   nodejs = new Skill("NodeJS", new URL("https://nodejs.org"), `NodeJS allows to buid JavaScript apps outside of a browser`, [this.js])
   fastify = new Skill("Fastify", new URL("https://fastify.dev"), `Fastify is a TypeScript web server framework`, [this.ts, this.nodejs])
+  express = new Skill("Express", new URL("https://expressjs.com"), `Express is JavaScript web server framework`, [this.js, this.nodejs])
   python = new Skill("Python", new URL("https://www.python.org"), `Python is a programming language used by most ML libraries`, [], ["language"])
   graphql = new Skill("GraphQL", new URL("https://graphql.org/"), `GraphQL is a standard to query server APIs in a tailored fashion`, [])
   http = new Skill("HTTP", new URL("https://en.wikipedia.org/wiki/HTTP"), `HTTP is the standard protocol for serving web pages`, [])

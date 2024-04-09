@@ -106,7 +106,7 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const zelrosExp = new Contract(zelros, ContractType.FullTimePermanent, contractsMessages.zelros.title, new Date(2019, 1 - 1, 1), new Date(2021, 2 - 1, 1))
   const cs = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1), projectsMessages.cs, homeBezons, [skills.ts, skills.nlp, skills.postgresql, skills.keycloak])
   const sdm = new Experience(zelrosExp, cs.startDate, zelrosExp.endDate, projectsMessages.sdm, homeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.python, skills.redis, skills.azure, skills.docker, skills.sass])
-  const ms = new Experience(zelrosExp, cs.startDate, zelrosExp.endDate, projectsMessages.ms, homeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.python, skills.redis, skills.azure, skills.docker, skills.sass])
+  const ms = new Experience(zelrosExp, cs.startDate, zelrosExp.endDate, projectsMessages.ms, homeBezons, [skills.ts, skills.express, skills.nodejs, skills.python, skills.redis, skills.docker, skills.sass])
 
   const beamOffices = new Address("74 avenue Kleber", "75016", "Paris", france)
   const beam = new Organization(Organization.linkFromMessages(contractsMessages.beam), beamOffices, new URL("https://www.beamapp.co/assets/common/beam-icon.png"))

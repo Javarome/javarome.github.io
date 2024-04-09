@@ -175,11 +175,18 @@ export class SkillList {
    * @type {Skill}
    */
   j2ee
+
   /**
    * @abstract
    * @type {Skill}
    */
   fastify
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  express
 
   /**
    * @abstract
