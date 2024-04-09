@@ -58,10 +58,10 @@ details h2::after {
 details[open] h2::after {
   content: "";
 }
-.history details[open] li::after {
+.history > details[open] li::after {
   content: "";
   display: block;
-  height: 1em;
+  height: 0.5em;
 }
 h3 {
   display: inline-block;

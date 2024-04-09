@@ -25,14 +25,25 @@ export class ProjectsMessages {
   beamWebServer
 
   /**
+   * Zelros' Customer Service (Anna)
+   *
    * @type {string}
    */
-  zelrosKmApp
+  cs
 
   /**
+   * Zelros' Medical Selection
+   *
    * @type {string}
    */
-  mlPipeline
+  ms
+
+  /**
+   * Zelros' Standard Data Model & pipeline
+   *
+   * @type {string}
+   */
+  sdm
 
   /**
    * @type {string}

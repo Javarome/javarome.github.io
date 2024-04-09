@@ -6,14 +6,15 @@ class ProjectMessages_en extends ProjectsMessages {
   kelpie = "Maintenance et fin de vie d'un <abbr title=\"Content Management System\">CMS</abbr> Web3"
   beamWebApp = "Responsive web app to browse/search/edit notes"
   beamWebServer = `Web server to publish notes with <abbr title="Server-Side Rendering">SSR</abbr>`
-  zelrosKmApp = "Knowledge management web app"
-  mlPipeline = `<abbr title="Machine Learning">ML pipeline</abbr>`
+  cs = "Knowledge management web app"
+  sdm = `<abbr title="Machine Learning">ML pipeline</abbr>`
+  ms = `Automatic approval or rejection of medical files using a ML`
   famicityApp = "Social network web & mobile apps for families with feed and family tree"
   hotelBookingApp = "Hotel booking web & mobile app"
   itineraryApp = "Itinerary app"
   parentalControlApp = "Parental control app"
   parentalControlConsole = "Parental control console"
-  xic = "Xcalia Intermediation Core"
+  xic = `<a href="https://web.archive.org/web/20070217212850/http://www.xcalia.com/products/core.jsp">XIC</a> (Xcalia Intermediation Core)`
   lido = "LiDO"
   chronopostPacketTracking = `Chronopost packet tracking`
   billetel = `FNAC's show booking app`
