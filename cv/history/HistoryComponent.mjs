@@ -40,10 +40,10 @@ template.innerHTML = `<style>
   background: linear-gradient(to bottom, var(--background-color) 75%, rgba(0,0,0,0));
   top: 0;
   position: sticky;
-  &::marker {
-    color: darkgray;
-  };
 }
+summary::marker {
+  color: darkgray;
+};
 h2 {
   margin-top: 1em;
   display: inline;
