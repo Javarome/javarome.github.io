@@ -81,6 +81,24 @@ export class SkillList {
    * @abstract
    * @type {Skill}
    */
+  keycloak
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  oauth
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  airflow
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
   mongodb
 
   /**
@@ -343,4 +361,10 @@ export class SkillList {
    * @type {Skill}
    */
   pwa
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  jenkins
 }

@@ -87,7 +87,6 @@ const iut_en = new class extends ContractMessages {
 class ContractsMessages_en extends ContractsMessages {
   arianee = arianee_en
   beam = beam_en
-  zelros = zelros_en
   famicity = famicity_en
   traveldoo = traveldoo_en
   xooloo = xooloo_en
@@ -97,6 +96,7 @@ class ContractsMessages_en extends ContractsMessages {
   ibm = ibm_en
   isty = isty_en
   iut = iut_en
+  zelros = zelros_en
 }
 
 export const contracts_en = new ContractsMessages_en()

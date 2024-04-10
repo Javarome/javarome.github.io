@@ -92,7 +92,7 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const traveldooAddr = new Address("130 Rue Victor Hugo", "92300", "Levallois-Perret", france)
   const traveldoo = new Organization(Organization.linkFromMessages(contractsMessages.traveldoo), traveldooAddr)
   const traveldooExp = new Contract(traveldoo, ContractType.FullTimePermanent, contractsMessages.traveldoo.title, new Date(2013, 1 - 1, 1), new Date(2014, 12 - 1, 1))
-  const hotelApp = new Experience(traveldooExp, traveldooExp.startDate, new Date(2013, 12 - 1, 1), projectsMessages.itineraryApp, homeMauriceThorez, [skills.js, skills.angularJS, skills.rome2rio, skills.gwt])
+  const hotelMobile = new Experience(traveldooExp, traveldooExp.startDate, new Date(2013, 12 - 1, 1), projectsMessages.itineraryApp, homeMauriceThorez, [skills.js, skills.angularJS, skills.rome2rio, skills.gwt])
   const itineraryApp = new Experience(traveldooExp, new Date(2013, 12 - 1, 2), traveldooExp.endDate, projectsMessages.hotelBookingApp, homeMauriceThorez, [skills.js, skills.angularJS, skills.phonegap])
 
   const famicityOffices = new Address("6 rue de l'Abbé Hazard", "92000", "Nanterre", france)
@@ -103,10 +103,12 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
   const stationF = new Address("5 Parv. Alan Turing", "75013", "Paris", france)
   const weWorkParis12 = new Address("198 Avenue de France", "75013", "Paris", france)
   const zelros = new Organization(Organization.linkFromMessages(contractsMessages.zelros), weWorkParis12)
+  const natixis = new Organization(Organization.linkFromMessages(contractsMessages.zelros), weWorkParis12)
   const zelrosExp = new Contract(zelros, ContractType.FullTimePermanent, contractsMessages.zelros.title, new Date(2019, 1 - 1, 1), new Date(2021, 2 - 1, 1))
+  const aico = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1), projectsMessages.aico, homeBezons, [skills.ts, skills.express])
   const cs = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1), projectsMessages.cs, homeBezons, [skills.ts, skills.nlp, skills.postgresql, skills.keycloak])
   const sdm = new Experience(zelrosExp, cs.startDate, zelrosExp.endDate, projectsMessages.sdm, homeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.python, skills.redis, skills.azure, skills.docker, skills.sass])
-  const ms = new Experience(zelrosExp, cs.startDate, zelrosExp.endDate, projectsMessages.ms, homeBezons, [skills.ts, skills.express, skills.nodejs, skills.python, skills.redis, skills.docker, skills.sass])
+  const ms = new Experience(zelrosExp, cs.startDate, zelrosExp.endDate, projectsMessages.ms, homeBezons, [skills.python, skills.docker, skills.airflow, skills.jenkins])
 
   const beamOffices = new Address("74 avenue Kleber", "75016", "Paris", france)
   const beam = new Organization(Organization.linkFromMessages(contractsMessages.beam), beamOffices, new URL("https://www.beamapp.co/assets/common/beam-icon.png"))
@@ -125,28 +127,39 @@ import((`./ResumeMessages_${lang}.mjs`)).then(imported => {
     .of(jerome)
     .withTitle(messages.people.title)
     .withStatement(messages.people.statement)
+    // IUT
     .withExperience(iutCCourse)
+    // ISTY
     .withExperience(unixCourse)
     .withExperience(cCourse)
     .withExperience(cppCourse)
     .withExperience(istyProject)
+    // SQL Tech
     .withExperience(billetel)
     .withExperience(chronopostPacketTracking)
+    // Valtech
     .withExperience(ejbCourse)
     .withExperience(j2eeCourse)
+    // Libelis/Xcalia/Datadirect
     .withExperience(lido)
     .withExperience(xic)
+    // Traveldoo
     .withExperience(itineraryApp)
-    .withExperience(hotelApp)
+    .withExperience(hotelMobile)
+    // Xooloo
     .withExperience(xoolooConsole)
     .withExperience(xoolooApp)
     .withExperience(famicityApp)
     .withExperience(kelpieProject)
+    // Zelros
+    .withExperience(aico)
     .withExperience(cs)
     .withExperience(ms)
     .withExperience(sdm)
+    // Beam
     .withExperience(beamWebApp)
     .withExperience(beamWebServer)
+    // Arianee
     .withExperience(arn)
     .withExperience(dapp)
     .build()

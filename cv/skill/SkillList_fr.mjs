@@ -65,5 +65,7 @@ class SkillList_fr extends SkillList {
   pwa = new Skill("PWA", new URL("https://fr.wikipedia.org/wiki/Progressive_web_app"), "PWA are Progressive Web applications that can behave like OS apps", [this.js], ["saas"])
   oauth = new Skill("OAuth", new URL("https://oauth.net"), "OAuth est un protocl d'authentification et autorisation", [this.http], ["security"])
   keycloak = new Skill("Keycloak", new URL("https://www.keycloak.org"), `Keycloak est une solution d'<abbr title="Identity and Access Management">IAM</abbr>`, [this.oauth], ["security"])
+  airflow = new Skill("Airflow", new URL("https://airflow.apache.org"), `Airflow est un serveur de workflow`, [this.python], ["workflow"])
+  jenkins = new Skill("Jenkins", new URL("https://www.jenkins.io"), `Jenkins est un serveur d'automatisation pour la CI`, [], ["ci"])
 }
 export const skillList_fr = new SkillList_fr()

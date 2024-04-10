@@ -6,7 +6,8 @@ class ProjectMessages_fr extends ProjectsMessages {
   kelpie = `Maintenance et fin de vie d'un <abbr title="Content Management System">CMS</abbr> Web3`
   beamWebApp = "Application web réactive de consultation/recherche/édition de notes"
   beamWebServer = `Serveur web pour publier des notes servies en <abbr title="Server-Side Rendering">SSR</abbr>`
-  cs = "Application web de gestion des connaissances"
+  aico = `"AiCO", un assistant intelligent multilingue aux téléopérateurs d'assurances`
+  cs = `Application web de gestion des connaissances "Anna"`
   sdm = `Pipeline de <abbr title="Machine Learning">ML</abbr>`
   ms = `Approbation ou rejet automatique d'un dossier médical à l'aide d'un modèle de ML`
   famicityApp = "Réseau social et application mobile pour la famille avec feed et arbre généalogique"

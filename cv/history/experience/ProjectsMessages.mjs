@@ -25,6 +25,13 @@ export class ProjectsMessages {
   beamWebServer
 
   /**
+   * Zelros' AiCO
+   *
+   * @type {string}
+   */
+  aico
+
+  /**
    * Zelros' Customer Service (Anna)
    *
    * @type {string}
