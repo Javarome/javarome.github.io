@@ -194,6 +194,7 @@ h1 a:hover {
   margin-bottom: 1em;
   box-shadow: rgb(50 50 50) 0 0.3em 1em;
   transition: width var(--transition-duration) ease, height var(--transition-duration) ease;
+  width: 200px;
   max-width: 300px;
 }
 
