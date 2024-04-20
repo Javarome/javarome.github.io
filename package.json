@@ -1,0 +1,30 @@
+{
+  "name": "javarome-website",
+  "version": "1.0.0",
+  "description": "Javarome's website",
+  "author": "Jérôme Beau (javarome@gmail.com)",
+  "main": "index.html",
+  "cv": "cv/index.html",
+  "scripts": {
+    "test": "node --test",
+    "prebuild": "npm run test",
+    "build": "vite build --mode production",
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Javarome/javarome.github.io.git"
+  },
+  "devDependencies": {
+    "vite": "^5.2.9"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.js"
+    },
+    "./cv": {
+      "import": "./cv/index.mjs"
+    }
+  },
+  "private": true
+}

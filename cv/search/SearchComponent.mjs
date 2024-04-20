@@ -1,31 +1,5 @@
-const style = `
-input {
-  border: none
-  padding: 0.5em;
-}
-button {
-  border: none;
-  background: none;
-}
-input {
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: width 0.3s ease-out;
-  border: none;
-  border-bottom: 1px solid gray;
-  padding: 0.4em 0;
-  margin-left: 0.5em;
-  vertical-align: middle;
-  border-radius: 0.25em;
-  padding: 0.4em 0.5em;
-}
-@media print {
-  input, button {
-    display: none !important;
-  }
-}
-`
+import style from "./SearchComponent.css?raw"
+
 const template = document.createElement("template")
 template.innerHTML = `
 <style>${style}</style>

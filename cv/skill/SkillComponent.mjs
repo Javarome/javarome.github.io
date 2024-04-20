@@ -1,30 +1,4 @@
-const style = `
-:host {
-  display: inline-block;
-  margin: 0.1em 0.1em;
-  --web-color: rgba(0,255,0,0.1);
-  --java-color: rgba(255,0,0,0.1);
-  --tool-color: rgba(255,0,255,0.1);
-  --dbms-color: color-mix(in srgb,var(--tool-color),#000 5%);
-  --js-color: lightblue;
-  --ts-color: color-mix(in srgb,var(--js-color),#000 5%);
-  --ts-product-color: color-mix(in srgb,var(--ts-color),#000 5%);
-}
-a {
-  display: inline;
-  font-size: 0.8em;
-  padding: 0.15em 0.35em;
-  border-radius: 0.3em;
-  text-decoration: none;
-}
-.html { background-color: var(--web-color) }
-.javascript { background-color: var(--js-color) }
-.typescript { background-color: var(--ts-color) }
-.angular { background-color: var(--ts-product-color) }
-.java { background-color: var(--java-color) }
-.tool { background-color: var(--tool-color) }
-.dbms { background-color: var(--dbms-color) }
-`
+import style from "./SkillComponent.css?raw"
 const template = document.createElement("template")
 template.innerHTML = `
 <style>${style}</style>
@@ -67,7 +41,7 @@ export class SkillComponent extends HTMLElement {
     skillLink.title = skill.description
     this.shadow.append(skillLink)
   }
-  
+
   /**
    * @param {Skill} skill
    * @return {SkillComponent}

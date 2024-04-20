@@ -1,11 +1,6 @@
 import {SkillComponent} from "./SkillComponent.mjs"
+import style from "./SkillSetComponent.css?raw"
 
-const style = `
-ul {
-  margin:0;
-  padding-left: 0;
-}
-`
 const template = document.createElement("template")
 template.innerHTML = `<style>${style}</style>
 <ul></ul>

@@ -1,64 +1,6 @@
 import {SkillSetComponent} from "../../skill/SkillSetComponent.mjs"
+import style from "./ExperienceComponent.css?raw";
 
-const style = `
-:host {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 0.2em 0;
-}
-.org {
-  padding: 0 0.5em;
-}
-.end::before {
-  content: "-";
-}
-
-.name {
-  &::after {
-    content: " : ";
-  }
-
-  order: 1;
-}
-
-.start {
-  order: 2;
-}
-
-.end {
-  order: 3;
-}
-
-&.time-first {
-  .start {
-    order: 1;
-  }
-
-  .end {
-    order: 2;
-  }
-
-  .name {
-    &::before {
-      content: " : ";
-    }
-
-    &::after {
-      content: "";
-    }
-
-    order: 3;
-  }
-}
-.description {
-  flex: 0.5;
-}
-.skills {
-  flex: 0.5;
-  margin-left: 0.35em;
-}
-`
 const template = document.createElement("template")
 template.innerHTML = `<style>${style}</style>
 <!--

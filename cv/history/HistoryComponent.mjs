@@ -1,104 +1,14 @@
 import "./experience/ExperienceComponent.mjs"
 import "../search/SearchComponent.mjs"
 import {ExperienceComponent} from "./experience/ExperienceComponent.mjs"
+import style from "./HistoryComponent.css?raw";
 
 const template = document.createElement("template")
-template.innerHTML = `<style>
-:host {
-  position: relative;
-}
-.history {
-  margin-top: 0;
-  list-style: none;
-  padding-left: 0;
-  overflow: scroll;
-  
-  > li {
-    transition: background-color 0.2s ease;
-    border-radius: 0.5em;
-    padding: 0.5em;
-  }
-  li:hover {
-    --background-color-darker: color-mix(in srgb,var(--background-color),#000 5%);
-    background-color: var(--background-color-darker);
-  }
-}
-.projects {
-  list-style: circle;
-  padding-left: 2em;
-
-  li:hover {
-    --background-color-darker: color-mix(in srgb,var(--background-color),#000 10%);
-    background-color: var(--background-color-darker);
-  }
-}
-.sort {
-  appearance: none;
-  border: none
-}
-:host > details > summary {
-  background: linear-gradient(to bottom, var(--background-color) 75%, rgba(0,0,0,0));
-  top: 0;
-  position: sticky;
-}
-summary {
-  white-space: nowrap;
-}
-summary::marker {
-  color: darkgray;
-};
-h2 {
-  margin-top: 1em;
-  display: inline;
-  user-select: none;
-  text-shadow: -2px -2px 0 var(--background-color), 0 -2px 0 var(--background-color), 2px -2px 0 var(--background-color), 2px 0 0 var(--background-color), 2px 2px 0 var(--background-color), 0 2px 0 var(--background-color), -2px 2px 0 var(--background-color), -2px 0 0 var(--background-color);
-}
-details h2::after {
-  color: darkgrey;
-  content: " (...)";
-  cursor: pointer;
-}
-details[open] h2::after {
-  content: "";
-}
-.history > details[open] li::after {
-  content: "";
-  display: block;
-  height: 0.5em;
-}
-h3 {
-  white-space: normal;
-  display: inline-block;
-  margin: 0;
-}
-time {
-  font-size: 0.9em;
-  color: gray;
-}
-a {
-  text-decoration: none;
-}
-@media print {
-  button {
-    display: none !important;
-  }
-}
-.start::after { content: " →" }
-.end::before { content: "→ " }
-details {
-  max-height: 2em;
-  transition: max-height 0.7s ease-out;
-  overflow: hidden;
-}
-details[open] {
-  max-height: 100svh;
-}
-</style>
+template.innerHTML = `<style>${style}</style>
 <details>
   <summary><h2 class="title"></h2></summary>
   <ol class="history"></ol>
-</details>
-`
+</details>`
 
 export class HistoryComponent extends HTMLElement {
   /**
