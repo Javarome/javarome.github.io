@@ -194,7 +194,6 @@ h1 a:hover {
   margin-bottom: 1em;
   box-shadow: rgb(50 50 50) 0 0.3em 1em;
   transition: width var(--transition-duration) ease, height var(--transition-duration) ease;
-  width: 200px;
   max-width: 300px;
 }
 
@@ -234,8 +233,8 @@ h1 a:hover {
   height: 100vh;
   background: repeating-linear-gradient(
     0deg,
-    rgba(black, 0.15),
-    rgba(black, 0.15) 1px,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
     transparent 1px,
     transparent 2px
   );
