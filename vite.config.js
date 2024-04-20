@@ -4,7 +4,7 @@ export default {
     rollupOptions: {
       input: {
         main: 'index.html',
-        module: 'cv/index.html'
+        cv: 'cv/index.html'
       }
     }
   }
