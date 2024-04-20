@@ -8,7 +8,7 @@ template.innerHTML = `<style>
   position: relative;
 }
 .history {
-  margin: 0 1em;
+  margin-top: 0;
   list-style: none;
   padding-left: 0;
   overflow: scroll;
@@ -41,6 +41,9 @@ template.innerHTML = `<style>
   top: 0;
   position: sticky;
 }
+summary {
+  white-space: nowrap;
+}
 summary::marker {
   color: darkgray;
 };
@@ -64,6 +67,7 @@ details[open] h2::after {
   height: 0.5em;
 }
 h3 {
+  white-space: normal;
   display: inline-block;
   margin: 0;
 }
