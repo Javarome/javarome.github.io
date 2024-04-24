@@ -232,3 +232,19 @@ h1 a:hover {
   text-decoration: underline;
   color: lightblue;
 }
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+}
+.early li:last-of-type::after {
+  content: "";
+  vertical-align: text-bottom;
+  margin-left: 0.15em;
+  width: 1em;
+  height: 1.4em;
+  background: lightblue;
+  display: inline-block;
+  animation: cursor-blink 1.3s steps(2) infinite;
+}
