@@ -24,6 +24,17 @@ body {
   text-shadow: 0 0 5px #C8C8C8;
 }
 
+.main {
+  display: block;
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1em 2em;
+  height: 100%;
+  overflow: auto;
+}
+
 a {
   display: inline-block;
   text-decoration: none;
