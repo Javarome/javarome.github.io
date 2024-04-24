@@ -1,10 +1,8 @@
 import style from "./SearchComponent.css?raw"
+import html from "./SearchComponent.html?raw"
 
 const template = document.createElement("template")
-template.innerHTML = `
-<style>${style}</style>
-<span class="search"><input type="search" oninput="search(event)" placeholder="Recherche 🔎"></span>
-`
+template.innerHTML = `<style>${style}</style>${html}`
 
 export class SearchComponent extends HTMLElement {
   /**

@@ -1,10 +1,9 @@
 import {SkillComponent} from "./SkillComponent.mjs"
 import style from "./SkillSetComponent.css?raw"
+import html from "./SkillSetComponent.html?raw"
 
 const template = document.createElement("template")
-template.innerHTML = `<style>${style}</style>
-<ul></ul>
-`
+template.innerHTML = `<style>${style}</style>${html}`
 
 export class SkillSetComponent extends HTMLElement {
   /**

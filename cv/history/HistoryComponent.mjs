@@ -2,13 +2,10 @@ import "./experience/ExperienceComponent.mjs"
 import "../search/SearchComponent.mjs"
 import {ExperienceComponent} from "./experience/ExperienceComponent.mjs"
 import style from "./HistoryComponent.css?raw";
+import html from "./HistoryComponent.html?raw";
 
 const template = document.createElement("template")
-template.innerHTML = `<style>${style}</style>
-<details>
-  <summary><h2 class="title"></h2></summary>
-  <ol class="history"></ol>
-</details>`
+template.innerHTML = `<style>${style}</style>${html}`
 
 export class HistoryComponent extends HTMLElement {
   /**

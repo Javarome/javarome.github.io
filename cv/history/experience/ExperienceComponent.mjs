@@ -1,16 +1,9 @@
 import {SkillSetComponent} from "../../skill/SkillSetComponent.mjs"
 import style from "./ExperienceComponent.css?raw";
+import html from "./ExperienceComponent.html?raw";
 
 const template = document.createElement("template")
-template.innerHTML = `<style>${style}</style>
-<!--
-<time class="start"></time>
-<time class="end"></time>
-<a href="" class="org"><span class="org-name"></span></a>
--->
-<div class="description"></div>
-<div class="skills"></div>
-`
+template.innerHTML = `<style>${style}</style>${html}`
 
 export class ExperienceComponent extends HTMLElement {
   /**

@@ -1,8 +1,7 @@
 import style from "./SkillComponent.css?raw"
+
 const template = document.createElement("template")
-template.innerHTML = `
-<style>${style}</style>
-`
+template.innerHTML = `<style>${style}</style>`
 
 export class SkillComponent extends HTMLElement {
   /**
