@@ -67,6 +67,8 @@ class SkillList_en extends SkillList {
   keycloak = new Skill("Keycloak", new URL("https://www.keycloak.org"), `Keycloak is an <abbr title="Identity and Access Management">IAM</abbr> solution`, [this.oauth], ["security"])
   airflow = new Skill("Airflow", new URL("https://airflow.apache.org"), `Airflow is a workflow server`, [this.python], ["workflow"])
   jenkins = new Skill("Jenkins", new URL("https://www.jenkins.io"), `Jenkins is a CI automation server`, [], ["ci"])
+  nes = new Skill("NES", new URL("https://web.archive.org/web/19980207095435/http://www.home.netscape.com/comprod/server_central/product/enterprise/enterprise3_data.html"), `<abbr title="Netscape Enterprise Server">NES</abbr> allowed to execute JavaScript on the server side`, [this.js], [""])
+  livewire = new Skill("Livewire", new URL("https://web.archive.org/web/19980207075142/http://www.home.netscape.com/comprod/server_central/product/livewire/index.html"), `Livewire allowed to access databases from JavaScript executed by the <abbr title="Netscape Enterprise Server">NES</abbr>. It was later acquired by Sun Microsystems and renamed iPlanet`, [this.nes], [""])
 }
 
 export const skillList_en = new SkillList_en()

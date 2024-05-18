@@ -367,4 +367,16 @@ export class SkillList {
    * @type {Skill}
    */
   jenkins
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  livewire
+
+/**
+   * @abstract
+   * @type {Skill}
+   */
+  nes
 }

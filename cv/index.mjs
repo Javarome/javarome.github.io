@@ -66,8 +66,8 @@ langPromise.then(imported => {
 
   const ibmAddr = new Address("2 Av. Gambetta", "92400", "Courbevoie", france)
   const ibm = new Organization(Organization.linkFromMessages(contractsMessages.ibm), ibmAddr)
-  const ibmExp = new Contract(ibm, ContractType.FullTimePermanent, contractsMessages.ibm.title, new Date(1997, 1 - 1, 1), new Date(1997, 8 - 1, 1))
-  const billetel = new Experience(ibmExp, ibmExp.startDate, ibmExp.endDate, projectsMessages.billetel, ibmAddr, [skills.jbuilder])
+  const ibmInternship = new Contract(ibm, ContractType.FullTimePermanent, contractsMessages.ibm.title, new Date(1997, 1 - 1, 1), new Date(1997, 8 - 1, 1))
+  const billetel = new Experience(ibmInternship, ibmInternship.startDate, ibmInternship.endDate, projectsMessages.billetel, ibmAddr, [skills.jbuilder, skills.livewire])
 
   const sqlTechAddr1 = new Address("10 Rue des Acacias", "92130", "Issy-les-Moulineaux", france)
   const sqlTechAddr2 = new Address("94bis avenue de Suffren", "75015", "Paris", france)
