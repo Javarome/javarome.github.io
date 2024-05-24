@@ -374,9 +374,15 @@ export class SkillList {
    */
   livewire
 
-/**
+  /**
    * @abstract
    * @type {Skill}
    */
   nes
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  circleci
 }

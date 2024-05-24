@@ -125,9 +125,9 @@ langPromise.then(imported => {
   const laCaserne = new Address("12 rue Philippe de Girard", "75010", "Paris", france)
   const arianee = new Organization(Organization.linkFromMessages(contractsMessages.arianee), laCaserne, new URL("https://assets-global.website-files.com/63d2463b430d2159464c7403/63ed17fd8944e2d5b7fee10c_Webclip%20Arianee.com.png"))
   const arianeeContract = new Contract(arianee, ContractType.FullTimePermanent, contractsMessages.arianee.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
-  const kelpie = new Experience(arianeeContract, new Date(2022, 11 - 1, 14), new Date(2022, 12 - 1, 31), projectsMessages.kelpie, homeBezons, [skills.angular, skills.mongodb, skills.sass])
-  const arn = new Experience(arianeeContract, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, homeBezons, [skills.angular, skills.nx, skills.fastify, skills.ethers, skills.walletConnect, skills.mongodb, skills.netlify, skills.sass])
-  const dapp = new Experience(arianeeContract, new Date(2023, 4 - 1, 1), arianeeContract.endDate, projectsMessages.dapp, homeBezons, [skills.angular, skills.nx, skills.nodejs, skills.gcp, skills.ethers, skills.walletConnect, skills.netlify, skills.pwa, skills.sass])
+  const kelpie = new Experience(arianeeContract, new Date(2022, 11 - 1, 14), new Date(2022, 12 - 1, 31), projectsMessages.kelpie, homeBezons, [skills.angular, skills.mongodb, skills.sass, skills.circleci])
+  const arn = new Experience(arianeeContract, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, homeBezons, [skills.angular, skills.nx, skills.fastify, skills.ethers, skills.walletConnect, skills.mongodb, skills.netlify, skills.sass, skills.circleci])
+  const dapp = new Experience(arianeeContract, new Date(2023, 4 - 1, 1), arianeeContract.endDate, projectsMessages.dapp, homeBezons, [skills.angular, skills.nx, skills.nodejs, skills.gcp, skills.ethers, skills.walletConnect, skills.netlify, skills.pwa, skills.sass, skills.circleci])
 
   const myResume = new ResumeBuilder()
     .of(jerome)
