@@ -201,3 +201,13 @@ h1 a:hover {
   width: 100%;
   height: 100%;
 }
+
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    view-transition-name: unset !important;
+  }
+}
