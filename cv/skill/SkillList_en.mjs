@@ -15,6 +15,7 @@ class SkillList_en extends SkillList {
   cpp = new Skill("C++", new URL("https://www.open-std.org/jtc1/sc22/wg21/"), "C programming language", [this.c], ["language"])
   postgresql = new Skill("PostgreSQL", new URL("https://www.postgresql.org"), "Postgres Relational database", [this.sql], ["database"])
   mongodb = new Skill("MongoDB", new URL("https://www.mongodb.com"), "MongoDB is a nosql JSON database", [this.js], ["database", "nosql"])
+  mongoose = new Skill("Mongoose", new URL("https://mongoosejs.com"), `Mongoose is a schema-typing layer above the MongoDB driver`, [this.mongodb], ["database", "nosql"])
   ml = new Skill("ML", new URL("https://en.wikipedia.org/wiki/Machine_learning"), `ML is Machine Learning`, [], [])
   nlp = new Skill("NLP", new URL("https://en.wikipedia.org/wiki/Natural_language_processing"), `NLP (Natural Language Processing) is a ML technique applied to text queries`, [this.ml], [])
   phonegap = new Skill("Phonegap", new URL("https://fr.wikipedia.org/wiki/Adobe_PhoneGap"), "(or Apache Cordova) allows encapsulating a web app into a native mobile (iOS, Android) app", [], ["web"])
@@ -70,6 +71,7 @@ class SkillList_en extends SkillList {
   nes = new Skill("NES", new URL("https://web.archive.org/web/19980207095435/http://www.home.netscape.com/comprod/server_central/product/enterprise/enterprise3_data.html"), `<abbr title="Netscape Enterprise Server">NES</abbr> allowed to execute JavaScript on the server side`, [this.js], [""])
   livewire = new Skill("Livewire", new URL("https://web.archive.org/web/19980207075142/http://www.home.netscape.com/comprod/server_central/product/livewire/index.html"), `Livewire allowed to access databases from JavaScript executed by the <abbr title="Netscape Enterprise Server">NES</abbr>. It was later acquired by Sun Microsystems and renamed iPlanet`, [this.nes], [""])
   circleci = new Skill("CircleCI", new URL("https://circleci.com"), `Circle CI is CI software as a service`, [], ["ci"])
+  protoBuffers = new Skill("ProtoBuf", new URL("https://protobuf.dev"), `Optimized data serialization`, [], [])
 }
 
 export const skillList_en = new SkillList_en()

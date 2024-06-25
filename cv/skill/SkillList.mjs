@@ -385,4 +385,16 @@ export class SkillList {
    * @type {Skill}
    */
   circleci
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  protoBuffers
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  mongoose
 }

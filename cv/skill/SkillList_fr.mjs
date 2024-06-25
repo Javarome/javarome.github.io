@@ -15,6 +15,7 @@ class SkillList_fr extends SkillList {
   cpp = new Skill("C++", new URL("https://www.open-std.org/jtc1/sc22/wg21/"), "C programming language", [this.c], ["language"])
   postgresql = new Skill("PostgreSQL", new URL("https://www.postgresql.org"), `Base de données relationnelle de Postgres`, [this.sql], ["database"])
   mongodb = new Skill("MongoDB", new URL("https://www.mongodb.com/fr-fr"), "MongoDB est une base de données JSON", [this.js], ["database", "nosql"])
+  mongoose = new Skill("Mongoose", new URL("https://mongoosejs.com"), `Mongoose est une surcouche de MongoDB ajoutant une gestion de schéma`, [this.mongodb], ["database", "nosql"])
   ml = new Skill("ML", new URL("https://fr.wikipedia.org/wiki/Apprentissage_automatique"), `ML (Machine Learning) est le domaine de l'apprentissage automatique qui peut déboucher sur de l'IA`, [], [])
   nlp = new Skill("NLP", new URL("https://fr.wikipedia.org/wiki/Traitement_automatique_des_langues"), `NLP (Natural Language Processing) est une technique de ML pour les requêtes textuelles`, [this.ml], [])
   phonegap = new Skill("Phonegap", new URL("https://fr.wikipedia.org/wiki/Adobe_PhoneGap"), `(or Apache Cordova) allows encapsulating a web app into a native mobile (iOS, Android) app`, [this.js], ["web"])
@@ -70,5 +71,6 @@ class SkillList_fr extends SkillList {
   nes = new Skill("NES", new URL("https://web.archive.org/web/19980207095435/http://www.home.netscape.com/comprod/server_central/product/enterprise/enterprise3_data.html"), `<abbr title="Netscape Enterprise Server">NES</abbr> permettait d'exécuter du JavaScript côté serveur`, [this.js], [""])
   livewire = new Skill("Livewire", new URL("https://web.archive.org/web/19980207075142/http://www.home.netscape.com/comprod/server_central/product/livewire/index.html"), `Livewire permettait un accès à des sources de données depuis du JavaScript exécuté par le <abbr title="Netscape Enterprise Server">NES</abbr>. Il a par la suite été acquis par Sun Microsystems et renommé iPlanet`, [this.nes], [""])
   circleci = new Skill("CircleCI", new URL("https://circleci.com"), `Circle CI est un service en ligne de CI`, [], ["ci"])
+  protoBuffers = new Skill("ProtoBuf", new URL("https://protobuf.dev"), `Sérialisation optimisée de données`, [], [])
 }
 export const skillList_fr = new SkillList_fr()

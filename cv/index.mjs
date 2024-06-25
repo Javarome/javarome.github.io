@@ -112,8 +112,8 @@ langPromise.then(imported => {
   const natixis = new Organization(Organization.linkFromMessages(contractsMessages.zelros), weWorkParis12)
   const zelrosExp = new Contract(zelros, ContractType.FullTimePermanent, contractsMessages.zelros.title, new Date(2019, 1 - 1, 1), new Date(2021, 2 - 1, 1))
   const aico = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1), projectsMessages.aico, homeBezons, [skills.ts, skills.express])
-  const cs = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1), projectsMessages.cs, homeBezons, [skills.ts, skills.nlp, skills.postgresql, skills.keycloak])
-  const sdm = new Experience(zelrosExp, cs.startDate, zelrosExp.endDate, projectsMessages.sdm, homeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.python, skills.redis, skills.azure, skills.docker, skills.sass])
+  const cs = new Experience(zelrosExp, zelrosExp.startDate, new Date(2020, 9 - 1, 1), projectsMessages.cs, homeBezons, [skills.ts, skills.nlp, skills.postgresql, skills.keycloak, skills.mongoose])
+  const sdm = new Experience(zelrosExp, cs.startDate, zelrosExp.endDate, projectsMessages.sdm, homeBezons, [skills.ts, skills.fastify, skills.nodejs, skills.python, skills.redis, skills.azure, skills.docker, skills.sass, skills.protoBuffers])
   const ms = new Experience(zelrosExp, cs.startDate, zelrosExp.endDate, projectsMessages.ms, homeBezons, [skills.python, skills.docker, skills.airflow, skills.jenkins])
 
   const beamOffices = new Address("74 avenue Kleber", "75016", "Paris", france)
