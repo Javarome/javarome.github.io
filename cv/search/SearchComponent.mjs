@@ -5,6 +5,8 @@ const template = document.createElement("template")
 template.innerHTML = `<style>${style}</style>${html}`
 
 export class SearchComponent extends HTMLElement {
+  static formAssociated = true;
+
   /**
    * @readonly
    * @type {string}
@@ -14,8 +16,18 @@ export class SearchComponent extends HTMLElement {
   constructor() {
     super()
     this.shadow = this.attachShadow({mode: "closed"})
+    this.internals = this.attachInternals()
     this.shadow.appendChild(template.content.cloneNode(true))
-    this.shadow.querySelector("input").addEventListener('keyup', (event) => {
+    const input = this.shadow.querySelector("input")
+    input.addEventListener('change', () => {
+      if (input.value.trim() === "") {
+        this.internals.states.add("empty")
+      } else {
+        this.internals.states.delete("empty")
+      }
+      this.internals.setFormValue(input.value);
+    })
+    input.addEventListener('keyup', (event) => {
       switch (event.keyCode) {
         case 13: // Space?
           const e = {...event, ...{target: {value: event.target.value + " "}}}

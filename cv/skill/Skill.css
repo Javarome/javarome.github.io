@@ -1,11 +1,16 @@
 #skills {
   cv-search {
-    visibility: hidden;
     vertical-align: top;
   }
+
   summary:hover cv-search {
     visibility: visible;
   }
+
+  cv-search:state(empty) {
+    visibility: hidden;
+  }
+
   summary::marker {
     color: darkgray;
   }
