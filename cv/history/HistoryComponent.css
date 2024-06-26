@@ -49,8 +49,8 @@ summary::marker {
 }
 
 .title {
-  margin-top: 1em;
-  display: inline;
+  display: inline-block;
+  margin: 0;
   user-select: none;
   text-shadow: -2px -2px 0 var(--background-color), 0 -2px 0 var(--background-color), 2px -2px 0 var(--background-color), 2px 0 0 var(--background-color), 2px 2px 0 var(--background-color), 0 2px 0 var(--background-color), -2px 2px 0 var(--background-color), -2px 0 0 var(--background-color);
 }

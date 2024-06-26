@@ -30,7 +30,8 @@ body {
   height: fit-content;
 }
 .scrollable {
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 details cv-search {
