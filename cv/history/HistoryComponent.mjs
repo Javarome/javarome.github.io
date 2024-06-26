@@ -1,8 +1,8 @@
 import "./experience/ExperienceComponent.mjs"
 import "../search/SearchComponent.mjs"
 import {ExperienceComponent} from "./experience/ExperienceComponent.mjs"
-import style from "./HistoryComponent.css?raw";
-import html from "./HistoryComponent.html?raw";
+import style from "./HistoryComponent.css?raw"
+import html from "./HistoryComponent.html?raw"
 
 const template = document.createElement("template")
 template.innerHTML = `<style>${style}</style>${html}`
@@ -19,6 +19,11 @@ export class HistoryComponent extends HTMLElement {
     group: "group",
     open: "open"
   }
+
+  /**
+   * @type {HistoryMessages}
+   */
+  messages
 
   /**
    * @member {Experience[]}
@@ -66,15 +71,25 @@ export class HistoryComponent extends HTMLElement {
     const titleEl = this.shadow.querySelector(".title")
     titleEl.textContent = this.heading
     this.renderHistory()
+    const minDate = Math.min(...this.history.map(exp => exp.contract.startDate.getTime()))
+    const maxDate = Math.max(...this.history.map(exp => exp.contract.endDate.getTime()))
+    titleEl.append(this.renderDuration(new Date(minDate), new Date(maxDate), "total"))
   }
 
-  renderDate(date, clazz) {
+  renderDateStr(clazz, dateTime, text, extraClazz = undefined) {
     const dateEl = document.createElement("time")
     dateEl.className = clazz
     dateEl.part.add("date", clazz)
-    dateEl.dateTime = date.toISOString()
-    dateEl.textContent = this.date(date)
+    if (extraClazz) {
+      dateEl.part.add(extraClazz)
+    }
+    dateEl.dateTime = dateTime
+    dateEl.textContent = text
     return dateEl
+  }
+
+  renderDate(date, clazz) {
+    return this.renderDateStr(clazz, date.toISOString(), this.date(date))
   }
 
   date(date) {
@@ -137,6 +152,7 @@ export class HistoryComponent extends HTMLElement {
       groupHead.append(this.renderTitle(contract))
       groupHead.append(this.renderDate(contract.startDate, "start"))
       groupHead.append(this.renderDate(contract.endDate, "end"))
+      groupHead.append(this.renderDuration(contract.startDate, contract.endDate))
     }
     summary.append(heading)
 
@@ -151,6 +167,33 @@ export class HistoryComponent extends HTMLElement {
     groupItem.append(details)
 
     return groupItem
+  }
+
+  /**
+   *
+   * @param {Date} startDate
+   * @param {Date} endDate
+   * @param clazz
+   * @return {HTMLTimeElement}
+   */
+  renderDuration(startDate, endDate, clazz = "") {
+    const timeDelta = endDate.getTime() - startDate.getTime()
+    let years
+    let months = timeDelta / 1000 / 3600 / 24 / 30
+    let datetime = ""
+    if (months >= 12) {
+      years = Math.floor(months / 12)
+      months = months % 12
+    }
+    if (years) {
+      datetime = years + "Y"
+    }
+    const rMonths = Math.round(months)
+    if (rMonths) {
+      datetime += months + "M"
+    }
+    const duration = this.messages.duration(years, rMonths)
+    return this.renderDateStr("duration", datetime, duration, clazz)
   }
 
   renderTitle(contract) {

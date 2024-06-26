@@ -31,18 +31,10 @@
     height: 16px;
     margin: 0 0.25em;
   }
-
-  cv-history::part(date start) {
-    order: 0
-  }
-
-  cv-history::part(date end) {
-    order: 4
-  }
 }
 
 @media print {
-  #experience  {
+  #experience {
     overflow: visible;
   }
 }

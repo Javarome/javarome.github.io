@@ -19,4 +19,10 @@ export class ExperienceMessages {
    * @type {ContractsMessages}
    */
   contracts
+
+  /**
+   * @abstract
+   * @type {HistoryMessages}
+   */
+  history
 }

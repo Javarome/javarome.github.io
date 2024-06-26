@@ -1,6 +1,7 @@
 import {ResumeMessages} from "./ResumeMessages.mjs"
 import {skillList_fr} from "./skill/SkillList_fr.mjs"
 import {experience_fr} from "./history/experience/Experience_fr.mjs"
+import {history_fr} from "./history/HistoryMessages_fr.mjs"
 
 class ResumeMessages_fr extends ResumeMessages {
   people = {
@@ -14,7 +15,8 @@ class ResumeMessages_fr extends ResumeMessages {
   }
   experience = experience_fr
   training = {
-    title: "Formation"
+    title: "Formation",
+    history: history_fr
   }
 }
 export const fr = new ResumeMessages_fr()
