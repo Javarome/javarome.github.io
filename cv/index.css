@@ -8,6 +8,7 @@
 
 * {
   box-sizing: border-box;
+  hyphens: auto;
 }
 
 .main-title {
