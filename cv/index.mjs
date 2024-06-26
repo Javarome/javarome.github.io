@@ -183,7 +183,7 @@ langPromise.then(imported => {
       }
     },
     training: {
-      open: false,
+      open: true,
       group: true
     }
   }

@@ -25,6 +25,13 @@ body {
   height: 100svh;
 }
 
+.content {
+  height: fit-content;
+}
+.scrollable {
+  overflow: auto;
+}
+
 details cv-search {
   display: none;
 }

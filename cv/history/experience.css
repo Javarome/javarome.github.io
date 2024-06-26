@@ -1,5 +1,4 @@
 #experience {
-  overflow: scroll;
 
   cv-history::part(group) {
     margin-top: 0;
@@ -43,7 +42,7 @@
 }
 
 @media print {
-  #experience {
+  #experience  {
     overflow: visible;
   }
 }

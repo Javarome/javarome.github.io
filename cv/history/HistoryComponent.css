@@ -1,12 +1,11 @@
 :host {
-  position: relative;
+  display: block;
 }
 
 .history {
   margin-top: 0;
   list-style: none;
   padding-left: 0;
-  overflow: scroll;
 
   > li {
     transition: background-color 0.2s ease;
@@ -103,7 +102,6 @@ a {
 
 details {
   transition: max-height 0.7s ease-out;
-  overflow: hidden;
 }
 
 details[open] {
