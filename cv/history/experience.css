@@ -14,7 +14,7 @@ cv-history::part(date duration) {
   display: none;
 }
 
-cv-history::part(date duration total) {
+#experience cv-history::part(date duration total) {
   display: inline;
 }
 
