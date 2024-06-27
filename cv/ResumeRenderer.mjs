@@ -55,8 +55,8 @@ export class ResumeRenderer {
      * @type {ExperienceSectionOptions}
      */
     const experienceOptions = options.experience
-    const professoinalExperience = resume.experiences.filter(exp => exp.contract.type !== ContractType.Training)
-    const experienceSection = this.experienceRenderer.render("experience", professoinalExperience, search, experienceOptions)
+    const professionalExperience = resume.experiences.filter(exp => exp.contract.type !== ContractType.Training)
+    const experienceSection = this.experienceRenderer.render("experience", professionalExperience, search, experienceOptions)
     if (experienceSection) {
       experienceSection.setAttribute(HistoryComponent.attr.group, Boolean(experienceOptions.group).toString())
       experienceSection.setAttribute(HistoryComponent.attr.skillsImplied, Boolean(experienceOptions.skills?.implied).toString())

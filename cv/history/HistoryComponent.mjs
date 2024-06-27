@@ -39,15 +39,31 @@ export class HistoryComponent extends HTMLElement {
     super()
     this.shadow = this.attachShadow({mode: "closed"})
     this.shadow.appendChild(template.content.cloneNode(true))
+    let openBeforePrint
+    window.matchMedia("print").addEventListener("change", evt => {
+      const details = this.shadow.querySelector("details")
+      if (details) {
+        if (evt.matches) {
+          openBeforePrint = details.hasAttribute("open")
+          this.open(true)
+        } else {
+          this.open(openBeforePrint)
+        }
+      }
+    })
   }
 
-  connectedCallback() {
+  open(opened) {
     const details = this.shadow.querySelector("details")
-    if (this.getAttribute("open") === "true") {
+    if (opened) {
       details.setAttribute("open", null)
     } else {
       details.removeAttribute("open")
     }
+  }
+
+  connectedCallback() {
+    this.open(this.hasAttribute("open"))
   }
 
   static get observedAttributes() {

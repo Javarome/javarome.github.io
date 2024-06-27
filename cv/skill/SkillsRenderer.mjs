@@ -25,6 +25,18 @@ export class SkillsRenderer {
   constructor(root, messages) {
     this.root = root
     this.messages = messages
+    let openBeforePrint
+    window.matchMedia("print").addEventListener("change", evt => {
+      const details = root
+      if (details) {
+        if (evt.matches) {
+          openBeforePrint = details.hasAttribute("open")
+          this.open(true)
+        } else {
+          this.open(openBeforePrint)
+        }
+      }
+    })
   }
 
   /**
@@ -55,6 +67,15 @@ export class SkillsRenderer {
       }
     } else {
       list.innerHTML = this.messages.none(search)
+    }
+  }
+
+  open(opened) {
+    const details = this.root
+    if (opened) {
+      details.setAttribute("open", null)
+    } else {
+      details.removeAttribute("open")
     }
   }
 
