@@ -11,7 +11,7 @@
     visibility: hidden;
   }
 
-  summary::marker {
+  summary::marker,summary::-webkit-details-marker {
     color: darkgray;
   }
 

@@ -44,7 +44,7 @@ summary {
   white-space: nowrap;
 }
 
-summary::marker {
+summary::marker,summary::-webkit-details-marker {
   color: darkgray;
 }
 
