@@ -13,6 +13,7 @@
 
 .main-title {
   color: var(--background-color);
+  view-transition-name: main-title;
 }
 
 body {
@@ -43,30 +44,6 @@ details[open] cv-search {
   display: inline;
 }
 
-cv-history::part(date end) {
-  order: 4
-}
-
-cv-history::part(date start) {
-  order: 0
-}
-
-cv-history::part(date duration) {
-  margin-left: 0.5em;
-  font-weight: normal;
-  order: 5;
-  display: none;
-}
-cv-history::part(date duration total) {
-  display: inline;
-}
-
-cv-history::part(date duration)::before {
-  content: "(";
-}
-cv-history::part(date duration)::after {
-  content: ")";
-}
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;

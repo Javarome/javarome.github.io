@@ -184,6 +184,10 @@ h1 a:hover {
   text-shadow: 0 0 3px white;
 }
 
+.main-title {
+  view-transition-name: main-title;
+}
+
 .main-title:hover .aka {
   opacity: 1;
 }
