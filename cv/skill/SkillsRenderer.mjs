@@ -59,7 +59,8 @@ export class SkillsRenderer {
     const list = this.root.querySelector("ul")
     if (skillsLevel.size > 0) {
       list.innerHTML = ""
-      for (const skillsEntry of skillsLevel.entries()) {
+      const entries = Array.from(skillsLevel.entries()).sort((a, b) => a[0].name.localeCompare(b[0].name))
+      for (const skillsEntry of entries) {
         const skill = skillsEntry[0]
         const level = skillsEntry[1]
         const skillEl = SkillComponent.fromSkill(skill)

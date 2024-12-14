@@ -1,14 +1,14 @@
 import {ProjectsMessages} from "./ProjectsMessages.mjs"
 
 class ProjectMessages_en extends ProjectsMessages {
-  empower = `<a href="https://www.ringover.fr/sales-enablement" title="AI insights from telephony assets">Empower</a>`
+  empower = `<a href="https://www.ringover.com/sales-enablement">Empower</a> uses AI to provide insights on telephony assets`
   thesteps = `<a href="https://thesteps.to" title="Help to complete personal projects">thesteps.to</a>`
   dapp = `<a href="https://app.arianee.com"><abbr title="Decentralized App">dApp</abbr> de Wallet</a>`
-  arn = `<a href="https://arianee.notion.site/ARN-User-Guide-c2aeabd71df94190aa1b7988bbdfb4c1">Bibliothèque d'outils + SaaS</a> pour créer des sites Web3`
+  arn = `<a href="https://arianee.notion.site/ARN-User-Guide-c2aeabd71df94190aa1b7988bbdfb4c1">Tools box + SaaS</a> to create Web3 websites`
   kelpie = "Maintenance et fin de vie d'un <abbr title=\"Content Management System\">CMS</abbr> Web3"
   beamWebApp = "Responsive web app to browse/search/edit notes"
   beamWebServer = `Web server to publish notes with <abbr title="Server-Side Rendering">SSR</abbr>`
-  aico = `"AiCO", an intelligent, multilingual virtual assistant for insurance phone consellors`
+  aico = `"AiCO", an intelligent, multilingual virtual assistant for insurance phone counsellors`
   cs = `"Anna" knowledge management web app`
   sdm = `<abbr title="Machine Learning">ML pipeline</abbr>`
   ms = `Automatic approval or rejection of medical files using a ML`

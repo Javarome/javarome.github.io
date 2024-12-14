@@ -32,7 +32,7 @@ export class SkillList {
    * @abstract
    * @type {Skill}
    */
-  vanilla
+  vanillaJS
 
   /**
    * @abstract

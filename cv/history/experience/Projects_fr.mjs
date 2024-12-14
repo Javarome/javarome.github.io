@@ -1,7 +1,7 @@
 import {ProjectsMessages} from "./ProjectsMessages.mjs"
 
 class ProjectMessages_fr extends ProjectsMessages {
-  empower = `<a href="https://www.ringover.fr/sales-enablement" title="Service d'IA au-dessus de la téléphonie">Empower</a>`
+  empower = `<a href="https://www.ringover.fr/sales-enablement" title="Service d'IA au-dessus de la téléphonie">Empower</a> fournit des services d'IA au-dessus de téléphonie numérique`
   thesteps = `<a href="https://thesteps.to" title="Aide à la réalisation de projets personnels">thesteps.to</a>`
   dapp = `<a href="https://app.arianee.com"><abbr title="Decentralized App">dApp</abbr> de Wallet</a>`
   arn = `<a href="https://arianee.notion.site/ARN-User-Guide-c2aeabd71df94190aa1b7988bbdfb4c1">Bibliothèque d'outils + SaaS</a> pour créer des sites Web3`
@@ -21,7 +21,7 @@ class ProjectMessages_fr extends ProjectsMessages {
   lido = "LiDO"
   chronopostPacketTracking = `Suivi de colis de Chronopost`
   billetel = `Application web de réservation de spéctacles de la FNAC`
-  ejbCourse = `Ecriture et session du cours <abbr title="Enterprise JavaBeans">EJB</abbr>`
-  j2eeCourse = `Ecriture et session du cours <abbr title="Java 2 Enterprise Edition">J2EE</abbr>`
+  ejbCourse = `Écriture et session du cours <abbr title="Enterprise JavaBeans">EJB</abbr>`
+  j2eeCourse = `Écriture et session du cours <abbr title="Java 2 Enterprise Edition">J2EE</abbr>`
 }
 export const projects_fr = new ProjectMessages_fr()
