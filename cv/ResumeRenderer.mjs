@@ -50,7 +50,7 @@ export class ResumeRenderer {
 
   renderSearch(resume, search, options) {
     const allSkills = resume.experiences.flatMap(exp => exp.skills).flatMap(skill => skill.withImplied(skill))
-    this.skillsRenderer.render(resume, allSkills, search, true)
+    this.skillsRenderer.render(resume, allSkills, search)
     /**
      * @type {ExperienceSectionOptions}
      */

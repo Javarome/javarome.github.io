@@ -18,6 +18,11 @@ export class ContractsMessages {
   /**
    * @type {ContractMessages}
    */
+  thesteps
+
+  /**
+   * @type {ContractMessages}
+   */
   arianee
 
   /**

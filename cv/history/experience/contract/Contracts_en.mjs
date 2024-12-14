@@ -7,6 +7,13 @@ const ringover_en = new class extends ContractMessages {
   description = `Ringover provides digital telephony services`
 }()
 
+const thesteps_en = new class extends ContractMessages {
+  name = "thesteps.to"
+  title = "Personal project"
+  url = new URL("https://thesteps.to")
+  description = `Helps to achieve personal projects`
+}()
+
 const arianee_en = new class extends ContractMessages {
   name = "Arianee"
   url = "https://arianee.com"
@@ -93,6 +100,7 @@ const iut_en = new class extends ContractMessages {
 
 class ContractsMessages_en extends ContractsMessages {
   ringover = ringover_en
+  thesteps = thesteps_en
   arianee = arianee_en
   beam = beam_en
   famicity = famicity_en

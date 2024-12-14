@@ -46,10 +46,11 @@ export class SkillsRenderer {
    * @param {string} search
    * @param {SkillsRenderOptions} search
    */
-  render(resume, allSkills, search, options) {
+  render(resume, allSkills, search) {
     const skills = this.searchSkills(search, allSkills)
     const title = this.root.querySelector("h2")
     title.textContent = this.messages.title
+    /** @type {Map<Skill,number>} */
     const skillsLevel = new Map()
     for (const skill of skills) {
       const currentLevel = skillsLevel.get(skill) || 0
@@ -70,6 +71,9 @@ export class SkillsRenderer {
     }
   }
 
+  /**
+   * @param {boolean} opened
+   */
   open(opened) {
     const details = this.root
     if (opened) {

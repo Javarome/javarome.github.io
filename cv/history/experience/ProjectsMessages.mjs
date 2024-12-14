@@ -2,6 +2,11 @@ export class ProjectsMessages {
   /**
    * @type {string}
    */
+  thesteps
+
+  /**
+   * @type {string}
+   */
   empower
 
   /**

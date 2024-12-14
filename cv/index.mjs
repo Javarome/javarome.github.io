@@ -129,6 +129,10 @@ langPromise.then(imported => {
   const arn = new Experience(arianeeContract, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, homeBezons, [skills.angular, skills.nx, skills.fastify, skills.ethers, skills.walletConnect, skills.mongodb, skills.netlify, skills.sass, skills.circleci])
   const dapp = new Experience(arianeeContract, new Date(2023, 4 - 1, 1), arianeeContract.endDate, projectsMessages.dapp, homeBezons, [skills.angular, skills.nx, skills.nodejs, skills.gcp, skills.ethers, skills.walletConnect, skills.netlify, skills.pwa, skills.sass, skills.circleci])
 
+  const theSteps = new Organization(Organization.linkFromMessages(contractsMessages.thesteps), homeBezons, new URL("https://thesteps.to/assets/maskable_icon_x512-Bt8hPOml.png"))
+  const theStepsContract = new Contract(theSteps, ContractType.Personal, contractsMessages.thesteps.title, arianeeContract.endDate)
+  const thestepsApp = new Experience(theStepsContract, theStepsContract.startDate, null, projectsMessages.thesteps, homeBezons, [skills.vanilla, skills.go, skills.css, skills.html, skills.gcp, skills.netlify ])
+
   const montrouge = new Address("50 bis Rue Maurice Arnoux", "92120", "Montrouge", france)
   const ringover = new Organization(Organization.linkFromMessages(contractsMessages.ringover), laCaserne, new URL("https://images.prismic.io/greenly/6aed9bda-2d63-498c-9526-8293707dbda1_logo-ringover.svg.png"))
   const ringoverContract = new Contract(ringover, ContractType.FullTimePermanent, contractsMessages.ringover.title, new Date(2024, 11 - 1, 4))
@@ -177,6 +181,7 @@ langPromise.then(imported => {
     .withExperience(arn)
     .withExperience(dapp)
     // thesteps.to
+    .withExperience(thestepsApp)
     // Ringover
     .withExperience(empower)
     .build()
