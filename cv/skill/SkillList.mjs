@@ -26,7 +26,19 @@ export class SkillList {
    * @abstract
    * @type {Skill}
    */
+  jira
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
   vanilla
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  go
 
   /**
    * @abstract

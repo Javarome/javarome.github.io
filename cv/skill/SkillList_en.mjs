@@ -5,6 +5,8 @@ class SkillList_en extends SkillList {
   js = new Skill("JavaScript", new URL("https://ecma-international.org/publications-and-standards/standards/ecma-262/"), "Programming language for browsers and NodeJS", [], ["language"])
   ts = new Skill("TypeScript", new URL("https://www.typescriptlang.org"), `Microsoft's superset of JavaScript to add typing and OOP`, [this.js], ["language"])
   vanilla = new Skill("Vanilla", new URL("http://vanilla-js.com"), `JavaScript or TypeScript used without any other fancy frameworks`, [], [])
+  jira = new Skill("Jira", new URL("https://www.atlassian.com/fr/software/jira"), `Atlassian Jira is a project management ticketing system`, [], [])
+  go = new Skill("Go", new URL("https://go.dev"), `Go language (golang) is usually used to build fast applicative servers`, [], [])
   angularJS = new Skill("AngularJS", new URL("https://angularjs.org"), `AngularJS is the legacy Google web framework. Old version of Angular.`, [this.ts], ["web", "framework"])
   angular = new Skill("Angular", new URL("https://angular.io"), "Google web framework. Modern version of AngularJS.", [this.ts], ["web", "framework"])
   nx = new Skill("Nx", new URL("https://nx.dev"), "Monorepo tooling", [this.ts], ["tool", "monorepo"])

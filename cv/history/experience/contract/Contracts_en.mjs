@@ -1,5 +1,12 @@
 import {ContractMessages, ContractsMessages} from "./ContractsMessages.mjs"
 
+const ringover_en = new class extends ContractMessages {
+  name = "Ringover"
+  title = "Tech Lead"
+  url = new URL("https://ringover.com")
+  description = `Ringover provides digital telephony services`
+}()
+
 const arianee_en = new class extends ContractMessages {
   name = "Arianee"
   url = "https://arianee.com"
@@ -85,6 +92,7 @@ const iut_en = new class extends ContractMessages {
 }()
 
 class ContractsMessages_en extends ContractsMessages {
+  ringover = ringover_en
   arianee = arianee_en
   beam = beam_en
   famicity = famicity_en

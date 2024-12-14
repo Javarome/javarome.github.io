@@ -2,6 +2,11 @@ export class ProjectsMessages {
   /**
    * @type {string}
    */
+  empower
+
+  /**
+   * @type {string}
+   */
   dapp
 
   /**

@@ -11,6 +11,7 @@ export class ContractType {
   static FullTimePermanent = new ContractType("FullTimePermanent")
   static FullTimeFixed = new ContractType("FullTimeFixed")
   static Training = new ContractType("Training")
+  static Personal = new ContractType("Personal")
   static Internship = new ContractType("Internship")
 }
 
@@ -27,6 +28,6 @@ export class Contract {
     this.type = type
     this.title = title
     this.startDate = startDate
-    this.endDate = endDate
+    this.endDate = endDate || new Date()
   }
 }

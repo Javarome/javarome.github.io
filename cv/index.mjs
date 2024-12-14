@@ -125,9 +125,17 @@ langPromise.then(imported => {
   const laCaserne = new Address("12 rue Philippe de Girard", "75010", "Paris", france)
   const arianee = new Organization(Organization.linkFromMessages(contractsMessages.arianee), laCaserne, new URL("https://assets-global.website-files.com/63d2463b430d2159464c7403/63ed17fd8944e2d5b7fee10c_Webclip%20Arianee.com.png"))
   const arianeeContract = new Contract(arianee, ContractType.FullTimePermanent, contractsMessages.arianee.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
-  const kelpie = new Experience(arianeeContract, new Date(2022, 11 - 1, 14), new Date(2022, 12 - 1, 31), projectsMessages.kelpie, homeBezons, [skills.angular, skills.mongodb, skills.sass, skills.circleci])
+  const kelpie = new Experience(arianeeContract, arianeeContract.startDate, new Date(2022, 12 - 1, 31), projectsMessages.kelpie, homeBezons, [skills.angular, skills.mongodb, skills.sass, skills.circleci])
   const arn = new Experience(arianeeContract, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, homeBezons, [skills.angular, skills.nx, skills.fastify, skills.ethers, skills.walletConnect, skills.mongodb, skills.netlify, skills.sass, skills.circleci])
   const dapp = new Experience(arianeeContract, new Date(2023, 4 - 1, 1), arianeeContract.endDate, projectsMessages.dapp, homeBezons, [skills.angular, skills.nx, skills.nodejs, skills.gcp, skills.ethers, skills.walletConnect, skills.netlify, skills.pwa, skills.sass, skills.circleci])
+
+  const montrouge = new Address("50 bis Rue Maurice Arnoux", "92120", "Montrouge", france)
+  const ringover = new Organization(Organization.linkFromMessages(contractsMessages.ringover), laCaserne, new URL("https://images.prismic.io/greenly/6aed9bda-2d63-498c-9526-8293707dbda1_logo-ringover.svg.png"))
+  const ringoverContract = new Contract(ringover, ContractType.FullTimePermanent, contractsMessages.ringover.title, new Date(2024, 11 - 1, 4))
+  const empower = new Experience(ringoverContract, ringoverContract.startDate, null, projectsMessages.empower, montrouge, [skills.vanilla, skills.go, skills.css, skills.html, skills.jira])
+
+  const personalContract = new Contract(arianee, ContractType.Personal, contractsMessages.arianee.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
+  const testscript = new Experience(personalContract, new Date(2023, 10 - 1, 21), new Date(2024, 9 - 1, 10), projectsMessages.kelpie, homeBezons, [skills.ts, skills.nodejs])
 
   const myResume = new ResumeBuilder()
     .of(jerome)
@@ -168,6 +176,9 @@ langPromise.then(imported => {
     // Arianee
     .withExperience(arn)
     .withExperience(dapp)
+    // thesteps.to
+    // Ringover
+    .withExperience(empower)
     .build()
   const renderer = new ResumeRenderer(document.documentElement, messages)
   const renderOptions = {

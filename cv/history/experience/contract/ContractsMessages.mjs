@@ -13,6 +13,11 @@ export class ContractsMessages {
   /**
    * @type {ContractMessages}
    */
+  ringover
+
+  /**
+   * @type {ContractMessages}
+   */
   arianee
 
   /**

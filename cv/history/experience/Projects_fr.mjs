@@ -1,6 +1,7 @@
 import {ProjectsMessages} from "./ProjectsMessages.mjs"
 
 class ProjectMessages_fr extends ProjectsMessages {
+  empower = `<a href="https://www.ringover.fr/sales-enablement"><abbr>Empower</abbr></a>`
   dapp = `<a href="https://app.arianee.com"><abbr title="Decentralized App">dApp</abbr> de Wallet</a>`
   arn = `<a href="https://arianee.notion.site/ARN-User-Guide-c2aeabd71df94190aa1b7988bbdfb4c1">Bibliothèque d'outils + SaaS</a> pour créer des sites Web3`
   kelpie = `Maintenance et fin de vie d'un <abbr title="Content Management System">CMS</abbr> Web3`

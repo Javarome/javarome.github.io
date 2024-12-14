@@ -12,14 +12,14 @@ cv-history::part(date duration) {
   font-weight: normal;
   order: 5;
   display: none;
+
+  ::before {
+    content: "(";
+  }
 }
 
 #experience cv-history::part(date duration total) {
   display: inline;
-}
-
-cv-history::part(date duration)::before {
-  content: "(";
 }
 
 cv-history::part(date duration)::after {
