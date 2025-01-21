@@ -60,7 +60,7 @@ function init() {
 }
 
 function createProgram(vertex, fragment) {
-  var program = gl.createProgram()
+  const program = gl.createProgram()
   var vs = createShader(vertex, gl.VERTEX_SHADER)
   var fs = createShader(
     "#ifdef GL_ES\nprecision highp float;\n#endif\n\n" + fragment,
@@ -132,4 +132,3 @@ function render() {
   gl.drawArrays(gl.TRIANGLES, 0, 6)
   gl.disableVertexAttribArray(vertex_position)
 }
-
