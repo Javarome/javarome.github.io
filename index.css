@@ -24,7 +24,7 @@ canvas {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
 .main {
@@ -57,6 +57,8 @@ a {
 .links {
   float: right;
   text-align: right;
+  shape-outside: polygon(0 0, 100% 0, 100% 100%);
+  margin-left: 3em;
 
   ul {
     list-style: none;
@@ -64,7 +66,6 @@ a {
   }
 
   li {
-    font-variant: all-small-caps;
     font-weight: bold;
     font-size: 1.1em;
   }
@@ -198,13 +199,14 @@ h1 {
 
 .avatar {
   float: left;
-  margin-right: 1em;
   margin-bottom: 1em;
   box-shadow: rgb(50 50 50) 0 0.3em 1em;
   transition: width var(--transition-duration) ease, height var(--transition-duration) ease;
   max-width: 300px;
   padding: 0.5em;
   border-radius: 50%;
+  shape-outside: circle();
+  margin-right: 3em;
 
   &:hover {
     width: 100%;
