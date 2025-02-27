@@ -2,6 +2,10 @@
   --transition-duration: 0.5s;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 * {
   box-sizing: border-box
 }
@@ -41,39 +45,52 @@ a {
   padding: 0.35rem 0.45rem;
   margin: -0.35rem -0.45rem;
   border-radius: 0.5rem;
-}
 
-a:hover {
-  background-color: rgba(0, 50, 100, 0.5);
-  color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 2px 2px rgba(0, 50, 100, 0.2);
+  &:hover {
+    background-color: rgba(0, 50, 100, 0.5);
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 2px 2px rgba(0, 50, 100, 0.2);
+  }
 }
 
 .links {
   float: right;
   text-align: right;
-}
 
-.links ul {
-  list-style: none;
-  margin: 0 0.45rem 1.5rem 2rem;
+  ul {
+    list-style: none;
+    margin: 0 0.45rem 1.5rem 2rem;
+  }
+
+  li {
+    font-variant: all-small-caps;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+
+  a {
+    display: inline-block;
+    position: relative;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
 }
 
 li {
   margin: 0.35cm 0;
-}
 
-.links li {
-  font-variant: all-small-caps;
-  font-weight: bold;
-  font-size: 1.1em;
-}
+  a:hover .hint {
+    transform: translateX(-100%) scaleX(1);
+    opacity: 1;
+    font-variant: normal;
+  }
 
-li a:hover .hint {
-  transform: translateX(-100%) scaleX(1);
-  opacity: 1;
-  font-variant: normal;
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 abbr[title] {
@@ -94,19 +111,6 @@ abbr[title] {
   font-weight: normal;
 }
 
-li:first-child {
-  margin-top: 0;
-}
-
-.links a {
-  display: inline-block;
-  position: relative;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  white-space: nowrap;
-  vertical-align: middle;
-}
-
 h1 {
   position: relative;
   overflow: hidden;
@@ -114,17 +118,17 @@ h1 {
   padding-bottom: 0.3em;
   color: white;
   text-shadow: -1px -1px 0 gray, 0 -1px 0 gray, 1px -1px 0 gray, 1px 0 0 gray, 1px 1px 0 gray, 0 1px 0 gray, -1px 1px 0 gray, -1px 0 0 gray;
-}
 
-h1 a {
-  transition: none;
-  text-shadow: none;
-}
+  a {
+    transition: none;
+    text-shadow: none;
 
-h1 a:hover {
-  background-color: rgba(255, 255, 255, 0);
-  color: initial;
-  box-shadow: none;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0);
+      color: initial;
+      box-shadow: none;
+    }
+  }
 }
 
 .subtitle {
@@ -186,10 +190,10 @@ h1 a:hover {
 
 .main-title {
   view-transition-name: main-title;
-}
 
-.main-title:hover .aka {
-  opacity: 1;
+  &:hover .aka {
+    opacity: 1;
+  }
 }
 
 .avatar {
@@ -199,16 +203,15 @@ h1 a:hover {
   box-shadow: rgb(50 50 50) 0 0.3em 1em;
   transition: width var(--transition-duration) ease, height var(--transition-duration) ease;
   max-width: 300px;
+  padding: 0.5em;
+  border-radius: 50%;
+
+  &:hover {
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.avatar:hover {
-  width: 100%;
-  height: 100%;
-}
-
-@view-transition {
-  navigation: auto;
-}
 
 @media (prefers-reduced-motion: reduce) {
   * {
