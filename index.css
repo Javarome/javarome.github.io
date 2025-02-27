@@ -38,7 +38,7 @@ body {
   overflow: auto;
 
   p {
-    overflow-wrap: anywhere;
+    text-wrap: pretty;
   }
 }
 
