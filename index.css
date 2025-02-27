@@ -36,6 +36,10 @@ body {
   padding: 1em 2em;
   height: 100%;
   overflow: auto;
+
+  p {
+    overflow-wrap: anywhere;
+  }
 }
 
 a {
