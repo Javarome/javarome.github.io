@@ -7,6 +7,11 @@
   }
 </style>
 <body>
+
+<p id="output"></p>
+<button onclick="postMessageToParent()">postMessage to parent</button>
+<button onclick="dispatchEventToParent()">dispatchEvent to parent</button>
+<button onclick="window.location.reload()">Reload</button>
 <script>
   function inIframe() {
     try {
@@ -46,14 +51,8 @@
     )
   }
   document.addEventListener("click", clickHandler)
-</script>
-<p id="output"></p>
-<button onclick="postMessageToParent()">postMessage to parent</button>
-<button onclick="dispatchEventToParent()">dispatchEvent to parent</button>
-<button onclick="window.location.reload()">Reload</button>
-<script>
-  const output = document.querySelector("#output");
-  output.textContent = `Child frame from ${window.origin} received:`;
+
+  textEl.textContent = `Child frame from ${window.origin} received:`;
 </script>
 </body>
 </html>
