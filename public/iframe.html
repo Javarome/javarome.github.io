@@ -20,11 +20,11 @@
   const textEl = document.querySelector("p")
 
   function postMessageToParent() {
-    window.parent.postMessage("message from child", "*")
+    window.parent.postMessage(`message from child ${window.origin}`, "*")
   }
 
   function dispatchEventToParent() {
-    const data = "Event from child"
+    const data = `Event from child ${window.origin}`
     const event = new CustomEvent("customEvent", {detail: data})
     window.parent.document.dispatchEvent(event)
   }
@@ -45,7 +45,6 @@
       ev.target.getBoundingClientRect()
     )
   }
-
   document.addEventListener("click", clickHandler)
 </script>
 <p id="output"></p>
