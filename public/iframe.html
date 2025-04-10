@@ -10,7 +10,6 @@
 
 <p id="output"></p>
 <button onclick="postMessageToParent()">postMessage to parent</button>
-<button onclick="dispatchEventToParent()">dispatchEvent to parent</button>
 <button onclick="window.location.reload()">Reload</button>
 <script>
   function inIframe() {
@@ -26,12 +25,6 @@
 
   function postMessageToParent() {
     window.parent.postMessage(`message from child ${window.origin}`, "*")
-  }
-
-  function dispatchEventToParent() {
-    const data = `Event from child ${window.origin}`
-    const event = new CustomEvent("customEvent", {detail: data})
-    window.parent.document.dispatchEvent(event)
   }
 
   window.onmessage = function (e) {
