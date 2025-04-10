@@ -1,0 +1,56 @@
+<html lang="en">
+<head><title>Child frame example - Javarome.com</title></head>
+<style>
+  body {
+    margin: 1em;
+    padding: 1em;
+  }
+</style>
+<body>
+<script>
+  function inIframe() {
+    try {
+      return window.self !== window.top
+    } catch (e) {
+      return true
+    }
+  }
+
+  const isChildFrame = inIframe()
+  const textEl = document.querySelector("p")
+
+  function postMessageToParent() {
+    window.parent.postMessage("message from child", "*")
+  }
+
+  function dispatchEventToParent() {
+    const data = "Event from child"
+    const event = new CustomEvent("customEvent", {detail: data})
+    window.parent.document.dispatchEvent(event)
+  }
+
+  window.onmessage = function (e) {
+    textEl.innerText += " " + e.data
+  }
+  window.document.addEventListener("parentEvent", handleParentEvent, false)
+
+  function handleParentEvent(e) {
+    textEl.innerText += " " + e.detail
+  }
+
+  function clickHandler(ev) {
+    console.log(
+      isChildFrame ? "Child" : "Parent",
+      ev,
+      ev.target.getBoundingClientRect()
+    )
+  }
+
+  document.addEventListener("click", clickHandler)
+</script>
+<p>Child frame received:</p>
+<button onclick="postMessageToParent()">postMessage to parent</button>
+<button onclick="dispatchEventToParent()">dispatchEvent to parent</button>
+<button onclick="window.location.reload()">Reload</button>
+</body>
+</html>
