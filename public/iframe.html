@@ -47,8 +47,12 @@
   }
 
   document.addEventListener("click", clickHandler)
+
+  const output = document.querySelector("#output");
+  output.textContent = `Child frame from ${window.origin} received:`;
+
 </script>
-<p>Child frame received:</p>
+<p id="output"></p>
 <button onclick="postMessageToParent()">postMessage to parent</button>
 <button onclick="dispatchEventToParent()">dispatchEvent to parent</button>
 <button onclick="window.location.reload()">Reload</button>
