@@ -23,8 +23,14 @@
   const isChildFrame = inIframe()
   const textEl = document.querySelector("p")
 
+  let messageCount = 0;
+
+  function messageToParent(type) {
+    return `${type}#${++messageCount} from child ${window.origin}`;
+  }
+
   function postMessageToParent() {
-    window.parent.postMessage(`message from child ${window.origin}`, "*")
+    window.parent.postMessage(messageToParent("Message"), "*");
   }
 
   window.onmessage = function (e) {
