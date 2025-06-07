@@ -2,14 +2,14 @@ import {ContractMessages, ContractsMessages} from "./ContractsMessages.mjs"
 
 const ringover_fr = new class extends ContractMessages {
   name = "Ringover"
-  title = "Responsable technique"
+  title = "Responsable technique de projets"
   url = new URL("https://ringover.fr")
   description = `Ringover fournit des services de téléphonie numérique`
 }()
 
 const mobkoi_fr = new class extends ContractMessages {
   name = "Mobkoi"
-  title = "Tech Lead"
+  title = "Responsable des développements web"
   url = new URL("https://mobkoi.com")
   description = `Mobkoi fournit des services de rendu et placement de publicités`
 }()
