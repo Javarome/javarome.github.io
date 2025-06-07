@@ -5,7 +5,6 @@ class ProjectMessages_fr extends ProjectsMessages {
   ringobook = `Système de composants UI avec import fin de styles et composants web`
   renderLib = `Bibliothèque permettant le rendu des publicités dans différents formats originaux`
   adComposer = `Outil graphique de création et gestion de publicités`
-  thesteps = `<a href="https://thesteps.to" title="Aide à la réalisation de projets personnels">thesteps.to</a>`
   dapp = `<a href="https://app.arianee.com"><abbr title="Decentralized App">dApp</abbr> de Wallet</a>`
   arn = `<a href="https://arianee.notion.site/ARN-User-Guide-c2aeabd71df94190aa1b7988bbdfb4c1">Bibliothèque d'outils + SaaS</a> pour créer des sites Web3`
   kelpie = `Maintenance et fin de vie d'un <abbr title="Content Management System">CMS</abbr> Web3`

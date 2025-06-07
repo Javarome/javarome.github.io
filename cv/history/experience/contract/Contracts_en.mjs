@@ -28,6 +28,13 @@ const arianee_en = new class extends ContractMessages {
   title = "Web3 tooling tech lead"
 }()
 
+const githubAccount_en = new class extends ContractMessages {
+  name = "GitHub"
+  url = "https://github.com/Javarome"
+  description = `GitHub`
+  title = "GitHub personal project"
+}()
+
 const beam_en = new class extends ContractMessages {
   name = "Beam"
   url = "https://beamapp.co"
@@ -110,6 +117,7 @@ class ContractsMessages_en extends ContractsMessages {
   mobkoi = mobkoi_en
   thesteps = thesteps_en
   arianee = arianee_en
+  githubAccount = githubAccount_en
   beam = beam_en
   famicity = famicity_en
   traveldoo = traveldoo_en

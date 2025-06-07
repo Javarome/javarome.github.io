@@ -16,6 +16,11 @@ export class ResumeMessages {
   experience
 
   /**
+   * @type {ExperienceMessages}
+   */
+  personal
+
+  /**
    * @type {TrainingMessages}
    */
   training

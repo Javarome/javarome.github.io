@@ -24,8 +24,15 @@ const thesteps_fr = new class extends ContractMessages {
 const arianee_fr = new class extends ContractMessages {
   name = "Arianee"
   title = "Responsable de l'équipe outils Web3"
-  url = new URL("https://arianee.com")
+  url = "https://arianee.com"
   description = `Arianee fournit des services Web3 à des sociétés commerciales`
+}()
+
+const githubAccount_fr = new class extends ContractMessages {
+  name = "GitHub"
+  url = "https://github.com/Javarome"
+  description = `GitHub`
+  title = `Projet personnel GitHub`
 }()
 
 const beam_fr = new class extends ContractMessages {
@@ -110,6 +117,7 @@ class ContractsMessages_fr extends ContractsMessages {
   mobkoi = mobkoi_fr
   thesteps = thesteps_fr
   arianee = arianee_fr
+  githubAccount = githubAccount_fr
   beam = beam_fr
   zelros = zelros_fr
   famicity = famicity_fr

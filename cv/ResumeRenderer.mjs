@@ -20,6 +20,7 @@ export class ResumeRenderer {
     this.peopleRenderer = new PeopleRenderer(root)
     this.skillsRenderer = new SkillsRenderer(root.querySelector("#skills"), messages.skills)
     this.experienceRenderer = new ExperienceRenderer(root.querySelector("#experience"), messages.experience)
+    this.personalRenderer = new ExperienceRenderer(root.querySelector("#personal"), messages.personal)
     this.trainingRenderer = new ExperienceRenderer(root.querySelector("#training"), messages.training)
   }
 
@@ -55,11 +56,17 @@ export class ResumeRenderer {
      * @type {ExperienceSectionOptions}
      */
     const experienceOptions = options.experience
-    const professionalExperience = resume.experiences.filter(exp => exp.contract.type !== ContractType.Training)
+    const professionalExperience = resume.experiences.filter(exp => ![ContractType.Training, ContractType.Personal].includes(exp.contract.type))
     const experienceSection = this.experienceRenderer.render("experience", professionalExperience, search, experienceOptions)
     if (experienceSection) {
       experienceSection.setAttribute(HistoryComponent.attr.group, Boolean(experienceOptions.group).toString())
       experienceSection.setAttribute(HistoryComponent.attr.skillsImplied, Boolean(experienceOptions.skills?.implied).toString())
+    }
+    const personalExperience = resume.experiences.filter(exp => [ContractType.Personal].includes(exp.contract.type))
+    const personalSection = this.personalRenderer.render("personal", personalExperience, search, experienceOptions)
+    if (personalSection) {
+      personalSection.setAttribute(HistoryComponent.attr.group, Boolean(experienceOptions.group).toString())
+      personalSection.setAttribute(HistoryComponent.attr.skillsImplied, Boolean(experienceOptions.skills?.implied).toString())
     }
     const trainingOptions = options.training
     const trainingExperience = resume.experiences.filter(exp => exp.contract.type === ContractType.Training)

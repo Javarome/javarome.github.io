@@ -33,6 +33,11 @@ export class ContractsMessages {
   /**
    * @type {ContractMessages}
    */
+  githubAccount
+
+  /**
+   * @type {ContractMessages}
+   */
   beam
 
   /**

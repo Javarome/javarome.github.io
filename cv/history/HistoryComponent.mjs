@@ -221,11 +221,11 @@ export class HistoryComponent extends HTMLElement {
   }
 
   renderOrgLink(contract) {
+    const org = contract.org
     const websiteLink = document.createElement("a")
     websiteLink.className = "org"
     websiteLink.part.add(websiteLink.className)
     const orgEl = this.renderOrg(contract)
-    const org = contract.org
     websiteLink.href = org.link.url
     websiteLink.append(orgEl)
     websiteLink.append(this.renderLogo(org))

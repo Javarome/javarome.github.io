@@ -38,6 +38,12 @@ export class SkillList {
    * @abstract
    * @type {Skill}
    */
+  npm
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
   vanillaJS
 
   /**

@@ -4,7 +4,7 @@ import {contracts_fr} from "./contract/Contracts_fr.mjs"
 import {history_fr} from "../HistoryMessages_fr.mjs"
 
 class ExperienceMessages_fr extends ExperienceMessages {
-  title = "Expérience"
+  title = "Expérience professionnelle"
   contracts = contracts_fr
   projects = projects_fr
   history = history_fr

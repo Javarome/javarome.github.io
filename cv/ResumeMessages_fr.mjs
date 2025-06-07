@@ -2,6 +2,7 @@ import {ResumeMessages} from "./ResumeMessages.mjs"
 import {skillList_fr} from "./skill/SkillList_fr.mjs"
 import {experience_fr} from "./history/experience/Experience_fr.mjs"
 import {history_fr} from "./history/HistoryMessages_fr.mjs"
+import {personal_fr} from "./history/experience/Personal_fr.mjs"
 
 class ResumeMessages_fr extends ResumeMessages {
   people = {
@@ -14,6 +15,7 @@ class ResumeMessages_fr extends ResumeMessages {
     list: skillList_fr
   }
   experience = experience_fr
+  personal = personal_fr
   training = {
     title: "Formation",
     history: history_fr
