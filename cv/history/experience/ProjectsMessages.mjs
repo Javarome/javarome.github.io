@@ -12,6 +12,11 @@ export class ProjectsMessages {
   /**
    * @type {string}
    */
+  ringobook
+
+  /**
+   * @type {string}
+   */
   renderLib
 
   /**

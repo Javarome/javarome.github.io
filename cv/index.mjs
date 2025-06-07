@@ -119,14 +119,14 @@ langPromise.then(imported => {
   const beamOffices = new Address("74 avenue Kleber", "75016", "Paris", france)
   const beam = new Organization(Organization.linkFromMessages(contractsMessages.beam), beamOffices, new URL("https://www.beamapp.co/assets/common/beam-icon.png"))
   const beamExp = new Contract(beam, ContractType.FullTimePermanent, contractsMessages.beam.title, new Date(2021, 3 - 1, 1), new Date(2022, 9 - 1, 1))
-  const beamWebApp = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebApp, homeBezons, [skills.ts, skills.graphql, skills.rest, skills.webCrypto, skills.jest, skills.netlify, skills.sass])
-  const beamWebServer = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebServer, homeBezons, [skills.ts, skills.fastify, skills.rest, skills.gcp, skills.gitlab, skills.docker, skills.gitlab])
+  const beamWebApp = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebApp, homeBezons, [skills.vanillaTS, skills.webComponents, skills.graphql, skills.rest, skills.webCrypto, skills.jest, skills.netlify, skills.sass])
+  const beamWebServer = new Experience(beamExp, beamExp.startDate, beamExp.endDate, projectsMessages.beamWebServer, homeBezons, [skills.vanillaTS, skills.webComponents, skills.fastify, skills.rest, skills.gcp, skills.gitlab, skills.docker, skills.gitlab])
 
   const laCaserne = new Address("12 rue Philippe de Girard", "75010", "Paris", france)
   const arianee = new Organization(Organization.linkFromMessages(contractsMessages.arianee), laCaserne, new URL("https://assets-global.website-files.com/63d2463b430d2159464c7403/63ed17fd8944e2d5b7fee10c_Webclip%20Arianee.com.png"))
   const arianeeContract = new Contract(arianee, ContractType.FullTimePermanent, contractsMessages.arianee.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
   const kelpie = new Experience(arianeeContract, arianeeContract.startDate, new Date(2022, 12 - 1, 31), projectsMessages.kelpie, homeBezons, [skills.angular, skills.mongodb, skills.sass, skills.circleci])
-  const arn = new Experience(arianeeContract, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, homeBezons, [skills.angular, skills.nx, skills.fastify, skills.ethers, skills.walletConnect, skills.mongodb, skills.netlify, skills.sass, skills.circleci])
+  const arn = new Experience(arianeeContract, new Date(2023, 1 - 1, 1), new Date(2023, 4 - 1, 1), projectsMessages.arn, homeBezons, [skills.webComponents, skills.angular, skills.nx, skills.fastify, skills.ethers, skills.walletConnect, skills.mongodb, skills.netlify, skills.sass, skills.circleci])
   const dapp = new Experience(arianeeContract, new Date(2023, 4 - 1, 1), arianeeContract.endDate, projectsMessages.dapp, homeBezons, [skills.angular, skills.nx, skills.nodejs, skills.gcp, skills.ethers, skills.walletConnect, skills.netlify, skills.pwa, skills.sass, skills.circleci])
 
   const theSteps = new Organization(Organization.linkFromMessages(contractsMessages.thesteps), homeBezons, new URL("https://thesteps.to/assets/maskable_icon_x512-Bt8hPOml.png"))
@@ -136,13 +136,14 @@ langPromise.then(imported => {
   const ringoverAddress = new Address("50 bis Rue Maurice Arnoux", "92120", "Montrouge", france)
   const ringover = new Organization(Organization.linkFromMessages(contractsMessages.ringover), laCaserne, new URL("https://images.prismic.io/greenly/6aed9bda-2d63-498c-9526-8293707dbda1_logo-ringover.svg.png"))
   const ringoverContract = new Contract(ringover, ContractType.FullTimePermanent, contractsMessages.ringover.title, new Date(2024, 11 - 1, 4), new Date(2025, 1 - 1, 31))
-  const empower = new Experience(ringoverContract, ringoverContract.startDate, ringoverContract.endDate, projectsMessages.empower, ringoverAddress, [skills.vanillaJS, skills.go, skills.css, skills.html, skills.jira])
+  const empower = new Experience(ringoverContract, ringoverContract.startDate, ringoverContract.endDate, projectsMessages.empower, ringoverAddress, [skills.vanillaJS, skills.webComponents, skills.go, skills.css, skills.html, skills.jira, skills.vite])
+  const ringobook = new Experience(ringoverContract, ringoverContract.startDate, ringoverContract.endDate, projectsMessages.ringobook, ringoverAddress, [skills.vanillaJS, skills.webComponents, skills.go, skills.css, skills.html, skills.jira, skills.vite])
 
   const mobkoiAddress = new Address("5 Rue d'Athènes", "75009", "Paris", france)
   const mobkoi = new Organization(Organization.linkFromMessages(contractsMessages.mobkoi), laCaserne, new URL("https://www.mobkoi.com"))
   const mobkoiContract = new Contract(mobkoi, ContractType.FullTimePermanent, contractsMessages.mobkoi.title, new Date(2025, 3 - 1, 3))
-  const renderLib = new Experience(mobkoiContract, mobkoiContract.startDate, null, projectsMessages.renderLib, mobkoiAddress, [skills.webComponents, skills.vanillaJS, skills.css, skills.html, skills.jira])
-  const adComposer = new Experience(mobkoiContract, mobkoiContract.startDate, null, projectsMessages.adComposer, mobkoiAddress, [skills.webComponents, skills.vanillaJS, skills.css, skills.html, skills.jira])
+  const renderLib = new Experience(mobkoiContract, mobkoiContract.startDate, null, projectsMessages.renderLib, mobkoiAddress, [skills.webComponents, skills.vanillaJS, skills.css, skills.html, skills.jira, skills.vite])
+  const adComposer = new Experience(mobkoiContract, mobkoiContract.startDate, null, projectsMessages.adComposer, mobkoiAddress, [skills.webComponents, skills.vanillaJS, skills.css, skills.html, skills.jira, skills.vite])
 
   const personalContract = new Contract(arianee, ContractType.Personal, contractsMessages.arianee.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
   const testscript = new Experience(personalContract, new Date(2023, 10 - 1, 21), new Date(2024, 9 - 1, 10), projectsMessages.kelpie, homeBezons, [skills.ts, skills.nodejs])
@@ -190,6 +191,8 @@ langPromise.then(imported => {
     .withExperience(thestepsApp)
     // Ringover
     .withExperience(empower)
+    .withExperience(ringobook)
+    // Mobkoi
     .withExperience(renderLib)
     .withExperience(adComposer)
     .build()

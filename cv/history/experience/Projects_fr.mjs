@@ -2,6 +2,7 @@ import {ProjectsMessages} from "./ProjectsMessages.mjs"
 
 class ProjectMessages_fr extends ProjectsMessages {
   empower = `<a href="https://www.ringover.fr/sales-enablement" title="Service d'IA au-dessus de la téléphonie">Empower</a> fournit des services d'IA au-dessus de téléphonie numérique`
+  ringobook = `Système de composants UI avec import fin de styles et composants web`
   renderLib = `Bibliothèque permettant le rendu des publicités dans différents formats originaux`
   adComposer = `Outil graphique de création et gestion de publicités`
   thesteps = `<a href="https://thesteps.to" title="Aide à la réalisation de projets personnels">thesteps.to</a>`

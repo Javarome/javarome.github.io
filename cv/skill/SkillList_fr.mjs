@@ -9,6 +9,7 @@ class SkillList_fr extends SkillList {
   vanillaTS = new Skill("Vanilla TS", undefined, `TypeScript utilisé sans autre frameworks`, [this.ts], [])
   webComponents = new Skill("Web components", new URL("https://developer.mozilla.org/fr/docs/Web/API/Web_components"), `Ensemble de technologies permettant de créer des composants Web réutilisables`, [this.html], [])
   jira = new Skill("Jira", new URL("https://www.atlassian.com/fr/software/jira"), `Jira de Atlassian est un système de tickets pour la gestion de projet`, [], [])
+  vite = new Skill("ViteJS", new URL("https://vitejs.fr"), `Outil de construction pour projets web`, [], [])
   go = new Skill("Go", new URL("https://go.dev"), `Le langage Go (golang) est généralement utilisé pour construire des serveurs applicatifs rapides`, [], [])
   angularJS = new Skill("AngularJS", new URL("https://angularjs.org"), `La première version du framework web de Google. Ancienne version de Angular.`, [this.ts], ["web", "framework"])
   angular = new Skill("Angular", new URL("https://angular.io"), "Le framework web de Google. Version moderne de AngularJS.", [this.ts], ["web", "framework"])

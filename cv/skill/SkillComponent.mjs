@@ -34,7 +34,7 @@ export class SkillComponent extends HTMLElement {
     this.shadow.appendChild(temp)
     const skill = this.skill
     const skillLink = document.createElement("a")
-    skillLink.href = skill.url.href
+    skillLink.href = skill.url?.href || "#"
     skillLink.className = skill.withImplied().map(skill => skill.name.toLowerCase().replaceAll(" ", "-")).join(" ")
     skillLink.textContent = skill.name
     skillLink.title = skill.description
