@@ -28,4 +28,9 @@ export class PersonalProjectsMessages {
    * @type {string}
    */
   udb
+
+  /**
+   * @type {string}
+   */
+  s4j
 }

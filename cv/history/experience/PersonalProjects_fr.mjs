@@ -7,5 +7,6 @@ class PersonalProjectMessages_fr extends PersonalProjectsMessages {
   ssgApi = `<a href="https://github.com/Javarome/ssg-api"><b>ssg-api</b></a> - API pour générer des sites web statiques`
   time = `<a href="https://github.com/RR0/time"><b>time</b></a> - API pour représenter des dates approximatives (EDTF)`
   udb = `<a href="https://github.com/RR0/uDb"><b>uDb</b></a> - API & outil pour décoder et afficher une base ufologique binaire qui n'est plus maintenue`
+  s4j = `<a href="https://github.com/Javarome/s4j"><b>s4j</b></a> - Version Java du projet C++ <a href="https://github.com/Stellarium/stellarium">Stellarium</a>`
 }
 export const personalProjects_fr = new PersonalProjectMessages_fr()
