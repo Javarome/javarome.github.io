@@ -23,4 +23,9 @@ export class PersonalProjectsMessages {
    * @type {string}
    */
   time
+
+  /**
+   * @type {string}
+   */
+  udb
 }

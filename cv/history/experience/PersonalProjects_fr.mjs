@@ -6,5 +6,6 @@ class PersonalProjectMessages_fr extends PersonalProjectsMessages {
   rr0 = `<a href="https://github.com/RR0/rr0.org"><b>RR0</b></a> - Site web encyclopédique sur les phénomènes inexpliqués`
   ssgApi = `<a href="https://github.com/Javarome/ssg-api"><b>ssg-api</b></a> - API pour générer des sites web statiques`
   time = `<a href="https://github.com/RR0/time"><b>time</b></a> - API pour représenter des dates approximatives (EDTF)`
+  udb = `<a href="https://github.com/RR0/uDb"><b>uDb</b></a> - API & outil pour décoder et afficher une base ufologique binaire qui n'est plus maintenue`
 }
 export const personalProjects_fr = new PersonalProjectMessages_fr()

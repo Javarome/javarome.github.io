@@ -156,6 +156,7 @@ langPromise.then(imported => {
   const rr0 = new Experience(personalContract, new Date(1998, 7 - 1, 1), null, personalProjectsMessages.rr0, homeGambetta, [skills.html, skills.css, skills.vanillaJS, skills.webComponents, skills.nodejs])
   const ssgApi = new Experience(personalContract, new Date(2022, 11 - 1, 8), null, personalProjectsMessages.ssgApi, homeBezons, [skills.html, skills.vanillaTS, skills.nodejs, skills.npm])
   const time = new Experience(personalContract, new Date(2024, 9 - 1, 10), null, personalProjectsMessages.time, homeBezons, [skills.vanillaJS, skills.nodejs, skills.npm])
+  const udb = new Experience(personalContract, new Date(2017, 3 - 1, 15), new Date(2025, 4 - 1, 13), personalProjectsMessages.udb, homeBezons, [skills.vanillaTS, skills.nodejs, skills.npm])
 
   const myResume = new ResumeBuilder()
     .of(jerome)
@@ -192,6 +193,8 @@ langPromise.then(imported => {
     .withExperience(cs)
     .withExperience(ms)
     .withExperience(sdm)
+    // uDb
+    .withExperience(udb)
     // Beam
     .withExperience(beamWebApp)
     .withExperience(beamWebServer)
