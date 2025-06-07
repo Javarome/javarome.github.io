@@ -215,6 +215,13 @@ langPromise.then(imported => {
         implied: false
       }
     },
+    personal: {
+      open: true,
+      group: false,
+      skills: {
+        implied: false
+      }
+    },
     training: {
       open: true,
       group: true

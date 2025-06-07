@@ -24,5 +24,10 @@ export class ResumeRenderOptions {
   /**
    * @type {ResumeSectionOptions}
    */
+  personal
+
+  /**
+   * @type {ResumeSectionOptions}
+   */
   training
 }

@@ -49,28 +49,35 @@ export class ResumeRenderer {
     this.renderSearch(resume, searchStr, options)
   }
 
-  renderSearch(resume, search, options) {
+  /**
+   *
+   * @param {Resume} resume
+   * @param {string} searchStr
+   * @param {ResumeRenderOptions} options
+   */
+  renderSearch(resume, searchStr, options) {
     const allSkills = resume.experiences.flatMap(exp => exp.skills).flatMap(skill => skill.withImplied(skill))
-    this.skillsRenderer.render(resume, allSkills, search)
+    this.skillsRenderer.render(resume, allSkills, searchStr)
     /**
      * @type {ExperienceSectionOptions}
      */
     const experienceOptions = options.experience
     const professionalExperience = resume.experiences.filter(exp => ![ContractType.Training, ContractType.Personal].includes(exp.contract.type))
-    const experienceSection = this.experienceRenderer.render("experience", professionalExperience, search, experienceOptions)
+    const experienceSection = this.experienceRenderer.render("experience", professionalExperience, searchStr, experienceOptions)
     if (experienceSection) {
       experienceSection.setAttribute(HistoryComponent.attr.group, Boolean(experienceOptions.group).toString())
       experienceSection.setAttribute(HistoryComponent.attr.skillsImplied, Boolean(experienceOptions.skills?.implied).toString())
     }
+    const personalOptions = options.personal
     const personalExperience = resume.experiences.filter(exp => [ContractType.Personal].includes(exp.contract.type))
-    const personalSection = this.personalRenderer.render("personal", personalExperience, search, experienceOptions)
+    const personalSection = this.personalRenderer.render("personal", personalExperience, searchStr, personalOptions)
     if (personalSection) {
-      personalSection.setAttribute(HistoryComponent.attr.group, Boolean(experienceOptions.group).toString())
-      personalSection.setAttribute(HistoryComponent.attr.skillsImplied, Boolean(experienceOptions.skills?.implied).toString())
+      personalSection.setAttribute(HistoryComponent.attr.group, Boolean(personalOptions.group).toString())
+      personalSection.setAttribute(HistoryComponent.attr.skillsImplied, Boolean(personalOptions.skills?.implied).toString())
     }
     const trainingOptions = options.training
     const trainingExperience = resume.experiences.filter(exp => exp.contract.type === ContractType.Training)
-    const trainingSection = this.trainingRenderer.render("training", trainingExperience, search, trainingOptions)
+    const trainingSection = this.trainingRenderer.render("training", trainingExperience, searchStr, trainingOptions)
     if (trainingSection) {
       trainingSection.setAttribute(HistoryComponent.attr.group, Boolean(trainingOptions.group).toString())
       trainingSection.setAttribute(HistoryComponent.attr.skillsImplied, Boolean(trainingOptions.skills?.implied).toString())
