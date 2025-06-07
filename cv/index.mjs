@@ -57,12 +57,12 @@ langPromise.then(imported => {
 
   const iutAddress = new Address("10-12 Av. de l'Europe", "78140", "Vélizy-Villacoublay", france)
   const iut = new Organization(Organization.linkFromMessages(contractsMessages.iut), iutAddress)
-  const iutExp = new Contract(iut, ContractType.Training, contractsMessages.iut.title, new Date(1992, 9 - 1, 1), new Date(1994, 6 - 1, 1))
+  const iutExp = new Contract(iut, ContractType.Training, contractsMessages.iut.title, new Date(1992, 9 - 1, 1), new Date(1994, 8 - 1, 1))
   const iutCCourse = new Experience(iutExp, iutExp.startDate, iutExp.endDate, "C course", homeGambetta, [skills.c])
 
   const istyAddress = new Address("10-12 Av. de l'Europe", "78140", "Vélizy-Villacoublay", france)
   const isty = new Organization(Organization.linkFromMessages(contractsMessages.isty), istyAddress)
-  const istyExp = new Contract(isty, ContractType.Training, contractsMessages.isty.title, new Date(1994, 9 - 1, 1), new Date(1997, 6 - 1, 1))
+  const istyExp = new Contract(isty, ContractType.Training, contractsMessages.isty.title, new Date(1994, 9 - 1, 1), new Date(1997, 8 - 1, 1))
   const unixCourse = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "Unix course", homeGambetta, [skills.unix])
   const cCourse = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "C course", homeGambetta, [skills.c])
   const cppCourse = new Experience(istyExp, istyExp.startDate, istyExp.endDate, "C++ course", homeGambetta, [skills.cpp])

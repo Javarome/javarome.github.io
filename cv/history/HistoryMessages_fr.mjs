@@ -10,16 +10,16 @@ export class HistoryMessages_fr extends HistoryMessages {
     if (months) {
       switch (months) {
         case 1:
-          monthsStr += "+"
+          monthsStr += years ? "+" : "1 mois"
           break
         case 3:
-          monthsStr += " ¼"
+          monthsStr += years ? " ¼" : "3 mois"
           break
         case 5:
-          monthsStr += "~½"
+          monthsStr += years ? "~½" : "5 mois"
           break
         case 6:
-          monthsStr += " ½"
+          monthsStr += years ? " ½" : "6 mois"
           break
         case 9:
           monthsStr += " ¾"

@@ -11,7 +11,6 @@ cv-history::part(date duration) {
   margin-left: 0.5em;
   font-weight: normal;
   order: 5;
-  display: none;
 
   ::before {
     content: "(";
@@ -32,6 +31,7 @@ cv-history::part(date duration)::before {
 cv-history::part(group) {
   margin-top: 0;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: flex-start;
 }

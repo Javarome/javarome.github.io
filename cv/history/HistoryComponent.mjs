@@ -197,18 +197,18 @@ export class HistoryComponent extends HTMLElement {
     let years
     let months = timeDelta / 1000 / 3600 / 24 / 30
     let datetime = ""
-    if (months >= 12) {
-      years = Math.floor(months / 12)
-      months = months % 12
+    let roundedMonths = Math.round(months)
+    if (roundedMonths) {
+      datetime += months + "M"
+    }
+    if (roundedMonths >= 12) {
+      years = Math.floor(roundedMonths / 12)
+      roundedMonths = roundedMonths % 12
     }
     if (years) {
       datetime = years + "Y"
     }
-    const rMonths = Math.round(months)
-    if (rMonths) {
-      datetime += months + "M"
-    }
-    const duration = this.messages.duration(years, rMonths)
+    const duration = this.messages.duration(years, roundedMonths)
     return this.renderDateStr("duration", datetime, duration, clazz)
   }
 
