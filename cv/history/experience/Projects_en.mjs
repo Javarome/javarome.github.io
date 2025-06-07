@@ -2,6 +2,8 @@ import {ProjectsMessages} from "./ProjectsMessages.mjs"
 
 class ProjectMessages_en extends ProjectsMessages {
   empower = `<a href="https://www.ringover.com/sales-enablement">Empower</a> uses AI to provide insights on telephony assets`
+  renderLib = `Library to render ads using different original formats`
+  adComposer = `Graphical tool to create and manage ads`
   thesteps = `<a href="https://thesteps.to" title="Help to complete personal projects">thesteps.to</a>`
   dapp = `<a href="https://app.arianee.com"><abbr title="Decentralized App">dApp</abbr> de Wallet</a>`
   arn = `<a href="https://arianee.notion.site/ARN-User-Guide-c2aeabd71df94190aa1b7988bbdfb4c1">Tools box + SaaS</a> to create Web3 websites`

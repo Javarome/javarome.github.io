@@ -133,10 +133,16 @@ langPromise.then(imported => {
   const theStepsContract = new Contract(theSteps, ContractType.Personal, contractsMessages.thesteps.title, arianeeContract.endDate)
   const thestepsApp = new Experience(theStepsContract, theStepsContract.startDate, null, projectsMessages.thesteps, homeBezons, [skills.vanillaJS, skills.go, skills.css, skills.html, skills.gcp, skills.netlify ])
 
-  const montrouge = new Address("50 bis Rue Maurice Arnoux", "92120", "Montrouge", france)
+  const ringoverAddress = new Address("50 bis Rue Maurice Arnoux", "92120", "Montrouge", france)
   const ringover = new Organization(Organization.linkFromMessages(contractsMessages.ringover), laCaserne, new URL("https://images.prismic.io/greenly/6aed9bda-2d63-498c-9526-8293707dbda1_logo-ringover.svg.png"))
-  const ringoverContract = new Contract(ringover, ContractType.FullTimePermanent, contractsMessages.ringover.title, new Date(2024, 11 - 1, 4))
-  const empower = new Experience(ringoverContract, ringoverContract.startDate, null, projectsMessages.empower, montrouge, [skills.vanillaJS, skills.go, skills.css, skills.html, skills.jira])
+  const ringoverContract = new Contract(ringover, ContractType.FullTimePermanent, contractsMessages.ringover.title, new Date(2024, 11 - 1, 4), new Date(2025, 1 - 1, 31))
+  const empower = new Experience(ringoverContract, ringoverContract.startDate, ringoverContract.endDate, projectsMessages.empower, ringoverAddress, [skills.vanillaJS, skills.go, skills.css, skills.html, skills.jira])
+
+  const mobkoiAddress = new Address("5 Rue d'Athènes", "75009", "Paris", france)
+  const mobkoi = new Organization(Organization.linkFromMessages(contractsMessages.mobkoi), laCaserne, new URL("https://www.mobkoi.com"))
+  const mobkoiContract = new Contract(mobkoi, ContractType.FullTimePermanent, contractsMessages.mobkoi.title, new Date(2025, 3 - 1, 3))
+  const renderLib = new Experience(mobkoiContract, mobkoiContract.startDate, null, projectsMessages.renderLib, mobkoiAddress, [skills.webComponents, skills.vanillaJS, skills.css, skills.html, skills.jira])
+  const adComposer = new Experience(mobkoiContract, mobkoiContract.startDate, null, projectsMessages.adComposer, mobkoiAddress, [skills.webComponents, skills.vanillaJS, skills.css, skills.html, skills.jira])
 
   const personalContract = new Contract(arianee, ContractType.Personal, contractsMessages.arianee.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
   const testscript = new Experience(personalContract, new Date(2023, 10 - 1, 21), new Date(2024, 9 - 1, 10), projectsMessages.kelpie, homeBezons, [skills.ts, skills.nodejs])
@@ -184,6 +190,8 @@ langPromise.then(imported => {
     .withExperience(thestepsApp)
     // Ringover
     .withExperience(empower)
+    .withExperience(renderLib)
+    .withExperience(adComposer)
     .build()
   const renderer = new ResumeRenderer(document.documentElement, messages)
   const renderOptions = {

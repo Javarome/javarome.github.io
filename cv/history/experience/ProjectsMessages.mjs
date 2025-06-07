@@ -12,6 +12,16 @@ export class ProjectsMessages {
   /**
    * @type {string}
    */
+  renderLib
+
+  /**
+   * @type {string}
+   */
+  adComposer
+
+  /**
+   * @type {string}
+   */
   dapp
 
   /**

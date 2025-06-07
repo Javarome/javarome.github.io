@@ -38,6 +38,12 @@ export class SkillList {
    * @abstract
    * @type {Skill}
    */
+  webComponents
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
   go
 
   /**

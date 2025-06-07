@@ -4,7 +4,10 @@ import {Skill} from "./Skill.mjs"
 class SkillList_en extends SkillList {
   js = new Skill("JavaScript", new URL("https://ecma-international.org/publications-and-standards/standards/ecma-262/"), "Programming language for browsers and NodeJS", [], ["language"])
   ts = new Skill("TypeScript", new URL("https://www.typescriptlang.org"), `Microsoft's superset of JavaScript to add typing and OOP`, [this.js], ["language"])
+  html = new Skill("HTML", new URL("https://github.com"), `Hyper-Text Markup Language is the language to edit web pages`, [])
   vanillaJS = new Skill("Vanilla", new URL("http://vanilla-js.com"), `JavaScript or TypeScript used without any other fancy frameworks`, [], [])
+  vanillaTS = new Skill("Vanilla TS", undefined, `TypeScript used without any other fancy frameworks`, [this.ts], [])
+  webComponents = new Skill("Web components", new URL("https://developer.mozilla.org/en-US/docs/Web/API/Web_components"), `A suite of different technologies allowing you to create reusable custom elements`, [this.html], [])
   jira = new Skill("Jira", new URL("https://www.atlassian.com/fr/software/jira"), `Atlassian Jira is a project management ticketing system`, [], [])
   go = new Skill("Go", new URL("https://go.dev"), `Go language (golang) is usually used to build fast applicative servers`, [], [])
   angularJS = new Skill("AngularJS", new URL("https://angularjs.org"), `AngularJS is the legacy Google web framework. Old version of Angular.`, [this.ts], ["web", "framework"])
@@ -53,7 +56,6 @@ class SkillList_en extends SkillList {
   git = new Skill("Git", new URL("https://git-scm.com/"), `Git is a decentralized VCS`, [])
   gitlab = new Skill("GitLab", new URL("https://gitlab.com"), `GitLab is a project hosting <abbr title="Software as a Service">SaaS</abbr>`, [this.git])
   github = new Skill("Github", new URL("https://github.com"), `Microsoft Github is a project hosting <abbr title="Software as a Service">SaaS</abbr>`, [this.git])
-  html = new Skill("HTML", new URL("https://github.com"), `Hyper-Text Markup Language is the language to edit web pages`, [])
   css = new Skill("CSS", new URL("https://github.com"), `Cascading Style Sheets is the language to edit web pages styles`, [this.html])
   sass = new Skill("Sass", new URL("https://github.com"), `Sass is a tool to extend CSS capabilities`, [this.css])
   docker = new Skill("Docker", new URL("https://www.docker.com"), `Docker is a tool to run apps in containers`, [])

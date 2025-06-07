@@ -7,6 +7,13 @@ const ringover_en = new class extends ContractMessages {
   description = `Ringover provides digital telephony services`
 }()
 
+const mobkoi_en = new class extends ContractMessages {
+  name = "Mobkoi"
+  title = "Tech Lead"
+  url = new URL("https://mobkoi.com")
+  description = `Mobkoi provides services for ads rendering and placements`
+}()
+
 const thesteps_en = new class extends ContractMessages {
   name = "thesteps.to"
   title = "Personal project"
@@ -100,6 +107,7 @@ const iut_en = new class extends ContractMessages {
 
 class ContractsMessages_en extends ContractsMessages {
   ringover = ringover_en
+  mobkoi = mobkoi_en
   thesteps = thesteps_en
   arianee = arianee_en
   beam = beam_en
