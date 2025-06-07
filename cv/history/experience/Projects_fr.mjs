@@ -25,5 +25,6 @@ class ProjectMessages_fr extends ProjectsMessages {
   billetel = `Application web de réservation de spéctacles de la FNAC`
   ejbCourse = `Écriture et session du cours <abbr title="Enterprise JavaBeans">EJB</abbr>`
   j2eeCourse = `Écriture et session du cours <abbr title="Java 2 Enterprise Edition">J2EE</abbr>`
+  valtechConsulting = `Diverses missions de conseil pour IBM, GIE Symphonie (Kalamazoo), CNET (France Telecom R&D), EDF, BEA, BNP...`
 }
 export const projects_fr = new ProjectMessages_fr()

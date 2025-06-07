@@ -85,6 +85,7 @@ langPromise.then(imported => {
   const valtechExp = new Contract(valtech, ContractType.FullTimePermanent, contractsMessages.valtech.title, new Date(1998, 12 - 1, 1), new Date(2002, 2 - 1, 1))
   const ejbCourse = new Experience(valtechExp, new Date(1999, 12 - 1, 1), new Date(2000, 9 - 1, 1), projectsMessages.ejbCourse, valtechAddr, [skills.java, skills.jdbc, skills.ejb])
   const j2eeCourse = new Experience(valtechExp, new Date(2000, 12 - 1, 1), new Date(2001, 9 - 1, 1), projectsMessages.j2eeCourse, valtechAddr, [skills.java, skills.j2ee, skills.jdbc, skills.ejb])
+  const valtechConsulting = new Experience(valtechExp, valtechExp.startDate, valtechExp.endDate, projectsMessages.valtechConsulting, valtechAddr, [skills.java, skills.rmi, skills.jndi, skills.j2ee, skills.swing, skills.jdbc, skills.ejb])
 
   const xcaliaAddr1 = new Address("26 rue de Chambéry", "75015", "Paris", france)
   const xcaliaAddr2 = new Address("71 rue Desnouettes", "75015", "Paris", france)
@@ -157,7 +158,7 @@ langPromise.then(imported => {
   const ssgApi = new Experience(personalContract, new Date(2022, 11 - 1, 8), null, personalProjectsMessages.ssgApi, homeBezons, [skills.html, skills.vanillaTS, skills.nodejs, skills.npm])
   const time = new Experience(personalContract, new Date(2024, 9 - 1, 10), null, personalProjectsMessages.time, homeBezons, [skills.vanillaJS, skills.nodejs, skills.npm])
   const udb = new Experience(personalContract, new Date(2017, 3 - 1, 15), new Date(2025, 4 - 1, 13), personalProjectsMessages.udb, homeBezons, [skills.vanillaTS, skills.nodejs, skills.npm])
-  const s4j = new Experience(personalContract, new Date(2006, 5 - 1, 26), new Date(2010, 12 - 1, 1), personalProjectsMessages.s4j, homeCadix, [skills.java, skills.jogl])
+  const s4j = new Experience(personalContract, new Date(2006, 5 - 1, 26), new Date(2010, 12 - 1, 1), personalProjectsMessages.s4j, homeCadix, [skills.java, skills.jogl, skills.swing])
 
   const myResume = new ResumeBuilder()
     .of(jerome)
@@ -176,6 +177,7 @@ langPromise.then(imported => {
     .withExperience(billetel)
     .withExperience(chronopostPacketTracking)
     // Valtech
+    .withExperience(valtechConsulting)
     .withExperience(ejbCourse)
     .withExperience(j2eeCourse)
     // Libelis/Xcalia/Datadirect

@@ -168,6 +168,16 @@ export class SkillList {
    * @abstract
    * @type {Skill}
    */
+  jndi
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  rmi
+  /**
+   * @abstract
+   * @type {Skill}
+   */
   jogl
   /**
    * @abstract

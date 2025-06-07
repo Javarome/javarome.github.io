@@ -126,4 +126,9 @@ export class ProjectsMessages {
    * @type {string}
    */
   j2eeCourse
+
+  /**
+   * @type {string}
+   */
+  valtechConsulting
 }

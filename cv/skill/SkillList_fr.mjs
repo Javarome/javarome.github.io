@@ -31,6 +31,8 @@ class SkillList_fr extends SkillList {
   xcode = new Skill("XCode", new URL("https://developer.apple.com/xcode"), `Allows to build MacOS native apps`, [this.macos], [Tag.ide])
   oop = new Skill("COO", new URL("https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet"), `La Programmation Orientée Objet (OOP) est une approche du développement`, [], [])
   java = new Skill("Java", new URL("https://www.java.com"), `Java is a programming language and a platform to write apps once and run them everywhere`, [this.oop], [Tag.language])
+  jndi = new Skill("JNDI", new URL("https://docs.oracle.com/javase/tutorial/jndi/overview/index.html"), `Java Naming and Directory Interface est une API Java pour accéder à des services de répertoires`, [this.java], [])
+  rmi = new Skill("RMI", new URL("https://docs.oracle.com/javase/tutorial/rmi/index.html"), `Remote Method Invocation est une API Java pour appeler des objets distants`, [this.java], [])
   openGL = new Skill("Open GL", new URL("https://www.opengl.org"), `Open Graphic Language`, [], [Tag.ui])
   jogl = new Skill("JOGL", new URL("https://jogamp.org/jogl"), `Mapping Java de OpenGL`, [this.java, this.openGL], [])
   swing = new Skill("Swing", new URL("https://docs.oracle.com/javase/tutorial/uiswing/index.html"), `Swing is a Java API to build UI on desktop`, [this.java, this.oop], [Tag.ui, Tag.components])
