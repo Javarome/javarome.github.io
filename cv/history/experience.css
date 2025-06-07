@@ -25,6 +25,9 @@ cv-history::part(date duration) {
 cv-history::part(date duration)::after {
   content: ")";
 }
+cv-history::part(date duration)::before {
+  content: "(";
+}
 
 cv-history::part(group) {
   margin-top: 0;
