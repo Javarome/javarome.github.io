@@ -1,5 +1,6 @@
 /**
  * @abstract
+ * @template P
  */
 export class ExperienceMessages {
   /**
@@ -10,7 +11,7 @@ export class ExperienceMessages {
 
   /**
    * @abstract
-   * @type {ProjectsMessages}
+   * @type {P}
    */
   projects
 

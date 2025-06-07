@@ -11,12 +11,12 @@ export class ResumeMessages {
   skills
 
   /**
-   * @type {ExperienceMessages}
+   * @type {ExperienceMessages<ProjectsMessages>}
    */
   experience
 
   /**
-   * @type {ExperienceMessages}
+   * @type {ExperienceMessages<PersonalProjectsMessages>}
    */
   personal
 

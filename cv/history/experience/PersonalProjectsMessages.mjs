@@ -8,4 +8,14 @@ export class PersonalProjectsMessages {
    * @type {string}
    */
   testscript
+
+  /**
+   * @type {string}
+   */
+  rr0
+
+  /**
+   * @type {string}
+   */
+  ssgApi
 }

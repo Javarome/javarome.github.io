@@ -152,6 +152,8 @@ langPromise.then(imported => {
 
   const personalContract = new Contract(githubAccount, ContractType.Personal, contractsMessages.githubAccount.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
   const testscript = new Experience(personalContract, new Date(2023, 10 - 1, 21), new Date(2024, 9 - 1, 10), personalProjectsMessages.testscript, homeBezons, [skills.ts, skills.nodejs])
+  const rr0 = new Experience(personalContract, new Date(1998, 7 - 1, 1), null, personalProjectsMessages.rr0, homeGambetta, [skills.html, skills.css, skills.vanillaJS, skills.webComponents, skills.nodejs])
+  const ssgApi = new Experience(personalContract, new Date(2022, 11 - 1, 8), null, personalProjectsMessages.ssgApi, homeBezons, [skills.html, skills.vanillaTS, skills.nodejs])
 
   const myResume = new ResumeBuilder()
     .of(jerome)
@@ -164,6 +166,8 @@ langPromise.then(imported => {
     .withExperience(cCourse)
     .withExperience(cppCourse)
     .withExperience(istyProject)
+    // RR0
+    .withExperience(rr0)
     // SQL Tech
     .withExperience(billetel)
     .withExperience(chronopostPacketTracking)
@@ -189,6 +193,8 @@ langPromise.then(imported => {
     // Beam
     .withExperience(beamWebApp)
     .withExperience(beamWebServer)
+    // SSG API
+    .withExperience(ssgApi)
     // Arianee
     .withExperience(arn)
     .withExperience(dapp)
