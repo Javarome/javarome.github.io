@@ -18,4 +18,9 @@ export class PersonalProjectsMessages {
    * @type {string}
    */
   ssgApi
+
+  /**
+   * @type {string}
+   */
+  time
 }

@@ -17,7 +17,8 @@ export class HistoryComponent extends HTMLElement {
   static attr = {
     skillsImplied: "skills-implied",
     group: "group",
-    open: "open"
+    open: "open",
+    duration: "duration"
   }
 
   /**
@@ -89,7 +90,9 @@ export class HistoryComponent extends HTMLElement {
     this.renderHistory()
     const minDate = Math.min(...this.history.map(exp => exp.contract.startDate.getTime()))
     const maxDate = Math.max(...this.history.map(exp => exp.contract.endDate.getTime()))
-    titleEl.append(this.renderDuration(new Date(minDate), new Date(maxDate), "total"))
+    if (this.getAttribute(HistoryComponent.attr.duration) === "true") {
+      titleEl.append(this.renderDuration(new Date(minDate), new Date(maxDate), "total"))
+    }
   }
 
   renderDateStr(clazz, dateTime, text, extraClazz = undefined) {
@@ -189,7 +192,7 @@ export class HistoryComponent extends HTMLElement {
    *
    * @param {Date} startDate
    * @param {Date} endDate
-   * @param clazz
+   * @param {string} [clazz]
    * @return {HTMLTimeElement}
    */
   renderDuration(startDate, endDate, clazz = "") {

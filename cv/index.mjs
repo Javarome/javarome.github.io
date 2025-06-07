@@ -38,7 +38,8 @@ langPromise.then(imported => {
       {name: "linkedin", url: new URL("https://www.linkedin.com/in/javarome")},
       {name: "stackoverflow", url: new URL("https://stackoverflow.com/users/650104")},
       {name: "✍ blog", url: new URL("https://medium.com/@javarome")},
-      {name: "github", url: new URL("https://github.com/javarome")},
+      {name: "codepen", url: new URL("https://codepen.io/Javarome")},
+//      {name: "github", url: new URL("https://github.com/javarome")},
       {name: "x", url: new URL("https://x.com/javarome")},
     //  {name: "📞 tel", url: new URL("tel:+33679796518")},
       {name: "✉ mail", url: new URL("mailto:javarome@gmail.com")},
@@ -153,7 +154,8 @@ langPromise.then(imported => {
   const personalContract = new Contract(githubAccount, ContractType.Personal, contractsMessages.githubAccount.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
   const testscript = new Experience(personalContract, new Date(2023, 10 - 1, 21), new Date(2024, 9 - 1, 10), personalProjectsMessages.testscript, homeBezons, [skills.ts, skills.nodejs])
   const rr0 = new Experience(personalContract, new Date(1998, 7 - 1, 1), null, personalProjectsMessages.rr0, homeGambetta, [skills.html, skills.css, skills.vanillaJS, skills.webComponents, skills.nodejs])
-  const ssgApi = new Experience(personalContract, new Date(2022, 11 - 1, 8), null, personalProjectsMessages.ssgApi, homeBezons, [skills.html, skills.vanillaTS, skills.nodejs])
+  const ssgApi = new Experience(personalContract, new Date(2022, 11 - 1, 8), null, personalProjectsMessages.ssgApi, homeBezons, [skills.html, skills.vanillaTS, skills.nodejs, skills.npm])
+  const time = new Experience(personalContract, new Date(2024, 9 - 1, 10), null, personalProjectsMessages.time, homeBezons, [skills.vanillaJS, skills.nodejs, skills.npm])
 
   const myResume = new ResumeBuilder()
     .of(jerome)
@@ -204,6 +206,8 @@ langPromise.then(imported => {
     // Ringover
     .withExperience(empower)
     .withExperience(ringobook)
+    // Time
+    .withExperience(time)
     // Mobkoi
     .withExperience(renderLib)
     .withExperience(adComposer)
@@ -217,6 +221,7 @@ langPromise.then(imported => {
     experience: {
       open: true,
       group: true,
+      duration: true,
       skills: {
         implied: false
       }
@@ -224,6 +229,7 @@ langPromise.then(imported => {
     personal: {
       open: true,
       group: false,
+      duration: false,
       skills: {
         implied: false
       }

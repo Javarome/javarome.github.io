@@ -47,6 +47,7 @@ export class ExperienceRenderer {
       const historyEl = document.createElement("cv-history")
       historyEl.messages = this.messages.history
       historyEl.setAttribute("open", Boolean(options.open).toString())
+      historyEl.setAttribute("duration", Boolean(options.duration).toString())
       historyEl.heading = this.messages.title
       historyEl.setExperiences(sortedExps)
       this.root.append(historyEl)
