@@ -16,7 +16,7 @@
     "url": "https://github.com/Javarome/javarome.github.io.git"
   },
   "devDependencies": {
-    "vite": "^5.2.9"
+    "vite": "^5.2.14"
   },
   "exports": {
     ".": {
