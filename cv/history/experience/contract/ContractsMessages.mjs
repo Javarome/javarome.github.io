@@ -18,7 +18,11 @@ export class ContractsMessages {
   /**
    * @type {ContractMessages}
    */
-  mobkoi
+  mobkoiEngManager
+  /**
+   * @type {ContractMessages}
+   */
+  mobkoiTechLead
 
   /**
    * @type {ContractMessages}

@@ -52,6 +52,7 @@ class SkillList_en extends SkillList {
   fastify = new Skill("Fastify", new URL("https://fastify.dev"), `Fastify is a TypeScript web server framework`, [this.ts, this.nodejs])
   express = new Skill("Express", new URL("https://expressjs.com"), `Express is JavaScript web server framework`, [this.js, this.nodejs])
   python = new Skill("Python", new URL("https://www.python.org"), `Python is a programming language used by most ML libraries`, [], [Tag.language])
+  latex = new Skill("LaTeX", new URL("https://www.latex-project.org"), `LaTeX is a document preparation system for scientific typesetting`, [], [Tag.language])
   graphql = new Skill("GraphQL", new URL("https://graphql.org/"), `GraphQL is a standard to query server APIs in a tailored fashion`, [])
   http = new Skill("HTTP", new URL("https://en.wikipedia.org/wiki/HTTP"), `HTTP is the standard protocol for serving web pages`, [])
   rest = new Skill("REST", new URL("https://fr.wikipedia.org/wiki/Representational_state_transfer"), `REST is a standard for HTTP APIs`, [this.http])

@@ -278,6 +278,12 @@ export class SkillList {
    * @abstract
    * @type {Skill}
    */
+  latex
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
   graphql
 
   /**

@@ -14,6 +14,13 @@ const mobkoi_en = new class extends ContractMessages {
   description = `Mobkoi provides services for ads rendering and placements`
 }()
 
+const mobkoiEngManager_en = new class extends ContractMessages {
+  description = `Mobkoi provides services for ads rendering and placements`
+  name = "Mobkoi"
+  title = "Engineering Manager"
+  url = new URL("https://mobkoi.com")
+}()
+
 const thesteps_en = new class extends ContractMessages {
   name = "thesteps.to"
   title = "Personal project"
@@ -114,7 +121,8 @@ const iut_en = new class extends ContractMessages {
 
 class ContractsMessages_en extends ContractsMessages {
   ringover = ringover_en
-  mobkoi = mobkoi_en
+  mobkoiEngManager = mobkoiEngManager_en
+  mobkoiTechLead = mobkoi_en
   thesteps = thesteps_en
   arianee = arianee_en
   githubAccount = githubAccount_en

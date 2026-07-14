@@ -2,6 +2,11 @@ export class PersonalProjectsMessages {
   /**
    * @type {string}
    */
+  cosmochrony
+
+  /**
+   * @type {string}
+   */
   thesteps
 
   /**

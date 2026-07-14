@@ -1,6 +1,7 @@
 import {PersonalProjectsMessages} from "./PersonalProjectsMessages.mjs"
 
 class PersonalProjectMessages_en extends PersonalProjectsMessages {
+  cosmochrony = `<a href="https://cosmochrony.org">Cosmochrony</a> - A non-injective projection theory of emergent physics`
   thesteps = `<a href="https://thesteps.to">thesteps.to</a> - SaaS to complete personal projects`
   testscript = `<a href="https://github.com/Javarome/testscript">testscript</a> - TypeScript unit test framework`
   rr0 = `<a href="https://github.com/RR0/rr0.org">RR0</a> - Web encyclopaedia on unexplained phenomena`
