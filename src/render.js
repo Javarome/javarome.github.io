@@ -1,7 +1,7 @@
 // DOM rendering for the résumé sections + the skill cloud and the by-skill
 // filter. Rebuilt on language load and on every filter change.
 
-import {CAREER_START, CATLBL, EDU, SIDE, WORK} from "./data.js"
+import {CAREER_START, CATLBL, EDU, MODELBL, SIDE, WORK} from "./data.js"
 import {CAT_ORDER, expand, SKILLS, tag} from "./skills.js"
 
 // --- tiny DOM helper -------------------------------------------------------
@@ -115,6 +115,13 @@ function tagRow(keys, opts) {
   return el("div", {class: "tags"}, keys.map(k => tagEl(k, opts)))
 }
 
+// Small remote / hybrid / on-site indicator shown in an experience header.
+function modeBadge(mode, lang) {
+  const m = mode && MODELBL[mode]
+  if (!m) return null
+  return el("span", {class: "mode mode-" + mode, title: m[lang]}, m.icon + " " + m[lang])
+}
+
 // --- section renderers -----------------------------------------------------
 function renderSkills(lang, q, key) {
   const root = document.getElementById("skill-rows")
@@ -160,7 +167,8 @@ function renderWork(lang, txt, q, key) {
         ),
         el("div", {class: "dates-wrap"},
           el("span", {class: "dates"}, range(g, lang, txt.present)),
-          el("span", {class: "dur"}, durStr(g.s, g.e, lang))
+          el("span", {class: "dur"}, durStr(g.s, g.e, lang)),
+          modeBadge(g.mode, lang)
         )
       )
       const list = el("ul", {class: "proj-list"}, projects.map(p =>

@@ -54,12 +54,21 @@ export const CATLBL = {
   other: {en: "Other", fr: "Autres"}
 }
 
+// Work-mode indicator per experience (derived from the location recorded in the old resume data:
+// a home address meant remote, a company office address meant on-site).
+export const MODELBL = {
+  remote: {en: "Remote", fr: "Télétravail", icon: "🏡"},
+  hybrid: {en: "Hybrid", fr: "Hybride", icon: "🔀"},
+  onsite: {en: "On-site", fr: "Sur site", icon: "🏢"}
+}
+
 // Professional experience, most recent first. Dates are [year, month].
 // e = null means "still ongoing". sk = skill keys (see skills.js).
 export const WORK = [
   {
     org: "Mobkoi",
     url: "https://mobkoi.com",
+    mode: "remote",
     s: [2025, 3],
     e: null,
     tEn: "Tech Lead → Engineering Manager",
@@ -68,18 +77,19 @@ export const WORK = [
       {
         en: "Library to render ads using different original formats",
         fr: "Bibliothèque permettant le rendu des publicités dans différents formats originaux",
-        sk: ["management", "webComponents", "vanillaJS", "oop", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
+        sk: ["peopleManagement", "techLeading", "webComponents", "vanillaJS", "oop", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
       },
       {
         en: "Graphical tool to create and manage ads",
         fr: "Outil graphique de création et gestion de publicités",
-        sk: ["management", "webComponents", "vanillaJS", "oop", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
+        sk: ["peopleManagement", "techLeading", "webComponents", "vanillaJS", "oop", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
       }
     ]
   },
   {
     org: "Ringover",
     url: "https://ringover.com",
+    mode: "hybrid",
     s: [2024, 11],
     e: [2025, 1],
     tEn: "Tech Lead",
@@ -88,18 +98,19 @@ export const WORK = [
       {
         en: `<a href="https://www.ringover.com/sales-enablement">Empower</a> uses AI to provide insights on telephony assets`,
         fr: `<a href="https://www.ringover.fr/sales-enablement">Empower</a> fournit des services d'IA au-dessus de la téléphonie numérique`,
-        sk: ["management", "vanillaJS", "webComponents", "oop", "go", "css", "html", "jira", "vite"]
+        sk: ["techLeading", "vanillaJS", "webComponents", "oop", "go", "css", "html", "jira", "vite"]
       },
       {
         en: "Design system with fine-grained imports of styles and web components",
         fr: "Système de composants UI avec import fin de styles et de composants web",
-        sk: ["management", "vanillaJS", "webComponents", "oop", "go", "css", "html", "jira", "vite", "npm"]
+        sk: ["techLeading", "vanillaJS", "webComponents", "oop", "go", "css", "html", "jira", "vite", "npm"]
       }
     ]
   },
   {
     org: "Arianee",
     url: "https://arianee.com",
+    mode: "remote",
     s: [2022, 11],
     e: [2023, 11],
     tEn: "Web3 tooling tech lead",
@@ -108,23 +119,24 @@ export const WORK = [
       {
         en: `Maintenance and end-of-life of a Web3 <abbr title="Content Management System">CMS</abbr>`,
         fr: `Maintenance et fin de vie d'un <abbr title="Content Management System">CMS</abbr> Web3`,
-        sk: ["management", "angular", "oop", "mongodb", "sass", "circleci"]
+        sk: ["peopleManagement", "techLeading", "angular", "oop", "mongodb", "sass", "circleci"]
       },
       {
         en: `<a href="https://arianee.notion.site/ARN-User-Guide-c2aeabd71df94190aa1b7988bbdfb4c1">Tools box + SaaS</a> to create Web3 websites`,
         fr: `<a href="https://arianee.notion.site/ARN-User-Guide-c2aeabd71df94190aa1b7988bbdfb4c1">Bibliothèque d'outils + SaaS</a> pour créer des sites Web3`,
-        sk: ["management", "webComponents", "angular", "oop", "nx", "fastify", "ethers", "npm", "walletConnect", "mongodb", "netlify", "sass", "circleci"]
+        sk: ["peopleManagement", "techLeading", "webComponents", "angular", "oop", "nx", "fastify", "ethers", "npm", "walletConnect", "mongodb", "netlify", "sass", "circleci"]
       },
       {
         en: `<a href="https://app.arianee.com"><abbr title="Decentralized App">dApp</abbr> Wallet</a>`,
         fr: `<a href="https://app.arianee.com"><abbr title="Decentralized App">dApp</abbr> de Wallet</a>`,
-        sk: ["management", "angular", "oop", "nx", "nodejs", "gcp", "ethers", "walletConnect", "netlify", "pwa", "sass", "circleci"]
+        sk: ["peopleManagement", "techLeading", "angular", "oop", "nx", "nodejs", "gcp", "ethers", "walletConnect", "netlify", "pwa", "sass", "circleci"]
       }
     ]
   },
   {
     org: "Beam",
     url: "https://www.beamapp.co",
+    mode: "remote",
     s: [2021, 3],
     e: [2022, 9],
     tEn: "Lead Web Developer",
@@ -133,18 +145,19 @@ export const WORK = [
       {
         en: "Responsive web app to browse / search / edit notes",
         fr: "Application web réactive de consultation / recherche / édition de notes",
-        sk: ["management", "vanillaTS", "webComponents", "oop", "graphql", "rest", "webCrypto", "jest", "netlify", "sass"]
+        sk: ["peopleManagement", "techLeading", "vanillaTS", "webComponents", "oop", "graphql", "rest", "webCrypto", "jest", "netlify", "sass"]
       },
       {
         en: `Web server to publish notes with <abbr title="Server-Side Rendering">SSR</abbr>`,
         fr: `Serveur web pour publier des notes servies en <abbr title="Server-Side Rendering">SSR</abbr>`,
-        sk: ["management", "vanillaTS", "webComponents", "oop", "fastify", "rest", "gcp", "gitlab", "docker"]
+        sk: ["peopleManagement", "techLeading", "vanillaTS", "webComponents", "oop", "fastify", "rest", "gcp", "gitlab", "docker"]
       }
     ]
   },
   {
     org: "Zelros",
     url: "https://zelros.com",
+    mode: "hybrid",
     s: [2019, 1],
     e: [2021, 2],
     tEn: "Lead software developer",
@@ -153,28 +166,29 @@ export const WORK = [
       {
         en: `"AiCO", an intelligent, multilingual virtual assistant for insurance phone counsellors`,
         fr: `« AiCO », un assistant virtuel intelligent et multilingue pour les téléopérateurs d'assurance`,
-        sk: ["management", "ts", "oop", "express"]
+        sk: ["techLeading", "ts", "oop", "express"]
       },
       {
         en: `"Anna" knowledge management web app`,
         fr: `Application web de gestion des connaissances « Anna »`,
-        sk: ["management", "ts", "oop", "nlp", "postgresql", "keycloak", "mongoose"]
+        sk: ["techLeading", "ts", "oop", "nlp", "postgresql", "keycloak", "mongoose"]
       },
       {
         en: `Machine Learning pipeline`,
         fr: `Pipeline de <abbr title="Machine Learning">ML</abbr>`,
-        sk: ["management", "ts", "oop", "fastify", "nodejs", "python", "redis", "azure", "docker", "sass", "protoBuffers"]
+        sk: ["techLeading", "ts", "oop", "fastify", "nodejs", "python", "redis", "azure", "docker", "sass", "protoBuffers"]
       },
       {
         en: "Automatic approval or rejection of medical files using ML",
         fr: "Approbation ou rejet automatique de dossiers médicaux à l'aide d'un modèle de ML",
-        sk: ["management", "python", "oop", "docker", "airflow", "jenkins"]
+        sk: ["techLeading", "python", "oop", "docker", "airflow", "jenkins"]
       }
     ]
   },
   {
     org: "Famicity",
     url: "https://famicity.com",
+    mode: "remote",
     s: [2015, 1],
     e: [2018, 11],
     tEn: "Senior Web Developer",
@@ -190,6 +204,7 @@ export const WORK = [
   {
     org: "Traveldoo",
     url: "https://www.traveldoo.com",
+    mode: "onsite",
     s: [2013, 1],
     e: [2014, 12],
     tEn: "Senior Web Developer",
@@ -206,6 +221,7 @@ export const WORK = [
   {
     org: "Xooloo",
     url: "https://xooloo.com",
+    mode: "onsite",
     s: [2010, 9],
     e: [2012, 11],
     tEn: "Senior developer & quality manager",
@@ -218,6 +234,7 @@ export const WORK = [
   {
     org: "Xcalia",
     url: "https://en.wikipedia.org/wiki/Xcalia",
+    mode: "onsite",
     s: [2003, 1],
     e: [2010, 5],
     tEn: "Kernel + relational persistence team manager",
@@ -226,18 +243,19 @@ export const WORK = [
       {
         en: "LiDO — object/relational persistence engine",
         fr: "LiDO — moteur de persistance objet/relationnel",
-        sk: ["management", "java", "oracle", "jdo", "beyondCompare", "versant", "idea", "eclipse", "postgresql", "mysql"]
+        sk: ["techLeading", "java", "oracle", "jdo", "beyondCompare", "versant", "idea", "eclipse", "postgresql", "mysql"]
       },
       {
         en: `<a href="https://web.archive.org/web/20070217212850/http://www.xcalia.com/products/core.jsp">XIC</a> (Xcalia Intermediation Core)`,
         fr: `<a href="https://web.archive.org/web/20070217212850/http://www.xcalia.com/products/core.jsp">XIC</a> (Xcalia Intermediation Core)`,
-        sk: ["management", "java", "jdbc", "perforce", "junit", "oracle", "mysql", "postgresql", "jdo", "versant", "idea"]
+        sk: ["techLeading", "java", "jdbc", "perforce", "junit", "oracle", "mysql", "postgresql", "jdo", "versant", "idea"]
       }
     ]
   },
   {
     org: "Valtech",
     url: "https://valtech.com",
+    mode: "onsite",
     s: [1998, 12],
     e: [2002, 2],
     tEn: "Software Architect",
@@ -263,6 +281,7 @@ export const WORK = [
   {
     org: "SQL Tech",
     url: "https://en.wikipedia.org/wiki/SQL",
+    mode: "onsite",
     s: [1997, 8],
     e: [1998, 11],
     tEn: "Java Skill Center expert",
@@ -274,6 +293,7 @@ export const WORK = [
   {
     org: "IBM",
     url: "https://ibm.com",
+    mode: "onsite",
     s: [1997, 1],
     e: [1997, 8],
     tEn: "Software developer (Intern)",
