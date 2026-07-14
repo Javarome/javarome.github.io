@@ -49,7 +49,16 @@ function matches(key, q) {
   return s && s[0].toLowerCase().includes(q)
 }
 
-function keep(sk, q) {
+// The skill whose display name equals the query exactly (case-insensitive), if any.
+// Such a query (typed or set by clicking a tag) switches the Skills section to focus mode.
+function exactKey(q) {
+  return q ? Object.keys(SKILLS).find(k => SKILLS[k][0].toLowerCase() === q) || null : null
+}
+
+// Keep an item when either an exact skill is selected (clicked tag, implied skills included)
+// or a free-text query matches one of its skills.
+function keep(sk, q, key) {
+  if (key) return expand(sk).includes(key)
   return !q || expand(sk).some(k => matches(k, q))
 }
 
@@ -82,7 +91,14 @@ const MAX_COUNT = Math.max(1, ...Object.values(COUNT))
 // --- tag element -----------------------------------------------------------
 function tagEl(key, {cloud = false, lang = "en"} = {}) {
   const t = tag(key)
-  const a = el("a", {href: t.url, target: "_blank", rel: "noopener", class: cloud ? "tag tag-cloud" : "tag"}, t.name)
+  // href is kept so Ctrl/Cmd/middle-click still opens the documentation; a plain click filters instead (see main.js).
+  const a = el("a", {
+    href: t.url,
+    target: "_blank",
+    rel: "noopener",
+    "data-skill": key,
+    class: cloud ? "tag tag-cloud" : "tag"
+  }, t.name)
   a.style.background = t.bg
   if (cloud) {
     const c = COUNT[key] || 1
@@ -100,9 +116,24 @@ function tagRow(keys, opts) {
 }
 
 // --- section renderers -----------------------------------------------------
-function renderSkills(lang, q) {
+function renderSkills(lang, q, key) {
   const root = document.getElementById("skill-rows")
   clear(root)
+  // Focus mode: a skill was clicked — show only it, with its detailed description as the external doc link.
+  if (key && SKILLS[key]) {
+    const t = tag(key)
+    const cat = SKILLS[key][2]
+    const desc = SKILLS[key][3] || t.name
+    root.append(el("div", {class: "skill-row skill-focus"},
+      el("div", {class: "skill-cat"}, CATLBL[cat] ? CATLBL[cat][lang] : ""),
+      el("div", {class: "skill-focus-body"},
+        tagEl(key, {cloud: true, lang}),
+        el("span", {class: "skill-sep"}, ":"),
+        el("a", {href: t.url, target: "_blank", rel: "noopener", class: "skill-doc"}, desc)
+      )
+    ))
+    return
+  }
   CAT_ORDER.filter(c => groupedKeys[c]).forEach(c => {
     const keys = groupedKeys[c]
       .filter(k => !q || matches(k, q))
@@ -115,11 +146,11 @@ function renderSkills(lang, q) {
   })
 }
 
-function renderWork(lang, txt, q) {
+function renderWork(lang, txt, q, key) {
   const root = document.getElementById("exp-list")
   clear(root)
   WORK
-    .map(g => ({g, projects: g.projects.filter(p => keep(p.sk, q))}))
+    .map(g => ({g, projects: g.projects.filter(p => keep(p.sk, q, key))}))
     .filter(x => x.projects.length)
     .forEach(({g, projects}) => {
       const head = el("div", {class: "card-head"},
@@ -142,10 +173,10 @@ function renderWork(lang, txt, q) {
     })
 }
 
-function renderSide(lang, txt, q) {
+function renderSide(lang, txt, q, key) {
   const root = document.getElementById("side-grid")
   clear(root)
-  SIDE.filter(s => keep(s.sk, q)).forEach(s => {
+  SIDE.filter(s => keep(s.sk, q, key)).forEach(s => {
     root.append(el("article", {class: "card side-card"},
       el("div", {class: "side-desc", html: lang === "fr" ? s.fr : s.en}),
       el("span", {class: "side-dates"}, range(s, lang, txt.present)),
@@ -154,10 +185,10 @@ function renderSide(lang, txt, q) {
   })
 }
 
-function renderEdu(lang, txt, q) {
+function renderEdu(lang, txt, q, key) {
   const root = document.getElementById("edu-list")
   clear(root)
-  EDU.filter(e => keep(e.sk, q)).forEach(e => {
+  EDU.filter(e => keep(e.sk, q, key)).forEach(e => {
     root.append(el("article", {class: "card edu-card"},
       el("div", {class: "card-head"},
         el("div", {},
@@ -171,17 +202,18 @@ function renderEdu(lang, txt, q) {
   })
 }
 
-function renderFilterNote(txt, q) {
+function renderFilterNote(txt, q, key) {
   const note = document.getElementById("filter-note")
   clear(note)
-  if (!q) {
+  const label = key && SKILLS[key] ? SKILLS[key][0] : q
+  if (!label) {
     note.hidden = true
     return
   }
   note.hidden = false
   note.append(
     document.createTextNode(txt.filteredBy + " "),
-    el("b", {}, q),
+    el("b", {}, label),
     document.createTextNode(" · "),
     el("span", {class: "clear-filter", role: "button", tabindex: "0"}, txt.clear)
   )
@@ -195,9 +227,10 @@ export function totalDuration(lang) {
 // Re-render every dynamic area for the given language and query.
 export function renderAll(lang, txt, query) {
   const q = (query || "").trim().toLowerCase()
-  renderSkills(lang, q)
-  renderWork(lang, txt, q)
-  renderSide(lang, txt, q)
-  renderEdu(lang, txt, q)
-  renderFilterNote(txt, q)
+  const key = exactKey(q)
+  renderSkills(lang, q, key)
+  renderWork(lang, txt, q, key)
+  renderSide(lang, txt, q, key)
+  renderEdu(lang, txt, q, key)
+  renderFilterNote(txt, q, key)
 }

@@ -39,10 +39,25 @@ for (const l of LINKS) {
 }
 
 // --- dynamic content + skill filter ----------------------------------------
+// The filter field is the single source of truth: an exact skill name (typed, or filled by
+// clicking a tag) shows that skill's detail; any other text does a free-text search.
 renderAll(lang, txt, "")
 
 const search = document.getElementById("search")
 search.addEventListener("input", () => renderAll(lang, txt, search.value))
+
+// Clicking a skill tag fills the filter with that skill instead of opening its documentation.
+// Clicking the already-selected skill again clears the filter.
+// Ctrl/Cmd/Shift-click (or middle-click) still opens the external doc link.
+document.addEventListener("click", e => {
+  if (e.metaKey || e.ctrlKey || e.shiftKey) return
+  const a = e.target.closest(".tag")
+  if (!a || !a.dataset.skill) return
+  e.preventDefault()
+  const name = a.textContent
+  search.value = search.value.trim().toLowerCase() === name.toLowerCase() ? "" : name
+  renderAll(lang, txt, search.value)
+})
 
 // Clear-filter link (delegated: the note is rebuilt on each render).
 document.getElementById("filter-note").addEventListener("click", e => {

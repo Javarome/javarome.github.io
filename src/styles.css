@@ -316,10 +316,31 @@ abbr[title] {
   border-radius: 0.4rem;
   color: #2a2a30;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .tag:hover {
   text-decoration: none;
+  filter: brightness(0.96);
+}
+
+/* --- focused skill (filter active) ------------------------------- */
+.skill-focus-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.skill-sep {
+  color: #9a9aa2;
+}
+
+.skill-doc {
+  font-size: 0.9rem;
+  color: oklch(0.5 0.14 256);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .tag-cloud {
