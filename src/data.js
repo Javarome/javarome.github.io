@@ -189,7 +189,7 @@ export const WORK = [
   {
     org: "Famicity",
     url: "https://famicity.com",
-    mode: "remote",
+    mode: "hybrid",
     s: [2015, 1],
     e: [2018, 11],
     tEn: "Senior Web Developer",

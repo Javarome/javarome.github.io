@@ -36,7 +36,8 @@ function range(item, lang, present) {
 
 function durStr(s, e, lang) {
   const end = e || [new Date().getFullYear(), new Date().getMonth() + 1]
-  let months = (end[0] - s[0]) * 12 + (end[1] - s[1])
+  // Inclusive month count: both the start and end months are counted (Nov 2024 – Jan 2025 = 3 months).
+  let months = (end[0] - s[0]) * 12 + (end[1] - s[1]) + 1
   if (months < 1) months = 1
   const y = Math.floor(months / 12), mo = months % 12
   if (lang === "fr") return [y ? y + " an" + (y > 1 ? "s" : "") : "", mo ? mo + " mois" : ""].filter(Boolean).join(" ")
