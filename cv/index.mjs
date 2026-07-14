@@ -150,8 +150,8 @@ langPromise.then(imported => {
   const mobkoi = new Organization(Organization.linkFromMessages(contractsMessages.mobkoiTechLead), laCaserne, new URL("https://www.mobkoi.com"))
   const mobkoiTechEngManagerContract = new Contract(mobkoi, ContractType.FullTimePermanent, contractsMessages.mobkoiTechLead.title, new Date(2025, 3 - 1, 3))
   const mobkoiTechLeadContract = new Contract(mobkoi, ContractType.FullTimePermanent, contractsMessages.mobkoiEngManager.title, new Date(2025, 6 - 1, 3))
-  const renderLib = new Experience(mobkoiTechLeadContract, mobkoiTechLeadContract.startDate, null, projectsMessages.renderLib, mobkoiAddress, [skills.webComponents, skills.vanillaJS, skills.github, skills.gcp, skills.css, skills.html, skills.jira, skills.vite])
-  const adComposer = new Experience(mobkoiTechLeadContract, mobkoiTechLeadContract.startDate, null, projectsMessages.adComposer, mobkoiAddress, [skills.webComponents, skills.vanillaJS, skills.github, skills.gcp, skills.css, skills.html, skills.jira, skills.vite])
+  const renderLib = new Experience(mobkoiTechLeadContract, mobkoiTechLeadContract.startDate, null, projectsMessages.renderLib, mobkoiAddress, [skills.webComponents, skills.vanillaJS, skills.github, skills.gcp, skills.css, skills.html, skills.jira, skills.vite, skills.claude, skills.codex])
+  const adComposer = new Experience(mobkoiTechLeadContract, mobkoiTechLeadContract.startDate, null, projectsMessages.adComposer, mobkoiAddress, [skills.webComponents, skills.vanillaJS, skills.github, skills.gcp, skills.css, skills.html, skills.jira, skills.vite, skills.claude, skills.codex])
 
   const personalContract = new Contract(githubAccount, ContractType.Personal, contractsMessages.githubAccount.title, new Date(2022, 11 - 1, 14), new Date(2023, 11 - 1, 16))
   const testscript = new Experience(personalContract, new Date(2023, 10 - 1, 21), new Date(2024, 9 - 1, 10), personalProjectsMessages.testscript, homeBezons, [skills.ts, skills.nodejs])
@@ -160,7 +160,7 @@ langPromise.then(imported => {
   const time = new Experience(personalContract, new Date(2024, 9 - 1, 10), null, personalProjectsMessages.time, homeBezons, [skills.vanillaJS, skills.nodejs, skills.npm])
   const udb = new Experience(personalContract, new Date(2017, 3 - 1, 15), new Date(2025, 4 - 1, 13), personalProjectsMessages.udb, homeBezons, [skills.vanillaTS, skills.nodejs, skills.npm])
   const s4j = new Experience(personalContract, new Date(2006, 5 - 1, 26), new Date(2010, 12 - 1, 1), personalProjectsMessages.s4j, homeCadix, [skills.java, skills.jogl, skills.swing])
-  const cosmochrony = new Experience(personalContract, new Date(2025, 7 - 1, 1), null, personalProjectsMessages.cosmochrony, homeBezons, [skills.latex, skills.python])
+  const cosmochrony = new Experience(personalContract, new Date(2025, 7 - 1, 1), null, personalProjectsMessages.cosmochrony, homeBezons, [skills.theoreticalPhysics, skills.quantumMechanics, skills.generalRelativity, skills.quantumFieldTheory, skills.gaugeTheory, skills.cosmology, skills.spectralGeometry, skills.latex, skills.python])
 
   const myResume = new ResumeBuilder()
     .of(jerome)

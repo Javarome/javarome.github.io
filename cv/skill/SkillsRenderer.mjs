@@ -9,6 +9,20 @@ class SkillsRenderOptions {
 
 export class SkillsRenderer {
   /**
+   * Size (in px) of the fine grid cell used to pack the skill tags as a masonry.
+   * @readonly
+   * @type {number}
+   */
+  static GRID_UNIT = 8
+
+  /**
+   * Minimum gutter (in px) reserved around each tag when computing its grid span, so tags never touch nor overlap.
+   * @readonly
+   * @type {number}
+   */
+  static GRID_GAP = 5
+
+  /**
    * @member {HTMLElement}
    */
   root
@@ -57,19 +71,45 @@ export class SkillsRenderer {
       skillsLevel.set(skill, currentLevel + 1)
     }
     const list = this.root.querySelector("ul")
+    // Remove masonry grid before (re)building so items are measured at their natural size in normal flow.
+    list.classList.remove("masonry")
     if (skillsLevel.size > 0) {
       list.innerHTML = ""
       const entries = Array.from(skillsLevel.entries()).sort((a, b) => a[0].name.localeCompare(b[0].name))
+      const skillEls = []
       for (const skillsEntry of entries) {
         const skill = skillsEntry[0]
         const level = skillsEntry[1]
         const skillEl = SkillComponent.fromSkill(skill)
-        skillEl.style = `font-size: ${10 + level}px`
+        skillEl.style.fontSize = `${10 + level}px`
         list.append(skillEl)
+        skillEls.push(skillEl)
       }
+      this.packMasonry(list, skillEls)
     } else {
       list.innerHTML = this.messages.none(search)
     }
+  }
+
+  /**
+   * Packs the skill tags as a CSS-grid masonry: each tag spans as many fine grid cells (of {@link SkillsRenderer.GRID_UNIT}px)
+   * as its natural size requires, and `grid-auto-flow: dense` fills the gaps. This lets small tags keep their small height
+   * instead of inheriting the height of the largest tag on their row.
+   *
+   * @param {HTMLElement} list
+   * @param {HTMLElement[]} skillEls
+   */
+  packMasonry(list, skillEls) {
+    const unit = SkillsRenderer.GRID_UNIT
+    const gap = SkillsRenderer.GRID_GAP
+    // Measure all natural sizes first (reads), then assign spans (writes) to avoid layout thrashing.
+    // The gutter is baked into the reserved span so tags keep a constant gap and never overlap their neighbour.
+    const sizes = skillEls.map(el => [el.offsetWidth, el.offsetHeight])
+    skillEls.forEach((el, i) => {
+      el.style.gridColumnEnd = `span ${Math.max(1, Math.ceil((sizes[i][0] + gap) / unit))}`
+      el.style.gridRowEnd = `span ${Math.max(1, Math.ceil((sizes[i][1] + gap) / unit))}`
+    })
+    list.classList.add("masonry")
   }
 
   /**

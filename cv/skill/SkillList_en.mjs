@@ -84,6 +84,15 @@ class SkillList_en extends SkillList {
   livewire = new Skill("Livewire", new URL("https://web.archive.org/web/19980207075142/http://www.home.netscape.com/comprod/server_central/product/livewire/index.html"), `Livewire allowed to access databases from JavaScript executed by the <abbr title="Netscape Enterprise Server">NES</abbr>. It was later acquired by Sun Microsystems and renamed iPlanet`, [this.nes], [""])
   circleci = new Skill("CircleCI", new URL("https://circleci.com"), `Circle CI is CI software as a service`, [], [Tag.ci])
   protoBuffers = new Skill("ProtoBuf", new URL("https://protobuf.dev"), `Optimized data serialization`, [], [])
+  claude = new Skill("Claude AI", new URL("https://claude.ai"), `Anthropic's AI assistant for development`, [], [Tag.tool])
+  codex = new Skill("Codex", new URL("https://openai.com/codex"), `OpenAI's AI coding agent`, [], [Tag.tool])
+  spectralGeometry = new Skill("Spectral geometry", new URL("https://en.wikipedia.org/wiki/Spectral_geometry"), `Study of geometry through operator spectra`, [], [Tag.physics])
+  theoreticalPhysics = new Skill("Theoretical physics", new URL("https://en.wikipedia.org/wiki/Theoretical_physics"), `Mathematical modelling of physical phenomena`, [], [Tag.physics])
+  quantumMechanics = new Skill("QM", new URL("https://en.wikipedia.org/wiki/Quantum_mechanics"), `Quantum mechanics: physics of systems at atomic and subatomic scales`, [this.theoreticalPhysics], [Tag.physics])
+  quantumFieldTheory = new Skill("QFT", new URL("https://en.wikipedia.org/wiki/Quantum_field_theory"), `Quantum field theory: framework unifying quantum mechanics and relativistic fields`, [this.quantumMechanics], [Tag.physics])
+  gaugeTheory = new Skill("Gauge theory", new URL("https://en.wikipedia.org/wiki/Gauge_theory"), `Field theory based on local gauge symmetries`, [this.quantumFieldTheory], [Tag.physics])
+  generalRelativity = new Skill("GR", new URL("https://en.wikipedia.org/wiki/General_relativity"), `General relativity: relativistic theory of gravitation and spacetime geometry`, [this.theoreticalPhysics], [Tag.physics])
+  cosmology = new Skill("Cosmology", new URL("https://en.wikipedia.org/wiki/Cosmology"), `Study of the structure and evolution of the universe`, [this.generalRelativity], [Tag.physics])
 }
 
 export const skillList_en = new SkillList_en()

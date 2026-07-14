@@ -459,4 +459,52 @@ export class SkillList {
    * @type {Skill}
    */
   mongoose
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  claude
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  codex
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  cosmology
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  gaugeTheory
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  generalRelativity
+
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  quantumFieldTheory
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  quantumMechanics
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  spectralGeometry
+  /**
+   * @abstract
+   * @type {Skill}
+   */
+  theoreticalPhysics
 }

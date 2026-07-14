@@ -1,7 +1,8 @@
 
 :host {
   display: inline-block;
-  margin: 0.1em 0.1em;
+  margin: 0;
+  line-height: 1;
   --web-color: rgba(0, 255, 0, 0.1);
   --java-color: rgba(255, 0, 0, 0.1);
   --tool-color: rgba(255, 0, 255, 0.1);
@@ -12,11 +13,14 @@
 }
 
 a {
-  display: inline;
+  display: inline-block;
+  margin: 1.5px;
   font-size: 0.8em;
-  padding: 0.15em 0.35em;
+  line-height: 1;
+  padding: 0.1em 0.35em;
   border-radius: 0.3em;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .html {

@@ -20,4 +20,5 @@ export class Tag {
   static saas = "saas"
   static ci = "ci"
   static monorepo = "monorepo"
+  static physics = "physics"
 }
