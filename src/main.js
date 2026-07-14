@@ -1,5 +1,5 @@
 import {LINKS, TXT} from "./data.js"
-import {renderAll, totalDuration} from "./render.js"
+import {renderAll} from "./render.js"
 import {initBackground} from "./background.js"
 
 // --- language --------------------------------------------------------------
@@ -24,7 +24,7 @@ for (const node of document.querySelectorAll("[data-i18n-ph]")) {
   const v = txt[node.dataset.i18nPh]
   if (v != null) node.setAttribute("placeholder", v)
 }
-document.getElementById("total-dur").textContent = totalDuration(lang)
+// #total-dur is filled by renderAll (renderWork), so it always reflects the displayed experiences.
 
 // --- external links --------------------------------------------------------
 const linksRoot = document.getElementById("links")

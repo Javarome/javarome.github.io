@@ -34,15 +34,25 @@ function range(item, lang, present) {
   return fmt(item.s, lang) + " – " + (item.e ? fmt(item.e, lang) : present)
 }
 
-function durStr(s, e, lang) {
+// Inclusive month count: both the start and end months are counted (Nov 2024 – Jan 2025 = 3 months).
+function monthsBetween(s, e) {
   const end = e || [new Date().getFullYear(), new Date().getMonth() + 1]
-  // Inclusive month count: both the start and end months are counted (Nov 2024 – Jan 2025 = 3 months).
-  let months = (end[0] - s[0]) * 12 + (end[1] - s[1]) + 1
-  if (months < 1) months = 1
+  const months = (end[0] - s[0]) * 12 + (end[1] - s[1]) + 1
+  return months < 1 ? 1 : months
+}
+
+function fmtDur(months, lang) {
   const y = Math.floor(months / 12), mo = months % 12
   if (lang === "fr") return [y ? y + " an" + (y > 1 ? "s" : "") : "", mo ? mo + " mois" : ""].filter(Boolean).join(" ")
   return [y ? y + " yr" + (y > 1 ? "s" : "") : "", mo ? mo + " mo" : ""].filter(Boolean).join(" ")
 }
+
+function durStr(s, e, lang) {
+  return fmtDur(monthsBetween(s, e), lang)
+}
+
+// Total professional experience across all work entries (used as the denominator when filtering).
+const TOTAL_MONTHS = WORK.reduce((sum, g) => sum + monthsBetween(g.s, g.e), 0)
 
 // --- skill filtering -------------------------------------------------------
 function matches(key, q) {
@@ -157,9 +167,21 @@ function renderSkills(lang, q, key) {
 function renderWork(lang, txt, q, key) {
   const root = document.getElementById("exp-list")
   clear(root)
-  WORK
+  const groups = WORK
     .map(g => ({g, projects: g.projects.filter(p => keep(p.sk, q, key))}))
     .filter(x => x.projects.length)
+  // When filtering, show "filtered duration / total duration"; otherwise just the total.
+  const totalEl = document.getElementById("total-dur")
+  if (totalEl) {
+    const filteredMonths = groups.reduce((sum, {g}) => sum + monthsBetween(g.s, g.e), 0)
+    const filtering = !!(q || key)
+    totalEl.textContent = !groups.length
+      ? ""
+      : filtering
+        ? fmtDur(filteredMonths, lang) + " / " + fmtDur(TOTAL_MONTHS, lang)
+        : fmtDur(TOTAL_MONTHS, lang)
+  }
+  groups
     .forEach(({g, projects}) => {
       const head = el("div", {class: "card-head"},
         el("div", {},
