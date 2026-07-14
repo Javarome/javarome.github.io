@@ -92,15 +92,15 @@ export const WORK = [
       {
         en: "Library to render ads using different original formats",
         fr: "Bibliothèque permettant le rendu des publicités dans différents formats originaux",
-        dEn: "Built and led a TypeScript / Web Components library rendering bespoke ad formats across publishers, with a framework-agnostic runtime bundled with Vite and deployed on GCP.",
-        dFr: "Conception et pilotage d'une bibliothèque TypeScript / Web Components rendant des formats publicitaires sur mesure chez différents éditeurs, avec un runtime agnostique aux frameworks, packagé avec Vite et déployé sur GCP.",
+        dEn: "Built and led a library rendering bespoke ad formats across publishers, with a framework-agnostic runtime.",
+        dFr: "Conception et pilotage d'une bibliothèque rendant des formats publicitaires sur mesure chez différents éditeurs, avec un runtime agnostique aux frameworks.",
         sk: ["peopleManagement", "techLeading", "webComponents", "vanillaJS", "vanillaTS", "oop", "oauth", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
       },
       {
         en: "Graphical tool to create and manage ads",
         fr: "Outil graphique de création et gestion de publicités",
-        dEn: "Led development of a browser-based visual editor letting teams compose and manage ad creatives, built on the rendering library with OAuth-secured access.",
-        dFr: "Pilotage d'un éditeur visuel dans le navigateur permettant aux équipes de composer et gérer les créations publicitaires, adossé à la bibliothèque de rendu et sécurisé par OAuth.",
+        dEn: "Led development of a browser-based visual editor letting teams compose and manage ad creatives, built on top of the rendering library.",
+        dFr: "Pilotage d'un éditeur visuel dans le navigateur permettant aux équipes de composer et gérer les créations publicitaires, adossé à la bibliothèque de rendu.",
         sk: ["peopleManagement", "techLeading", "webComponents", "vanillaJS", "vanillaTS", "oop", "oauth", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
       }
     ]
@@ -119,15 +119,15 @@ export const WORK = [
       {
         en: `<a href="https://www.ringover.com/sales-enablement">Empower</a> uses AI to provide insights on telephony assets`,
         fr: `<a href="https://www.ringover.fr/sales-enablement">Empower</a> fournit des services d'IA au-dessus de la téléphonie numérique`,
-        dEn: "Technical lead on Empower, a web app layering AI-driven insights (transcripts, summaries) on top of call data, with a Web Components frontend and Go services.",
-        dFr: "Responsable technique d'Empower, application web ajoutant des analyses par IA (transcriptions, résumés) au-dessus des données d'appels, avec un frontend Web Components et des services Go.",
+        dEn: "Technical lead on Empower, a web app layering AI-driven insights (transcripts, summaries) on top of call data.",
+        dFr: "Responsable technique d'Empower, application web ajoutant des analyses par IA (transcriptions, résumés) au-dessus des données d'appels.",
         sk: ["techLeading", "vanillaJS", "webComponents", "oop", "go", "css", "html", "jira", "vite"]
       },
       {
         en: "Design system with fine-grained imports of styles and web components",
         fr: "Système de composants UI avec import fin de styles et de composants web",
-        dEn: "Built a UI component library with tree-shakeable, fine-grained imports of styles and Web Components, published on npm and shared across Ringover apps.",
-        dFr: "Réalisation d'une bibliothèque de composants UI à imports fins et tree-shakables (styles et Web Components), publiée sur npm et partagée entre les applications Ringover.",
+        dEn: "Built a UI component library with tree-shakeable, fine-grained imports of styles and components, shared across Ringover apps.",
+        dFr: "Réalisation d'une bibliothèque de composants UI à imports fins et tree-shakables (styles et composants), partagée entre les applications Ringover.",
         sk: ["techLeading", "vanillaJS", "webComponents", "oop", "go", "css", "html", "jira", "vite", "npm"]
       }
     ]
@@ -146,22 +146,22 @@ export const WORK = [
       {
         en: `Maintenance and end-of-life of a Web3 <abbr title="Content Management System">CMS</abbr>`,
         fr: `Maintenance et fin de vie d'un <abbr title="Content Management System">CMS</abbr> Web3`,
-        dEn: "Led maintenance and controlled end-of-life of a Web3 CMS (Angular / MongoDB), keeping it stable for existing brands while migrating them to newer tooling.",
-        dFr: "Pilotage de la maintenance et de la fin de vie maîtrisée d'un CMS Web3 (Angular / MongoDB), en le gardant stable pour les marques existantes tout en les migrant vers les nouveaux outils.",
+        dEn: "Led maintenance and controlled end-of-life of a Web3 CMS, keeping it stable for existing brands while migrating them to newer tooling.",
+        dFr: "Pilotage de la maintenance et de la fin de vie maîtrisée d'un CMS Web3, en le gardant stable pour les marques existantes tout en les migrant vers les nouveaux outils.",
         sk: ["peopleManagement", "techLeading", "angular", "oop", "mongodb", "sass", "circleci"]
       },
       {
         en: `<a href="https://arianee.notion.site/ARN-User-Guide-c2aeabd71df94190aa1b7988bbdfb4c1">Tools box + SaaS</a> to create Web3 websites`,
         fr: `<a href="https://arianee.notion.site/ARN-User-Guide-c2aeabd71df94190aa1b7988bbdfb4c1">Bibliothèque d'outils + SaaS</a> pour créer des sites Web3`,
-        dEn: "Led ARN, a toolbox + SaaS to build Web3 websites: reusable Web Components, an Nx monorepo, Fastify APIs and wallet connection via ethers / WalletConnect.",
-        dFr: "Pilotage d'ARN, boîte à outils + SaaS pour créer des sites Web3 : Web Components réutilisables, monorepo Nx, API Fastify et connexion de portefeuilles via ethers / WalletConnect.",
+        dEn: "Led ARN, a toolbox + SaaS to build Web3 websites, from reusable UI components to server APIs and blockchain wallet connection.",
+        dFr: "Pilotage d'ARN, boîte à outils + SaaS pour créer des sites Web3, des composants UI réutilisables aux API serveur et à la connexion de portefeuilles blockchain.",
         sk: ["peopleManagement", "techLeading", "webComponents", "angular", "oop", "nx", "fastify", "ethers", "npm", "walletConnect", "mongodb", "netlify", "sass", "circleci"]
       },
       {
         en: `<a href="https://app.arianee.com"><abbr title="Decentralized App">dApp</abbr> Wallet</a>`,
         fr: `<a href="https://app.arianee.com"><abbr title="Decentralized App">dApp</abbr> de Wallet</a>`,
-        dEn: "Led the Arianee wallet dApp (Angular PWA) letting users hold and manage their digital product passports, connecting to the blockchain through ethers / WalletConnect.",
-        dFr: "Pilotage de la dApp de wallet Arianee (PWA Angular) permettant aux utilisateurs de détenir et gérer leurs passeports produits, connectée à la blockchain via ethers / WalletConnect.",
+        dEn: "Led the Arianee wallet dApp letting users hold and manage their digital product passports, connecting to the blockchain.",
+        dFr: "Pilotage de la dApp de wallet Arianee permettant aux utilisateurs de détenir et gérer leurs passeports produits, connectée à la blockchain.",
         sk: ["peopleManagement", "techLeading", "angular", "oop", "nx", "nodejs", "gcp", "ethers", "walletConnect", "netlify", "pwa", "sass", "circleci"]
       }
     ]
@@ -180,15 +180,15 @@ export const WORK = [
       {
         en: "Responsive web app to browse / search / edit notes",
         fr: "Application web réactive de consultation / recherche / édition de notes",
-        dEn: "Led a responsive TypeScript / Web Components app to browse, search and edit notes, over a GraphQL / REST data layer with client-side end-to-end encryption (Web Crypto).",
-        dFr: "Pilotage d'une application web responsive (TypeScript / Web Components) pour consulter, rechercher et éditer des notes, sur une couche de données GraphQL / REST avec chiffrement de bout en bout côté client (Web Crypto).",
+        dEn: "Led a responsive app to browse, search and edit notes, with client-side end-to-end encryption.",
+        dFr: "Pilotage d'une application web responsive pour consulter, rechercher et éditer des notes, avec chiffrement de bout en bout côté client.",
         sk: ["peopleManagement", "techLeading", "vanillaTS", "webComponents", "oop", "graphql", "rest", "webCrypto", "jest", "netlify", "sass"]
       },
       {
         en: `Web server to publish notes with <abbr title="Server-Side Rendering">SSR</abbr>`,
         fr: `Serveur web pour publier des notes servies en <abbr title="Server-Side Rendering">SSR</abbr>`,
-        dEn: "Built the web server that publishes notes with server-side rendering, using Fastify and shared Web Components, containerised with Docker and deployed on GCP.",
-        dFr: "Réalisation du serveur web publiant les notes en rendu côté serveur (SSR), avec Fastify et des Web Components partagés, conteneurisé avec Docker et déployé sur GCP.",
+        dEn: "Built the web server that publishes notes with server-side rendering, reusing the shared components.",
+        dFr: "Réalisation du serveur web publiant les notes en rendu côté serveur (SSR), en réutilisant les composants partagés.",
         sk: ["peopleManagement", "techLeading", "vanillaTS", "webComponents", "oop", "fastify", "rest", "gcp", "gitlab", "docker"]
       }
     ]
@@ -207,29 +207,29 @@ export const WORK = [
       {
         en: `"AiCO", an intelligent, multilingual virtual assistant for insurance phone counsellors`,
         fr: `« AiCO », un assistant virtuel intelligent et multilingue pour les téléopérateurs d'assurance`,
-        dEn: "Led AiCO, a multilingual virtual assistant helping insurance phone advisors, built as a TypeScript / Express service.",
-        dFr: "Pilotage d'AiCO, assistant virtuel multilingue aidant les téléconseillers en assurance, développé comme service TypeScript / Express.",
+        dEn: "Led AiCO, a multilingual virtual assistant helping insurance phone advisors.",
+        dFr: "Pilotage d'AiCO, assistant virtuel multilingue aidant les téléconseillers en assurance.",
         sk: ["techLeading", "ts", "oop", "express"]
       },
       {
         en: `"Anna" knowledge management web app`,
         fr: `Application web de gestion des connaissances « Anna »`,
-        dEn: "Led 'Anna', a knowledge-management web app applying NLP to insurance content, with PostgreSQL / MongoDB storage and Keycloak authentication.",
-        dFr: "Pilotage d'« Anna », application web de gestion des connaissances appliquant du NLP à des contenus d'assurance, avec stockage PostgreSQL / MongoDB et authentification Keycloak.",
+        dEn: "Led 'Anna', a knowledge-management web app for insurers, structuring and searching their internal content.",
+        dFr: "Pilotage d'« Anna », application web de gestion des connaissances pour les assureurs, structurant et interrogeant leurs contenus internes.",
         sk: ["techLeading", "ts", "oop", "nlp", "postgresql", "keycloak", "mongoose"]
       },
       {
         en: `Machine Learning pipeline`,
         fr: `Pipeline de <abbr title="Machine Learning">ML</abbr>`,
-        dEn: "Built an ML pipeline orchestrating Python models behind TypeScript / Fastify services, with Redis, Protocol Buffers messaging and Docker containers on Azure.",
-        dFr: "Réalisation d'un pipeline de ML orchestrant des modèles Python derrière des services TypeScript / Fastify, avec Redis, des messages en Protocol Buffers et des conteneurs Docker sur Azure.",
+        dEn: "Built a machine-learning pipeline orchestrating models behind production services.",
+        dFr: "Réalisation d'un pipeline de machine learning orchestrant des modèles derrière des services de production.",
         sk: ["techLeading", "ts", "oop", "fastify", "nodejs", "python", "redis", "azure", "docker", "sass", "protoBuffers"]
       },
       {
         en: "Automatic approval or rejection of medical files using ML",
         fr: "Approbation ou rejet automatique de dossiers médicaux à l'aide d'un modèle de ML",
-        dEn: "Built an automated decisioning flow approving or rejecting medical files via ML models, orchestrated with Airflow and CI/CD on Jenkins.",
-        dFr: "Réalisation d'un traitement automatisé approuvant ou rejetant des dossiers médicaux via des modèles de ML, orchestré avec Airflow et une CI/CD Jenkins.",
+        dEn: "Built an automated decisioning flow approving or rejecting medical files via machine-learning models.",
+        dFr: "Réalisation d'un traitement automatisé approuvant ou rejetant des dossiers médicaux via des modèles de machine learning.",
         sk: ["techLeading", "python", "oop", "docker", "airflow", "jenkins"]
       }
     ]
@@ -248,8 +248,8 @@ export const WORK = [
       {
         en: "Social network web & mobile apps for families, with feed and family tree",
         fr: "Réseau social web & mobile pour les familles, avec feed et arbre généalogique",
-        dEn: "Developed the family social-network web & mobile apps (feed, family tree), migrating a legacy AngularJS codebase towards modern Angular in TypeScript.",
-        dFr: "Développement des applications web & mobile du réseau social familial (feed, arbre généalogique), en migrant une base AngularJS historique vers Angular moderne en TypeScript.",
+        dEn: "Developed the family social-network web & mobile apps (feed, family tree), modernising a legacy frontend codebase.",
+        dFr: "Développement des applications web & mobile du réseau social familial (feed, arbre généalogique), en modernisant une base de code frontend historique.",
         sk: ["ts", "oop", "angular", "angularJS", "sass", "github"]
       }
     ]
@@ -268,15 +268,15 @@ export const WORK = [
       {
         en: "Itinerary app",
         fr: "Application de calcul d'itinéraire",
-        dEn: "Built an itinerary app computing multimodal routes via the Rome2Rio API, with an AngularJS frontend interfacing a GWT / Java backend.",
-        dFr: "Réalisation d'une application de calcul d'itinéraires multimodaux via l'API Rome2Rio, avec un frontend AngularJS interfaçant un backend GWT / Java.",
+        dEn: "Built an itinerary app computing multimodal routes, interfacing an external routing service.",
+        dFr: "Réalisation d'une application de calcul d'itinéraires multimodaux, s'appuyant sur un service de routage externe.",
         sk: ["js", "angularJS", "rome2rio", "gwt"]
       },
       {
         en: "Hotel booking web & mobile app",
         fr: "Application web & mobile de réservation d'hôtel",
-        dEn: "Built a hotel-booking web & mobile app (AngularJS), packaged for mobile with PhoneGap / Cordova.",
-        dFr: "Réalisation d'une application web & mobile de réservation d'hôtel (AngularJS), packagée pour le mobile avec PhoneGap / Cordova.",
+        dEn: "Built a hotel-booking web & mobile app, packaged as a native mobile app.",
+        dFr: "Réalisation d'une application web & mobile de réservation d'hôtel, packagée en application mobile native.",
         sk: ["js", "angularJS", "phonegap"]
       }
     ]
@@ -295,15 +295,15 @@ export const WORK = [
       {
         en: "Parental control console",
         fr: "Console de contrôle parental",
-        dEn: "Developed the parental-control management console as a Java / Swing desktop application.",
-        dFr: "Développement de la console de gestion du contrôle parental sous forme d'application de bureau Java / Swing.",
+        dEn: "Developed the parental-control management console as a desktop application.",
+        dFr: "Développement de la console de gestion du contrôle parental sous forme d'application de bureau.",
         sk: ["java", "swing"]
       },
       {
         en: "Parental control mobile app",
         fr: "Application mobile de contrôle parental",
-        dEn: "Contributed to the parental-control mobile app, building native iOS parts in Xcode alongside Java components.",
-        dFr: "Contribution à l'application mobile de contrôle parental, avec les parties natives iOS développées sous Xcode aux côtés de composants Java.",
+        dEn: "Contributed to the parental-control mobile app, building the native iOS parts.",
+        dFr: "Contribution à l'application mobile de contrôle parental, en développant les parties natives iOS.",
         sk: ["xcode", "java"]
       }
     ]
@@ -322,15 +322,15 @@ export const WORK = [
       {
         en: "LiDO — object/relational persistence engine",
         fr: "LiDO — moteur de persistance objet/relationnel",
-        dEn: "Managed the team building LiDO, a Java object/relational persistence engine (JDO) mapping objects onto Oracle, PostgreSQL, MySQL and Versant databases.",
-        dFr: "Encadrement de l'équipe développant LiDO, moteur de persistance objet/relationnel Java (JDO) mappant les objets vers des bases Oracle, PostgreSQL, MySQL et Versant.",
+        dEn: "Managed the team building LiDO, an object/relational persistence engine mapping objects onto relational and object databases.",
+        dFr: "Encadrement de l'équipe développant LiDO, moteur de persistance objet/relationnel mappant les objets vers des bases relationnelles et objet.",
         sk: ["techLeading", "java", "oracle", "jdo", "beyondCompare", "versant", "idea", "eclipse", "postgresql", "mysql"]
       },
       {
         en: `<a href="https://web.archive.org/web/20070217212850/http://www.xcalia.com/products/core.jsp">XIC</a> (Xcalia Intermediation Core)`,
         fr: `<a href="https://web.archive.org/web/20070217212850/http://www.xcalia.com/products/core.jsp">XIC</a> (Xcalia Intermediation Core)`,
-        dEn: "Led development of XIC, Xcalia's intermediation core federating heterogeneous data sources for composite applications, in Java with JDBC / JDO.",
-        dFr: "Pilotage du développement de XIC, cœur d'intermédiation de Xcalia fédérant des sources de données hétérogènes pour des applications composites, en Java avec JDBC / JDO.",
+        dEn: "Led development of XIC, Xcalia's intermediation core federating heterogeneous data sources for composite applications.",
+        dFr: "Pilotage du développement de XIC, cœur d'intermédiation de Xcalia fédérant des sources de données hétérogènes pour des applications composites.",
         sk: ["techLeading", "java", "jdbc", "perforce", "junit", "oracle", "mysql", "postgresql", "jdo", "versant", "idea"]
       }
     ]
@@ -349,22 +349,22 @@ export const WORK = [
       {
         en: "Various consulting missions for IBM, GIE Symphonie (Kalamazoo), CNET (France Telecom R&D), EDF, BEA, BNP…",
         fr: "Diverses missions de conseil pour IBM, GIE Symphonie (Kalamazoo), CNET (France Telecom R&D), EDF, BEA, BNP…",
-        dEn: "Delivered J2EE architecture and development consulting for major accounts (IBM, CNET / France Télécom R&D, EDF, BEA, BNP…), using RMI, JNDI, EJB, Swing and JDBC.",
-        dFr: "Prestations de conseil en architecture et développement J2EE pour de grands comptes (IBM, CNET / France Télécom R&D, EDF, BEA, BNP…), en RMI, JNDI, EJB, Swing et JDBC.",
+        dEn: "Delivered enterprise-Java architecture and development consulting for major accounts (IBM, CNET / France Télécom R&D, EDF, BEA, BNP…).",
+        dFr: "Prestations de conseil en architecture et développement Java entreprise pour de grands comptes (IBM, CNET / France Télécom R&D, EDF, BEA, BNP…).",
         sk: ["java", "rmi", "jndi", "j2ee", "swing", "jdbc", "ejb"]
       },
       {
         en: `Wrote and taught the <abbr title="Enterprise JavaBeans">EJB</abbr> training course`,
         fr: `Écriture et animation du cours <abbr title="Enterprise JavaBeans">EJB</abbr>`,
-        dEn: "Authored and delivered Valtech's Enterprise JavaBeans (EJB) training course.",
-        dFr: "Rédaction et animation du cours Enterprise JavaBeans (EJB) de Valtech.",
+        dEn: "Authored the course material and taught it to Valtech's consultants and clients.",
+        dFr: "Rédaction du support de cours et animation auprès des consultants et clients de Valtech.",
         sk: ["java", "jdbc", "ejb"]
       },
       {
         en: `Wrote and taught the <abbr title="Java 2 Enterprise Edition">J2EE</abbr> training course`,
         fr: `Écriture et animation du cours <abbr title="Java 2 Enterprise Edition">J2EE</abbr>`,
-        dEn: "Authored and delivered Valtech's J2EE training course covering the full enterprise Java stack.",
-        dFr: "Rédaction et animation du cours J2EE de Valtech couvrant l'ensemble de la pile Java entreprise.",
+        dEn: "Authored and taught a broader course covering the full enterprise-Java platform.",
+        dFr: "Rédaction et animation d'un cours plus large couvrant l'ensemble de la plateforme Java entreprise.",
         sk: ["java", "j2ee", "jdbc", "ejb"]
       }
     ]
@@ -383,8 +383,8 @@ export const WORK = [
       {
         en: "Chronopost packet tracking",
         fr: "Suivi de colis de Chronopost",
-        dEn: "Developed Chronopost's parcel-tracking application in Java (JBuilder) within the company's Java competence centre.",
-        dFr: "Développement de l'application de suivi de colis de Chronopost en Java (JBuilder), au sein du centre de compétences Java de la société.",
+        dEn: "Developed Chronopost's parcel-tracking application within the company's Java competence centre.",
+        dFr: "Développement de l'application de suivi de colis de Chronopost, au sein du centre de compétences Java de la société.",
         sk: ["jbuilder"]
       }
     ]
@@ -403,8 +403,8 @@ export const WORK = [
       {
         en: "FNAC's show booking app",
         fr: "Application web de réservation de spectacles de la FNAC",
-        dEn: "As an intern, contributed to FNAC's show-booking web app, using Java (JBuilder) and Netscape LiveWire server-side JavaScript.",
-        dFr: "En stage, contribution à l'application web de réservation de spectacles de la FNAC, en Java (JBuilder) et JavaScript côté serveur Netscape LiveWire.",
+        dEn: "As an intern, contributed to FNAC's show-booking web app.",
+        dFr: "En stage, contribution à l'application web de réservation de spectacles de la FNAC.",
         sk: ["jbuilder", "livewire"]
       }
     ]
