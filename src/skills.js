@@ -14,6 +14,7 @@ export const CAT_COLOR = {
   ai: "oklch(0.93 0.06 85)",
   blockchain: "oklch(0.93 0.06 100)",
   physics: "oklch(0.92 0.05 285)",
+  security: "oklch(0.93 0.05 15)",
   management: "oklch(0.93 0.05 25)",
   other: "oklch(0.95 0.006 260)"
 }
@@ -108,9 +109,104 @@ export const SKILLS = {
   spectralGeometry: ["Spectral geometry", "https://en.wikipedia.org/wiki/Spectral_geometry", "physics", "Geometry through operator spectra"],
   unix: ["Unix", "https://en.wikipedia.org/wiki/Unix", "other", "Unix operating system"],
   macos: ["MacOS", "https://en.wikipedia.org/wiki/MacOS", "other", "Apple's OS for Mac computers"],
-  keycloak: ["Keycloak", "https://www.keycloak.org", "other", "Identity & Access Management solution"],
-  oauth: ["OAuth", "https://oauth.net", "other", "Authentication & authorization protocol"],
+  keycloak: ["Keycloak", "https://www.keycloak.org", "security", "Identity & Access Management solution"],
+  oauth: ["OAuth", "https://oauth.net", "security", "Authentication & authorization protocol"],
   rome2rio: ["Rome2Rio", "https://www.rome2rio.com", "other", "Itinerary / routing API"]
+}
+
+// French translations of the skill descriptions (index 3 above is English). tag(key, lang) uses these when lang === "fr".
+export const DESC_FR = {
+  js: "Langage de programmation pour les navigateurs et NodeJS",
+  ts: "Surensemble typé de JavaScript, par Microsoft",
+  java: "Langage & plateforme « écrire une fois, exécuter partout »",
+  c: "Langage de programmation C",
+  cpp: "Langage de programmation C++",
+  python: "Langage utilisé par la plupart des bibliothèques de ML",
+  go: "Go (golang), pour des serveurs applicatifs rapides",
+  delphi: "EDI Borland pour créer des applis Windows (Pascal)",
+  latex: "Composition de documents scientifiques",
+  pascal: "Langage de programmation procédural",
+  oop: "Approche de programmation orientée objet",
+  html: "Langage de balisage des pages web",
+  css: "Feuilles de style en cascade pour les pages web",
+  sass: "Outil pour étendre les capacités de CSS",
+  webComponents: "Standard d'éléments personnalisés réutilisables",
+  vanillaJS: "JS utilisé sans framework lourd",
+  vanillaTS: "TypeScript utilisé sans framework lourd",
+  angular: "Framework web de Google (Angular moderne)",
+  angularJS: "Ancien framework web de Google",
+  pwa: "Applis web progressives se comportant comme des applis natives",
+  phonegap: "Encapsule une appli web dans une appli mobile native",
+  gwt: "Compile du Java en JavaScript",
+  xcode: "Créer des applis natives macOS/iOS",
+  nodejs: "Exécuter du JavaScript hors du navigateur",
+  fastify: "Framework TypeScript de serveur web",
+  express: "Framework JavaScript de serveur web",
+  rest: "Standard pour les API HTTP",
+  graphql: "Interroger des API serveur de manière personnalisée",
+  webCrypto: "Primitives cryptographiques dans le navigateur",
+  protoBuffers: "Sérialisation optimisée de données",
+  http: "Protocole standard pour servir des pages web",
+  nes: "Netscape Enterprise Server (JS côté serveur)",
+  postgresql: "Base de données relationnelle Postgres",
+  mysql: "Base de données relationnelle MySQL",
+  mongodb: "Base de données NoSQL JSON",
+  mongoose: "Couche de schéma/typage au-dessus de MongoDB",
+  oracle: "Base de données relationnelle Oracle",
+  redis: "Stockage clé/valeur",
+  jdo: "Standard de persistance Java (Java Data Objects)",
+  jdbc: "API Java d'accès aux bases relationnelles",
+  versant: "Base de données objet (ODBMS)",
+  sql: "Langage de requête standard pour bases relationnelles",
+  ejb: "Enterprise JavaBeans",
+  j2ee: "API Java 2 Enterprise Edition",
+  rmi: "Invocation de méthode distante Java (RMI)",
+  jndi: "Java Naming and Directory Interface",
+  swing: "API d'interface graphique de bureau Java",
+  jogl: "Liaisons Java pour OpenGL",
+  junit: "Framework de tests unitaires Java",
+  jbuilder: "EDI Java de Borland",
+  livewire: "Accès aux données depuis JS sur serveur Netscape",
+  openGL: "Open Graphics Library",
+  docker: "Exécuter des applis dans des conteneurs",
+  github: "SaaS d'hébergement de projets",
+  gitlab: "SaaS d'hébergement de projets",
+  git: "Système de gestion de versions décentralisé",
+  circleci: "CI en tant que service",
+  jenkins: "Serveur d'automatisation de CI",
+  vite: "Outil de build web moderne",
+  nx: "Outillage monorepo",
+  npm: "Gestionnaire de paquets NodeJS",
+  jira: "Billetterie de gestion de projet (Atlassian)",
+  idea: "EDI Java IntelliJ IDEA",
+  eclipse: "EDI Java open source",
+  netlify: "Service d'hébergement web",
+  gcp: "Google Cloud Platform",
+  azure: "Cloud Microsoft Azure",
+  beyondCompare: "Outil de comparaison de fichiers",
+  perforce: "Système de gestion de versions",
+  airflow: "Serveur d'orchestration de workflows",
+  jest: "Framework de tests unitaires JS/TS",
+  claude: "Assistant IA d'Anthropic pour le développement",
+  codex: "Agent de développement IA d'OpenAI",
+  nlp: "Traitement automatique du langage (ML sur texte)",
+  ml: "Apprentissage automatique",
+  ethers: "Bibliothèque JS pour la blockchain Ethereum",
+  walletConnect: "Connecter des portefeuilles blockchain sur le web",
+  peopleManagement: "Recruter, encadrer, faire grandir et organiser une équipe",
+  techLeading: "Leadership technique : architecture, standards et accompagnement des développeurs",
+  theoreticalPhysics: "Modélisation mathématique des phénomènes physiques",
+  quantumMechanics: "Physique aux échelles atomique et subatomique",
+  quantumFieldTheory: "Unifie mécanique quantique et champs relativistes",
+  gaugeTheory: "Théorie des champs fondée sur des symétries de jauge locales",
+  generalRelativity: "Théorie relativiste de la gravitation et de l'espace-temps",
+  cosmology: "Structure et évolution de l'univers",
+  spectralGeometry: "Géométrie via les spectres d'opérateurs",
+  keycloak: "Solution de gestion des identités et des accès",
+  oauth: "Protocole d'authentification et d'autorisation",
+  unix: "Système d'exploitation Unix",
+  macos: "OS d'Apple pour les Mac",
+  rome2rio: "API d'itinéraire / de routage"
 }
 
 export const IMPLIES = {
@@ -128,7 +224,7 @@ export const IMPLIES = {
 }
 
 // Order in which skill categories are listed in the Skills section.
-export const CAT_ORDER = ["lang", "frontend", "backend", "data", "java", "devops", "ai", "blockchain", "management", "physics", "other"]
+export const CAT_ORDER = ["lang", "frontend", "backend", "data", "java", "devops", "ai", "blockchain", "security", "management", "physics", "other"]
 
 // Expand a list of skill keys with everything they imply (transitively).
 // Duplicates are kept on purpose so counts reflect how often a skill applies.
@@ -142,10 +238,11 @@ export function expand(keys) {
   return out
 }
 
-// Build a renderable tag descriptor for a skill key.
-export function tag(key) {
+// Build a renderable tag descriptor for a skill key, localised for the given language.
+export function tag(key, lang = "en") {
   const s = SKILLS[key]
-  if (!s) return {key, name: key, url: "#", bg: CAT_COLOR.other, cat: "other", title: key}
-  const [name, url, cat, desc] = s
-  return {key, name, url, cat, bg: CAT_COLOR[cat] || CAT_COLOR.other, title: desc ? `${name} — ${desc}` : name}
+  if (!s) return {key, name: key, url: "#", bg: CAT_COLOR.other, cat: "other", desc: "", title: key}
+  const [name, url, cat, descEn] = s
+  const desc = (lang === "fr" && DESC_FR[key]) || descEn
+  return {key, name, url, cat, desc, bg: CAT_COLOR[cat] || CAT_COLOR.other, title: desc ? `${name} — ${desc}` : name}
 }

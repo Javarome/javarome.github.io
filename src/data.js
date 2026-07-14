@@ -50,6 +50,7 @@ export const CATLBL = {
   ai: {en: "AI / ML", fr: "IA / ML"},
   blockchain: {en: "Blockchain", fr: "Blockchain"},
   physics: {en: "Physics", fr: "Physique"},
+  security: {en: "Security", fr: "Sécurité"},
   management: {en: "Management", fr: "Management"},
   other: {en: "Other", fr: "Autres"}
 }
@@ -77,12 +78,12 @@ export const WORK = [
       {
         en: "Library to render ads using different original formats",
         fr: "Bibliothèque permettant le rendu des publicités dans différents formats originaux",
-        sk: ["peopleManagement", "techLeading", "webComponents", "vanillaJS", "oop", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
+        sk: ["peopleManagement", "techLeading", "webComponents", "vanillaJS", "vanillaTS", "oop", "oauth", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
       },
       {
         en: "Graphical tool to create and manage ads",
         fr: "Outil graphique de création et gestion de publicités",
-        sk: ["peopleManagement", "techLeading", "webComponents", "vanillaJS", "oop", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
+        sk: ["peopleManagement", "techLeading", "webComponents", "vanillaJS", "vanillaTS", "oop", "oauth", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
       }
     ]
   },

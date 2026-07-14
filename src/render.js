@@ -90,7 +90,7 @@ const MAX_COUNT = Math.max(1, ...Object.values(COUNT))
 
 // --- tag element -----------------------------------------------------------
 function tagEl(key, {cloud = false, lang = "en"} = {}) {
-  const t = tag(key)
+  const t = tag(key, lang)
   // href is kept so Ctrl/Cmd/middle-click still opens the documentation; a plain click filters instead (see main.js).
   const a = el("a", {
     href: t.url,
@@ -128,9 +128,9 @@ function renderSkills(lang, q, key) {
   clear(root)
   // Focus mode: a skill was clicked — show only it, with its detailed description as the external doc link.
   if (key && SKILLS[key]) {
-    const t = tag(key)
+    const t = tag(key, lang)
     const cat = SKILLS[key][2]
-    const desc = SKILLS[key][3] || t.name
+    const desc = t.desc || t.name
     root.append(el("div", {class: "skill-row skill-focus"},
       el("div", {class: "skill-cat"}, CATLBL[cat] ? CATLBL[cat][lang] : ""),
       el("div", {class: "skill-focus-body"},
