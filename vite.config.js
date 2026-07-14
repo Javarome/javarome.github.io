@@ -1,11 +1,9 @@
-export default {
+import {defineConfig} from "vite"
+
+// Static single-page site. Deployed at the domain root (CNAME), so base "/".
+export default defineConfig({
+  base: "/",
   build: {
-    target: 'esnext',
-    rollupOptions: {
-      input: {
-        main: 'index.html',
-        cv: 'cv/index.html'
-      }
-    }
+    target: "es2022"
   }
-}
+})

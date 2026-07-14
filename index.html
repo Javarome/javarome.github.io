@@ -3,74 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <title>Jérôme Beau</title>
-  <meta content="Jérôme Beau, Software engineer" name="description">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <link rel="stylesheet" crossorigin href="/index.css">
+  <meta content="Jérôme Beau, Senior software developer & team leader" name="description">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="/avatar.png" rel="icon">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=VT323&display=swap"
+      rel="stylesheet">
+  <link href="src/styles.css" rel="stylesheet">
 </head>
 <body>
-<canvas></canvas>
-<div class="main">
-  <h1 class="main-title">Jérôme Beau<span class="aka">, <abbr title="Also Known As">a.k.a.</abbr> Javarome</span></h1>
-  <nav class="links">
-    <ul>
-      <li><a href="https://rr0.org/tech/info/soft">RR0's software section
-        <div class="hint">My notes</div>
-      </a>
-      </li>
-      <li><a href="https://stackoverflow.com/users/650104">Stackoverflow
-        <div class="hint">My rank</div>
-      </a>
-      </li>
-      <li><a href="https://codepen.io/Javarome">Codepen
-        <div class="hint">My experiments</div>
-      </a>
-      </li>
-      <li><a href="https://github.com/javarome">Github
-        <div class="hint">My projects</div>
-      </a>
-      </li>
-      <li><a href="https://javarome.medium.com">Blog
-        <div class="hint">My thoughts</div>
-      </a>
-      </li>
-      <li><a href="cv/index.html">CV
-        <div class="hint">My resume</div>
-      </a>
-      </li>
-    </ul>
-  </nav>
-  <img alt="Jérôme Beau" class="avatar" height="200"
-      src="/android-chrome-512x512.png" width="200"/>
-  <p>I write software for more than three decades, but I started <a href="early.html">earlier</a>.
+<canvas aria-hidden="true" id="bg-shader"></canvas>
+
+<div class="page">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#about">Javarome</a>
+      <nav class="nav">
+        <a data-i18n="skills" href="#skills"></a> <a data-i18n="work" href="#experience"></a> <a data-i18n="projects"
+          href="#projects"></a> <a data-i18n="education" href="#education"></a> <input aria-label="Filter by skill" data-i18n-ph="searchPlaceholder"
+          id="search" type="search">
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card about" id="about">
+      <img alt="Jérôme Beau" class="avatar" height="164" src="avatar.png" width="164">
+      <div class="about-body">
+        <h1 class="name">Jérôme Beau <span class="aka">a.k.a. Javarome</span></h1>
+        <p class="role-title" data-i18n="title"></p>
+        <p class="statement" data-i18n="statement"></p>
+        <div class="links" id="links"></div>
+        <p class="loc">📍 Nanterre, France</p>
+      </div>
+    </section>
+
+    <section class="card spy" id="skills">
+      <div class="section-head">
+        <h2 data-i18n="skills"></h2>
+        <span class="filter-note" hidden id="filter-note"></span>
+      </div>
+      <div id="skill-rows"></div>
+    </section>
+
+    <section class="spy" id="experience">
+      <div class="section-head bare">
+        <h2 data-i18n="work"></h2>
+        <span class="total-dur" id="total-dur"></span>
+      </div>
+      <div class="exp-list" id="exp-list"></div>
+    </section>
+
+    <section class="spy" id="projects">
+      <h2 class="section-title" data-i18n="projects"></h2>
+      <div class="side-grid" id="side-grid"></div>
+      <p class="early-p">
+        <span class="early-link" id="early-link" role="button" tabindex="0">↳ <span data-i18n="earlyLink"></span></span>
+      </p>
+    </section>
+
+    <section class="spy" id="education">
+      <h2 class="section-title" data-i18n="education"></h2>
+      <div class="edu-list" id="edu-list"></div>
+    </section>
+
+    <footer class="footer">
+      <p>Jérôme Beau — <span data-i18n="title"></span> · <a href="https://javarome.com" rel="noopener" target="_blank">javarome.com</a>
+      </p>
+    </footer>
+  </main>
+
+  <div class="early-overlay" hidden id="early">
+    <div aria-hidden="true" class="early-scan"></div>
+    <div class="early-inner">
+      <h1 class="early-title">Jérôme Beau<span data-i18n="earlyTitle"></span></h1>
+      <ul class="early-list">
+        <li><a href="https://en.wikipedia.org/wiki/Thomson_TO7" rel="noopener" target="_blank">TO7</a>: <a
+            href="https://en.wikipedia.org/wiki/Microsoft_Basic_1.0" rel="noopener" target="_blank">BASIC 1.0</a> (1983)
+        </li>
+        <li><a href="https://en.wikipedia.org/wiki/Amstrad_CPC" rel="noopener" target="_blank">Amstrad CPC</a> 464: <a
+            href="https://en.wikipedia.org/wiki/Locomotive_BASIC" rel="noopener" target="_blank">Locomotive BASIC</a>
+        </li>
+        <li><a href="https://en.wikipedia.org/wiki/PC1512" rel="noopener" target="_blank">PC-1512</a> &amp; other PC
+          clones: <a href="https://en.wikipedia.org/wiki/GW-BASIC" rel="noopener" target="_blank">GW-BASIC</a>/<a
+              href="https://en.wikipedia.org/wiki/IBM_BASIC#IBM_Advanced_BASIC" rel="noopener"
+              target="_blank">BASICA</a>, <a href="https://en.wikipedia.org/wiki/Turbo_Pascal" rel="noopener"
+              target="_blank">Turbo/Borland Pascal</a>, <a href="https://en.wikipedia.org/wiki/Delphi_(software)"
+              rel="noopener" target="_blank">Delphi</a>, Java</li>
+        <li>MacBook: Java, JavaScript &amp; TypeScript (AngularJS/Angular, NodeJS), Python, Swift<span aria-hidden="true"
+            class="cursor"></span></li>
+      </ul>
+      <p class="early-exit" role="button" tabindex="0">&gt; <span data-i18n="earlyExit"></span></p>
+    </div>
+  </div>
 </div>
-<audio autoplay preload="none">
-  <source src="/Beethoven-PianoSonata14_192.mp3" type="audio/mpeg">
-</audio>
+
+<script src="src/main.js" type="module"></script>
 </body>
-<script>
-  document.addEventListener("click", () => {
-    const audio = document.getElementsByTagName("audio")[0]
-    audio.paused ? audio.play() : audio.pause()
-  })
-</script>
-<script id="vs" type="x-shader/vertex">
-  attribute vec3 position;
-  void main() {
-    gl_Position = vec4( position, 1.0 );
-  }
-
-</script>
-<script id="fs" type="x-shader/fragment">
-  uniform float time;
-  uniform vec2 resolution;
-  void main( void ) {
-    vec2 position = - 1.0 + 2.0 * gl_FragCoord.xy / resolution.xy;
-    float red = abs( sin( position.x * position.y + time / 2.0 ) );
-    float green = abs( sin( position.x * position.y + time / 3.0 ) );
-    float blue = abs( sin( position.x * position.y + time / 4.0 ) );
-    gl_FragColor = vec4( red, green, blue, 0.6 );
-  }
-
-</script>
-<script async src="index.mjs" type="module"></script>
 </html>

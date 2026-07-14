@@ -1,0 +1,643 @@
+/* ------------------------------------------------------------------ *
+ * Jérôme Beau — personal page & résumé. Vanilla CSS, no framework.
+ * ------------------------------------------------------------------ */
+
+:root {
+  --accent: oklch(0.52 0.14 256);
+  --accent-strong: oklch(0.48 0.15 256);
+  --ink: #1c1c1e;
+  --muted: #55555e;
+  --faint: #8a8a92;
+  --card-bg: rgba(255, 255, 255, 0.86);
+  --card-border: 1px solid rgba(20, 20, 25, 0.07);
+  --display: "Space Grotesk", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  margin: 0;
+  background: #eef0f4;
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+abbr[title] {
+  text-decoration: none;
+  cursor: help;
+  border-bottom: 1px dotted currentColor;
+}
+
+::selection {
+  background: oklch(0.86 0.09 256);
+}
+
+/* Animated WebGL gradient background */
+#bg-shader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- header / nav ------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  background: rgba(238, 240, 244, 0.72);
+  border-bottom: 1px solid rgba(20, 20, 25, 0.07);
+}
+
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav a {
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.5rem;
+  color: #4a4a52;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+#search {
+  margin-left: 0.4rem;
+  border: 1px solid rgba(20, 20, 25, 0.16);
+  border-radius: 0.6rem;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.85rem;
+  font-family: system-ui, sans-serif;
+  background: rgba(255, 255, 255, 0.7);
+  width: 150px;
+  outline: none;
+}
+
+/* --- layout ------------------------------------------------------- */
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: var(--card-border);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 40px rgba(20, 30, 60, 0.09);
+}
+
+/* --- about -------------------------------------------------------- */
+.about {
+  animation: fadeUp 0.6s ease both;
+  padding: 2.4rem;
+  display: flex;
+  gap: 2.2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  width: 164px;
+  height: 164px;
+  border-radius: 50%;
+  box-shadow: 0 0.4em 1.4em rgba(40, 40, 40, 0.35);
+  flex-shrink: 0;
+  background: #f2c94c;
+}
+
+.about-body {
+  flex: 1;
+  min-width: 280px;
+}
+
+.name {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35rem;
+}
+
+.aka {
+  color: oklch(0.55 0.14 256);
+  font-weight: 500;
+  font-size: 0.5em;
+  letter-spacing: 0;
+}
+
+.role-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin: 0 0 0.9rem;
+  color: #2a2a30;
+}
+
+.statement {
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 60ch;
+  margin: 0 0 1.3rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.link-pill {
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.6rem;
+  background: rgba(20, 20, 25, 0.05);
+  color: #2a2a30;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.link-pill:hover {
+  background: oklch(0.55 0.14 256);
+  color: #fff;
+  text-decoration: none;
+}
+
+.loc {
+  margin: 0;
+  color: var(--faint);
+  font-size: 0.85rem;
+}
+
+/* --- section headings --------------------------------------------- */
+#skills {
+  margin-top: 2rem;
+  padding: 2rem 2.2rem;
+}
+
+#experience, #projects, #education {
+  margin-top: 3rem;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 0 0 1.4rem;
+}
+
+.section-head h2 {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.section-head.bare h2 {
+  font-size: 1.6rem;
+}
+
+.section-title {
+  font-family: var(--display);
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.4rem;
+}
+
+.total-dur {
+  color: var(--faint);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.filter-note {
+  font-size: 0.85rem;
+  color: #6a6a72;
+}
+
+.filter-note b {
+  color: oklch(0.5 0.14 256);
+}
+
+.clear-filter {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* --- skill cloud -------------------------------------------------- */
+.skill-row {
+  display: flex;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgba(20, 20, 25, 0.06);
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.skill-cat {
+  flex: 0 0 150px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #6a6a72;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tags.cloud {
+  flex: 1;
+  gap: 0.4rem;
+  min-width: 220px;
+  align-items: center;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.28rem 0.5rem;
+  border-radius: 0.4rem;
+  color: #2a2a30;
+  white-space: nowrap;
+}
+
+.tag:hover {
+  text-decoration: none;
+}
+
+.tag-cloud {
+  padding: 0.32em 0.55em;
+  border-radius: 0.45rem;
+}
+
+/* --- experience --------------------------------------------------- */
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.exp-card {
+  padding: 1.5rem 1.7rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 28px rgba(20, 30, 60, 0.07);
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+}
+
+.org {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+
+.role {
+  display: block;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-top: 0.15rem;
+}
+
+.dates-wrap {
+  text-align: right;
+}
+
+.dates {
+  display: block;
+  font-size: 0.88rem;
+  color: #3a3a42;
+  font-weight: 600;
+}
+
+.dur {
+  display: block;
+  font-size: 0.8rem;
+  color: #9a9aa2;
+}
+
+.proj-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.proj {
+  border-left: 2px solid oklch(0.86 0.08 256);
+  padding-left: 0.9rem;
+}
+
+.proj-desc {
+  line-height: 1.5;
+  color: #2a2a30;
+  margin-bottom: 0.45rem;
+}
+
+/* --- side projects ------------------------------------------------ */
+.side-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.1rem;
+}
+
+.side-card {
+  padding: 1.3rem 1.4rem;
+  border-radius: 1.1rem;
+  box-shadow: 0 6px 24px rgba(20, 30, 60, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.side-desc {
+  line-height: 1.5;
+  color: #2a2a30;
+}
+
+.side-dates {
+  font-size: 0.78rem;
+  color: #9a9aa2;
+  font-weight: 600;
+}
+
+.side-card .tags {
+  margin-top: auto;
+}
+
+.early-p {
+  margin: 1.4rem 0 0;
+  font-size: 0.9rem;
+}
+
+.early-link {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* --- education ---------------------------------------------------- */
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.edu-card {
+  padding: 1.3rem 1.6rem;
+  border-radius: 1.1rem;
+  box-shadow: 0 6px 24px rgba(20, 30, 60, 0.06);
+}
+
+.edu-card .org {
+  font-size: 1.1rem;
+}
+
+.edu-card .card-head {
+  margin-bottom: 0.7rem;
+}
+
+/* --- footer ------------------------------------------------------- */
+.footer {
+  margin-top: 3.5rem;
+  text-align: center;
+  color: #9a9aa2;
+  font-size: 0.82rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* --- "early computer history" CRT overlay ------------------------- */
+.early-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  color: #e8f6e8;
+  font-family: "VT323", ui-monospace, monospace;
+  background: #000;
+  background-image: radial-gradient(rgba(0, 150, 0, 0.75), #000 120%);
+  overflow: auto;
+  text-shadow: 0 0 6px #7dff7d;
+  font-size: 1.65rem;
+  letter-spacing: 0.02em;
+}
+
+.early-overlay[hidden] {
+  display: none;
+}
+
+.early-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
+}
+
+.early-inner {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2em;
+  min-height: 100%;
+}
+
+.early-title {
+  border-bottom: 1px solid rgba(200, 255, 200, 0.4);
+  padding-bottom: 0.2em;
+  font-weight: normal;
+  font-size: 1.9em;
+  margin-top: 0;
+  font-family: "VT323", monospace;
+}
+
+.early-list {
+  line-height: 1.9;
+  padding-left: 1.4em;
+}
+
+.early-list a {
+  color: lightblue;
+  text-decoration: underline;
+}
+
+.early-exit {
+  margin-top: 2.5em;
+  color: #8fdf8f;
+  cursor: pointer;
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.95em;
+  background: #7dff7d;
+  margin-left: 0.2em;
+  vertical-align: text-bottom;
+  animation: cursor-blink 1.3s steps(2) infinite;
+}
+
+/* --- keyframes ---------------------------------------------------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+}
+
+@keyframes navspy {
+  0%, 100% {
+    color: #4a4a52;
+    background: rgba(47, 111, 214, 0);
+  }
+  8%, 92% {
+    color: var(--accent-strong);
+    background: rgba(47, 111, 214, 0.13);
+  }
+}
+
+/* --- CSS-only scrollspy (scroll-driven animations) ---------------- *
+ * Each section owns a view-timeline; the matching nav link animates
+ * along it. The detection band sits ~35px below the sticky header so
+ * a clicked section lands squarely inside its "active" range. Falls
+ * back to no highlight where scroll-driven animations are unsupported.
+ * ------------------------------------------------------------------ */
+@supports (animation-timeline: view()) {
+  .page {
+    timeline-scope: --sec-skills, --sec-experience, --sec-projects, --sec-education;
+  }
+
+  .spy {
+    view-timeline-axis: block;
+    view-timeline-inset: 104px calc(100% - 128px);
+  }
+
+  #skills {
+    view-timeline-name: --sec-skills;
+  }
+
+  #experience {
+    view-timeline-name: --sec-experience;
+  }
+
+  #projects {
+    view-timeline-name: --sec-projects;
+  }
+
+  #education {
+    view-timeline-name: --sec-education;
+  }
+
+  .nav a[href="#skills"],
+  .nav a[href="#experience"],
+  .nav a[href="#projects"],
+  .nav a[href="#education"] {
+    animation: navspy linear;
+  }
+
+  .nav a[href="#skills"] {
+    animation-timeline: --sec-skills;
+  }
+
+  .nav a[href="#experience"] {
+    animation-timeline: --sec-experience;
+  }
+
+  .nav a[href="#projects"] {
+    animation-timeline: --sec-projects;
+  }
+
+  .nav a[href="#education"] {
+    animation-timeline: --sec-education;
+  }
+}
+
+@media (max-width: 640px) {
+  .dates-wrap {
+    text-align: left;
+  }
+
+  #skills {
+    padding: 1.6rem 1.4rem;
+  }
+}
