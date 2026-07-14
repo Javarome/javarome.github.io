@@ -50,6 +50,7 @@ export const CATLBL = {
   ai: {en: "AI / ML", fr: "IA / ML"},
   blockchain: {en: "Blockchain", fr: "Blockchain"},
   physics: {en: "Physics", fr: "Physique"},
+  management: {en: "Management", fr: "Management"},
   other: {en: "Other", fr: "Autres"}
 }
 
@@ -67,12 +68,12 @@ export const WORK = [
       {
         en: "Library to render ads using different original formats",
         fr: "Bibliothèque permettant le rendu des publicités dans différents formats originaux",
-        sk: ["webComponents", "vanillaJS", "oop", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
+        sk: ["management", "webComponents", "vanillaJS", "oop", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
       },
       {
         en: "Graphical tool to create and manage ads",
         fr: "Outil graphique de création et gestion de publicités",
-        sk: ["webComponents", "vanillaJS", "oop", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
+        sk: ["management", "webComponents", "vanillaJS", "oop", "github", "gcp", "css", "html", "jira", "vite", "claude", "codex"]
       }
     ]
   },
@@ -87,12 +88,12 @@ export const WORK = [
       {
         en: `<a href="https://www.ringover.com/sales-enablement">Empower</a> uses AI to provide insights on telephony assets`,
         fr: `<a href="https://www.ringover.fr/sales-enablement">Empower</a> fournit des services d'IA au-dessus de la téléphonie numérique`,
-        sk: ["vanillaJS", "webComponents", "oop", "go", "css", "html", "jira", "vite"]
+        sk: ["management", "vanillaJS", "webComponents", "oop", "go", "css", "html", "jira", "vite"]
       },
       {
         en: "Design system with fine-grained imports of styles and web components",
         fr: "Système de composants UI avec import fin de styles et de composants web",
-        sk: ["vanillaJS", "webComponents", "oop", "go", "css", "html", "jira", "vite", "npm"]
+        sk: ["management", "vanillaJS", "webComponents", "oop", "go", "css", "html", "jira", "vite", "npm"]
       }
     ]
   },
@@ -107,17 +108,17 @@ export const WORK = [
       {
         en: `Maintenance and end-of-life of a Web3 <abbr title="Content Management System">CMS</abbr>`,
         fr: `Maintenance et fin de vie d'un <abbr title="Content Management System">CMS</abbr> Web3`,
-        sk: ["angular", "oop", "mongodb", "sass", "circleci"]
+        sk: ["management", "angular", "oop", "mongodb", "sass", "circleci"]
       },
       {
         en: `<a href="https://arianee.notion.site/ARN-User-Guide-c2aeabd71df94190aa1b7988bbdfb4c1">Tools box + SaaS</a> to create Web3 websites`,
         fr: `<a href="https://arianee.notion.site/ARN-User-Guide-c2aeabd71df94190aa1b7988bbdfb4c1">Bibliothèque d'outils + SaaS</a> pour créer des sites Web3`,
-        sk: ["webComponents", "angular", "oop", "nx", "fastify", "ethers", "npm", "walletConnect", "mongodb", "netlify", "sass", "circleci"]
+        sk: ["management", "webComponents", "angular", "oop", "nx", "fastify", "ethers", "npm", "walletConnect", "mongodb", "netlify", "sass", "circleci"]
       },
       {
         en: `<a href="https://app.arianee.com"><abbr title="Decentralized App">dApp</abbr> Wallet</a>`,
         fr: `<a href="https://app.arianee.com"><abbr title="Decentralized App">dApp</abbr> de Wallet</a>`,
-        sk: ["angular", "oop", "nx", "nodejs", "gcp", "ethers", "walletConnect", "netlify", "pwa", "sass", "circleci"]
+        sk: ["management", "angular", "oop", "nx", "nodejs", "gcp", "ethers", "walletConnect", "netlify", "pwa", "sass", "circleci"]
       }
     ]
   },
@@ -132,12 +133,12 @@ export const WORK = [
       {
         en: "Responsive web app to browse / search / edit notes",
         fr: "Application web réactive de consultation / recherche / édition de notes",
-        sk: ["vanillaTS", "webComponents", "oop", "graphql", "rest", "webCrypto", "jest", "netlify", "sass"]
+        sk: ["management", "vanillaTS", "webComponents", "oop", "graphql", "rest", "webCrypto", "jest", "netlify", "sass"]
       },
       {
         en: `Web server to publish notes with <abbr title="Server-Side Rendering">SSR</abbr>`,
         fr: `Serveur web pour publier des notes servies en <abbr title="Server-Side Rendering">SSR</abbr>`,
-        sk: ["vanillaTS", "webComponents", "oop", "fastify", "rest", "gcp", "gitlab", "docker"]
+        sk: ["management", "vanillaTS", "webComponents", "oop", "fastify", "rest", "gcp", "gitlab", "docker"]
       }
     ]
   },
@@ -152,22 +153,22 @@ export const WORK = [
       {
         en: `"AiCO", an intelligent, multilingual virtual assistant for insurance phone counsellors`,
         fr: `« AiCO », un assistant virtuel intelligent et multilingue pour les téléopérateurs d'assurance`,
-        sk: ["ts", "oop", "express"]
+        sk: ["management", "ts", "oop", "express"]
       },
       {
         en: `"Anna" knowledge management web app`,
         fr: `Application web de gestion des connaissances « Anna »`,
-        sk: ["ts", "oop", "nlp", "postgresql", "keycloak", "mongoose"]
+        sk: ["management", "ts", "oop", "nlp", "postgresql", "keycloak", "mongoose"]
       },
       {
         en: `Machine Learning pipeline`,
         fr: `Pipeline de <abbr title="Machine Learning">ML</abbr>`,
-        sk: ["ts", "oop", "fastify", "nodejs", "python", "redis", "azure", "docker", "sass", "protoBuffers"]
+        sk: ["management", "ts", "oop", "fastify", "nodejs", "python", "redis", "azure", "docker", "sass", "protoBuffers"]
       },
       {
         en: "Automatic approval or rejection of medical files using ML",
         fr: "Approbation ou rejet automatique de dossiers médicaux à l'aide d'un modèle de ML",
-        sk: ["python", "oop", "docker", "airflow", "jenkins"]
+        sk: ["management", "python", "oop", "docker", "airflow", "jenkins"]
       }
     ]
   },
@@ -225,12 +226,12 @@ export const WORK = [
       {
         en: "LiDO — object/relational persistence engine",
         fr: "LiDO — moteur de persistance objet/relationnel",
-        sk: ["java", "oracle", "jdo", "beyondCompare", "versant", "idea", "eclipse", "postgresql", "mysql"]
+        sk: ["management", "java", "oracle", "jdo", "beyondCompare", "versant", "idea", "eclipse", "postgresql", "mysql"]
       },
       {
         en: `<a href="https://web.archive.org/web/20070217212850/http://www.xcalia.com/products/core.jsp">XIC</a> (Xcalia Intermediation Core)`,
         fr: `<a href="https://web.archive.org/web/20070217212850/http://www.xcalia.com/products/core.jsp">XIC</a> (Xcalia Intermediation Core)`,
-        sk: ["java", "jdbc", "perforce", "junit", "oracle", "mysql", "postgresql", "jdo", "versant", "idea"]
+        sk: ["management", "java", "jdbc", "perforce", "junit", "oracle", "mysql", "postgresql", "jdo", "versant", "idea"]
       }
     ]
   },

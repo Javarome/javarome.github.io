@@ -14,6 +14,7 @@ export const CAT_COLOR = {
   ai: "oklch(0.93 0.06 85)",
   blockchain: "oklch(0.93 0.06 100)",
   physics: "oklch(0.92 0.05 285)",
+  management: "oklch(0.93 0.05 25)",
   other: "oklch(0.95 0.006 260)"
 }
 
@@ -61,7 +62,7 @@ export const SKILLS = {
   jdbc: ["JDBC", "https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/", "data", "Java API to access relational databases"],
   versant: ["Versant", "https://en.wikipedia.org/wiki/Versant_Corporation", "data", "Object database (ODBMS)"],
   sql: ["SQL", "https://en.wikipedia.org/wiki/SQL", "data", "Standard query language for relational DBs"],
-  ejb: ["EJB", "https://www.oracle.com/java/technologies/appmodel.html", "java", "Enterprise JavaBeans"],
+  ejb: ["EJB", "https://wikipedia.org/wiki/Enterprise_JavaBeans", "java", "Enterprise JavaBeans"],
   j2ee: ["J2EE", "https://www.oracle.com/java/technologies/appmodel.html", "java", "Java 2 Enterprise Edition APIs"],
   rmi: ["RMI", "https://docs.oracle.com/javase/tutorial/rmi/index.html", "java", "Java Remote Method Invocation"],
   jndi: ["JNDI", "https://docs.oracle.com/javase/tutorial/jndi/overview/index.html", "java", "Java Naming and Directory Interface"],
@@ -96,6 +97,7 @@ export const SKILLS = {
   ml: ["ML", "https://en.wikipedia.org/wiki/Machine_learning", "ai", "Machine Learning"],
   ethers: ["Ethers", "https://ethers.org/", "blockchain", "JS library for the Ethereum blockchain"],
   walletConnect: ["WalletConnect", "https://walletconnect.com/", "blockchain", "Connect blockchain wallets on the web"],
+  management: ["Management", "https://en.wikipedia.org/wiki/Engineering_management", "management", "Leading, mentoring and organising developer teams"],
   theoreticalPhysics: ["Theoretical physics", "https://en.wikipedia.org/wiki/Theoretical_physics", "physics", "Mathematical modelling of physical phenomena"],
   quantumMechanics: ["QM", "https://en.wikipedia.org/wiki/Quantum_mechanics", "physics", "Physics at atomic and subatomic scales"],
   quantumFieldTheory: ["QFT", "https://en.wikipedia.org/wiki/Quantum_field_theory", "physics", "Unifies quantum mechanics and relativistic fields"],
@@ -125,7 +127,7 @@ export const IMPLIES = {
 }
 
 // Order in which skill categories are listed in the Skills section.
-export const CAT_ORDER = ["lang", "frontend", "backend", "data", "java", "devops", "ai", "blockchain", "physics", "other"]
+export const CAT_ORDER = ["lang", "frontend", "backend", "data", "java", "devops", "ai", "blockchain", "management", "physics", "other"]
 
 // Expand a list of skill keys with everything they imply (transitively).
 // Duplicates are kept on purpose so counts reflect how often a skill applies.
