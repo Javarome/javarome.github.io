@@ -26,9 +26,14 @@ export class Skill extends Link {
 
   /**
    * @param {Skill} skill
+   * @param {Skill[]} ancestors the skills already visited on the current branch, to guard against undefined entries and
+   * cyclic `implied` graphs (which could otherwise cause infinite recursion).
    * @return {Skill[]}
    */
-  withImplied(skill = this) {
-    return [skill].concat(skill.implied.flatMap(skill => this.withImplied(skill)))
+  withImplied(skill = this, ancestors = []) {
+    if (!skill || ancestors.includes(skill)) {
+      return []
+    }
+    return [skill].concat(skill.implied.flatMap(implied => this.withImplied(implied, [...ancestors, skill])))
   }
 }
