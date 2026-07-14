@@ -93,14 +93,14 @@ const MAX_COUNT = Math.max(1, ...Object.values(COUNT))
 function tagEl(key, {cloud = false, lang = "en"} = {}) {
   const t = tag(key, lang)
   // href is kept so Ctrl/Cmd/middle-click still opens the documentation; a plain click filters instead (see main.js).
+  // Category drives the background via a CSS class (so it can be themed for dark mode), not an inline colour.
   const a = el("a", {
     href: t.url,
     target: "_blank",
     rel: "noopener",
     "data-skill": key,
-    class: cloud ? "tag tag-cloud" : "tag"
+    class: (cloud ? "tag tag-cloud" : "tag") + " cat-" + t.cat
   }, t.name)
-  a.style.background = t.bg
   if (cloud) {
     const c = COUNT[key] || 1
     a.style.fontSize = (0.78 + (c / MAX_COUNT) * 0.85).toFixed(2) + "rem"
