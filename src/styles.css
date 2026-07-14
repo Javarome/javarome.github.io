@@ -17,7 +17,7 @@
   --faint-2: #9a9aa2;
   --bg: #eef0f4;
   --header-bg: rgba(238, 240, 244, 0.72);
-  --card-bg: rgba(255, 255, 255, 0.97);
+  --card-bg: #ffffff;
   --border: rgba(20, 20, 25, 0.07);
   --hairline: rgba(20, 20, 25, 0.06);
   --pill-bg: rgba(20, 20, 25, 0.05);
@@ -63,7 +63,7 @@
     --faint-2: #70707b;
     --bg: #101217;
     --header-bg: rgba(16, 18, 23, 0.72);
-    --card-bg: rgba(33, 35, 44, 0.72);
+    --card-bg: #20222a;
     --border: rgba(255, 255, 255, 0.10);
     --hairline: rgba(255, 255, 255, 0.08);
     --pill-bg: rgba(255, 255, 255, 0.08);
@@ -228,9 +228,8 @@ abbr[title] {
 }
 
 .card {
+  /* No backdrop-filter: iOS Safari renders it as a grey box over the WebGL canvas. Cards are opaque instead. */
   background: var(--card-bg);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
   border: var(--card-border);
   border-radius: 1.5rem;
   box-shadow: 0 10px 40px rgba(20, 30, 60, 0.09);
