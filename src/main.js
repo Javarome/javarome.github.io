@@ -59,14 +59,6 @@ document.addEventListener("click", e => {
   renderAll(lang, txt, search.value)
 })
 
-// Clear-filter link (delegated: the note is rebuilt on each render).
-document.getElementById("filter-note").addEventListener("click", e => {
-  if (e.target.classList.contains("clear-filter")) {
-    search.value = ""
-    renderAll(lang, txt, "")
-  }
-})
-
 // --- "early computer history" overlay --------------------------------------
 const overlay = document.getElementById("early")
 const openEarly = () => {

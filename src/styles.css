@@ -110,14 +110,15 @@ abbr[title] {
 }
 
 #search {
-  margin-left: 0.4rem;
   border: 1px solid rgba(20, 20, 25, 0.16);
   border-radius: 0.6rem;
   padding: 0.4rem 0.7rem;
   font-size: 0.85rem;
   font-family: system-ui, sans-serif;
   background: rgba(255, 255, 255, 0.7);
-  width: 150px;
+  width: 15em;
+  max-width: 100%;
+  flex-shrink: 0;
   outline: none;
 }
 
@@ -261,20 +262,6 @@ abbr[title] {
   color: var(--faint);
   font-size: 0.9rem;
   font-weight: 600;
-}
-
-.filter-note {
-  font-size: 0.85rem;
-  color: #6a6a72;
-}
-
-.filter-note b {
-  color: oklch(0.5 0.14 256);
-}
-
-.clear-filter {
-  cursor: pointer;
-  text-decoration: underline;
 }
 
 /* --- skill cloud -------------------------------------------------- */
@@ -660,5 +647,10 @@ abbr[title] {
 
   #skills {
     padding: 1.6rem 1.4rem;
+  }
+
+  /* Full-width filter under the title on mobile, so it never crowds "Compétences". */
+  #search {
+    width: 100%;
   }
 }

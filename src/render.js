@@ -202,23 +202,6 @@ function renderEdu(lang, txt, q, key) {
   })
 }
 
-function renderFilterNote(txt, q, key) {
-  const note = document.getElementById("filter-note")
-  clear(note)
-  const label = key && SKILLS[key] ? SKILLS[key][0] : q
-  if (!label) {
-    note.hidden = true
-    return
-  }
-  note.hidden = false
-  note.append(
-    document.createTextNode(txt.filteredBy + " "),
-    el("b", {}, label),
-    document.createTextNode(" · "),
-    el("span", {class: "clear-filter", role: "button", tabindex: "0"}, txt.clear)
-  )
-}
-
 // --- public API ------------------------------------------------------------
 export function totalDuration(lang) {
   return durStr(CAREER_START, null, lang)
@@ -232,5 +215,4 @@ export function renderAll(lang, txt, query) {
   renderWork(lang, txt, q, key)
   renderSide(lang, txt, q, key)
   renderEdu(lang, txt, q, key)
-  renderFilterNote(txt, q, key)
 }
