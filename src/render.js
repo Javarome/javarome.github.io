@@ -239,9 +239,23 @@ export function totalDuration(lang) {
 }
 
 // Re-render every dynamic area for the given language and query.
+// Any filter qualifies the Experience title ("Experience in <term>"): the recognised skill name when the
+// filter matches one exactly, otherwise the raw query. The Skills title only turns singular on an exact match.
+function renderTitles(lang, txt, key, rawQuery) {
+  const skillsH2 = document.querySelector("#skills h2")
+  const workH2 = document.querySelector("#experience h2")
+  if (skillsH2) skillsH2.textContent = key ? txt.skill : txt.skills
+  if (workH2) {
+    const term = key ? tag(key, lang).name : rawQuery
+    workH2.textContent = term ? `${txt.workIn} ${term}` : txt.work
+  }
+}
+
 export function renderAll(lang, txt, query) {
-  const q = (query || "").trim().toLowerCase()
+  const raw = (query || "").trim()
+  const q = raw.toLowerCase()
   const key = exactKey(q)
+  renderTitles(lang, txt, key, raw)
   renderSkills(lang, q, key)
   renderWork(lang, txt, q, key)
   renderSide(lang, txt, q, key)

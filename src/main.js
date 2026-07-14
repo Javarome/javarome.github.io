@@ -38,13 +38,35 @@ for (const l of LINKS) {
   linksRoot.append(a)
 }
 
+// --- URL state -------------------------------------------------------------
+// The page state is reflected in the URL so reloads restore it: the active filter as ?skill=…,
+// and the section scrolled into view as #section-id. Uses replaceState so it doesn't spam history.
+function updateUrl({skill, section} = {}) {
+  const params = new URLSearchParams(location.search)
+  if (skill !== undefined) {
+    if (skill) params.set("skill", skill)
+    else params.delete("skill")
+  }
+  const qs = params.toString()
+  const hash = section !== undefined ? (section ? "#" + section : "") : location.hash
+  history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + hash)
+}
+
 // --- dynamic content + skill filter ----------------------------------------
 // The filter field is the single source of truth: an exact skill name (typed, or filled by
 // clicking a tag) shows that skill's detail; any other text does a free-text search.
-renderAll(lang, txt, "")
-
 const search = document.getElementById("search")
-search.addEventListener("input", () => renderAll(lang, txt, search.value))
+
+function applyFilter(value) {
+  search.value = value
+  updateUrl({skill: value})
+  renderAll(lang, txt, value)
+}
+
+// Restore the filter from ?skill= on load.
+applyFilter(new URLSearchParams(location.search).get("skill") || "")
+
+search.addEventListener("input", () => applyFilter(search.value))
 
 // Clicking a skill tag fills the filter with that skill instead of opening its documentation.
 // Clicking the already-selected skill again clears the filter.
@@ -55,9 +77,23 @@ document.addEventListener("click", e => {
   if (!a || !a.dataset.skill) return
   e.preventDefault()
   const name = a.textContent
-  search.value = search.value.trim().toLowerCase() === name.toLowerCase() ? "" : name
-  renderAll(lang, txt, search.value)
+  applyFilter(search.value.trim().toLowerCase() === name.toLowerCase() ? "" : name)
 })
+
+// --- scrollspy: reflect the section in view in the URL hash ----------------
+const spySections = ["about", "skills", "experience", "projects", "education"]
+  .map(id => document.getElementById(id))
+  .filter(Boolean)
+let currentSection = location.hash.slice(1) || null
+const spy = new IntersectionObserver(entries => {
+  for (const e of entries) {
+    if (e.isIntersecting && e.target.id !== currentSection) {
+      currentSection = e.target.id
+      updateUrl({section: currentSection})
+    }
+  }
+}, {rootMargin: "-45% 0px -50% 0px", threshold: 0})
+spySections.forEach(s => spy.observe(s))
 
 // --- "early computer history" overlay --------------------------------------
 const overlay = document.getElementById("early")

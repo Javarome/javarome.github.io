@@ -25,7 +25,12 @@ export const TXT = {
   en: {
     title: "Senior developer & team leader",
     statement: "30+ years of front and back development, leading and motivating developer teams. I design my projects to stay maintainable and to welcome change quickly. Specialised in standard, vanilla web. I can take a project from requirements to production.",
-    skills: "Skills", work: "Work Experience", projects: "Side Projects", education: "Education",
+    skills: "Skills",
+    skill: "Skill",
+    work: "Work Experience",
+    workIn: "Experience in",
+    projects: "Side Projects",
+    education: "Education",
     present: "Present", searchPlaceholder: "Filter by skill 🔎", filteredBy: "Filtered by",
     clear: "clear", earlyLink: "I started earlier", earlyTitle: "'s early computer history",
     earlyExit: "click anywhere or press [ESC] to exit_"
@@ -33,7 +38,12 @@ export const TXT = {
   fr: {
     title: "Développeur sénior & responsable d'équipe",
     statement: "Plus de 30 ans de développement front et back, à encadrer et motiver des équipes de développeurs. Je conçois mes projets pour rester maintenables et accueillir le changement rapidement. Spécialisé dans le web standard & vanilla. Je peux prendre un projet en charge de l'expression des besoins jusqu'à la mise en production.",
-    skills: "Compétences", work: "Expérience", projects: "Projets personnels", education: "Formation",
+    skills: "Compétences",
+    skill: "Compétence",
+    work: "Expérience",
+    workIn: "Expérience en",
+    projects: "Projets personnels",
+    education: "Formation",
     present: "Aujourd'hui", searchPlaceholder: "Filtrer par compétence 🔎", filteredBy: "Filtré par",
     clear: "effacer", earlyLink: "j'ai commencé plus tôt", earlyTitle: " — mes débuts en informatique",
     earlyExit: "cliquez n'importe où ou [Échap] pour quitter_"
