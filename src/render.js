@@ -43,16 +43,60 @@ function monthsBetween(s, e) {
 
 function fmtDur(months, lang) {
   const y = Math.floor(months / 12), mo = months % 12
-  if (lang === "fr") return [y ? y + " an" + (y > 1 ? "s" : "") : "", mo ? mo + " mois" : ""].filter(Boolean).join(" ")
-  return [y ? y + " yr" + (y > 1 ? "s" : "") : "", mo ? mo + " mo" : ""].filter(Boolean).join(" ")
+  const fr = lang === "fr"
+  const yr = y ? `${y}${fr ? " an" + (y > 1 ? "s" : "") : " yr" + (y > 1 ? "s" : "")}` : ""
+  // With whole years, ~6/~9 months are shown as ½/¾ of a year; otherwise (no years, or 3 months) months are kept.
+  const frac = y ? {6: "½", 9: "¾"}[mo] : undefined
+  if (frac) return `${yr} ${frac}`
+  const moStr = mo ? (fr ? `${mo} mois` : `${mo} mo`) : ""
+  return [yr, moStr].filter(Boolean).join(" ")
 }
 
 function durStr(s, e, lang) {
   return fmtDur(monthsBetween(s, e), lang)
 }
 
-// Total professional experience across all work entries (used as the denominator when filtering).
-const TOTAL_MONTHS = WORK.reduce((sum, g) => sum + monthsBetween(g.s, g.e), 0)
+// Calendar coverage (in months) of a set of entries: overlapping periods are counted once
+// by merging their [start, end] month intervals, so concurrent roles/projects don't double-count.
+function coveredMonths(items) {
+  const now = [new Date().getFullYear(), new Date().getMonth() + 1]
+  const idx = ([y, m]) => y * 12 + (m - 1)
+  const ranges = items
+    .map(it => [idx(it.s), idx(it.e || now)])
+    .sort((a, b) => a[0] - b[0])
+  let total = 0, start = null, end = null
+  for (const [s, e] of ranges) {
+    if (end === null) {
+      start = s
+      end = e
+    } else if (s <= end + 1) {
+      end = Math.max(end, e)
+    } else {
+      total += end - start + 1
+      start = s
+      end = e
+    }
+  }
+  if (end !== null) total += end - start + 1
+  return total
+}
+
+// Totals used as the denominator when filtering (professional experience, and side projects).
+const TOTAL_MONTHS = coveredMonths(WORK)
+const TOTAL_SIDE_MONTHS = coveredMonths(SIDE)
+const TOTAL_EDU_MONTHS = coveredMonths(EDU)
+
+// Fill a section's duration badge: "filtered / total", or just one value when they are equal (or nothing when empty).
+function durBadge(id, items, totalMonths, lang) {
+  const el = document.getElementById(id)
+  if (!el) return
+  if (!items.length) {
+    el.textContent = ""
+    return
+  }
+  const m = coveredMonths(items)
+  el.textContent = m === totalMonths ? fmtDur(totalMonths, lang) : `${fmtDur(m, lang)} / ${fmtDur(totalMonths, lang)}`
+}
 
 // --- skill filtering -------------------------------------------------------
 function matches(key, q) {
@@ -170,17 +214,8 @@ function renderWork(lang, txt, q, key) {
   const groups = WORK
     .map(g => ({g, projects: g.projects.filter(p => keep(p.sk, q, key))}))
     .filter(x => x.projects.length)
-  // When filtering, show "filtered duration / total duration"; otherwise just the total.
-  const totalEl = document.getElementById("total-dur")
-  if (totalEl) {
-    const filteredMonths = groups.reduce((sum, {g}) => sum + monthsBetween(g.s, g.e), 0)
-    const filtering = !!(q || key)
-    totalEl.textContent = !groups.length
-      ? ""
-      : filtering
-        ? fmtDur(filteredMonths, lang) + " / " + fmtDur(TOTAL_MONTHS, lang)
-        : fmtDur(TOTAL_MONTHS, lang)
-  }
+  // Duration badge: "filtered / total", collapsing to a single value when they are equal.
+  durBadge("total-dur", groups.map(x => x.g), TOTAL_MONTHS, lang)
   groups
     .forEach(({g, projects}) => {
       const head = el("div", {class: "card-head"},
@@ -196,18 +231,26 @@ function renderWork(lang, txt, q, key) {
       )
       const list = el("ul", {class: "proj-list"}, projects.map(p =>
         el("li", {class: "proj"},
-          el("div", {class: "proj-desc", html: lang === "fr" ? p.fr : p.en}),
+          el("div", {class: "proj-title", html: lang === "fr" ? p.fr : p.en}),
+          (lang === "fr" ? p.dFr : p.dEn) && el("p", {class: "proj-detail"}, lang === "fr" ? p.dFr : p.dEn),
           tagRow(p.sk, {lang})
         )
       ))
-      root.append(el("article", {class: "card exp-card"}, head, list))
+      const orgDesc = lang === "fr" ? g.descFr : g.descEn
+      root.append(el("article", {class: "card exp-card"},
+        head,
+        orgDesc && el("p", {class: "org-desc"}, orgDesc),
+        list
+      ))
     })
 }
 
 function renderSide(lang, txt, q, key) {
   const root = document.getElementById("side-grid")
   clear(root)
-  SIDE.filter(s => keep(s.sk, q, key)).forEach(s => {
+  const items = SIDE.filter(s => keep(s.sk, q, key))
+  durBadge("side-dur", items, TOTAL_SIDE_MONTHS, lang)
+  items.forEach(s => {
     root.append(el("article", {class: "card side-card"},
       el("div", {class: "side-desc", html: lang === "fr" ? s.fr : s.en}),
       el("span", {class: "side-dates"}, range(s, lang, txt.present)),
@@ -219,7 +262,9 @@ function renderSide(lang, txt, q, key) {
 function renderEdu(lang, txt, q, key) {
   const root = document.getElementById("edu-list")
   clear(root)
-  EDU.filter(e => keep(e.sk, q, key)).forEach(e => {
+  const items = EDU.filter(e => keep(e.sk, q, key))
+  durBadge("edu-dur", items, TOTAL_EDU_MONTHS, lang)
+  items.forEach(e => {
     root.append(el("article", {class: "card edu-card"},
       el("div", {class: "card-head"},
         el("div", {},
