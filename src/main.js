@@ -106,9 +106,9 @@ const closeEarly = () => {
 
 document.getElementById("early-link").addEventListener("click", openEarly)
 overlay.addEventListener("click", closeEarly)
-// Clicks inside the panel shouldn't close it (except the exit prompt).
+// Clicks on links inside the panel shouldn't close it.
 overlay.querySelector(".early-inner").addEventListener("click", e => {
-  if (!e.target.closest(".early-exit")) e.stopPropagation()
+  if (e.target.closest("a")) e.stopPropagation()
 })
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && !overlay.hidden) closeEarly()

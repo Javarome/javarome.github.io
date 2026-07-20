@@ -182,14 +182,14 @@ export const WORK = [
         fr: "Application web réactive de consultation / recherche / édition de notes",
         dEn: "Led a responsive app to browse, search and edit notes, with client-side end-to-end encryption.",
         dFr: "Pilotage d'une application web responsive pour consulter, rechercher et éditer des notes, avec chiffrement de bout en bout côté client.",
-        sk: ["peopleManagement", "techLeading", "vanillaTS", "webComponents", "oop", "graphql", "rest", "webCrypto", "jest", "netlify", "sass"]
+        sk: ["peopleManagement", "techLeading", "vanillaTS", "webComponents", "oop", "graphql", "rest", "webCrypto", "jest", "netlify", "sass", "linear"]
       },
       {
         en: `Web server to publish notes with <abbr title="Server-Side Rendering">SSR</abbr>`,
         fr: `Serveur web pour publier des notes servies en <abbr title="Server-Side Rendering">SSR</abbr>`,
         dEn: "Built the web server that publishes notes with server-side rendering, reusing the shared components.",
         dFr: "Réalisation du serveur web publiant les notes en rendu côté serveur (SSR), en réutilisant les composants partagés.",
-        sk: ["peopleManagement", "techLeading", "vanillaTS", "webComponents", "oop", "fastify", "rest", "gcp", "gitlab", "docker"]
+        sk: ["peopleManagement", "techLeading", "vanillaTS", "webComponents", "oop", "fastify", "rest", "gcp", "gitlab", "docker", "linear"]
       }
     ]
   },
@@ -209,28 +209,28 @@ export const WORK = [
         fr: `« AiCO », un assistant virtuel intelligent et multilingue pour les téléopérateurs d'assurance`,
         dEn: "Led AiCO, a multilingual virtual assistant helping insurance phone advisors.",
         dFr: "Pilotage d'AiCO, assistant virtuel multilingue aidant les téléconseillers en assurance.",
-        sk: ["techLeading", "ts", "oop", "express"]
+        sk: ["techLeading", "ts", "oop", "express", "jira"]
       },
       {
         en: `"Anna" knowledge management web app`,
         fr: `Application web de gestion des connaissances « Anna »`,
         dEn: "Led 'Anna', a knowledge-management web app for insurers, structuring and searching their internal content.",
         dFr: "Pilotage d'« Anna », application web de gestion des connaissances pour les assureurs, structurant et interrogeant leurs contenus internes.",
-        sk: ["techLeading", "ts", "oop", "nlp", "postgresql", "keycloak", "mongoose"]
+        sk: ["techLeading", "ts", "oop", "nlp", "postgresql", "keycloak", "mongoose", "jira"]
       },
       {
         en: `Machine Learning pipeline`,
         fr: `Pipeline de <abbr title="Machine Learning">ML</abbr>`,
         dEn: "Built a machine-learning pipeline orchestrating models behind production services.",
         dFr: "Réalisation d'un pipeline de machine learning orchestrant des modèles derrière des services de production.",
-        sk: ["techLeading", "ts", "oop", "fastify", "nodejs", "python", "redis", "azure", "docker", "sass", "protoBuffers"]
+        sk: ["techLeading", "ts", "oop", "fastify", "nodejs", "python", "redis", "azure", "docker", "sass", "protoBuffers", "jira"]
       },
       {
         en: "Automatic approval or rejection of medical files using ML",
         fr: "Approbation ou rejet automatique de dossiers médicaux à l'aide d'un modèle de ML",
         dEn: "Built an automated decisioning flow approving or rejecting medical files via machine-learning models.",
         dFr: "Réalisation d'un traitement automatisé approuvant ou rejetant des dossiers médicaux via des modèles de machine learning.",
-        sk: ["techLeading", "python", "oop", "docker", "airflow", "jenkins"]
+        sk: ["techLeading", "python", "oop", "docker", "airflow", "jenkins", "jira"]
       }
     ]
   },
