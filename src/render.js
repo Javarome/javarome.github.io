@@ -158,7 +158,19 @@ const groupedKeys = {}
 const MAX_COUNT = Math.max(1, ...Object.values(COUNT))
 
 // --- tag element -----------------------------------------------------------
-function tagEl(key, {cloud = false, lang = "en"} = {}) {
+// Small "×" badge shown on the tag/category currently used as the filter,
+// to make it obvious that clicking it again removes the filter. The cross is
+// drawn in CSS (see .tag-x) so it stays perfectly centred in its circle.
+// As a <button> (used in the Experience title) it clears the filter on its own.
+function clearBadge(lang, tagName = "span") {
+  const label = lang === "fr" ? "Retirer le filtre" : "Remove the filter"
+  const attrs = tagName === "button"
+    ? {class: "tag-x filter-clear", type: "button", "aria-label": label, title: label}
+    : {class: "tag-x", "aria-hidden": "true", title: label}
+  return el(tagName, attrs)
+}
+
+function tagEl(key, {cloud = false, lang = "en", active = false} = {}) {
   const t = tag(key, lang)
   // href is kept so Ctrl/Cmd/middle-click still opens the documentation; a plain click filters instead (see main.js).
   // Category drives the background via a CSS class (so it can be themed for dark mode), not an inline colour.
@@ -167,7 +179,8 @@ function tagEl(key, {cloud = false, lang = "en"} = {}) {
     target: "_blank",
     rel: "noopener",
     "data-skill": key,
-    class: (cloud ? "tag tag-cloud" : "tag") + " cat-" + t.cat
+    "data-name": t.name,
+    class: (cloud ? "tag tag-cloud" : "tag") + " cat-" + t.cat + (active ? " tag-active" : "")
   }, t.name)
   if (cloud) {
     const c = COUNT[key] || 1
@@ -177,11 +190,16 @@ function tagEl(key, {cloud = false, lang = "en"} = {}) {
   } else {
     a.title = t.title
   }
+  if (active) {
+    a.title += lang === "fr" ? " · cliquer pour retirer le filtre" : " · click to remove the filter"
+    a.append(clearBadge(lang))
+  }
   return a
 }
 
-function tagRow(keys, opts) {
-  return el("div", {class: "tags"}, keys.map(k => tagEl(k, opts)))
+// opts.activeKey marks the tag matching the current filter with the "×" badge.
+function tagRow(keys, opts = {}) {
+  return el("div", {class: "tags"}, keys.map(k => tagEl(k, {...opts, active: k === opts.activeKey})))
 }
 
 // Small remote / hybrid / on-site indicator shown in an experience header.
@@ -193,11 +211,17 @@ function modeBadge(mode, lang) {
 
 // --- section renderers -----------------------------------------------------
 // Category label, rendered as a button so a click filters by that category (see main.js).
-function catEl(c, lang) {
-  return el("button", {
-    class: "skill-cat", type: "button", "data-cat": c,
-    title: lang === "fr" ? "Filtrer par cette catégorie" : "Filter by this category"
+// When it is the active filter, it carries the "×" badge like an active skill tag.
+function catEl(c, lang, active = false) {
+  const b = el("button", {
+    class: "skill-cat" + (active ? " cat-active" : ""), type: "button", "data-cat": c,
+    "data-name": CATLBL[c][lang],
+    title: active
+      ? (lang === "fr" ? "Retirer le filtre" : "Remove the filter")
+      : (lang === "fr" ? "Filtrer par cette catégorie" : "Filter by this category")
   }, CATLBL[c][lang])
+  if (active) b.append(clearBadge(lang))
+  return b
 }
 
 function renderSkills(lang, q, key, cat) {
@@ -211,7 +235,7 @@ function renderSkills(lang, q, key, cat) {
     root.append(el("div", {class: "skill-row skill-focus"},
       CATLBL[c] ? catEl(c, lang) : el("div", {class: "skill-cat"}, ""),
       el("div", {class: "skill-focus-body"},
-        tagEl(key, {cloud: true, lang}),
+        tagEl(key, {cloud: true, lang, active: true}),
         el("span", {class: "skill-sep"}, ":"),
         el("a", {href: t.url, target: "_blank", rel: "noopener", class: "skill-doc"}, desc)
       )
@@ -226,7 +250,7 @@ function renderSkills(lang, q, key, cat) {
       .sort((a, b) => (COUNT[b] || 0) - (COUNT[a] || 0))
     if (!keys.length) return
     root.append(el("div", {class: "skill-row"},
-      catEl(c, lang),
+      catEl(c, lang, c === cat),
       el("div", {class: "tags cloud"}, keys.map(k => tagEl(k, {cloud: true, lang})))
     ))
   })
@@ -316,7 +340,13 @@ function renderTitles(lang, txt, key, cat, rawQuery) {
   if (skillsH2) skillsH2.textContent = key ? txt.skill : txt.skills
   if (workH2) {
     const term = key ? tag(key, lang).name : cat ? CATLBL[cat][lang] : rawQuery
-    workH2.textContent = term ? `${txt.workIn} ${term}` : txt.work
+    clear(workH2)
+    if (term) {
+      // The filtered term carries the "×" clear badge on its top-right corner.
+      workH2.append(txt.workIn + " ", el("span", {class: "filter-term"}, term, clearBadge(lang, "button")))
+    } else {
+      workH2.append(txt.work)
+    }
   }
 }
 

@@ -445,6 +445,64 @@ button.skill-cat:hover {
   cursor: pointer;
 }
 
+/* "×" badge on the tag/category acting as the current filter: clicking removes the filter. */
+.tag-active,
+button.skill-cat.cat-active {
+  position: relative;
+}
+
+.tag-x {
+  position: absolute;
+  top: -0.45em;
+  right: -0.45em;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--text-3);
+  font-size: 0.72em;
+  cursor: pointer;
+}
+
+/* The cross is drawn as two centred strokes, so it is perfectly centred by construction. */
+.tag-x::before,
+.tag-x::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 55%;
+  height: 1.5px;
+  background: var(--bg);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.tag-x::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+button.skill-cat.cat-active .tag-x {
+  position: relative;
+  display: inline-block;
+  top: auto;
+  right: auto;
+  margin-left: 0.4em;
+  vertical-align: 0.1em;
+}
+
+/* Filtered term in the "Experience in Xxx" title, with its clear badge on the top-right corner. */
+.filter-term {
+  position: relative;
+  display: inline-block;
+}
+
+.filter-term .tag-x {
+  top: -0.4em;
+  right: -1em;
+  font-size: 0.45em;
+}
+
 .tag:hover {
   text-decoration: none;
   filter: brightness(0.96);

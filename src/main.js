@@ -57,10 +57,21 @@ function updateUrl({skill, section} = {}) {
 // clicking a tag) shows that skill's detail; any other text does a free-text search.
 const search = document.getElementById("search")
 
-function applyFilter(value) {
+// Re-render for the given filter. `anchor` is a node that survives re-rendering
+// (e.g. the section the user clicked in): it is kept at the same viewport
+// position, so toggling a filter doesn't make the page jump when content
+// above the anchor grows or shrinks.
+function applyFilter(value, anchor) {
   search.value = value
   updateUrl({skill: value})
+  const keep = anchor && document.contains(anchor) ? anchor : null
+  const before = keep ? keep.getBoundingClientRect().top : 0
   renderAll(lang, txt, value)
+  if (keep) {
+    const delta = keep.getBoundingClientRect().top - before
+    // "instant" bypasses the page's smooth scroll-behavior: this is a correction, not a move.
+    if (delta) document.scrollingElement.scrollBy({top: delta, behavior: "instant"})
+  }
 }
 
 // Restore the filter from ?skill= on load.
@@ -72,19 +83,27 @@ search.addEventListener("input", () => applyFilter(search.value))
 // Clicking a category label fills it with the category name (filtering all its skills).
 // Clicking the already-selected skill/category again clears the filter.
 // Ctrl/Cmd/Shift-click (or middle-click) still opens the external doc link.
-const toggleFilter = name =>
-  applyFilter(search.value.trim().toLowerCase() === name.toLowerCase() ? "" : name)
+const toggleFilter = (name, anchor) =>
+  applyFilter(search.value.trim().toLowerCase() === name.toLowerCase() ? "" : name, anchor)
 
 document.addEventListener("click", e => {
   if (e.metaKey || e.ctrlKey || e.shiftKey) return
+  // The section the click happened in survives re-rendering: keep it in place on screen.
+  const anchor = e.target.closest("section")
+  // The "×" badge in the Experience title clears the filter directly.
+  if (e.target.closest(".filter-clear")) {
+    applyFilter("", anchor)
+    return
+  }
   const a = e.target.closest(".tag")
   if (a && a.dataset.skill) {
     e.preventDefault()
-    toggleFilter(a.textContent)
+    // data-name excludes decorations like the "×" clear badge (textContent would include them).
+    toggleFilter(a.dataset.name || a.textContent, anchor)
     return
   }
   const c = e.target.closest("[data-cat]")
-  if (c) toggleFilter(c.textContent)
+  if (c) toggleFilter(c.dataset.name || c.textContent, anchor)
 })
 
 // --- scrollspy: reflect the section in view in the URL hash ----------------
