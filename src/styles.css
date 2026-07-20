@@ -491,10 +491,28 @@ button.skill-cat.cat-active .tag-x {
   vertical-align: 0.1em;
 }
 
-/* Filtered term in the "Experience in Xxx" title, with its clear badge on the top-right corner. */
+/* Filtered term in the "Experience in Xxx" title, with its clear badge on the top-right corner.
+   It is a button: hovering highlights it like a tag, clicking it removes the filter. */
 .filter-term {
   position: relative;
   display: inline-block;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0 0.18em;
+  margin: 0 -0.18em;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.filter-term:hover {
+  background: color-mix(in oklab, currentColor 12%, transparent);
+}
+
+.filter-term:hover .tag-x {
+  background: var(--text-2);
 }
 
 .filter-term .tag-x {

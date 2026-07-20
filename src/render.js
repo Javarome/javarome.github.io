@@ -342,8 +342,12 @@ function renderTitles(lang, txt, key, cat, rawQuery) {
     const term = key ? tag(key, lang).name : cat ? CATLBL[cat][lang] : rawQuery
     clear(workH2)
     if (term) {
-      // The filtered term carries the "×" clear badge on its top-right corner.
-      workH2.append(txt.workIn + " ", el("span", {class: "filter-term"}, term, clearBadge(lang, "button")))
+      // The filtered term is a button carrying the "×" clear badge: hovering it shows
+      // a tag-like highlight so it reads as removable, and clicking it clears the filter.
+      workH2.append(txt.workIn + " ", el("button", {
+        class: "filter-term filter-clear", type: "button",
+        title: lang === "fr" ? "Retirer le filtre" : "Remove the filter"
+      }, term, clearBadge(lang)))
     } else {
       workH2.append(txt.work)
     }
