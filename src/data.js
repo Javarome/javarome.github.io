@@ -418,7 +418,7 @@ export const SIDE = [
     fr: `<a href="https://cosmochrony.org">Cosmochrony</a> — théorie de la physique émergente par projection non injective`,
     s: [2025, 7],
     e: null,
-    sk: ["theoreticalPhysics", "quantumMechanics", "generalRelativity", "quantumFieldTheory", "gaugeTheory", "cosmology", "spectralGeometry", "latex", "python"]
+    sk: ["theoreticalPhysics", "quantumMechanics", "generalRelativity", "quantumFieldTheory", "gaugeTheory", "cosmology", "spectralGeometry", "latex", "python", "claude", "codex"]
   },
   {
     en: `<a href="https://github.com/RR0/time">time</a> — API to represent date/time approximations (EDTF)`,
