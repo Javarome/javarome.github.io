@@ -14,7 +14,7 @@ export const LINKS = [
   {name: "GitHub", url: "https://github.com/javarome"},
   {name: "Stack Overflow", url: "https://stackoverflow.com/users/650104"},
   {name: "Codepen", url: "https://codepen.io/Javarome"},
-  {name: "Blog", url: "https://medium.com/@javarome"},
+  {name: "Articles", url: "https://medium.com/@javarome"},
   {name: "X", url: "https://x.com/javarome"},
   {name: "Email", url: "mailto:javarome@gmail.com"},
   {name: "Website", url: "https://javarome.com"}
