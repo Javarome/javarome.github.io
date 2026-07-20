@@ -99,9 +99,14 @@ function durBadge(id, items, totalMonths, lang) {
 }
 
 // --- skill filtering -------------------------------------------------------
-function matches(key, q) {
+// Free text matches a skill by its name, or by its category label (so typing
+// e.g. "devops" or "physique" filters a whole family of skills).
+function matches(key, q, lang) {
   const s = SKILLS[key]
-  return s && s[0].toLowerCase().includes(q)
+  if (!s) return false
+  if (s[0].toLowerCase().includes(q)) return true
+  const c = CATLBL[s[2]]
+  return !!c && c[lang].toLowerCase().includes(q)
 }
 
 // The skill whose display name equals the query exactly (case-insensitive), if any.
@@ -110,11 +115,20 @@ function exactKey(q) {
   return q ? Object.keys(SKILLS).find(k => SKILLS[k][0].toLowerCase() === q) || null : null
 }
 
-// Keep an item when either an exact skill is selected (clicked tag, implied skills included)
-// or a free-text query matches one of its skills.
-function keep(sk, q, key) {
+// The category whose label (in either language) equals the query exactly, if any.
+// Categories act as implicit "more general" skills: selecting one keeps every
+// item practising any skill of that category. An exact skill match wins over it.
+function exactCat(q) {
+  return q ? Object.keys(CATLBL).find(c =>
+    CATLBL[c].en.toLowerCase() === q || CATLBL[c].fr.toLowerCase() === q) || null : null
+}
+
+// Keep an item when an exact skill is selected (clicked tag, implied skills included),
+// or an exact category is selected (any of its skills), or a free-text query matches.
+function keep(sk, q, key, cat, lang) {
   if (key) return expand(sk).includes(key)
-  return !q || expand(sk).some(k => matches(k, q))
+  if (cat) return expand(sk).some(k => SKILLS[k] && SKILLS[k][2] === cat)
+  return !q || expand(sk).some(k => matches(k, q, lang))
 }
 
 // --- practice counts (implied skills included) -----------------------------
@@ -178,16 +192,24 @@ function modeBadge(mode, lang) {
 }
 
 // --- section renderers -----------------------------------------------------
-function renderSkills(lang, q, key) {
+// Category label, rendered as a button so a click filters by that category (see main.js).
+function catEl(c, lang) {
+  return el("button", {
+    class: "skill-cat", type: "button", "data-cat": c,
+    title: lang === "fr" ? "Filtrer par cette catégorie" : "Filter by this category"
+  }, CATLBL[c][lang])
+}
+
+function renderSkills(lang, q, key, cat) {
   const root = document.getElementById("skill-rows")
   clear(root)
   // Focus mode: a skill was clicked — show only it, with its detailed description as the external doc link.
   if (key && SKILLS[key]) {
     const t = tag(key, lang)
-    const cat = SKILLS[key][2]
+    const c = SKILLS[key][2]
     const desc = t.desc || t.name
     root.append(el("div", {class: "skill-row skill-focus"},
-      el("div", {class: "skill-cat"}, CATLBL[cat] ? CATLBL[cat][lang] : ""),
+      CATLBL[c] ? catEl(c, lang) : el("div", {class: "skill-cat"}, ""),
       el("div", {class: "skill-focus-body"},
         tagEl(key, {cloud: true, lang}),
         el("span", {class: "skill-sep"}, ":"),
@@ -196,23 +218,25 @@ function renderSkills(lang, q, key) {
     ))
     return
   }
-  CAT_ORDER.filter(c => groupedKeys[c]).forEach(c => {
+  // Category focus: only that category's row, with all of its skills.
+  const cats = cat ? [cat] : CAT_ORDER
+  cats.filter(c => groupedKeys[c]).forEach(c => {
     const keys = groupedKeys[c]
-      .filter(k => !q || matches(k, q))
+      .filter(k => cat || !q || matches(k, q, lang))
       .sort((a, b) => (COUNT[b] || 0) - (COUNT[a] || 0))
     if (!keys.length) return
     root.append(el("div", {class: "skill-row"},
-      el("div", {class: "skill-cat"}, CATLBL[c][lang]),
+      catEl(c, lang),
       el("div", {class: "tags cloud"}, keys.map(k => tagEl(k, {cloud: true, lang})))
     ))
   })
 }
 
-function renderWork(lang, txt, q, key) {
+function renderWork(lang, txt, q, key, cat) {
   const root = document.getElementById("exp-list")
   clear(root)
   const groups = WORK
-    .map(g => ({g, projects: g.projects.filter(p => keep(p.sk, q, key))}))
+    .map(g => ({g, projects: g.projects.filter(p => keep(p.sk, q, key, cat, lang))}))
     .filter(x => x.projects.length)
   // Duration badge: "filtered / total", collapsing to a single value when they are equal.
   durBadge("total-dur", groups.map(x => x.g), TOTAL_MONTHS, lang)
@@ -245,10 +269,10 @@ function renderWork(lang, txt, q, key) {
     })
 }
 
-function renderSide(lang, txt, q, key) {
+function renderSide(lang, txt, q, key, cat) {
   const root = document.getElementById("side-grid")
   clear(root)
-  const items = SIDE.filter(s => keep(s.sk, q, key))
+  const items = SIDE.filter(s => keep(s.sk, q, key, cat, lang))
   durBadge("side-dur", items, TOTAL_SIDE_MONTHS, lang)
   items.forEach(s => {
     root.append(el("article", {class: "card side-card"},
@@ -259,10 +283,10 @@ function renderSide(lang, txt, q, key) {
   })
 }
 
-function renderEdu(lang, txt, q, key) {
+function renderEdu(lang, txt, q, key, cat) {
   const root = document.getElementById("edu-list")
   clear(root)
-  const items = EDU.filter(e => keep(e.sk, q, key))
+  const items = EDU.filter(e => keep(e.sk, q, key, cat, lang))
   durBadge("edu-dur", items, TOTAL_EDU_MONTHS, lang)
   items.forEach(e => {
     root.append(el("article", {class: "card edu-card"},
@@ -286,12 +310,12 @@ export function totalDuration(lang) {
 // Re-render every dynamic area for the given language and query.
 // Any filter qualifies the Experience title ("Experience in <term>"): the recognised skill name when the
 // filter matches one exactly, otherwise the raw query. The Skills title only turns singular on an exact match.
-function renderTitles(lang, txt, key, rawQuery) {
+function renderTitles(lang, txt, key, cat, rawQuery) {
   const skillsH2 = document.querySelector("#skills h2")
   const workH2 = document.querySelector("#experience h2")
   if (skillsH2) skillsH2.textContent = key ? txt.skill : txt.skills
   if (workH2) {
-    const term = key ? tag(key, lang).name : rawQuery
+    const term = key ? tag(key, lang).name : cat ? CATLBL[cat][lang] : rawQuery
     workH2.textContent = term ? `${txt.workIn} ${term}` : txt.work
   }
 }
@@ -300,9 +324,10 @@ export function renderAll(lang, txt, query) {
   const raw = (query || "").trim()
   const q = raw.toLowerCase()
   const key = exactKey(q)
-  renderTitles(lang, txt, key, raw)
-  renderSkills(lang, q, key)
-  renderWork(lang, txt, q, key)
-  renderSide(lang, txt, q, key)
-  renderEdu(lang, txt, q, key)
+  const cat = key ? null : exactCat(q)
+  renderTitles(lang, txt, key, cat, raw)
+  renderSkills(lang, q, key, cat)
+  renderWork(lang, txt, q, key, cat)
+  renderSide(lang, txt, q, key, cat)
+  renderEdu(lang, txt, q, key, cat)
 }

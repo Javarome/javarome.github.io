@@ -407,6 +407,20 @@ abbr[title] {
   color: var(--text-4);
 }
 
+/* Category labels are buttons that filter by category. */
+button.skill-cat {
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+button.skill-cat:hover {
+  color: var(--text-2);
+  text-decoration: underline;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;

@@ -69,15 +69,22 @@ applyFilter(new URLSearchParams(location.search).get("skill") || "")
 search.addEventListener("input", () => applyFilter(search.value))
 
 // Clicking a skill tag fills the filter with that skill instead of opening its documentation.
-// Clicking the already-selected skill again clears the filter.
+// Clicking a category label fills it with the category name (filtering all its skills).
+// Clicking the already-selected skill/category again clears the filter.
 // Ctrl/Cmd/Shift-click (or middle-click) still opens the external doc link.
+const toggleFilter = name =>
+  applyFilter(search.value.trim().toLowerCase() === name.toLowerCase() ? "" : name)
+
 document.addEventListener("click", e => {
   if (e.metaKey || e.ctrlKey || e.shiftKey) return
   const a = e.target.closest(".tag")
-  if (!a || !a.dataset.skill) return
-  e.preventDefault()
-  const name = a.textContent
-  applyFilter(search.value.trim().toLowerCase() === name.toLowerCase() ? "" : name)
+  if (a && a.dataset.skill) {
+    e.preventDefault()
+    toggleFilter(a.textContent)
+    return
+  }
+  const c = e.target.closest("[data-cat]")
+  if (c) toggleFilter(c.textContent)
 })
 
 // --- scrollspy: reflect the section in view in the URL hash ----------------
