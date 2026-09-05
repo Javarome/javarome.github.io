@@ -59,9 +59,10 @@ jobs:
           fi
 
       - name: Setup Node
+        # Vite 8 requires Node ^20.19 || >= 22.12; 22 is the current LTS, 20 is end-of-life.
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
 
