@@ -16,8 +16,7 @@ export const LINKS = [
   {name: "Codepen", url: "https://codepen.io/Javarome"},
   {name: "Articles", url: "https://medium.com/@javarome"},
   {name: "X", url: "https://x.com/javarome"},
-  {name: "Email", url: "mailto:javarome@gmail.com"},
-  {name: "Website", url: "https://javarome.com"}
+  {name: "Email", url: "mailto:javarome@gmail.com"}
 ]
 
 // UI strings + hero copy per language.
@@ -461,6 +460,13 @@ export const SIDE = [
     s: [2006, 5],
     e: [2010, 12],
     sk: ["java", "cpp", "jogl", "swing"]
+  },
+  {
+    en: `<a href="https://ufoathome.org">UFO@home</a> — web components to record & replay a UFO sighting`,
+    fr: `<a href="https://ufoathome.org">UFO@home</a> — composants web pour enregistrer et rejouer une observation d'ovni`,
+    s: [2003, 1],
+    e: null,
+    sk: ["vanillaTS", "webComponents", "threejs", "html", "css", "nodejs", "npm", "vite", "netlify", "java"]
   },
   {
     en: `<a href="https://github.com/RR0/rr0.org">RR0</a> — web encyclopaedia on unexplained phenomena`,
