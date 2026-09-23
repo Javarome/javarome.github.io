@@ -466,7 +466,7 @@ export const SIDE = [
     fr: `<a href="https://ufoathome.org">UFO@home</a> — composants web pour enregistrer et rejouer une observation d'ovni`,
     s: [2003, 1],
     e: null,
-    sk: ["vanillaTS", "webComponents", "threejs", "html", "css", "nodejs", "npm", "vite", "netlify", "java"]
+    sk: ["vanillaTS", "webComponents", "threejs", "html", "css", "nodejs", "npm", "vite", "netlify", "java", "claude"]
   },
   {
     en: `<a href="https://github.com/RR0/rr0.org">RR0</a> — web encyclopaedia on unexplained phenomena`,
